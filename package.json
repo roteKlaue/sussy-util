@@ -1,0 +1,23 @@
+{
+  "name": "sussyutilbyraphaelbader",
+  "version": "1.0.0",
+  "description": "util made by me",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "util"
+  },
+  "keywords": [
+    "js",
+    "ts",
+    "JavaScript",
+    "EcmaScript",
+    "Util",
+    "TypeScript"
+  ],
+  "author": "roteKlaue",
+  "license": "MIT"
+}
