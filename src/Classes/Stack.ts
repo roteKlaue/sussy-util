@@ -1,8 +1,9 @@
 import IndexOutOfBoundsError from "../Error/IndexOutOfBoundsError";
+import impArray from "./ImprovedArray";
 
 export default class Stack<T> {
-    #items:T[] = [];
-    
+    #items:impArray<T> = new impArray<T>();
+
     constructor() {};
 
     push(...elm:T[]):void {
@@ -22,6 +23,10 @@ export default class Stack<T> {
     }
 
     empty():boolean {
-        return this.#items.length === 0;
+        return this.#items.isEmpty();
+    }
+
+    toString():string {
+        return `Stack: ${this.#items.toString()}`;
     }
 }

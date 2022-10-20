@@ -26,4 +26,8 @@ export default class Collection <K,V> {
 		}
 		this.#map.remove(this.#map.indexOf(object));
 	}
+
+	toString():string {
+        return `Collection: ${this.#map.toString()}`;
+    }
 }
