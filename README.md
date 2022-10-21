@@ -4,8 +4,6 @@
     <br>
 </p>
 
-## Classes
-
 - [Classes](#classes)
   - [Collection](#collection)
   - [improvedArray](#improvedarray)
@@ -16,6 +14,8 @@
   - [isEven](#iseven)
   - [isPrime](#isprime)
 - [Going from 1.0.1 to 1.1.0](#going-from-101-to-110)
+
+## Classes
 
 ### Collection
 >```js
