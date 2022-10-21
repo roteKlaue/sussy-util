@@ -17,6 +17,10 @@
 
 ## Classes
 
+- [Collection](#collection)
+- [improvedArray](#improvedarray)
+- [Stack](#stack)
+
 ### Collection
 >```js
 > // create a collection
