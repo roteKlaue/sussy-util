@@ -13,7 +13,8 @@
   - [bytesToSize](#bytestosize)
   - [isEven](#iseven)
   - [isPrime](#isprime)
-- [Going from 1.0.1 to 1.1.0](#going-from-101-to-110)
+- [Going from 1.0.X to 1.1.X](#going-from-10x-to-11x)
+- [Going from 1.1.X to 1.2.X](#going-from-11x-to-12x)
 
 ## Classes
 
@@ -37,8 +38,8 @@
 
 >```js
 > // create a improvedArray
-> const { improvedArray } = require('SussyUtilMadeByRaphael');
-> const array = new improvedArray(/* put initial items here */);
+> const { ImprovedArray } = require('SussyUtilMadeByRaphael');
+> const array = new ImprovedArray(/* put initial items here */);
 >
 > //usage example
 > //has all Array functions
@@ -49,6 +50,8 @@
 > array.clear(); // removes all elements
 > array.clone(); // returns clone
 > const empty = array.isEmpty(); // returns if the array is empty true else false
+> array.none(function); // returns true if none of the array elements fits the specified function
+> array.rejected(function); // opposite of Array.prototype.filter
 >```
 
 ### Stack
@@ -109,7 +112,7 @@
 > console.log(isEven(22)); // output: false
 >```
 
-## Going from 1.0.1 to 1.1.0
+## Going from 1.0.X to 1.1.X
 renamed Class impArray to improvedArray
 
 ```js
@@ -120,4 +123,18 @@ const array = new impArray();
 //new
 const { improvedArray } = require('SussyUtilMadeByRaphael');
 const array = new improvedArray();
+```
+
+## Going from 1.1.X to 1.2.X
+
+renamed Class impArray to improvedArray
+
+```js
+//old
+const { improvedArray } = require('SussyUtilMadeByRaphael');
+const array = new improvedArray();
+
+//new
+const { ImprovedArray } = require('SussyUtilMadeByRaphael');
+const a = new ImprovedArray();
 ```

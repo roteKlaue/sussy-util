@@ -1,6 +1,6 @@
 import IndexOutOfBoundsError from "../Error/IndexOutOfBoundsError";
 
-export default class impArray<T> extends Array<T> {
+export default class ImprovedArray<T> extends Array<T> {
     constructor(... _elements:T[]) {
         super(_elements.length);
         _elements.forEach((_e,i)=> this[i] = _e);
@@ -28,11 +28,19 @@ export default class impArray<T> extends Array<T> {
         this.splice(0, this.length);
     }
 
-    clone():impArray<T> {
-        return new impArray<T>(...this);
+    clone():ImprovedArray<T> {
+        return new ImprovedArray<T>(...this);
     }
 
     isEmpty():boolean {
         return this.length === 0;
+    }
+
+    none (predicate:Function):boolean {
+        return this.reduce((acc, value) => !acc && !predicate(value), false);
+    }
+
+    rejected(predicate:Function):ImprovedArray<T> {
+        return new ImprovedArray<T>(...this.filter((val,ind,arr) => !predicate(val,ind,arr)));
     }
 }
