@@ -8,4 +8,14 @@ import isEven from "./Functions/isEven";
 import isPrime from "./Functions/isPrime";
 import bytesToSize from "./Functions/bytes";
 
-export { Stack, indexOutOfBoundsError, AlreadyExistsInCollectionError, Collection, improvedArray, asyncHandler, isEven, isPrime, bytesToSize };
+export { 
+    AlreadyExistsInCollectionError, 
+    Collection, 
+    improvedArray, 
+    indexOutOfBoundsError, 
+    Stack, 
+    asyncHandler, 
+    bytesToSize, 
+    isEven, 
+    isPrime, 
+};
