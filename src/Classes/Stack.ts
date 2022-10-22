@@ -29,4 +29,8 @@ export default class Stack<T> {
     toString():string {
         return `Stack: ${this.#items.toString()}`;
     }
+
+    toArray():T[] {
+        return this.#items;
+    }
 }

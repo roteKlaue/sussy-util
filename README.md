@@ -2,6 +2,7 @@
 <p align="center">
     Just a few Functions and Classes made by ME
     <br>
+    <strong>Version 1.3.1</strong>
 </p>
 
 # Table of Contents
@@ -33,6 +34,8 @@
     - [removeXDigits](#removexdigits)
     - [callbackify](#callbackify)
     - [betterRound](#betterround)
+    - [isFunction](#isfunction)
+    - [hasValue](#hasvalue)
   - [Going from 1.0.X to 1.1.X](#going-from-10x-to-11x)
   - [Going from 1.1.X to 1.2.X](#going-from-11x-to-12x)
 
@@ -147,6 +150,8 @@
   - [removeXDigits](#removexdigits)
   - [callbackify](#callbackify)
   - [betterRound](#betterround)
+  - [isFunction](#isfunction)
+  - [hasValue](#hasvalue)
 
 ### asyncHandler
 
@@ -305,6 +310,31 @@
 >```js
 > const { betterRound } = require('sussyutilbyraphaelbader');
 > console.log(betterRound(123.56, 1)); // output: 123.6
+> ```
+
+### isFunction
+
+>```js
+> const { isFunction } = require('sussyutilbyraphaelbader');
+> console.log(isFunction(() => {}); // output: true
+> ```
+
+### hasValue
+
+>```js
+> const { hasValue } = require('sussyutilbyraphaelbader');
+> console.log(hasValue(123)); // output: true
+> console.log(hasValue([]); // output: false
+> console.log(hasValue([23]); // output: true
+> console.log(hasValue([[],[]]); // output: false
+> console.log(hasValue(() => {})); // output: true
+> console.log(hasValue(undefined)); // output: false
+> console.log(hasValue(true)); // output: true
+> console.log(hasValue(false)); // output: true
+> console.log(hasValue(new RegExp())); // output: false
+> console.log(hasValue(new RegExp("sus")); // output: true
+> console.log(hasValue(""); // output: false
+> console.log(hasValue(" amogus "); // output: true
 > ```
 
 ## Going from 1.0.X to 1.1.X

@@ -24,6 +24,8 @@ import isString from "./Functions/isString";
 import isNullorUndefined from "./Functions/isNullorUndefined";
 import isBoolean from "./Functions/isBoolean";
 import callbackify from "./Functions/callbackify";
+import isFunction from "./Functions/isFunction";
+import hasValue from "./Functions/hasValue";
 
 export { 
     Collection, 
@@ -38,9 +40,11 @@ export {
     bytesToSize,
     callbackify,
     getRandomNumberInRange,
+    hasValue,
     isArray,
     isBoolean,
     isEven,
+    isFunction,
     isNullorUndefined,
     isNumber,
     isOdd,
