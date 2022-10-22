@@ -56,4 +56,8 @@ export default class Set<T> {
         }
         this.#items.remove(index);
     }
+
+    toArray():T[] {
+        return [...this.#items];
+    }
 }

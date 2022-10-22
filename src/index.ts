@@ -16,6 +16,13 @@ import removeFirstDigit from "./Functions/removeFirstDigit";
 import removeXDigits from "./Functions/removeXDigits";
 import isOdd from "./Functions/isOdd";
 import merge from "./Functions/merge";
+import isArray from "./Functions/isArray";
+import isNumber from "./Functions/isNumber";
+import isRegExp from "./Functions/isRegExp";
+import isSymbol from "./Functions/isSymbol";
+import isString from "./Functions/isString";
+import isNullorUndefined from "./Functions/isNullorUndefined";
+import isBoolean from "./Functions/isBoolean";
 
 export { 
     Collection, 
@@ -29,9 +36,16 @@ export {
     betterRound,
     bytesToSize, 
     getRandomNumberInRange,
-    isEven, 
+    isArray,
+    isBoolean,
+    isEven,
+    isNullorUndefined,
+    isNumber,
     isOdd,
     isPrime,
+    isRegExp,
+    isString,
+    isSymbol,
     merge,
     removeFirstDigit,
     removeLastDigit,
