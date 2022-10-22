@@ -53,4 +53,19 @@ export default class StringUtil {
     static isDiscordUsername(username:string):boolean {
         return !!username.match(/^.{4,32}#\d{4}$/);
     }
+
+    static isNumeric(value:string):boolean {
+        return /^\d+$/.test(value);
+    }
+
+    static isStrongPassword(value:string):boolean {
+        return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value);
+    }
+
+    passwordGenerator(length:number, run = 0):string {
+        const result = this.randomString(length);
+        if(run > 10) throw new Error("Not enough characters to generate password");
+        if(StringUtil.isStrongPassword(result)) return result;
+        return this.passwordGenerator(length, run + 1); 
+    }
 }
