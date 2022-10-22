@@ -62,10 +62,10 @@ export default class StringUtil {
         return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value);
     }
 
-    passwordGenerator(length:number, run = 0):string {
+    generatePassword(length:number, run = 0):string {
         const result = this.randomString(length);
         if(run > 10) throw new Error("Not enough characters to generate password");
         if(StringUtil.isStrongPassword(result)) return result;
-        return this.passwordGenerator(length, run + 1); 
+        return this.generatePassword(length, run + 1); 
     }
 }

@@ -23,6 +23,7 @@ import isSymbol from "./Functions/isSymbol";
 import isString from "./Functions/isString";
 import isNullorUndefined from "./Functions/isNullorUndefined";
 import isBoolean from "./Functions/isBoolean";
+import callbackify from "./Functions/callbackify";
 
 export { 
     Collection, 
@@ -34,7 +35,8 @@ export {
     indexOutOfBoundsError,
     asyncHandler, 
     betterRound,
-    bytesToSize, 
+    bytesToSize,
+    callbackify,
     getRandomNumberInRange,
     isArray,
     isBoolean,

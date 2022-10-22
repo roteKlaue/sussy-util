@@ -4,20 +4,37 @@
     <br>
 </p>
 
-- [Classes](#classes)
-  - [Collection](#collection)
-  - [ImprovedArray](#improvedarray)
-  - [Stack](#stack)
-  - [Set](#set)
-  - [StringUtil](#stringutil)
-- [Functions](#functions)
-  - [asyncHandler](#asynchandler)
-  - [bytesToSize](#bytestosize)
-  - [isEven](#iseven)
-  - [isPrime](#isprime)
-  - [getRandomNumberInRange](#getrandomnumberinrange)
-- [Going from 1.0.X to 1.1.X](#going-from-10x-to-11x)
-- [Going from 1.1.X to 1.2.X](#going-from-11x-to-12x)
+# Table of Contents
+- [Table of Contents](#table-of-contents)
+  - [Classes](#classes)
+    - [Collection](#collection)
+    - [ImprovedArray](#improvedarray)
+    - [Stack](#stack)
+    - [Set](#set)
+    - [StringUtil](#stringutil)
+  - [Functions](#functions)
+    - [asyncHandler](#asynchandler)
+    - [bytesToSize](#bytestosize)
+    - [isEven](#iseven)
+    - [isOdd](#isodd)
+    - [isPrime](#isprime)
+    - [getRandomNumberInRange](#getrandomnumberinrange)
+    - [isSymbol](#issymbol)
+    - [isArray](#isarray)
+    - [isBoolean](#isboolean)
+    - [isNullorUndefined](#isnullorundefined)
+    - [isNumber](#isnumber)
+    - [isRegExp](#isregexp)
+    - [isString](#isstring)
+    - [merge](#merge)
+    - [removeDuplicatesArray](#removeduplicatesarray)
+    - [removeFirstDigit](#removefirstdigit)
+    - [removeLastDigit](#removelastdigit)
+    - [removeXDigits](#removexdigits)
+    - [callbackify](#callbackify)
+    - [betterRound](#betterround)
+  - [Going from 1.0.X to 1.1.X](#going-from-10x-to-11x)
+  - [Going from 1.1.X to 1.2.X](#going-from-11x-to-12x)
 
 ## Classes
 
@@ -97,13 +114,15 @@
 > const stringUtil = new StringUtil();
 >
 > //static function example usage
-> StringUtil.reverse("Sussy"); // reverses the string output: yssus
-> StringUtil.isDiscordUsername("Sussy#1234"); // checks if string is a discord username output: true
+> StringUtil.reverse("Sussy"); // reverses the string | output: yssus
+> StringUtil.isDiscordUsername("Sussy#1234"); // checks if string is a discord username | output: true
+> StringUtil.isStrongPassword("kaljsd"); // checks if string is a strong password | output: false
 >
 > //usage example
 > stringUtil.randomCharacter(); // returns a random character based on the current charset
 > stringUtil.randomString(length); // returns a random string with the length given
 > stringUtil.randomDiscordUsername(withSufix:boolean); // returns a random string with length 4 - 32 if withSufix is true then # and 4 random numbers will be added
+> stringUtil.generatePassword(length); // returns a random strong password with given length if charset allows it
 >```
 
 ## Functions
@@ -112,7 +131,16 @@
   - [bytesToSize](#bytestosize)
   - [isEven](#iseven)
   - [isPrime](#isprime)
+  - [isOdd](#isodd)
   - [getRandomNumberInRange](#getrandomnumberinrange)
+  - [isSymbol](#issymbol)
+  - [isArray](#isarray)
+  - [isBoolean](#isboolean)
+  - [isNullorUndefined](#isnullorundefined)
+  - [isNumber](#isnumber)
+  - [isRegExp](#isregexp)
+  - [isString](#isstring)
+  - [merge](#merge)
 
 ### asyncHandler
 
@@ -143,6 +171,13 @@
 > console.log(isEven(22)); // output: true
 >```
 
+### isOdd
+
+>```js
+> const { isOdd } = require('sussyutilbyraphaelbader');
+> console.log(isOdd(22)); // output: false
+>```
+
 ### isPrime
 
 >```js
@@ -158,29 +193,136 @@
 > console.log(getRandomNumberInRange(1,5); // output:random number from 1 to 5
 > ```
 
+### isSymbol
+
+>```js
+> const { isSymbol } = require('sussyutilbyraphaelbader');
+> console.log(isSymbol(Symbol("sus"))); // output: true
+> ```
+
+### isArray
+
+>```js
+> const { isArray } = require('sussyutilbyraphaelbader');
+> console.log(isArray([12,123,45]); // output: true
+> ```
+
+### isBoolean
+
+>```js
+> const { isBoolean } = require('sussyutilbyraphaelbader');
+> console.log(isBoolean(true); // output: true
+> console.log(isBoolean("true"); //output: true
+> console.log(isBoolean("s.jads")); // output: false
+> ```
+
+### isNullorUndefined
+
+>```js
+> const { isNullOrUndefined } = require('sussyutilbyraphaelbader');
+> console.log(isNullOrUndefined("true"); // output: false
+> console.log(isNullOrUndefined(null); // output: true
+> ```
+
+### isNumber
+
+>```js
+> const { isNumber } = require('sussyutilbyraphaelbader');
+> console.log(isNumber(234)); // output: true
+> console.log(isNumber("234")); // output: true
+> ```
+
+### isRegExp
+
+>```js
+> const { isRegExp } = require('sussyutilbyraphaelbader');
+> console.log(isRegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)); // output: true
+> ```
+
+### isString
+
+>```js
+> const { isString } = require('sussyutilbyraphaelbader');
+> console.log(isString("hello")); // output: true
+> ```
+
+### merge
+
+>```js
+> const { merge } = require('sussyutilbyraphaelbader');
+> console.log(merge({ a:12, b:34 }, { m:34 })); // output: { a:12, b:34, m:34 }
+>```
+
+### removeDuplicatesArray
+
+>```js
+> const { removeDuplicatesArray } = require('sussyutilbyraphaelbader');
+> console.log(removeDuplicatesArray([12,223,12,12]); // output: [12,223]
+> ```
+
+### removeFirstDigit 
+
+>```js
+> const { removeFirstDigit } = require('sussyutilbyraphaelbader');
+> console.log(removeFirstDigit(123); // output: 23
+> ```
+
+### removeLastDigit
+
+>```js
+> const { removeLastDigit } = require('sussyutilbyraphaelbader');
+> console.log(removeLastDigit(123)); // output: 12
+> ```
+
+### removeXDigits
+
+>```js
+> const { removeXDigits } = require('sussyutilbyraphaelbader');
+> console.log(removeXDigits(7213, 3); // removes x amount of digits from behind | output: 7
+> ```
+
+### callbackify
+
+>```js
+> const { callbackify, betterRound } = require('sussyutilbyraphaelbader');
+> callbackify(betterRound, (res, err) => {
+>   if(err) {
+>     //do something
+>   }
+>   console.log(res); // output: 123.12
+> },
+> 123.123, 2);
+> ```
+
+### betterRound
+
+>```js
+> const { betterRound } = require('sussyutilbyraphaelbader');
+> console.log(betterRound(123.56, 1)); // output: 123.6
+> ```
+
 ## Going from 1.0.X to 1.1.X
 renamed Class impArray to improvedArray
 
-```js
-//old
-const { impArray } = require('sussyutilbyraphaelbader');
-const array = new impArray();
-
-//new
-const { improvedArray } = require('sussyutilbyraphaelbader');
-const array = new improvedArray();
-```
+>```js
+>//old
+>const { impArray } = require('sussyutilbyraphaelbader');
+>const array = new impArray();
+>
+>//new
+>const { improvedArray } = require('sussyutilbyraphaelbader');
+>const array = new improvedArray();
+>```
 
 ## Going from 1.1.X to 1.2.X
-
 renamed Class improvedArray to ImprovedArray
 
-```js
-//old
-const { improvedArray } = require('sussyutilbyraphaelbader');
-const array = new improvedArray();
-
-//new
-const { ImprovedArray } = require('sussyutilbyraphaelbader');
-const a = new ImprovedArray();
-```
+>```js
+>//old
+>const { improvedArray } = require('sussyutilbyraphaelbader');
+>const array = new improvedArray();
+>
+>//new
+>const { ImprovedArray } = require('sussyutilbyraphaelbader');
+>const a = new ImprovedArray();
+>```

@@ -1,6 +1,6 @@
 {
   "name": "sussyutilbyraphaelbader",
-  "version": "1.3.0 prerelease",
+  "version": "1.3.0",
   "description": "util made by me",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
