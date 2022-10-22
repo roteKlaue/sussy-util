@@ -141,6 +141,12 @@
   - [isRegExp](#isregexp)
   - [isString](#isstring)
   - [merge](#merge)
+  - [removeDuplicatesArray](#removeduplicatesarray)
+  - [removeFirstDigit](#removefirstdigit)
+  - [removeLastDigit](#removelastdigit)
+  - [removeXDigits](#removexdigits)
+  - [callbackify](#callbackify)
+  - [betterRound](#betterround)
 
 ### asyncHandler
 
