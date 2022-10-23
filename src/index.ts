@@ -26,6 +26,7 @@ import isBoolean from "./Functions/isBoolean";
 import callbackify from "./Functions/callbackify";
 import isFunction from "./Functions/isFunction";
 import hasValue from "./Functions/hasValue";
+import measureTime from "./Functions/measureTime";
 
 export { 
     Collection, 
@@ -52,6 +53,7 @@ export {
     isRegExp,
     isString,
     isSymbol,
+    measureTime,
     merge,
     removeFirstDigit,
     removeLastDigit,
