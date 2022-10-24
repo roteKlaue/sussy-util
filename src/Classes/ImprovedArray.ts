@@ -43,4 +43,10 @@ export default class ImprovedArray<T> extends Array<T> {
     rejected(predicate:Function):ImprovedArray<T> {
         return new ImprovedArray<T>(...this.filter((val,ind,arr) => !predicate(val,ind,arr)));
     }
+
+    sum():T|string {
+        return this.reduce(function (acc:any, value):any {
+            return acc + value;
+        });
+    }
 }

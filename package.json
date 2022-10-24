@@ -1,6 +1,6 @@
 {
   "name": "sussyutilbyraphaelbader",
-  "version": "1.3.2 prerelease",
+  "version": "1.3.2",
   "description": "util made by me",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
@@ -20,7 +20,11 @@
     "JavaScript",
     "EcmaScript",
     "Util",
-    "TypeScript"
+    "TypeScript",
+    "Raphael",
+    "Bader",
+    "Jonas",
+    "Koch"
   ],
   "author": "roteKlaue",
   "license": "MIT"

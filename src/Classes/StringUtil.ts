@@ -97,7 +97,7 @@ export default class StringUtil {
     }
 
     static capitalize(value:string):string {
-        return value.charAt(0).toUpperCase() + value.slice(1);
+        return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
     }
 
     static isIPv4 (value:string):boolean {
@@ -118,6 +118,18 @@ export default class StringUtil {
 
     static isPhoneNumber(value: string):boolean {
         return /^[\\(]\d{3}[\\)]\s\d{3}-\d{4}$/.test(value);
+    }
+
+    static upperFirst(str:string):string {
+        return str.charAt(0).toUpperCase() + str.substring(1)
+    }
+
+    static lowerFirst(str:string):string {
+        return str.charAt(0).toLowerCase() + str.substring(1)
+    }
+
+    static camelCase(str:string):string {
+        return this.lowerFirst(str.split(/[^\w]|_+/).map((val) => this.capitalize(val)).join(''));
     }
 
     generatePassword(length:number):string {

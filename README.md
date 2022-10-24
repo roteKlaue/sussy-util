@@ -2,7 +2,7 @@
 <p align="center">
     Just a few Functions and Classes made by ME
     <br>
-    <strong>Version 1.3.1</strong>
+    <strong>Version 1.3.2</strong>
 </p>
 
 # Table of Contents
@@ -36,8 +36,10 @@
     - [betterRound](#betterround)
     - [isFunction](#isfunction)
     - [hasValue](#hasvalue)
-  - [Going from 1.0.X to 1.1.X](#going-from-10x-to-11x)
-  - [Going from 1.1.X to 1.2.X](#going-from-11x-to-12x)
+    - [measureTime](#measuretime)
+  - [Updating](#updating)
+    - [Going from 1.0.X to 1.1.X](#going-from-10x-to-11x)
+    - [Going from 1.1.X to 1.2.X](#going-from-11x-to-12x)
 
 ## Classes
 
@@ -67,6 +69,8 @@
 > const array = new ImprovedArray(/* put initial items here */);
 >
 > //usage example
+> // getting items from array
+> const elm = array[index];
 > //has all Array functions
 > array.insertAt(index, ...values); // inserts items at index
 > array.remove(index); // remove elements from array at index
@@ -77,6 +81,7 @@
 > const empty = array.isEmpty(); // returns if the array is empty true else false
 > array.none(function); // returns true if none of the array elements fits the specified function
 > array.rejected(function); // opposite of Array.prototype.filter
+> array.sum(); // returns the sum of all elements of the array
 >```
 
 ### Stack
@@ -120,6 +125,20 @@
 > StringUtil.reverse("Sussy"); // reverses the string | output: yssus
 > StringUtil.isDiscordUsername("Sussy#1234"); // checks if string is a discord username | output: true
 > StringUtil.isStrongPassword("kaljsd"); // checks if string is a strong password | output: false
+> StringUtil.isWeakPassword("kaljsd"); // checks if string is a weak password | output: true
+> StringUtil.isEmail("sussyBalls@gmail.com"); // checks if string is a email  | output: true
+> StringUtil.isNumeric("12wqeq"); // output: false
+> StringUtil.isURL("https://sus.com/"); // output: true
+> StringUtil.shorten("Amogus SUS", length, elipse count);
+> StringUtil.slugify("Amogus SUS"); // returns amogus-sus
+> StringUtil.stripHtmlTags("<sussy> balls </sussy>") // removes html tags | returns balls
+> StringUtil.capitalize("no bitches?"); // Makes the first letter uppercase and the rest lowercase | returns No bitches?
+> StringUtil.isIPv6("::1"); // checks if string is a IPv6 address | returns true
+> StringUtil.isIPv4("127.0.0.1"); // checks if string is a IPv4 address | returns true
+> StringUtil.isIP("168.10.0.1"|"c927:501c:abf9:bc8f:c86d:541a:c354:120f"); // checks whether string is a IP address or not | eturns true
+> StringUtil.isMacAddress("82-D3-32-D3-5D-43"); // checks if string is a MAC address |  returns true
+> StringUtil.isPhoneNumber(""); // checks if string is a phone number
+> StringUtil.camelCase("sus amogus"); // uses the capitalize function |
 >
 > //usage example
 > stringUtil.randomCharacter(); // returns a random character based on the current charset
@@ -337,7 +356,16 @@
 > console.log(hasValue(" amogus "); // output: true
 > ```
 
-## Going from 1.0.X to 1.1.X
+### measureTime
+
+> ```js
+> const { measureTime } = require('sussyutilbyraphaelbader');
+> measureTime(label, function, params); // logs the time it takes to run the function
+> ```
+
+## Updating
+
+### Going from 1.0.X to 1.1.X
 renamed Class impArray to improvedArray
 
 >```js
@@ -350,7 +378,7 @@ renamed Class impArray to improvedArray
 >const array = new improvedArray();
 >```
 
-## Going from 1.1.X to 1.2.X
+### Going from 1.1.X to 1.2.X
 renamed Class improvedArray to ImprovedArray
 
 >```js
