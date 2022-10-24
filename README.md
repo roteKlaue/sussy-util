@@ -2,7 +2,7 @@
 <p align="center">
     Just a few Functions and Classes made by ME
     <br>
-    <strong>Version 1.4.0 prerelease 2</strong>
+    <strong>Version 1.4.0 prerelease 3</strong>
 </p>
 
 # Table of Contents
@@ -39,6 +39,8 @@
     - [measureTime](#measuretime)
     - [isClass](#isclass)
     - [getTypeString](#gettypestring)
+    - [isDate](#isdate)
+    - [isError](#iserror)
   - [Updating](#updating)
     - [Going from 1.0.X to 1.1.X](#going-from-10x-to-11x)
     - [Going from 1.1.X to 1.2.X](#going-from-11x-to-12x)
@@ -178,6 +180,9 @@
   - [hasValue](#hasvalue)
   - [measureTime](#measuretime)
   - [isClass](#isclass)
+  - [getTypeString](#gettypestring)
+  - [isDate](#isdate)
+  - [isError](#iserror)
 
 ### asyncHandler
 
@@ -385,6 +390,20 @@
 > getTypeString("sad"); // output: string
 > getTypeString(class sus { constructor(){} }); // output: class
 > getTypeString(() => {}); // output: function
+> ```
+
+### isDate
+
+>```js
+> const { isDate } = require('sussyutilbyraphaelbader');
+> isDate(new Date()); // output: true
+>```
+
+### isError
+
+>```js
+> const { isError } = require('sussyutilbyraphaelbader');
+> isError(new Error("my my")); // output: true
 > ```
 
 ## Updating

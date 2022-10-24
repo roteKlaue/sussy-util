@@ -1,3 +1,3 @@
 export default function(arg:any):boolean{
-    return typeof arg === "symbol";
+    return arg && (typeof arg === "symbol" || arg instanceof Symbol);
 }

@@ -1,5 +1,7 @@
 import isArray from "./isArray";
 import isClass from "./isClass";
+import isDate from "./isDate";
+import isError from "./isError";
 import isRegExp from "./isRegExp";
 
 export default function(arg:any):string|undefined {
@@ -11,10 +13,14 @@ export default function(arg:any):string|undefined {
         return 'null';
     }
 
+    if(isDate(arg)) return "Date";
+
+    if(isError(arg)) return "Error";
+
     if(isRegExp(arg)) return "RegExp";
 
     if(typeof arg === 'function') {
-        return isClass(arg)? "class" : "function";
+        return isClass(arg)? arg.constructor.name : "function";
     }
 
     if(typeof arg === 'object') {

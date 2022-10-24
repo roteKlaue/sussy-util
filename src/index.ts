@@ -1,4 +1,5 @@
 import Collection from "./Classes/Collection";
+import DateUtil from "./Classes/DateUtil";
 import ImprovedArray from "./Classes/ImprovedArray";
 import Set from "./Classes/Set";
 import Stack from "./Classes/Stack";
@@ -29,9 +30,12 @@ import hasValue from "./Functions/hasValue";
 import measureTime from "./Functions/measureTime";
 import getTypeString from "./Functions/getTypeString";
 import isClass from "./Functions/isClass";
+import isDate from "./Functions/isDate";
+import isError from "./Functions/isError";
 
 export { 
     Collection, 
+    DateUtil,
     ImprovedArray,
     Set,
     Stack, 
@@ -48,6 +52,8 @@ export {
     isArray,
     isBoolean,
     isClass,
+    isDate,
+    isError,
     isEven,
     isFunction,
     isNullorUndefined,

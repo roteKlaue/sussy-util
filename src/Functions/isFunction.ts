@@ -1,3 +1,3 @@
 export default function (a:any):boolean {
-    return typeof a === 'function' || a instanceof Function;
+    return a && (typeof a === 'function' || a instanceof Function);
 }
