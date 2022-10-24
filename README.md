@@ -2,7 +2,7 @@
 <p align="center">
     Just a few Functions and Classes made by ME
     <br>
-    <strong>Version 1.3.2</strong>
+    <strong>Version 1.4.0 prerelease 2</strong>
 </p>
 
 # Table of Contents
@@ -37,6 +37,8 @@
     - [isFunction](#isfunction)
     - [hasValue](#hasvalue)
     - [measureTime](#measuretime)
+    - [isClass](#isclass)
+    - [getTypeString](#gettypestring)
   - [Updating](#updating)
     - [Going from 1.0.X to 1.1.X](#going-from-10x-to-11x)
     - [Going from 1.1.X to 1.2.X](#going-from-11x-to-12x)
@@ -59,6 +61,7 @@
 > collection.add({ key: /* your key */ , value: /* your value */ });
 > const value = collection.get(key);
 > collection.remove(key);
+> collection.toArray(); // returns a array of {key, value}
 >```
 
 ### ImprovedArray
@@ -82,6 +85,7 @@
 > array.none(function); // returns true if none of the array elements fits the specified function
 > array.rejected(function); // opposite of Array.prototype.filter
 > array.sum(); // returns the sum of all elements of the array
+> array.removeDuplicates(); // removes duplicates
 >```
 
 ### Stack
@@ -112,6 +116,7 @@
 > const elm = set.get(index); // returns elm at index
 > const length = set.length(); // returns number of elements in set
 > set.remove(number); // removes the element at index
+> set.changeCheckFunction(() => {}); // changes the check function for each element
 >```
 
 ### StringUtil
@@ -171,6 +176,8 @@
   - [betterRound](#betterround)
   - [isFunction](#isfunction)
   - [hasValue](#hasvalue)
+  - [measureTime](#measuretime)
+  - [isClass](#isclass)
 
 ### asyncHandler
 
@@ -361,6 +368,23 @@
 > ```js
 > const { measureTime } = require('sussyutilbyraphaelbader');
 > measureTime(label, function, params); // logs the time it takes to run the function
+> ```
+
+### isClass 
+
+>```js
+> const { isClass } = require('sussyutilbyraphaelbader');
+> isClass(class sus { constructor(){} }); // returns true
+> ```
+
+### getTypeString 
+
+>```js
+> const { getTypeString } = require('sussyutilbyraphaelbader');
+> getTypeString(213); // output: number
+> getTypeString("sad"); // output: string
+> getTypeString(class sus { constructor(){} }); // output: class
+> getTypeString(() => {}); // output: function
 > ```
 
 ## Updating

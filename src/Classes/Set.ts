@@ -3,6 +3,7 @@ import ImprovedArray from "./ImprovedArray";
 
 export default class Set<T> {
     #items = new ImprovedArray<T>();
+    #checkFunction:Function = (arrayParam:T, newItem:T) => arrayParam === newItem;
 
     constructor(...items:T[]) {
         for (let index = 0; index < items.length; index++) {
@@ -14,7 +15,7 @@ export default class Set<T> {
     }
 
     push(item:T):void {
-        if(!this.#items.includes(item)) {
+        if(!this.#items.some((item2) => this.#checkFunction(item2, item))) {
             this.#items.push(item);
         }
     }
@@ -59,5 +60,13 @@ export default class Set<T> {
 
     toArray():T[] {
         return [...this.#items];
+    }
+
+    changeCheckFunction(fun:Function):void {
+        this.#checkFunction = fun;
+    }
+
+    toString():string {
+        return `Set: ${this.#items.toString()}`;
     }
 }

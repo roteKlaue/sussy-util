@@ -27,6 +27,8 @@ import callbackify from "./Functions/callbackify";
 import isFunction from "./Functions/isFunction";
 import hasValue from "./Functions/hasValue";
 import measureTime from "./Functions/measureTime";
+import getTypeString from "./Functions/getTypeString";
+import isClass from "./Functions/isClass";
 
 export { 
     Collection, 
@@ -41,9 +43,11 @@ export {
     bytesToSize,
     callbackify,
     getRandomNumberInRange,
+    getTypeString,
     hasValue,
     isArray,
     isBoolean,
+    isClass,
     isEven,
     isFunction,
     isNullorUndefined,

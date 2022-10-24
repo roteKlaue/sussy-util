@@ -1,4 +1,5 @@
 import IndexOutOfBoundsError from "../Error/IndexOutOfBoundsError";
+import Set from "./Set";
 
 export default class ImprovedArray<T> extends Array<T> {
     constructor(... _elements:T[]) {
@@ -48,5 +49,11 @@ export default class ImprovedArray<T> extends Array<T> {
         return this.reduce(function (acc:any, value):any {
             return acc + value;
         });
+    }
+
+    removeDuplicates():void {
+        const newArray = new Set<T>(...this).toArray();
+        this.clear();
+        this.push(...newArray);
     }
 }

@@ -30,4 +30,8 @@ export default class Collection <K,V> {
 	toString():string {
         return `Collection: ${this.#map.toString()}`;
     }
+
+	toArray():MapEntries<K,V>[] {
+		return this.#map;
+	}
 }
