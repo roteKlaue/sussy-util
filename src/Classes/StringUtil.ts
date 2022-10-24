@@ -121,15 +121,38 @@ export default class StringUtil {
     }
 
     static upperFirst(str:string):string {
-        return str.charAt(0).toUpperCase() + str.substring(1)
+        return str.charAt(0).toUpperCase() + str.substring(1);
     }
 
     static lowerFirst(str:string):string {
-        return str.charAt(0).toLowerCase() + str.substring(1)
+        return str.charAt(0).toLowerCase() + str.substring(1);
     }
 
     static camelCase(str:string):string {
         return this.lowerFirst(str.split(/[^\w]|_+/).map((val) => this.capitalize(val)).join(''));
+    }
+
+    static collaps(str:string):string {
+        return str.trim().split(" ").filter((val:string) => val.length > 0).join(" ");
+    }
+
+    static noSpaces(str:string):string {
+        return str.trim().split(" ").join("");
+    }
+
+    static toCharCode(str:string):string {
+        return str.split('').map((val:string) => val.charCodeAt(0)).join("");
+    }
+
+    static protectEmail(str:string):string {
+        if(!this.isEmail(str)) return str;
+        const half = str.split("@");
+        half[0] = this.shorten(half[0], half[0].length / 2, 3);
+        return half.join("@");
+    }
+
+    static swapCase(str:string):string {
+        return str.replace(/ ([a-z]+ ) | ( [A-Z]+ )/g, (match, chr) => chr? match.toUpperCase():match.toLowerCase());
     }
 
     generatePassword(length:number):string {
