@@ -2,8 +2,8 @@
 <p align="center">
     Just a few Functions and Classes made by ME
     <br>
-    <strong>Version 1.4.1</strong>
-</p>
+    <strong>Version 1.4.2</strong>
+<
 
 # Table of Contents
 - [Table of Contents](#table-of-contents)

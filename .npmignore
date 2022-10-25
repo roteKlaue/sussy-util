@@ -2,3 +2,4 @@ src
 .gitignore
 README.md
 tsconfig.json
+.vscode
