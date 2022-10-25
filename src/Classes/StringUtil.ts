@@ -161,4 +161,8 @@ export default class StringUtil {
         if(StringUtil.isStrongPassword(result)) return result;
         return this.generatePassword(length); 
     }
+
+    static randomColorCode():string {
+        return `#${Math.floor(Math.random()*16777215).toString(16)}`;
+    }
 }

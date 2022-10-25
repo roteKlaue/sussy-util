@@ -2,7 +2,7 @@
 <p align="center">
     Just a few Functions and Classes made by ME
     <br>
-    <strong>Version 1.4.0 prerelease 3</strong>
+    <strong>Version 1.4.0 prerelease 4</strong>
 </p>
 
 # Table of Contents
@@ -13,6 +13,7 @@
     - [Stack](#stack)
     - [Set](#set)
     - [StringUtil](#stringutil)
+    - [DateUtil](#dateutil)
   - [Functions](#functions)
     - [asyncHandler](#asynchandler)
     - [bytesToSize](#bytestosize)
@@ -52,6 +53,7 @@
  - [Stack](#stack)
  - [Set](#set)
  - [StringUtil](#stringutil)
+ - [DateUtil](#dateutil)
 
 ### Collection
 >```js
@@ -88,6 +90,8 @@
 > array.rejected(function); // opposite of Array.prototype.filter
 > array.sum(); // returns the sum of all elements of the array
 > array.removeDuplicates(); // removes duplicates
+> array.scramble(); // scrambles the array
+> array.countOccurrences(value); // counts how often the value given is in the array
 >```
 
 ### Stack
@@ -145,7 +149,8 @@
 > StringUtil.isIP("168.10.0.1"|"c927:501c:abf9:bc8f:c86d:541a:c354:120f"); // checks whether string is a IP address or not | eturns true
 > StringUtil.isMacAddress("82-D3-32-D3-5D-43"); // checks if string is a MAC address |  returns true
 > StringUtil.isPhoneNumber(""); // checks if string is a phone number
-> StringUtil.camelCase("sus amogus"); // uses the capitalize function |
+> StringUtil.camelCase("sus amogus"); // uses the capitalize function | returns Sus Amogus
+> StringUtil.randomColorCode(); // returns random hex color code
 >
 > //usage example
 > stringUtil.randomCharacter(); // returns a random character based on the current charset
@@ -153,6 +158,28 @@
 > stringUtil.randomDiscordUsername(withSufix:boolean); // returns a random string with length 4 - 32 if withSufix is true then # and 4 random numbers will be added
 > stringUtil.generatePassword(length); // returns a random strong password with given length if charset allows it
 >```
+
+### DateUtil
+
+>```js
+> const { DateUtil } = require('sussyutilbyraphaelbader');
+>
+> //static functions
+> DateUtil.getCurrentDate(); // returns the current date
+> DateUtil.today(); // returns the current date at 00:00:00
+> DateUtil.tomorrow(); // returns the next day at 00:00:00
+> DateUtil.yesterday(); // returns the last day at 00:00:00
+> DateUtil.conpareDates(date1,date2); // returns and interger based on which date is bigger
+> DateUtil.equals(date1, date2); // returns boolean based of if both dates are identical
+> DateUtil.getMonthAbbr(month); // returns the abbreviated month name based on the number given 
+> DateUtil.getMonthFullName(month); // returns the full month name based on the number given 
+> DateUtil.getDayAbbr(day); // returns the abbreviated day name based on the number given
+> DateUtil.getDayFullName(day); // returns the full day name based on the number given
+> DateUtil.isLeapYear(year); // returns boolean based on if the given year is a leap year
+> DateUtil.weekFirstDay(); // returns the first week day of the current week
+> DateUtil.weekLastDay(); // returns the last week day of the current week
+> DateUtil.leapYearsInRange(12, 2020); // returns all leap years in the given range
+> ```
 
 ## Functions
 

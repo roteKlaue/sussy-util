@@ -56,4 +56,20 @@ export default class ImprovedArray<T> extends Array<T> {
         this.clear();
         this.push(...newArray);
     }
+
+    scramble() {
+        let lengthArr = this.length;
+        while (lengthArr) {
+            lengthArr -= 1;
+            const randomIndex = Math.floor(Math.random() * lengthArr);
+            const temp = this[lengthArr];
+            this[lengthArr] = this[randomIndex];
+            this[randomIndex] = temp;
+        }
+        return this;
+    }
+
+    countOccurrences(value:T):number {
+        return this.reduce((a:number, v:T) => v === value ? a + 1 : a + 0, 0);
+    }
 }
