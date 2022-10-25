@@ -1,7 +1,7 @@
 import Set from "./Set";
 
 export default class StringUtil {
-    #characterset = new Set<string>(...'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'.split(''));
+    private characterset = new Set<string>(...'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'.split(''));
 
     constructor() {}
 
@@ -10,23 +10,23 @@ export default class StringUtil {
     }
 
     get charset() : Set<string> {
-        return this.#characterset;
+        return this.characterset;
     }
 
     removeChars(...string:string[]):void {
         for (const str of string) {
-            this.#characterset.delete(str);
+            this.characterset.delete(str);
         };
     }
 
     addChars(...string:string[]):void {
         for (const str of string) {
-            str.split('').forEach(e => this.#characterset.push(e));
+            str.split('').forEach(e => this.characterset.push(e));
         }
     }
     
     randomCharacter():string {
-        return this.#characterset.get(Math.floor(Math.random() * this.#characterset.length()));
+        return this.characterset.get(Math.floor(Math.random() * this.characterset.length()));
     }
 
     randomString(length:number):string {
@@ -70,16 +70,16 @@ export default class StringUtil {
         return /^\S{4,}@\S+\.\S{2,3}$/.test(value);
     }
 
-    static #isHTTPUrl(value:string):boolean {
+    static isHTTPUrl(value:string):boolean {
         return /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(value);
     }
 
-    static #isUrlWithoutHTTP (value:string):boolean {
+    static isUrlWithoutHTTP (value:string):boolean {
         return /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(value);
     }
 
     static isURL(value:string):boolean {
-        return this.#isHTTPUrl(value) || this.#isUrlWithoutHTTP(value);
+        return this.isHTTPUrl(value) || this.isUrlWithoutHTTP(value);
     }
 
     static shorten(value:string, length:number, ellipsisCount:number):string {
@@ -157,7 +157,7 @@ export default class StringUtil {
 
     generatePassword(length:number):string {
         const result = this.randomString(length);
-        if(StringUtil.isWeakPassword(this.#characterset.toArray().reduce((e,r) => e + r))) throw new Error("Not enough characters to generate password");
+        if(StringUtil.isWeakPassword(this.characterset.toArray().reduce((e,r) => e + r))) throw new Error("Not enough characters to generate password");
         if(StringUtil.isStrongPassword(result)) return result;
         return this.generatePassword(length); 
     }

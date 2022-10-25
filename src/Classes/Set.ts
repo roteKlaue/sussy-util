@@ -2,28 +2,28 @@ import IndexOutOfBoundsError from "../Error/IndexOutOfBoundsError";
 import ImprovedArray from "./ImprovedArray";
 
 export default class Set<T> {
-    #items = new ImprovedArray<T>();
-    #checkFunction:Function = (arrayParam:T, newItem:T) => arrayParam === newItem;
+    private items = new ImprovedArray<T>();
+    private checkFunction:Function = (arrayParam:T, newItem:T) => arrayParam === newItem;
 
     constructor(...items:T[]) {
         for (let index = 0; index < items.length; index++) {
             const item = items.shift();
             if(item && !items.includes(item)) {
-                this.#items.push(item);
+                this.items.push(item);
             }
         }
     }
 
     push(item:T):void {
-        if(!this.#items.some((item2) => this.#checkFunction(item2, item))) {
-            this.#items.push(item);
+        if(!this.items.some((item2) => this.checkFunction(item2, item))) {
+            this.items.push(item);
         }
     }
 
     delete(item:T):void {
-        this.#items.find((v,i) => {
+        this.items.find((v,i) => {
             if(v === item) {
-                this.#items.remove(i);
+                this.items.remove(i);
             }
         });
     }
@@ -32,41 +32,41 @@ export default class Set<T> {
         if(index < 0 || index >= this.length()) {
             throw new IndexOutOfBoundsError(`Index: ${index} is out of bounds for length ${this.length()}`);
         }
-        return this.#items[index];
+        return this.items[index];
     }
 
     isEmpty():boolean {
-        return this.#items.isEmpty();
+        return this.items.isEmpty();
     }
 
     length():number {
-        return this.#items.length;
+        return this.items.length;
     }
 
     clear():void {
-        this.#items.clear();
+        this.items.clear();
     }
 
     clone() {
-        return new Set<T>(...this.#items);
+        return new Set<T>(...this.items);
     }
 
     remove(index:number):void {
         if(index < 0 || index >= this.length()) {
             throw new IndexOutOfBoundsError(`Index: ${index} is out of bounds for length ${this.length()}`);
         }
-        this.#items.remove(index);
+        this.items.remove(index);
     }
 
     toArray():T[] {
-        return [...this.#items];
+        return [...this.items];
     }
 
     changeCheckFunction(fun:Function):void {
-        this.#checkFunction = fun;
+        this.checkFunction = fun;
     }
 
     toString():string {
-        return `Set: ${this.#items.toString()}`;
+        return `Set: ${this.items.toString()}`;
     }
 }
