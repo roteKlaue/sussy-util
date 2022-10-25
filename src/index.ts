@@ -33,6 +33,13 @@ import isClass from "./Functions/isClass";
 import isDate from "./Functions/isDate";
 import isError from "./Functions/isError";
 
+export default () => {
+    console.log("Use this Package by import the wanted class or function:");
+    console.log("import { Collection } from 'sussyutilbyraphaelbader'");
+    console.log("OR:");
+    console.log("const { Collection } = require('sussyutilbyraphaelbader');");
+}
+
 export { 
     Collection, 
     DateUtil,
