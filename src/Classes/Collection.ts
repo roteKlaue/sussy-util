@@ -19,12 +19,12 @@ export default class Collection <K,V> {
 	}
 
 
-	remove(key:K):void {
+	remove(key:K):MapEntries<K,V> {
 		const object = this.map.find((e) => e.key === key);
 		if(!object){
 			throw new AlreadyExistsInCollectionError("There is no a key value pair with this key");
 		}
-		this.map.remove(this.map.indexOf(object));
+		return this.map.remove(this.map.indexOf(object));
 	}
 
 	toString():string {

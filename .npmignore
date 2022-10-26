@@ -1,5 +1,6 @@
 src
 .gitignore
-README.md
+node_modules
+.gitattributes
 tsconfig.json
 .vscode

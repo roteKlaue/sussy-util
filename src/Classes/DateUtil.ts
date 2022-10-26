@@ -31,30 +31,37 @@ export default class DateUtil {
     }
 
     static compareDates(dt1:Date, dt2:Date):number {
+        if(!(dt1 instanceof Date && dt2 instanceof Date)) throw new TypeError("expected Date for dt1 and dt2");
         return dt1.valueOf() - dt2.valueOf();
     }
 
-    static equals(a:Date, b:Date):boolean {
-        return a.valueOf() === b.valueOf();
+    static equals(dt1:Date, dt2:Date):boolean {
+        if(!(dt1 instanceof Date && dt2 instanceof Date)) throw new TypeError("expected Date for dt1 and dt2");
+        return dt1.valueOf() === dt2.valueOf();
     }
 
     static getMonthAbbr(number:number):string {
+        if(typeof number !== 'number') throw new TypeError("expected number for number");
         return this.monthAbrs[number]? this.monthAbrs[number]: "";
     }
 
     static getMonthFullName(number:number):string {
+        if(typeof number !== 'number') throw new TypeError("expected number for number");
         return this.mFullNames[number]? this.mFullNames[number]: "";
     }
 
     static getDayAbbr(number:number):string {
+        if(typeof number !== 'number') throw new TypeError("expected number for number");
         return this.dayAbrs[number]? this.dayAbrs[number]: "";
     }
 
     static getDayFullName(number:number):string {
+        if(typeof number !== 'number') throw new TypeError("expected number for number");
         return this.dFullNames[number]? this.dFullNames[number]: "";
     }
 
     static isLeapYear(year:number):boolean {
+        if(typeof year !== 'number') throw new TypeError("expected number for year");
         return !(year % (year % 100 ? 4 : 400));
     }
 
@@ -69,6 +76,7 @@ export default class DateUtil {
     }
 
     static leapYearsInRange(start:number, endYear:number):number[] {
+        if(typeof start !== 'number' || typeof endYear !== 'number') throw new TypeError("expected number for start and endYear");
         const sus = [];
 
         for (let i = start; i <= endYear; i++) {

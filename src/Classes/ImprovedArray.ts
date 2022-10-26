@@ -15,12 +15,14 @@ export default class ImprovedArray<T> extends Array<T> {
         return this[this.getRandomIndex()];
     }
 
-    remove(index:number) :void {
+    remove(index:number):T {
+        if(typeof index !== 'number') throw new TypeError('index must be a number');
         if(index >= this.length || index < 0) throw new IndexOutOfBoundsError(`${index} is out of bounds for length: ${this.length}`);
-        this.splice(Math.floor(index), 1);
+        return this.splice(Math.floor(index), 1)[0];
     }
 
     insertAt(index:number, ...items:T[]):void {
+        if(typeof index !== 'number') throw new TypeError('index must be a number');
         if(index >= this.length || index < 0) throw new IndexOutOfBoundsError(`${index} is out of bounds for length: ${this.length}`);
         this.push(...items, ...this.splice(index, this.length - index - 1));
     }
