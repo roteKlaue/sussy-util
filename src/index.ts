@@ -32,6 +32,9 @@ import getTypeString from "./Functions/getTypeString";
 import isClass from "./Functions/isClass";
 import isDate from "./Functions/isDate";
 import isError from "./Functions/isError";
+import hasProperty from "./Functions/hasProperty";
+import addProperty from "./Functions/addProperty";
+import attributesToArray from "./Functions/attributesToArray";
 
 export default function ():void {
     console.log("Use this Package by import the wanted class or function:");
@@ -49,12 +52,15 @@ export {
     StringUtil,
     AlreadyExistsInCollectionError, 
     indexOutOfBoundsError,
+    addProperty,
     asyncHandler, 
+    attributesToArray,
     betterRound,
     bytesToSize,
     callbackify,
     getRandomNumberInRange,
     getTypeString,
+    hasProperty,
     hasValue,
     isArray,
     isBoolean,
