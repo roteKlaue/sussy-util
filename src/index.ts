@@ -35,6 +35,8 @@ import isError from "./Functions/isError";
 import hasProperty from "./Functions/hasProperty";
 import addProperty from "./Functions/addProperty";
 import attributesToArray from "./Functions/attributesToArray";
+import callIfFunction from "./Functions/callIfFunction";
+import strictJSONParse from "./Functions/strictJSONParse";
 
 export default function ():void {
     console.log("Use this Package by import the wanted class or function:");
@@ -58,6 +60,7 @@ export {
     betterRound,
     bytesToSize,
     callbackify,
+    callIfFunction,
     getRandomNumberInRange,
     getTypeString,
     hasProperty,
@@ -80,5 +83,6 @@ export {
     merge,
     removeFirstDigit,
     removeLastDigit,
-    removeXDigits
+    removeXDigits,
+    strictJSONParse
 };

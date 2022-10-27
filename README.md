@@ -2,7 +2,7 @@
 <p align="center">
     Just a few Functions and Classes made by ME
     <br>
-    <strong>Version 1.4.2</strong>
+    <strong>Version 1.5.0 beta</strong>
 </p>
 
 # Table of Contents

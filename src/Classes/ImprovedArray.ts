@@ -59,7 +59,7 @@ export default class ImprovedArray<T> extends Array<T> {
         this.push(...newArray);
     }
 
-    scramble() {
+    scramble():void {
         let lengthArr = this.length;
         while (lengthArr) {
             lengthArr -= 1;
@@ -68,10 +68,28 @@ export default class ImprovedArray<T> extends Array<T> {
             this[lengthArr] = this[randomIndex];
             this[randomIndex] = temp;
         }
-        return this;
     }
 
     countOccurrences(value:T):number {
         return this.reduce((a:number, v:T) => v === value ? a + 1 : a + 0, 0);
+    }
+
+    static flat(arr:any[]):any[] {
+        const result:any[] = [];
+        for (const item of arr) {
+            if (Array.isArray(item)) {
+                result.push(...this.flat(item));
+            } else {
+                result.push(item);
+            }
+        }
+        return result;
+    }
+
+
+    flatten():void {
+        const newARR = ImprovedArray.flat(this);
+        this.clear();
+        this.push(...newARR);
     }
 }

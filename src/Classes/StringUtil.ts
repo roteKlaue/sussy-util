@@ -165,4 +165,11 @@ export default class StringUtil {
     static randomColorCode():string {
         return `#${Math.floor(Math.random()*16777215).toString(16)}`;
     }
+
+    static wordCount(str:string):number {
+        if(typeof str !== 'string'){ return -1; };
+        const sus = str.match(/\b\w+\b/);
+        if(!sus) { return 0; }
+        return sus.length;
+    }
 }

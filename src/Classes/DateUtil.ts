@@ -65,12 +65,12 @@ export default class DateUtil {
         return !(year % (year % 100 ? 4 : 400));
     }
 
-    static weekFirstDay() {
+    static weekFirstDay():Date {
         const nowDate = this.getCurrentDate();
         return new Date(nowDate.getDate()-(nowDate.getDay()-1)*86400000);
     }
 
-    static weekLastDay() {
+    static weekLastDay():Date {
         const firstDay = this.weekFirstDay();
         return new Date((firstDay.getDate() / 1000 + 6 * 86400) * 1000);
     }
@@ -84,5 +84,15 @@ export default class DateUtil {
         }
 
         return sus;
+    }
+
+    static getMonthFirstDay():Date {
+        const nowDate = this.getCurrentDate();
+        return new Date(nowDate.getFullYear(), nowDate.getMonth());
+    }
+
+    static getMonthLastDay():Date {
+        const nowDate = this.getCurrentDate();
+        return new Date(new Date(nowDate.getFullYear(), nowDate.getMonth() + 1).valueOf() - 86400000);
     }
 }
