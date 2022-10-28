@@ -1,4 +1,6 @@
-export default function (obj:{[k: string]: any}, prop:string, value:any):Object {
+import MutableObject from "../Interfaces/MutableObject";
+
+export default function (obj:MutableObject, prop:string, value:any):MutableObject {
     if (typeof obj !== "object") {
         return obj;
     }

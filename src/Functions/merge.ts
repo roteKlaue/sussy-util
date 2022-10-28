@@ -1,6 +1,8 @@
-export default function(a:{[k: string]: any},b:{[k: string]: any}):{[k: string]: any} {
+import MutableObject from "../Interfaces/MutableObject";
+
+export default function(a:MutableObject, b:MutableObject):MutableObject {
     for (const key in b) {
-        if(!a[key] ) { continue; }
+        if(!!a[key]) { continue; }
         a[key] = b[key];
     }
     return a;

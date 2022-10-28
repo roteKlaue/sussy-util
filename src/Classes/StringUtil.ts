@@ -172,4 +172,21 @@ export default class StringUtil {
         if(!sus) { return 0; }
         return sus.length;
     }
+
+    static getRatingString(rate:number):string {
+        return '★★★★★☆☆☆☆☆'.slice(5 - rate, 10 - rate);
+    }
+
+    static normalizeLineBreaks(str:string, lineEnd?:string):string {
+        lineEnd = lineEnd || '\n';
+      
+        return str
+            .replace(/\r\n/g, lineEnd)
+            .replace(/\r/g, lineEnd)
+            .replace(/\n/g, lineEnd);
+    }
+
+    static contains(str:string, substring:string, fromIndex:number):boolean {
+        return str.indexOf(substring, fromIndex) !== -1;
+    }
 }
