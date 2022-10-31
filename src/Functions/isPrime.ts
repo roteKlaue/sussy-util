@@ -1,4 +1,4 @@
-export default function isPrime(num: number): boolean {
+export default function(num: number):boolean {
     if (num < 2) {
         return false;
     }
