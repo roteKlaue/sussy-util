@@ -35,6 +35,7 @@ import isString from "./Functions/isString";
 import isSymbol from "./Functions/isSymbol";
 import measureTime from "./Functions/measureTime";
 import merge from "./Functions/merge";
+import objectToString from "./Functions/objectToString";
 import removeFirstDigit from "./Functions/removeFirstDigit";
 import removeLastDigit from "./Functions/removeLastDigit";
 import removeProperty from "./Functions/removeProperty";
@@ -86,6 +87,7 @@ export {
     isSymbol,
     measureTime,
     merge,
+    objectToString,
     removeFirstDigit,
     removeLastDigit,
     removeProperty,

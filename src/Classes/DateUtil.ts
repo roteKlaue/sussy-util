@@ -4,10 +4,6 @@ export default class DateUtil {
     static dayAbrs:string[] = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
     static dFullNames:string[] = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday", "Sunday"];
 
-    /**
-     * Get the current date and time
-     * @returns {Date}
-     * */
     static getCurrentDate():Date {
         return new Date(Date.now());
     }

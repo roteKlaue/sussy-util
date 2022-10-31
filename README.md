@@ -2,7 +2,7 @@
 <p align="center">
     Just a few Functions and Classes made by ME
     <br>
-    <strong>Version 1.5.0 beta</strong>
+    <strong>Version 1.5.0</strong>
 </p>
 
 # Table of Contents
@@ -42,9 +42,19 @@
     - [getTypeString](#gettypestring)
     - [isDate](#isdate)
     - [isError](#iserror)
+    - [addProperty](#addproperty)
+    - [attributesToArray](#attributestoarray)
+    - [hasProperty](#hasproperty)
+    - [strickJSONParse](#strickjsonparse)
+    - [callIfFunction](#calliffunction)
+    - [deepClone](#deepclone)
+    - [isObject](#isobject)
+    - [removeProperty](#removeproperty)
+    - [objectToString](#objecttostring)
   - [Updating](#updating)
     - [Going from 1.0.X to 1.1.X](#going-from-10x-to-11x)
     - [Going from 1.1.X to 1.2.X](#going-from-11x-to-12x)
+    - [Going from 1.4.X to 1.5.X](#going-from-14x-to-15x)
 
 ## Classes
 
@@ -92,6 +102,7 @@
 > array.removeDuplicates(); // removes duplicates
 > array.scramble(); // scrambles the array
 > array.countOccurrences(value); // counts how often the value given is in the array
+> array.flatten(); // flattens the array
 >```
 
 ### Stack
@@ -106,6 +117,7 @@
 > const value = stack.pop(); // returns value on top of stack and removes it
 > const value = stack.peek(); // returns value on top of stack without removing it
 > stack.empty(); // returns if stack is empty
+> stack.toArray(); // returns stack as array
 >```
 
 ### Set
@@ -130,7 +142,6 @@
 >```ts
 > // create a Stack
 > const { StringUtil } = require('sussyutilbyraphaelbader');
-> const stringUtil = new StringUtil();
 >
 > //static function example usage
 > StringUtil.reverse("Sussy"); // reverses the string | output: yssus
@@ -151,12 +162,17 @@
 > StringUtil.isPhoneNumber(""); // checks if string is a phone number
 > StringUtil.camelCase("sus amogus"); // uses the capitalize function | returns Sus Amogus
 > StringUtil.randomColorCode(); // returns random hex color code
->
-> //usage example
-> stringUtil.randomCharacter(); // returns a random character based on the current charset
-> stringUtil.randomString(length); // returns a random string with the length given
-> stringUtil.randomDiscordUsername(withSufix:boolean); // returns a random string with length 4 - 32 if withSufix is true then # and 4 random numbers will be added
-> stringUtil.generatePassword(length); // returns a random strong password with given length if charset allows it
+> StringUtil.randomCharacter(charset?); // returns a random character based on the current charset
+> StringUtil.randomString(length, charset?); // returns a random string with the length given
+> StringUtil.randomDiscordUsername(withSufix:boolean); // returns a random string with length 4 - 32 if withSufix is true then # and 4 random numbers will be added
+> StringUtil.generatePassword(length, charset?); // returns a random strong password with given length if charset allows it
+> StringUtil.wordCount(string); // returns the amount of words in the string
+> StringUtil.getRatingString(number of stars); // 1 - 5 stars returns full/empty stars
+> StringUtil.normalizeLineBreaks(string, lineEnd?); // returns string with only one type of line break
+> StringUtil.contains(string, searchsParam); // returns boolean based on if the second string is in the first string
+> StringUtil.repeat(string, number); // returns string repeated number amount of times
+> StringUtil.rpad(string, number); // returns string padded on the right site to given length: number
+> StringUtil.lpad(string, number); // returns string padded on the left site to given length: number
 >```
 
 ### DateUtil
@@ -179,6 +195,8 @@
 > DateUtil.weekFirstDay(); // returns the first week day of the current week
 > DateUtil.weekLastDay(); // returns the last week day of the current week
 > DateUtil.leapYearsInRange(12, 2020); // returns all leap years in the given range
+> DateUtil.getMonthFirstDay(); // returns the first day of the current month
+> DateUtil.getMonthLastDay(); // returns the last day of the current month
 > ```
 
 ## Functions
@@ -210,6 +228,15 @@
   - [getTypeString](#gettypestring)
   - [isDate](#isdate)
   - [isError](#iserror)
+  - [addProperty](#addproperty)
+  - [attributesToArray](#attributestoarray)
+  - [hasProperty](#hasproperty)
+  - [strickJSONParse](#strickjsonparse)
+  - [callIfFunction](#calliffunction)
+  - [deepClone](#deepclone)
+  - [isObject](#isobject)
+  - [removeProperty](#removeproperty)
+  - [objectToString](#objecttostring)
 
 ### asyncHandler
 
@@ -433,6 +460,71 @@
 > isError(new Error("my my")); // output: true
 > ```
 
+### addProperty
+
+>```js
+> const { addProperty } = require('sussyutilbyraphaelbader');
+> addProperty({sus:true}, "imposter", true); // output: { sus:true, imposter:true }
+>```
+
+### attributesToArray
+
+>```js
+> const { attributesToArray } = require('sussyutilbyraphaelbader');
+> attributesToArray({ sus:true, imposter:true }, true); // output: [true, true];
+>```
+
+### hasProperty
+
+>```js
+> const { hasProperty } = require('sussyutilbyraphaelbader');
+> hasProperty({ sus:true }, "sus"); // output: true
+> ```
+
+### strickJSONParse
+
+>```js
+> const { strickJSONParse } = require('sussyutilbyraphaelbader');
+> strickJSONParse("{ sus:true }"); // output: { sus:true }
+>```
+
+### callIfFunction
+
+>```js
+> const { callIfFunction } = require('sussyutilbyraphaelbader');
+> callIfFunction(() => true); // output: true
+> callIfFunction({hi:false}); // output: null
+>```
+
+### deepClone
+
+>```js
+> const { deepClone } = require('sussyutilbyraphaelbader');
+> deepClone({er:true, us:{or:true}}): // output: {er:true, us:{or:true}}
+>```
+
+### isObject
+
+>```js
+> const { isObject } = require('sussyutilbyraphaelbader');
+> isObject([]); // output:false
+> isObject({}); // output:true
+>```
+
+### removeProperty
+
+>```js
+> const { removeProperty } = require('sussyutilbyraphaelbader');
+> removeProperty({ sus:true, imposter:true }, "imposter"); // output: { sus:true }
+>```
+
+### objectToString
+
+>```js
+> const { objectToString } = require('sussyutilbyraphaelbader');
+> objectToString({}); // output: [object Object]
+>```
+
 ## Updating
 
 ### Going from 1.0.X to 1.1.X
@@ -459,4 +551,17 @@ renamed Class improvedArray to ImprovedArray
 >//new
 >const { ImprovedArray } = require('sussyutilbyraphaelbader');
 >const a = new ImprovedArray();
+>```
+
+### Going from 1.4.X to 1.5.X
+
+>```js
+>//old
+>const { StringUtil } = require('sussyutilbyraphaelbader');
+>const util = new StringUtil();
+>util.generatePassword(length);
+>
+> // new
+>const { StringUtil } = require('sussyutilbyraphaelbader');
+>StringUtil.generatePassword(length, charset?);
 >```

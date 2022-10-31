@@ -1,43 +1,28 @@
-import Set from "./Set";
+import ImprovedArray from "./ImprovedArray";
 
 export default class StringUtil {
-    private characterset = new Set<string>(...'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'.split(''));
-
     constructor() {}
 
     static reverse(input:string): string {
         return input.split('').reverse().join('');
     }
 
-    get charset() : Set<string> {
-        return this.characterset;
+    static randomCharacter(charset?:string): string {
+        charset = charset || "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        const set = new ImprovedArray<string>(...new Set<string>(... charset.split('')));
+        return set.getRandomElement();
     }
 
-    removeChars(...string:string[]):void {
-        for (const str of string) {
-            this.characterset.delete(str);
-        };
-    }
-
-    addChars(...string:string[]):void {
-        for (const str of string) {
-            str.split('').forEach(e => this.characterset.push(e));
-        }
-    }
-    
-    randomCharacter():string {
-        return this.characterset.get(Math.floor(Math.random() * this.characterset.length()));
-    }
-
-    randomString(length:number):string {
+    static randomString(length:number, characterset?:string):string {
+        characterset = characterset || "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         let result = '';
         for (let i = 0; i < length; i++) {
-            result += this.randomCharacter();
+            result += this.randomCharacter(characterset);
         }
         return result;
     }
 
-    randomDiscordUsername(withSufix = false):string {
+    static randomDiscordUsername(withSufix = false):string {
         const length = Math.floor(Math.random() * 29) + 4;
         let name = this.randomString(length);
         
@@ -155,11 +140,12 @@ export default class StringUtil {
         return str.replace(/ ([a-z]+ ) | ( [A-Z]+ )/g, (match, chr) => chr? match.toUpperCase():match.toLowerCase());
     }
 
-    generatePassword(length:number):string {
-        const result = this.randomString(length);
-        if(StringUtil.isWeakPassword(this.characterset.toArray().reduce((e,r) => e + r))) throw new Error("Not enough characters to generate password");
+    static generatePassword(length:number, characters?:string):string {
+        characters = characters || "ascdefghijklmnopqrstuvwxyzABCDEFGHIJLMOPRSTUVWXYZ1234567890!§$%&?#*+~'";
+        if(StringUtil.isWeakPassword([...new Set(characters.split(""))].join(""))) throw new Error("Not enough characters to generate password");
+        const result = this.randomString(length, characters);
         if(StringUtil.isStrongPassword(result)) return result;
-        return this.generatePassword(length); 
+        return this.generatePassword(length, characters); 
     }
 
     static randomColorCode():string {
@@ -188,5 +174,19 @@ export default class StringUtil {
 
     static contains(str:string, substring:string, fromIndex:number):boolean {
         return str.indexOf(substring, fromIndex) !== -1;
+    }
+
+    static repeat(str:string, n:number):string {
+        return (new Array(n + 1)).join(str);
+    }
+
+    static rpad(str:string, minLen:number, ch:string):string {
+        ch = ch || ' ';
+        return (str.length < minLen)? str + this.repeat(ch, minLen - str.length) : str;
+    }
+
+    static lpad(str:string, minLen:number, ch:string):string {
+        ch = ch || ' ';
+        return ((str.length < minLen) ? this.repeat(ch, minLen - str.length) + str : str);  
     }
 }
