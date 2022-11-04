@@ -1,6 +1,6 @@
-<h3 align="center">SussyUtilByRaphael</h3>
+<h3 align="center">Util by Bader</h3>
 <p align="center">
-    Just a few Functions and Classes made by ME
+    Just a few Functions and Classes made by me
     <br>
     <strong>Version 1.5.0</strong>
 </p>
@@ -29,7 +29,6 @@
     - [isRegExp](#isregexp)
     - [isString](#isstring)
     - [merge](#merge)
-    - [removeDuplicatesArray](#removeduplicatesarray)
     - [removeFirstDigit](#removefirstdigit)
     - [removeLastDigit](#removelastdigit)
     - [removeXDigits](#removexdigits)
@@ -215,7 +214,6 @@
   - [isRegExp](#isregexp)
   - [isString](#isstring)
   - [merge](#merge)
-  - [removeDuplicatesArray](#removeduplicatesarray)
   - [removeFirstDigit](#removefirstdigit)
   - [removeLastDigit](#removelastdigit)
   - [removeXDigits](#removexdigits)
@@ -348,13 +346,6 @@
 > const { merge } = require('sussyutilbyraphaelbader');
 > console.log(merge({ a:12, b:34 }, { m:34 })); // output: { a:12, b:34, m:34 }
 >```
-
-### removeDuplicatesArray
-
->```js
-> const { removeDuplicatesArray } = require('sussyutilbyraphaelbader');
-> console.log(removeDuplicatesArray([12,223,12,12]); // output: [12,223]
-> ```
 
 ### removeFirstDigit 
 

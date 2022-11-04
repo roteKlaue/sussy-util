@@ -180,12 +180,12 @@ export default class StringUtil {
         return (new Array(n + 1)).join(str);
     }
 
-    static rpad(str:string, minLen:number, ch:string):string {
+    static rpad(str:string, minLen:number, ch?:string):string {
         ch = ch || ' ';
         return (str.length < minLen)? str + this.repeat(ch, minLen - str.length) : str;
     }
 
-    static lpad(str:string, minLen:number, ch:string):string {
+    static lpad(str:string, minLen:number, ch?:string):string {
         ch = ch || ' ';
         return ((str.length < minLen) ? this.repeat(ch, minLen - str.length) + str : str);  
     }
