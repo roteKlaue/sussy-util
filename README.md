@@ -2,7 +2,7 @@
 <p align="center">
     Just a few Functions and Classes made by me
     <br>
-    <strong>Version 1.5.0</strong>
+    <strong>Version 1.6.0 Alpha 1</strong>
 </p>
 
 # Table of Contents
@@ -17,43 +17,31 @@
   - [Functions](#functions)
     - [asyncHandler](#asynchandler)
     - [bytesToSize](#bytestosize)
-    - [isEven](#iseven)
-    - [isOdd](#isodd)
-    - [isPrime](#isprime)
     - [getRandomNumberInRange](#getrandomnumberinrange)
-    - [isSymbol](#issymbol)
-    - [isArray](#isarray)
-    - [isBoolean](#isboolean)
-    - [isNullorUndefined](#isnullorundefined)
-    - [isNumber](#isnumber)
-    - [isRegExp](#isregexp)
-    - [isString](#isstring)
     - [merge](#merge)
     - [removeFirstDigit](#removefirstdigit)
     - [removeLastDigit](#removelastdigit)
     - [removeXDigits](#removexdigits)
     - [callbackify](#callbackify)
     - [betterRound](#betterround)
-    - [isFunction](#isfunction)
     - [hasValue](#hasvalue)
     - [measureTime](#measuretime)
-    - [isClass](#isclass)
     - [getTypeString](#gettypestring)
-    - [isDate](#isdate)
-    - [isError](#iserror)
     - [addProperty](#addproperty)
     - [attributesToArray](#attributestoarray)
     - [hasProperty](#hasproperty)
     - [strickJSONParse](#strickjsonparse)
     - [callIfFunction](#calliffunction)
     - [deepClone](#deepclone)
-    - [isObject](#isobject)
     - [removeProperty](#removeproperty)
     - [objectToString](#objecttostring)
   - [Updating](#updating)
     - [Going from 1.0.X to 1.1.X](#going-from-10x-to-11x)
     - [Going from 1.1.X to 1.2.X](#going-from-11x-to-12x)
     - [Going from 1.4.X to 1.5.X](#going-from-14x-to-15x)
+  - [Change Log](#change-log)
+    - [v1.5.0](#v150)
+    - [v1.6.0-alpha](#v160-alpha)
 
 ## Classes
 
@@ -202,37 +190,22 @@
 
   - [asyncHandler](#asynchandler)
   - [bytesToSize](#bytestosize)
-  - [isEven](#iseven)
-  - [isPrime](#isprime)
-  - [isOdd](#isodd)
   - [getRandomNumberInRange](#getrandomnumberinrange)
-  - [isSymbol](#issymbol)
-  - [isArray](#isarray)
-  - [isBoolean](#isboolean)
-  - [isNullorUndefined](#isnullorundefined)
-  - [isNumber](#isnumber)
-  - [isRegExp](#isregexp)
-  - [isString](#isstring)
   - [merge](#merge)
   - [removeFirstDigit](#removefirstdigit)
   - [removeLastDigit](#removelastdigit)
   - [removeXDigits](#removexdigits)
   - [callbackify](#callbackify)
   - [betterRound](#betterround)
-  - [isFunction](#isfunction)
   - [hasValue](#hasvalue)
   - [measureTime](#measuretime)
-  - [isClass](#isclass)
   - [getTypeString](#gettypestring)
-  - [isDate](#isdate)
-  - [isError](#iserror)
   - [addProperty](#addproperty)
   - [attributesToArray](#attributestoarray)
   - [hasProperty](#hasproperty)
   - [strickJSONParse](#strickjsonparse)
   - [callIfFunction](#calliffunction)
   - [deepClone](#deepclone)
-  - [isObject](#isobject)
   - [removeProperty](#removeproperty)
   - [objectToString](#objecttostring)
 
@@ -258,86 +231,11 @@
 > console.log(bytesString); // output: 12.0 KB
 >```
 
-### isEven
-
->```js
-> const { isEven } = require('sussyutilbyraphaelbader');
-> console.log(isEven(22)); // output: true
->```
-
-### isOdd
-
->```js
-> const { isOdd } = require('sussyutilbyraphaelbader');
-> console.log(isOdd(22)); // output: false
->```
-
-### isPrime
-
->```js
-> const { isPrime } = require('sussyutilbyraphaelbader');
-> console.log(isEven(7)); // output: true
-> console.log(isEven(22)); // output: false
->```
-
 ### getRandomNumberInRange
 
 >```js
 > const { getRandomNumberInRange } = require('sussyutilbyraphaelbader'); 
 > console.log(getRandomNumberInRange(1,5); // output:random number from 1 to 5
-> ```
-
-### isSymbol
-
->```js
-> const { isSymbol } = require('sussyutilbyraphaelbader');
-> console.log(isSymbol(Symbol("sus"))); // output: true
-> ```
-
-### isArray
-
->```js
-> const { isArray } = require('sussyutilbyraphaelbader');
-> console.log(isArray([12,123,45]); // output: true
-> ```
-
-### isBoolean
-
->```js
-> const { isBoolean } = require('sussyutilbyraphaelbader');
-> console.log(isBoolean(true); // output: true
-> console.log(isBoolean("true"); //output: true
-> console.log(isBoolean("s.jads")); // output: false
-> ```
-
-### isNullorUndefined
-
->```js
-> const { isNullOrUndefined } = require('sussyutilbyraphaelbader');
-> console.log(isNullOrUndefined("true"); // output: false
-> console.log(isNullOrUndefined(null); // output: true
-> ```
-
-### isNumber
-
->```js
-> const { isNumber } = require('sussyutilbyraphaelbader');
-> console.log(isNumber(234)); // output: true
-> console.log(isNumber("234")); // output: true
-> ```
-
-### isRegExp
-
->```js
-> const { isRegExp } = require('sussyutilbyraphaelbader');
-> console.log(isRegExp(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)); // output: true
-> ```
-
-### isString
-
->```js
-> const { isString } = require('sussyutilbyraphaelbader');
-> console.log(isString("hello")); // output: true
 > ```
 
 ### merge
@@ -388,13 +286,6 @@
 > console.log(betterRound(123.56, 1)); // output: 123.6
 > ```
 
-### isFunction
-
->```js
-> const { isFunction } = require('sussyutilbyraphaelbader');
-> console.log(isFunction(() => {}); // output: true
-> ```
-
 ### hasValue
 
 >```js
@@ -420,13 +311,6 @@
 > measureTime(label, function, params); // logs the time it takes to run the function
 > ```
 
-### isClass 
-
->```js
-> const { isClass } = require('sussyutilbyraphaelbader');
-> isClass(class sus { constructor(){} }); // returns true
-> ```
-
 ### getTypeString 
 
 >```js
@@ -435,20 +319,6 @@
 > getTypeString("sad"); // output: string
 > getTypeString(class sus { constructor(){} }); // output: class
 > getTypeString(() => {}); // output: function
-> ```
-
-### isDate
-
->```js
-> const { isDate } = require('sussyutilbyraphaelbader');
-> isDate(new Date()); // output: true
->```
-
-### isError
-
->```js
-> const { isError } = require('sussyutilbyraphaelbader');
-> isError(new Error("my my")); // output: true
 > ```
 
 ### addProperty
@@ -494,14 +364,6 @@
 > deepClone({er:true, us:{or:true}}): // output: {er:true, us:{or:true}}
 >```
 
-### isObject
-
->```js
-> const { isObject } = require('sussyutilbyraphaelbader');
-> isObject([]); // output:false
-> isObject({}); // output:true
->```
-
 ### removeProperty
 
 >```js
@@ -545,6 +407,7 @@ renamed Class improvedArray to ImprovedArray
 >```
 
 ### Going from 1.4.X to 1.5.X
+Made all the non static String Functions static
 
 >```js
 >//old
@@ -556,3 +419,76 @@ renamed Class improvedArray to ImprovedArray
 >const { StringUtil } = require('sussyutilbyraphaelbader');
 >StringUtil.generatePassword(length, charset?);
 >```
+
+## Change Log
+
+### v1.5.0
+
+`Changes`
+
+changed StringUtil.prototype.generatePassword to StringUtil.generatePassword
+added new param to StringUtil.generatePassword 
+
+changed StringUtil.prototype.generateString to StringUtil.generatePassword
+added new param to StringUtil.generateString 
+
+changed StringUtil.prototype.generateCharacter to StringUtil.generateCharacter
+added new param to StringUtil.generateCharacter
+
+changed merge to accept MutableObject instead of Object
+
+`New`
+
+added callIfFunction function
+added attributesToArray function
+added addProperty function
+added hasProperty function
+added isObject function
+added removeProperty function
+added DateUtil.getMonthFirstDay
+added DateUtil.getMonthLastDay
+added ImprovedArray.prototype.flatten
+added StringUtil.contains
+added StringUtil.getRatingString
+added StringUtil.normalizeLineBreaks
+added	StringUtil.wordCount
+added MutableObject interface
+
+### v1.6.0-alpha
+
+`New`
+
+added IsSomething class
+added IsSomething.isArray function
+added IsSomething.isBoolean function 
+added IsSomething.isClass function
+added IsSomething.isDate function
+added IsSomething.isError function
+added IsSomething.isEven function
+added IsSomething.isFunction function
+added IsSomething.isNullorUndefined function
+added IsSomething.isNumber function
+added IsSomething.isObject function
+added IsSomething.isOdd function
+added IsSomething.isPrime function
+added IsSomething.isRegExp function
+added IsSomething.isString function
+added IsSomething.isSymbol function
+
+`Removed`
+
+isArray function
+isBoolean function 
+isClass function
+isDate function
+isError function
+isEven function
+isFunction function
+isNullorUndefined function
+isNumber function
+isObject function
+isOdd function
+isPrime function
+isRegExp function
+isString function
+isSymbol function
