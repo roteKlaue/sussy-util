@@ -439,20 +439,20 @@ changed merge to accept MutableObject instead of Object <br>
 <br>
 `New`
 
-added callIfFunction function
-added attributesToArray function
-added addProperty function
-added hasProperty function
-added isObject function
-added removeProperty function
-added DateUtil.getMonthFirstDay
-added DateUtil.getMonthLastDay
-added ImprovedArray.prototype.flatten
-added StringUtil.contains
-added StringUtil.getRatingString
-added StringUtil.normalizeLineBreaks
-added	StringUtil.wordCount
-added MutableObject interface
+added callIfFunction function<br>
+added attributesToArray function<br>
+added addProperty function<br>
+added hasProperty function<br>
+added isObject function<br>
+added removeProperty function<br>
+added DateUtil.getMonthFirstDay<br>
+added DateUtil.getMonthLastDay<br>
+added ImprovedArray.prototype.flatten<br>
+added StringUtil.contains<br>
+added StringUtil.getRatingString<br>
+added StringUtil.normalizeLineBreaks<br>
+added	StringUtil.wordCount<br>
+added MutableObject interface<br>
 
 ### v1.6.0-alpha
 
