@@ -426,17 +426,17 @@ Made all the non static String Functions static
 
 `Changes`
 
-changed StringUtil.prototype.generatePassword to StringUtil.generatePassword
-added new param to StringUtil.generatePassword 
-
-changed StringUtil.prototype.generateString to StringUtil.generatePassword
-added new param to StringUtil.generateString 
-
-changed StringUtil.prototype.generateCharacter to StringUtil.generateCharacter
-added new param to StringUtil.generateCharacter
-
-changed merge to accept MutableObject instead of Object
-
+changed StringUtil.prototype.generatePassword to StringUtil.generatePassword <br>
+added new param to StringUtil.generatePassword <br>
+<br>
+changed StringUtil.prototype.generateString to StringUtil.generatePassword <br>
+added new param to StringUtil.generateString <br>
+<br>
+changed StringUtil.prototype.generateCharacter to StringUtil.generateCharacter <br>
+added new param to StringUtil.generateCharacter <br>
+<br>
+changed merge to accept MutableObject instead of Object <br>
+<br>
 `New`
 
 added callIfFunction function
@@ -458,37 +458,37 @@ added MutableObject interface
 
 `New`
 
-added IsSomething class
-added IsSomething.isArray function
-added IsSomething.isBoolean function 
-added IsSomething.isClass function
-added IsSomething.isDate function
-added IsSomething.isError function
-added IsSomething.isEven function
-added IsSomething.isFunction function
-added IsSomething.isNullorUndefined function
-added IsSomething.isNumber function
-added IsSomething.isObject function
-added IsSomething.isOdd function
-added IsSomething.isPrime function
-added IsSomething.isRegExp function
-added IsSomething.isString function
-added IsSomething.isSymbol function
+added IsSomething class<br>
+added IsSomething.isArray function<br>
+added IsSomething.isBoolean function <br>
+added IsSomething.isClass function<br>
+added IsSomething.isDate function<br>
+added IsSomething.isError function<br>
+added IsSomething.isEven function<br>
+added IsSomething.isFunction function<br>
+added IsSomething.isNullorUndefined function<br>
+added IsSomething.isNumber function<br>
+added IsSomething.isObject function<br>
+added IsSomething.isOdd function<br>
+added IsSomething.isPrime function<br>
+added IsSomething.isRegExp function<br>
+added IsSomething.isString function<br>
+added IsSomething.isSymbol function<br>
 
 `Removed`
 
-isArray function
-isBoolean function 
-isClass function
-isDate function
-isError function
-isEven function
-isFunction function
-isNullorUndefined function
-isNumber function
-isObject function
-isOdd function
-isPrime function
-isRegExp function
-isString function
-isSymbol function
+isArray function<br>
+isBoolean function <br>
+isClass function<br>
+isDate function<br>
+isError function<br>
+isEven function<br>
+isFunction function<br>
+isNullorUndefined function<br>
+isNumber function<br>
+isObject function<br>
+isOdd function<br>
+isPrime function<br>
+isRegExp function<br>
+isString function<br>
+isSymbol function<br>
