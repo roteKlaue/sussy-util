@@ -1,10 +1,10 @@
 import MutableObject from "../Interfaces/MutableObject";
-import isObject from "./isObject";
+import IsSomething from "../Classes/IsSomething";
 
 export default function clone(obj:MutableObject|MutableObject[]):MutableObject|MutableObject[]|any|any[] {
     if(Array.isArray(obj)) { return obj.map(clone); }
 
-    if(isObject(obj)) {
+    if(IsSomething.isObject(obj)) {
         const _clone:MutableObject = {};
         for(const key in obj) {
             _clone[key] = clone(obj[key]);

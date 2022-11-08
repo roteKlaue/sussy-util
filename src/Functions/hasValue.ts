@@ -1,18 +1,13 @@
-import isArray from "./isArray";
-import Set from "../Classes/Set";
-import isString from "./isString";
-import isBoolean from "./isBoolean";
-import isNumber from "./isNumber";
-import isFunction from "./isFunction";
+import IsSomething from "../Classes/IsSomething";
 import Stack from "../Classes/Stack";
-import isRegExp from "./isRegExp";
+import Set from "../Classes/Set";
 
 export default function hasValue(a:any):boolean {
-    if ((isString(a) && a.length > 0) || isBoolean(a) || a === null || isNumber(a) || isFunction(a) || (isRegExp(a) && a.length > 0)) {
+    if ((IsSomething.isString(a) && a.length > 0) || IsSomething.isBoolean(a) || a === null || IsSomething.isNumber(a) || IsSomething.isFunction(a) || (IsSomething.isRegExp(a) && a.length > 0)) {
         return true;
     }
 
-    if(isArray(a)) {
+    if(IsSomething.isArray(a)) {
         for (const iterator of a) {
             if(hasValue(iterator)) {
                 return true;
@@ -20,7 +15,7 @@ export default function hasValue(a:any):boolean {
         }
     }
 
-    if(typeof a === 'object' && !isArray(a)) {
+    if(typeof a === 'object' && !IsSomething.isArray(a)) {
         for (const key in a) {
             if(a.hasOwnProperty(key)) {
                 if(hasValue(a[key])) {

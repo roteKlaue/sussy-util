@@ -1,8 +1,4 @@
-import isArray from "./isArray";
-import isClass from "./isClass";
-import isDate from "./isDate";
-import isError from "./isError";
-import isRegExp from "./isRegExp";
+import IsSomething from "../Classes/IsSomething";
 
 export default function(arg:any):string|undefined {
     if(typeof arg === 'boolean' || typeof arg === "number" || typeof arg === 'undefined' || typeof arg === 'bigint' || typeof arg === 'symbol' || typeof arg === 'string') {
@@ -13,17 +9,17 @@ export default function(arg:any):string|undefined {
         return 'null';
     }
 
-    if(isDate(arg)) return "Date";
+    if(IsSomething.isDate(arg)) return "Date";
 
-    if(isError(arg)) return "Error";
+    if(IsSomething.isError(arg)) return "Error";
 
-    if(isRegExp(arg)) return "RegExp";
+    if(IsSomething.isRegExp(arg)) return "RegExp";
 
     if(typeof arg === 'function') {
-        return isClass(arg)? arg.constructor.name : "function";
+        return IsSomething.isClass(arg)? arg.constructor.name : "function";
     }
 
     if(typeof arg === 'object') {
-        return isArray(arg)? "array":"object";
+        return IsSomething.isArray(arg)? "array":"object";
     }
 }

@@ -1,6 +1,6 @@
 {
   "name": "sussyutilbyraphaelbader",
-  "version": "1.6.0-alpha.1",
+  "version": "1.6.0-alpha.2",
   "description": "Util package made by me",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
