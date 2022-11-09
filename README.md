@@ -2,7 +2,7 @@
 <p align="center">
     Just a few Functions and Classes made by me
     <br>
-    <strong>Version 1.6.0 Beta 1</strong>
+    <strong>Version 1.6.0 Beta 2</strong>
 </p>
 
 # Table of Contents
@@ -43,6 +43,7 @@
   - [Change Log](#change-log)
     - [v1.5.0](#v150)
     - [v1.6.0-alpha](#v160-alpha)
+    - [v1.6.0-beta](#v160-beta)
 
 ## Classes
 
@@ -462,7 +463,7 @@ changed StringUtil.prototype.generateCharacter to StringUtil.generateCharacter <
 added new param to StringUtil.generateCharacter <br>
 <br>
 changed merge to accept MutableObject instead of Object <br>
-<br>
+
 `New`
 
 added callIfFunction function<br>
@@ -518,3 +519,15 @@ isPrime function<br>
 isRegExp function<br>
 isString function<br>
 isSymbol function<br>
+
+### v1.6.0-beta
+
+`New`
+
+added objectToMutableObject function<br>
+added IsSomething.isDefined function<br>
+added IsSomething.isEmpty function<br>
+added IsSomething.isInfinite function<br>
+added IsSomething.isPrimitive function<br>
+added IsSomething.isType function<br>
+added IsSomething.isInstanceOf function<br>

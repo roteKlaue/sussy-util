@@ -1,6 +1,8 @@
+import { hasValue, objectToString } from "../allFunctions";
+
 export default class isSomething {
     static isArray(arg:any):boolean {
-        return Array.isArray(arg);
+        return Array.isArray(arg) || objectToString(arg) === "[object Array]";
     }
 
     static isBoolean(arg:any):boolean {
@@ -27,6 +29,14 @@ export default class isSomething {
         return arg && (arg.constructor === Date.constructor && arg instanceof Date);
     }
 
+    static isDefined(arg:any):boolean {
+        return typeof arg !== 'undefined';
+    }
+
+    static isEmpty(arg:any):boolean {
+        return !hasValue(arg);
+    }
+
     static isError(arg:any):boolean {
         return arg && (arg.constructor === Error.constructor && arg instanceof Error);
     }
@@ -42,6 +52,10 @@ export default class isSomething {
         return a && (typeof a === 'function' || a instanceof Function) && !this.isClass(a);
     }
 
+    static isInfinite(arg:any):boolean {
+        return arg && (arg === Infinity || arg === -Infinity);
+    }
+
     static isNullorUndefined(arg:any):boolean {
         return arg === null || arg === undefined;
     }
@@ -54,7 +68,7 @@ export default class isSomething {
         return arg && (typeof arg === "object" && arg instanceof Object && !this.isArray(arg));
     }
 
-    static isPrime(num: number):boolean|null {
+    static isPrime(num:number):boolean|null {
         if(typeof num !== 'number') {
             return null;
         }
@@ -75,15 +89,28 @@ export default class isSomething {
         return true;
     }
 
-    static isRegExp(arg:any): any {
+    static isPrimitive(arg:any):boolean {
+        return this.isNullorUndefined(arg) || this.isString(arg) || this.isNumber(arg) || this.isBoolean(arg) || this.isSymbol(arg);
+    }
+
+    static isRegExp(arg:any):boolean {
         return arg && (arg instanceof RegExp || arg.constructor === RegExp.constructor);
     }
 
-    static isString(args: any):boolean {
+    static isString(args:any):boolean {
         return args && (typeof args === "string" || args instanceof String || (args + "") === args);
     }
 
     static isSymbol(arg:any):boolean {
         return arg && (typeof arg === "symbol" || arg instanceof Symbol);
+    }
+
+    static isType(arg:any, type:String):boolean {
+        return typeof arg === type;
+    }
+
+    static isInstanceOf(value:any, constructor:Function):boolean|null {
+        if (!this.isClass(constructor)) return null;
+        return value instanceof constructor;
     }
 }
