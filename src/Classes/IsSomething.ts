@@ -54,9 +54,9 @@ export default class isSomething {
         return arg && (typeof arg === "object" && arg instanceof Object && !this.isArray(arg));
     }
 
-    static isPrime(num: number):boolean {
+    static isPrime(num: number):boolean|null {
         if(typeof num !== 'number') {
-            throw new TypeError("num must be of type number. it is: " + typeof num);
+            return null;
         }
 
         if (num < 2) {

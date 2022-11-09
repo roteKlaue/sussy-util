@@ -2,39 +2,40 @@
 <p align="center">
     Just a few Functions and Classes made by me
     <br>
-    <strong>Version 1.6.0 Alpha 2</strong>
+    <strong>Version 1.6.0 Beta 1</strong>
 </p>
 
 # Table of Contents
 - [Table of Contents](#table-of-contents)
   - [Classes](#classes)
     - [Collection](#collection)
-    - [ImprovedArray](#improvedarray)
-    - [Stack](#stack)
-    - [Set](#set)
-    - [StringUtil](#stringutil)
     - [DateUtil](#dateutil)
+    - [ImprovedArray](#improvedarray)
+    - [IsSomething](#issomething)
+    - [Set](#set)
+    - [Stack](#stack)
+    - [StringUtil](#stringutil)
   - [Functions](#functions)
-    - [asyncHandler](#asynchandler)
-    - [bytesToSize](#bytestosize)
-    - [getRandomNumberInRange](#getrandomnumberinrange)
-    - [merge](#merge)
-    - [removeFirstDigit](#removefirstdigit)
-    - [removeLastDigit](#removelastdigit)
-    - [removeXDigits](#removexdigits)
-    - [callbackify](#callbackify)
-    - [betterRound](#betterround)
-    - [hasValue](#hasvalue)
-    - [measureTime](#measuretime)
-    - [getTypeString](#gettypestring)
     - [addProperty](#addproperty)
+    - [asyncHandler](#asynchandler)
     - [attributesToArray](#attributestoarray)
-    - [hasProperty](#hasproperty)
-    - [strickJSONParse](#strickjsonparse)
+    - [betterRound](#betterround)
+    - [bytesToSize](#bytestosize)
+    - [callbackify](#callbackify)
     - [callIfFunction](#calliffunction)
     - [deepClone](#deepclone)
-    - [removeProperty](#removeproperty)
+    - [getRandomNumberInRange](#getrandomnumberinrange)
+    - [getTypeString](#gettypestring)
+    - [hasProperty](#hasproperty)
+    - [hasValue](#hasvalue)
+    - [measureTime](#measuretime)
+    - [merge](#merge)
     - [objectToString](#objecttostring)
+    - [removeFirstDigit](#removefirstdigit)
+    - [removeLastDigit](#removelastdigit)
+    - [removeProperty](#removeproperty)
+    - [removeXDigits](#removexdigits)
+    - [strickJSONParse](#strickjsonparse)
   - [Updating](#updating)
     - [Going from 1.0.X to 1.1.X](#going-from-10x-to-11x)
     - [Going from 1.1.X to 1.2.X](#going-from-11x-to-12x)
@@ -46,11 +47,12 @@
 ## Classes
 
  - [Collection](#collection)
- - [ImprovedArray](#improvedarray)
- - [Stack](#stack)
- - [Set](#set)
- - [StringUtil](#stringutil)
  - [DateUtil](#dateutil)
+ - [IsSomething](#issomething)
+ - [ImprovedArray](#improvedarray)
+ - [Set](#set)
+ - [Stack](#stack)
+ - [StringUtil](#stringutil)
 
 ### Collection
 >```js
@@ -64,6 +66,31 @@
 > collection.remove(key);
 > collection.toArray(); // returns a array of {key, value}
 >```
+
+### DateUtil
+
+>```js
+> // get DateUtil class
+> const { DateUtil } = require('sussyutilbyraphaelbader');
+>
+> //static functions
+> DateUtil.getCurrentDate(); // returns the current date
+> DateUtil.today(); // returns the current date at 00:00:00
+> DateUtil.tomorrow(); // returns the next day at 00:00:00
+> DateUtil.yesterday(); // returns the last day at 00:00:00
+> DateUtil.conpareDates(date1,date2); // returns and interger based on which date is bigger
+> DateUtil.equals(date1, date2); // returns boolean based of if both dates are identical
+> DateUtil.getMonthAbbr(month); // returns the abbreviated month name based on the number given 
+> DateUtil.getMonthFullName(month); // returns the full month name based on the number given 
+> DateUtil.getDayAbbr(day); // returns the abbreviated day name based on the number given
+> DateUtil.getDayFullName(day); // returns the full day name based on the number given
+> DateUtil.isLeapYear(year); // returns boolean based on if the given year is a leap year
+> DateUtil.weekFirstDay(); // returns the first week day of the current week
+> DateUtil.weekLastDay(); // returns the last week day of the current week
+> DateUtil.leapYearsInRange(12, 2020); // returns all leap years in the given range
+> DateUtil.getMonthFirstDay(); // returns the first day of the current month
+> DateUtil.getMonthLastDay(); // returns the last day of the current month
+> ```
 
 ### ImprovedArray
 
@@ -92,20 +119,28 @@
 > array.flatten(); // flattens the array
 >```
 
-### Stack
+### IsSomething
 
 >```js
-> // create a Stack
-> const { Stack } = require('sussyutilbyraphaelbader');
-> const stack = new Stack();
+> // get IsSomething class
+> const { IsSomething } = require('sussyutilbyraphaelbader');
 >
-> //usage example
-> stack.push(...elm); // put elm on top of stack
-> const value = stack.pop(); // returns value on top of stack and removes it
-> const value = stack.peek(); // returns value on top of stack without removing it
-> stack.empty(); // returns if stack is empty
-> stack.toArray(); // returns stack as array
->```
+> // static methods
+> IsSomething.isArray(); // returns true if the given value is a array
+> IsSomething.isBoolean(); // returns true if the given value is a boolean
+> IsSomething.isClass(); // returns if the given value is a class constructor
+> IsSomething.isDate(); // returns true if the given value is a instanceof Date
+> IsSomething.isError(); // returns true if the given value is a instanceof Error
+> IsSomething.isEven(); // returns true if the given  number is even returns null if given value is not a number
+> IsSomething.isFunction(); // returns true if the given value is a function
+> IsSomething.isNullorUndefined(); // returns true if the given value is null or undefined
+> IsSomething.isNumber(); // returns true if the given value is a number or a string which contains only digits
+> IsSomething.isObject(); // returns true if the given value is a object but not an array
+> IsSomething.isPrime(); // returns true if the given number is a prime number returns null if given value is not a number
+> IsSomething.isRegExp(); // returns true if the given value is a regular expression
+> IsSomething.isString(); // returns true if the given value is a string
+> IsSomething.isSymbol(); // returns true if the given is a instanceof Symbol
+> ```
 
 ### Set
 
@@ -124,10 +159,25 @@
 > set.changeCheckFunction(() => {}); // changes the check function for each element
 >```
 
+### Stack
+
+>```js
+> // create a Stack
+> const { Stack } = require('sussyutilbyraphaelbader');
+> const stack = new Stack();
+>
+> //usage example
+> stack.push(...elm); // put elm on top of stack
+> const value = stack.pop(); // returns value on top of stack and removes it
+> const value = stack.peek(); // returns value on top of stack without removing it
+> stack.empty(); // returns if stack is empty
+> stack.toArray(); // returns stack as array
+>```
+
 ### StringUtil
 
 >```ts
-> // create a Stack
+> // get StringUtil class
 > const { StringUtil } = require('sussyutilbyraphaelbader');
 >
 > //static function example usage
@@ -162,52 +212,35 @@
 > StringUtil.lpad(string, number); // returns string padded on the left site to given length: number
 >```
 
-### DateUtil
-
->```js
-> const { DateUtil } = require('sussyutilbyraphaelbader');
->
-> //static functions
-> DateUtil.getCurrentDate(); // returns the current date
-> DateUtil.today(); // returns the current date at 00:00:00
-> DateUtil.tomorrow(); // returns the next day at 00:00:00
-> DateUtil.yesterday(); // returns the last day at 00:00:00
-> DateUtil.conpareDates(date1,date2); // returns and interger based on which date is bigger
-> DateUtil.equals(date1, date2); // returns boolean based of if both dates are identical
-> DateUtil.getMonthAbbr(month); // returns the abbreviated month name based on the number given 
-> DateUtil.getMonthFullName(month); // returns the full month name based on the number given 
-> DateUtil.getDayAbbr(day); // returns the abbreviated day name based on the number given
-> DateUtil.getDayFullName(day); // returns the full day name based on the number given
-> DateUtil.isLeapYear(year); // returns boolean based on if the given year is a leap year
-> DateUtil.weekFirstDay(); // returns the first week day of the current week
-> DateUtil.weekLastDay(); // returns the last week day of the current week
-> DateUtil.leapYearsInRange(12, 2020); // returns all leap years in the given range
-> DateUtil.getMonthFirstDay(); // returns the first day of the current month
-> DateUtil.getMonthLastDay(); // returns the last day of the current month
-> ```
-
 ## Functions
 
-  - [asyncHandler](#asynchandler)
-  - [bytesToSize](#bytestosize)
-  - [getRandomNumberInRange](#getrandomnumberinrange)
-  - [merge](#merge)
-  - [removeFirstDigit](#removefirstdigit)
-  - [removeLastDigit](#removelastdigit)
-  - [removeXDigits](#removexdigits)
-  - [callbackify](#callbackify)
-  - [betterRound](#betterround)
-  - [hasValue](#hasvalue)
-  - [measureTime](#measuretime)
-  - [getTypeString](#gettypestring)
   - [addProperty](#addproperty)
+  - [asyncHandler](#asynchandler)
   - [attributesToArray](#attributestoarray)
-  - [hasProperty](#hasproperty)
-  - [strickJSONParse](#strickjsonparse)
+  - [betterRound](#betterround)
+  - [bytesToSize](#bytestosize)
+  - [callbackify](#callbackify)
   - [callIfFunction](#calliffunction)
   - [deepClone](#deepclone)
-  - [removeProperty](#removeproperty)
+  - [getRandomNumberInRange](#getrandomnumberinrange)
+  - [getTypeString](#gettypestring)
+  - [hasProperty](#hasproperty)
+  - [hasValue](#hasvalue)
+  - [measureTime](#measuretime)
+  - [merge](#merge)
   - [objectToString](#objecttostring)
+  - [removeFirstDigit](#removefirstdigit)
+  - [removeLastDigit](#removelastdigit)
+  - [removeProperty](#removeproperty)
+  - [removeXDigits](#removexdigits)
+  - [strickJSONParse](#strickjsonparse)
+
+### addProperty
+
+>```js
+> const { addProperty } = require('sussyutilbyraphaelbader');
+> addProperty({sus:true}, "imposter", true); // output: { sus:true, imposter:true }
+>```
 
 ### asyncHandler
 
@@ -223,6 +256,20 @@
 > }
 >```
 
+### attributesToArray
+
+>```js
+> const { attributesToArray } = require('sussyutilbyraphaelbader');
+> attributesToArray({ sus:true, imposter:true }, true); // output: [true, true];
+>```
+
+### betterRound
+
+>```js
+> const { betterRound } = require('sussyutilbyraphaelbader');
+> console.log(betterRound(123.56, 1)); // output: 123.6
+> ```
+
 ### bytesToSize
 
 >```js
@@ -230,41 +277,6 @@
 > const bytesString = bytesToSize(12300);
 > console.log(bytesString); // output: 12.0 KB
 >```
-
-### getRandomNumberInRange
-
->```js
-> const { getRandomNumberInRange } = require('sussyutilbyraphaelbader'); 
-> console.log(getRandomNumberInRange(1,5); // output:random number from 1 to 5
-> ```
-
-### merge
-
->```js
-> const { merge } = require('sussyutilbyraphaelbader');
-> console.log(merge({ a:12, b:34 }, { m:34 })); // output: { a:12, b:34, m:34 }
->```
-
-### removeFirstDigit 
-
->```js
-> const { removeFirstDigit } = require('sussyutilbyraphaelbader');
-> console.log(removeFirstDigit(123); // output: 23
-> ```
-
-### removeLastDigit
-
->```js
-> const { removeLastDigit } = require('sussyutilbyraphaelbader');
-> console.log(removeLastDigit(123)); // output: 12
-> ```
-
-### removeXDigits
-
->```js
-> const { removeXDigits } = require('sussyutilbyraphaelbader');
-> console.log(removeXDigits(7213, 3); // removes x amount of digits from behind | output: 7
-> ```
 
 ### callbackify
 
@@ -279,11 +291,43 @@
 > 123.123, 2);
 > ```
 
-### betterRound
+### callIfFunction
 
 >```js
-> const { betterRound } = require('sussyutilbyraphaelbader');
-> console.log(betterRound(123.56, 1)); // output: 123.6
+> const { callIfFunction } = require('sussyutilbyraphaelbader');
+> callIfFunction(() => true); // output: true
+> callIfFunction({hi:false}); // output: null
+>```
+
+### deepClone
+
+>```js
+> const { deepClone } = require('sussyutilbyraphaelbader');
+> deepClone({er:true, us:{or:true}}): // output: {er:true, us:{or:true}}
+>```
+
+### getRandomNumberInRange
+
+>```js
+> const { getRandomNumberInRange } = require('sussyutilbyraphaelbader'); 
+> console.log(getRandomNumberInRange(1,5); // output:random number from 1 to 5
+> ```
+
+### getTypeString 
+
+>```js
+> const { getTypeString } = require('sussyutilbyraphaelbader');
+> getTypeString(213); // output: number
+> getTypeString("sad"); // output: string
+> getTypeString(class sus { constructor(){} }); // output: class
+> getTypeString(() => {}); // output: function
+> ```
+
+### hasProperty
+
+>```js
+> const { hasProperty } = require('sussyutilbyraphaelbader');
+> hasProperty({ sus:true }, "sus"); // output: true
 > ```
 
 ### hasValue
@@ -311,58 +355,33 @@
 > measureTime(label, function, params); // logs the time it takes to run the function
 > ```
 
-### getTypeString 
+### merge
 
 >```js
-> const { getTypeString } = require('sussyutilbyraphaelbader');
-> getTypeString(213); // output: number
-> getTypeString("sad"); // output: string
-> getTypeString(class sus { constructor(){} }); // output: class
-> getTypeString(() => {}); // output: function
+> const { merge } = require('sussyutilbyraphaelbader');
+> console.log(merge({ a:12, b:34 }, { m:34 })); // output: { a:12, b:34, m:34 }
+>```
+
+### objectToString
+
+>```js
+> const { objectToString } = require('sussyutilbyraphaelbader');
+> objectToString({}); // output: [object Object]
+>```
+
+### removeFirstDigit 
+
+>```js
+> const { removeFirstDigit } = require('sussyutilbyraphaelbader');
+> console.log(removeFirstDigit(123); // output: 23
 > ```
 
-### addProperty
+### removeLastDigit
 
 >```js
-> const { addProperty } = require('sussyutilbyraphaelbader');
-> addProperty({sus:true}, "imposter", true); // output: { sus:true, imposter:true }
->```
-
-### attributesToArray
-
->```js
-> const { attributesToArray } = require('sussyutilbyraphaelbader');
-> attributesToArray({ sus:true, imposter:true }, true); // output: [true, true];
->```
-
-### hasProperty
-
->```js
-> const { hasProperty } = require('sussyutilbyraphaelbader');
-> hasProperty({ sus:true }, "sus"); // output: true
+> const { removeLastDigit } = require('sussyutilbyraphaelbader');
+> console.log(removeLastDigit(123)); // output: 12
 > ```
-
-### strickJSONParse
-
->```js
-> const { strickJSONParse } = require('sussyutilbyraphaelbader');
-> strickJSONParse("{ sus:true }"); // output: { sus:true }
->```
-
-### callIfFunction
-
->```js
-> const { callIfFunction } = require('sussyutilbyraphaelbader');
-> callIfFunction(() => true); // output: true
-> callIfFunction({hi:false}); // output: null
->```
-
-### deepClone
-
->```js
-> const { deepClone } = require('sussyutilbyraphaelbader');
-> deepClone({er:true, us:{or:true}}): // output: {er:true, us:{or:true}}
->```
 
 ### removeProperty
 
@@ -371,11 +390,18 @@
 > removeProperty({ sus:true, imposter:true }, "imposter"); // output: { sus:true }
 >```
 
-### objectToString
+### removeXDigits
 
 >```js
-> const { objectToString } = require('sussyutilbyraphaelbader');
-> objectToString({}); // output: [object Object]
+> const { removeXDigits } = require('sussyutilbyraphaelbader');
+> console.log(removeXDigits(7213, 3); // removes x amount of digits from behind | output: 7
+> ```
+
+### strickJSONParse
+
+>```js
+> const { strickJSONParse } = require('sussyutilbyraphaelbader');
+> strickJSONParse("{ sus:true }"); // output: { sus:true }
 >```
 
 ## Updating

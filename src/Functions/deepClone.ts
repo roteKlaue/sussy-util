@@ -1,7 +1,7 @@
 import MutableObject from "../Interfaces/MutableObject";
 import IsSomething from "../Classes/IsSomething";
 
-export default function clone(obj:MutableObject|MutableObject[]):MutableObject|MutableObject[]|any|any[] {
+export default function clone(obj:MutableObject|MutableObject[]):MutableObject|MutableObject[] {
     if(Array.isArray(obj)) { return obj.map(clone); }
 
     if(IsSomething.isObject(obj)) {
