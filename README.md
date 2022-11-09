@@ -5,6 +5,8 @@
     <strong>Version 1.6.0 Beta 2</strong>
 </p>
 
+[![NPM version](https://img.shields.io/npm/v/sussyutilbyraphaelbader.svg?style=flat)](https://www.npmjs.com/package/sussyutilbyraphaelbader) [![NPM monthly downloads](https://img.shields.io/npm/dm/sussyutilbyraphaelbader?style=flat)](https://npmjs.org/package/sussyutilbyraphaelbader) [![NPM total downloads](https://img.shields.io/npm/dt/sussyutilbyraphaelbader.svg?style=flat)](https://npmjs.org/package/sussyutilbyraphaelbader)
+
 # Table of Contents
 - [Table of Contents](#table-of-contents)
   - [Classes](#classes)
@@ -40,6 +42,7 @@
     - [Going from 1.0.X to 1.1.X](#going-from-10x-to-11x)
     - [Going from 1.1.X to 1.2.X](#going-from-11x-to-12x)
     - [Going from 1.4.X to 1.5.X](#going-from-14x-to-15x)
+    - [Going from 1.5.X to 1.6.X](#going-from-15x-to-16x)
   - [Change Log](#change-log)
     - [v1.5.0](#v150)
     - [v1.6.0-alpha](#v160-alpha)
@@ -411,11 +414,11 @@
 renamed Class impArray to improvedArray
 
 >```js
->//old
+>// old
 >const { impArray } = require('sussyutilbyraphaelbader');
 >const array = new impArray();
 >
->//new
+>// new
 >const { improvedArray } = require('sussyutilbyraphaelbader');
 >const array = new improvedArray();
 >```
@@ -424,11 +427,11 @@ renamed Class impArray to improvedArray
 renamed Class improvedArray to ImprovedArray
 
 >```js
->//old
+>// old
 >const { improvedArray } = require('sussyutilbyraphaelbader');
 >const array = new improvedArray();
 >
->//new
+>// new
 >const { ImprovedArray } = require('sussyutilbyraphaelbader');
 >const a = new ImprovedArray();
 >```
@@ -437,7 +440,7 @@ renamed Class improvedArray to ImprovedArray
 Made all the non static String Functions static
 
 >```js
->//old
+>// old
 >const { StringUtil } = require('sussyutilbyraphaelbader');
 >const util = new StringUtil();
 >util.generatePassword(length);
@@ -445,6 +448,19 @@ Made all the non static String Functions static
 > // new
 >const { StringUtil } = require('sussyutilbyraphaelbader');
 >StringUtil.generatePassword(length, charset?);
+>```
+
+### Going from 1.5.X to 1.6.X
+Brought all isSomething functions into the IsSomething class as static functions
+
+>```js
+> // old
+> const { isFunction } = require('sussyutilbyraphaelbader');
+> isFunction(() => { return true }) // output: true
+>
+> // new
+> const { IsSomething } = require('sussyutilbyraphaelbader');
+> IsSomething.isFunction(() => {}); // output: true
 >```
 
 ## Change Log
