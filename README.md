@@ -2,7 +2,7 @@
 <p align="center">
     Just a few Functions and Classes made by me
     <br>
-    <strong>Version 1.6.0 Beta 2</strong>
+    <strong>Version 1.6.0</strong>
 </p>
 
 [![NPM version](https://img.shields.io/npm/v/sussyutilbyraphaelbader.svg?style=flat)](https://www.npmjs.com/package/sussyutilbyraphaelbader) [![NPM monthly downloads](https://img.shields.io/npm/dm/sussyutilbyraphaelbader?style=flat)](https://npmjs.org/package/sussyutilbyraphaelbader) [![NPM total downloads](https://img.shields.io/npm/dt/sussyutilbyraphaelbader.svg?style=flat)](https://npmjs.org/package/sussyutilbyraphaelbader)
@@ -47,6 +47,7 @@
     - [v1.5.0](#v150)
     - [v1.6.0-alpha](#v160-alpha)
     - [v1.6.0-beta](#v160-beta)
+    - [v1.6.0](#v160)
 
 ## Classes
 
@@ -518,24 +519,6 @@ added IsSomething.isRegExp function<br>
 added IsSomething.isString function<br>
 added IsSomething.isSymbol function<br>
 
-`Removed`
-
-isArray function<br>
-isBoolean function <br>
-isClass function<br>
-isDate function<br>
-isError function<br>
-isEven function<br>
-isFunction function<br>
-isNullorUndefined function<br>
-isNumber function<br>
-isObject function<br>
-isOdd function<br>
-isPrime function<br>
-isRegExp function<br>
-isString function<br>
-isSymbol function<br>
-
 ### v1.6.0-beta
 
 `New`
@@ -547,3 +530,23 @@ added IsSomething.isInfinite function<br>
 added IsSomething.isPrimitive function<br>
 added IsSomething.isType function<br>
 added IsSomething.isInstanceOf function<br>
+
+### v1.6.0
+
+`Change`
+
+deprecated isArray function<br>
+deprecated isBoolean function <br>
+deprecated isClass function<br>
+deprecated isDate function<br>
+deprecated isError function<br>
+deprecated isEven function<br>
+deprecated isFunction function<br>
+deprecated isNullorUndefined function<br>
+deprecated isNumber function<br>
+deprecated isObject function<br>
+deprecated isOdd function<br>
+deprecated isPrime function<br>
+deprecated isRegExp function<br>
+deprecated isString function<br>
+deprecated isSymbol function<br>
