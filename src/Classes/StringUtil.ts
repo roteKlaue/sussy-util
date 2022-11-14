@@ -187,6 +187,10 @@ export default class StringUtil {
 
     static lpad(str:string, minLen:number, ch?:string):string {
         ch = ch || ' ';
-        return ((str.length < minLen) ? this.repeat(ch, minLen - str.length) + str : str);  
+        return ((str.length < minLen)?this.repeat(ch, minLen - str.length) + str : str);  
     }
+    // static spilce(str:string):string {
+
+    //     return "";
+    // }
 }
