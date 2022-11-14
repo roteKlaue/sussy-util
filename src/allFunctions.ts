@@ -10,21 +10,6 @@ import getRandomNumberInRange from "./Functions/getRandomNumberInRange";
 import getTypeString from "./Functions/getTypeString";
 import hasProperty from "./Functions/hasProperty";
 import hasValue from "./Functions/hasValue";
-import isArray from "./Functions/isArray";
-import isBoolean from "./Functions/isBoolean";
-import isClass from "./Functions/isClass";
-import isDate from "./Functions/isDate";
-import isError from "./Functions/isError";
-import isEven from "./Functions/isEven";
-import isFunction from "./Functions/isFunction";
-import isNullorUndefined from "./Functions/isNullorUndefined";
-import isNumber from "./Functions/isNumber";
-import isObject from "./Functions/isObject";
-import isOdd from "./Functions/isOdd";
-import isPrime from "./Functions/isPrime";
-import isRegExp from "./Functions/isRegExp";
-import isString from "./Functions/isString";
-import isSymbol from "./Functions/isSymbol";
 import measureTime from "./Functions/measureTime";
 import merge from "./Functions/merge";
 import objectToString from "./Functions/objectToString";
@@ -47,21 +32,6 @@ export {
     getTypeString,
     hasProperty,
     hasValue,
-    isArray,
-    isBoolean,
-    isClass,
-    isDate,
-    isError,
-    isEven,
-    isFunction,
-    isNullorUndefined,
-    isNumber,
-    isObject,
-    isOdd,
-    isPrime,
-    isRegExp,
-    isString,
-    isSymbol,
     measureTime,
     merge,
     objectToString,
