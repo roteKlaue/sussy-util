@@ -1,8 +1,8 @@
 import IndexOutOfBoundsError from "../Error/IndexOutOfBoundsError";
-import impArray from "./ImprovedArray";
+import ImprovedArray from "./ImprovedArray";
 
 export default class Stack<T> {
-    private items:impArray<T> = new impArray<T>();
+    private items:ImprovedArray<T> = new ImprovedArray<T>();
 
     constructor() {};
 
