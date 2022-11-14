@@ -189,9 +189,9 @@ export default class StringUtil {
         ch = ch || ' ';
         return ((str.length < minLen)?this.repeat(ch, minLen - str.length) + str : str);  
     }
-    
-    // static spilce(str:string):string {
 
-    //     return "";
-    // }
+    static spilce(str:string, offset:number, removeCount = 0, text = ""):string {
+        const calculatedOffset = offset < 0 ? this.length + offset : offset;
+        return str.substring(0, calculatedOffset) + text + str.substring(calculatedOffset + removeCount);
+    }
 }
