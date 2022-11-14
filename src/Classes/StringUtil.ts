@@ -189,6 +189,7 @@ export default class StringUtil {
         ch = ch || ' ';
         return ((str.length < minLen)?this.repeat(ch, minLen - str.length) + str : str);  
     }
+    
     // static spilce(str:string):string {
 
     //     return "";
