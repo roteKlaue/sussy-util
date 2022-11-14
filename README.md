@@ -48,6 +48,7 @@
     - [v1.6.0-alpha](#v160-alpha)
     - [v1.6.0-beta](#v160-beta)
     - [v1.6.0](#v160)
+    - [v1.7.0-alpha](#v170-alpha)
 
 ## Classes
 
@@ -550,3 +551,27 @@ deprecated isPrime function<br>
 deprecated isRegExp function<br>
 deprecated isString function<br>
 deprecated isSymbol function<br>
+
+### v1.7.0-alpha
+
+`Added`
+
+added StringUtil.splice() function<br>
+
+`Remove`
+
+removed isArray function<br>
+removed isBoolean function <br>
+removed isClass function<br>
+removed isDate function<br>
+removed isError function<br>
+removed isEven function<br>
+removed isFunction function<br>
+removed isNullorUndefined function<br>
+removed isNumber function<br>
+removed isObject function<br>
+removed isOdd function<br>
+removed isPrime function<br>
+removed isRegExp function<br>
+removed isString function<br>
+removed isSymbol function<br>
