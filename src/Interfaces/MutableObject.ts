@@ -1,3 +1,3 @@
-export default interface MutableObject {
-    [k: string]: any;
+export default interface MutableObject<T> {
+    [k: string]: T;
 }

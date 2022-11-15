@@ -1,4 +1,6 @@
-export default function (obj:{[k: string]:any}, removeNull:boolean):any[] {
+import { MutableObject } from "../allInterfaces";
+
+export default function (obj:MutableObject<any>, removeNull:boolean):any[] {
     if(!obj || typeof obj !== 'object') {
         return [];
     }
@@ -7,5 +9,5 @@ export default function (obj:{[k: string]:any}, removeNull:boolean):any[] {
         return obj;
     }
 
-    return Object.keys(obj).filter(obj => !removeNull || obj);
+    return Object.keys(obj).map(e => obj[e]).filter(obj => !removeNull || obj);
 }

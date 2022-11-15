@@ -3,9 +3,13 @@
     Just a few Functions and Classes made by me
     <br>
     <strong>Version 1.7.0 Beta</strong>
+    <br>
+    <a href="https://www.npmjs.com/package/sussyutilbyraphaelbader"><img src="https://img.shields.io/npm/v/sussyutilbyraphaelbader.svg?style=flat"></a>
+    <a href="https://npmjs.org/package/sussyutilbyraphaelbader"><img src="https://img.shields.io/npm/dm/sussyutilbyraphaelbader?style=flat"></a>
+    <a href="https://npmjs.org/package/sussyutilbyraphaelbader"><img src="https://img.shields.io/npm/dt/sussyutilbyraphaelbader.svg?style=flat"></a>
+    <a href="https://packagephobia.com/result?p=sussyutilbyraphaelbader"><img src="https://packagephobia.com/badge?p=sussyutilbyraphaelbader"></a>
+    <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-1-red.svg?style=flat"></a>
 </p>
-
-[![NPM version](https://img.shields.io/npm/v/sussyutilbyraphaelbader.svg?style=flat)](https://www.npmjs.com/package/sussyutilbyraphaelbader) [![NPM monthly downloads](https://img.shields.io/npm/dm/sussyutilbyraphaelbader?style=flat)](https://npmjs.org/package/sussyutilbyraphaelbader) [![NPM total downloads](https://img.shields.io/npm/dt/sussyutilbyraphaelbader.svg?style=flat)](https://npmjs.org/package/sussyutilbyraphaelbader) [![install size](https://packagephobia.com/badge?p=sussyutilbyraphaelbader)](https://packagephobia.com/result?p=sussyutilbyraphaelbader) [![All Contributors](https://img.shields.io/badge/all_contributors-1-red.svg?style=flat-square)](#contributors)
 
 # Table of Contents
 - [Table of Contents](#table-of-contents)
@@ -14,6 +18,7 @@
     - [DateUtil](#dateutil)
     - [ImprovedArray](#improvedarray)
     - [IsSomething](#issomething)
+    - [Random](#random)
     - [Set](#set)
     - [Stack](#stack)
     - [StringUtil](#stringutil)
@@ -26,7 +31,6 @@
     - [callbackify](#callbackify)
     - [callIfFunction](#calliffunction)
     - [deepClone](#deepclone)
-    - [getRandomNumberInRange](#getrandomnumberinrange)
     - [getTypeString](#gettypestring)
     - [hasProperty](#hasproperty)
     - [hasValue](#hasvalue)
@@ -57,6 +61,7 @@
  - [DateUtil](#dateutil)
  - [IsSomething](#issomething)
  - [ImprovedArray](#improvedarray)
+ - [Random](#random)
  - [Set](#set)
  - [Stack](#stack)
  - [StringUtil](#stringutil)
@@ -149,6 +154,17 @@
 > IsSomething.isSymbol(); // returns true if the given is a instanceof Symbol
 > ```
 
+### Random
+
+>```js
+>const { Random } = require('sussyutilbyraphaelbader');
+>
+>Random.randomInt(upper, lower); // returns a random integer with upper and lower bounds given
+>Random.randomDouble(upper, lower); // returns a random double with upper and lower bounds
+>Random.randomString(length, charset?); // returns a random string with given length and charset
+>Random.randomChar(charset?); // returns a random char with given charset
+>```
+
 ### Set
 
 >```js
@@ -229,7 +245,6 @@
   - [callbackify](#callbackify)
   - [callIfFunction](#calliffunction)
   - [deepClone](#deepclone)
-  - [getRandomNumberInRange](#getrandomnumberinrange)
   - [getTypeString](#gettypestring)
   - [hasProperty](#hasproperty)
   - [hasValue](#hasvalue)
@@ -312,13 +327,6 @@
 > const { deepClone } = require('sussyutilbyraphaelbader');
 > deepClone({er:true, us:{or:true}}): // output: {er:true, us:{or:true}}
 >```
-
-### getRandomNumberInRange
-
->```js
-> const { getRandomNumberInRange } = require('sussyutilbyraphaelbader'); 
-> console.log(getRandomNumberInRange(1,5); // output:random number from 1 to 5
-> ```
 
 ### getTypeString 
 
@@ -561,10 +569,10 @@ renamed function StringUtil.isNumber to StringUtil.isInteger<br>
 
 `Added`
 
-added StringUtil.splice() function<br>
-added StringUtil.isFloat() function<br>
-added StringUtil.ltrim() function<br>
-added StringUtil.rtrim() function<br>
+added StringUtil.splice function<br>
+added StringUtil.isFloat function<br>
+added StringUtil.ltrim function<br>
+added StringUtil.rtrim function<br>
 
 `Remove`
 
@@ -593,7 +601,8 @@ deprecated getNumberInRange function<br>
 `Added`
 
 class Random <br>
-added Random.randomInt function<br>
-added Random.randomDouble function<br>
-added Random.randomChar function<br>
-added Random.randomString function<br>
+added Random.prototype.randomInt function<br>
+added Random.prototype.randomDouble function<br>
+added Random.prototype.randomChar function<br>
+added Random.prototype.randomString function<br>
+added primefactors function<br>
