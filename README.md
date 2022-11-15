@@ -5,7 +5,7 @@
     <strong>Version 1.7.0 Alpha</strong>
 </p>
 
-[![NPM version](https://img.shields.io/npm/v/sussyutilbyraphaelbader.svg?style=flat)](https://www.npmjs.com/package/sussyutilbyraphaelbader) [![NPM monthly downloads](https://img.shields.io/npm/dm/sussyutilbyraphaelbader?style=flat)](https://npmjs.org/package/sussyutilbyraphaelbader) [![NPM total downloads](https://img.shields.io/npm/dt/sussyutilbyraphaelbader.svg?style=flat)](https://npmjs.org/package/sussyutilbyraphaelbader) [![install size](https://packagephobia.com/badge?p=sussyutilbyraphaelbader)](https://packagephobia.com/result?p=sussyutilbyraphaelbader)
+[![NPM version](https://img.shields.io/npm/v/sussyutilbyraphaelbader.svg?style=flat)](https://www.npmjs.com/package/sussyutilbyraphaelbader) [![NPM monthly downloads](https://img.shields.io/npm/dm/sussyutilbyraphaelbader?style=flat)](https://npmjs.org/package/sussyutilbyraphaelbader) [![NPM total downloads](https://img.shields.io/npm/dt/sussyutilbyraphaelbader.svg?style=flat)](https://npmjs.org/package/sussyutilbyraphaelbader) [![install size](https://packagephobia.com/badge?p=sussyutilbyraphaelbader)](https://packagephobia.com/result?p=sussyutilbyraphaelbader) [![All Contributors](https://img.shields.io/badge/all_contributors-1-red.svg?style=flat-square)](#contributors)
 
 # Table of Contents
 - [Table of Contents](#table-of-contents)

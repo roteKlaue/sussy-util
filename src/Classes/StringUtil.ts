@@ -190,8 +190,9 @@ export default class StringUtil {
         return ((str.length < minLen)?this.repeat(ch, minLen - str.length) + str : str);  
     }
 
-    static spilce(str:string, offset:number, removeCount = 0, text = ""):string {
+    static spilce(str:string, offset:number, removeCount:number|undefined, text = ""):string {
+        if(typeof str !== "string" || typeof offset !== 'number' || offset > str.length) return "";
         const calculatedOffset = offset < 0 ? this.length + offset:offset;
-        return str.substring(0, calculatedOffset) + text + str.substring(calculatedOffset + removeCount);
+        return str.substring(0, calculatedOffset) + text + str.substring(calculatedOffset + (removeCount? removeCount: 0));
     }
 }

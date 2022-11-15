@@ -8,7 +8,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc",
     "prepublish": "tsc",
-    "publish": "npm publish"
+    "publish": "npm publish",
+    "git push": "git push",
+    "git pull": "git pull"
   },
   "repository": {
     "type": "git",
