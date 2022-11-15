@@ -2,7 +2,7 @@
 <p align="center">
     Just a few Functions and Classes made by me
     <br>
-    <strong>Version 1.7.0 Alpha</strong>
+    <strong>Version 1.7.0 Beta</strong>
 </p>
 
 [![NPM version](https://img.shields.io/npm/v/sussyutilbyraphaelbader.svg?style=flat)](https://www.npmjs.com/package/sussyutilbyraphaelbader) [![NPM monthly downloads](https://img.shields.io/npm/dm/sussyutilbyraphaelbader?style=flat)](https://npmjs.org/package/sussyutilbyraphaelbader) [![NPM total downloads](https://img.shields.io/npm/dt/sussyutilbyraphaelbader.svg?style=flat)](https://npmjs.org/package/sussyutilbyraphaelbader) [![install size](https://packagephobia.com/badge?p=sussyutilbyraphaelbader)](https://packagephobia.com/result?p=sussyutilbyraphaelbader) [![All Contributors](https://img.shields.io/badge/all_contributors-1-red.svg?style=flat-square)](#contributors)
@@ -49,6 +49,7 @@
     - [v1.6.0-beta](#v160-beta)
     - [v1.6.0](#v160)
     - [v1.7.0-alpha](#v170-alpha)
+    - [v1.7.0-beta](#v170-beta)
 
 ## Classes
 
@@ -582,3 +583,17 @@ removed isPrime function<br>
 removed isRegExp function<br>
 removed isString function<br>
 removed isSymbol function<br>
+
+### v1.7.0-beta
+
+`Change`
+
+deprecated getNumberInRange function<br>
+
+`Added`
+
+class Random <br>
+added Random.randomInt function<br>
+added Random.randomDouble function<br>
+added Random.randomChar function<br>
+added Random.randomString function<br>

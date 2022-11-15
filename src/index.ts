@@ -1,4 +1,4 @@
-import { Collection, DateUtil, ImprovedArray, IsSomething, Set, Stack, StringUtil } from './allClasses';
+import { Collection, DateUtil, ImprovedArray, IsSomething, Random, Set, Stack, StringUtil } from './allClasses';
 import { AlreadyExistsInCollectionError, IndexOutOfBoundsError } from "./allErrors";
 import { addProperty, asyncHandler, attributesToArray, betterRound, bytesToSize, callbackify, callIfFunction, deepClone, getRandomNumberInRange, getTypeString, hasProperty, hasValue, measureTime, merge, objectToString, removeFirstDigit, removeLastDigit, removeProperty, removeXDigits, strictJSONParse } from "./allFunctions";
 
@@ -17,6 +17,7 @@ export {
     DateUtil,
     ImprovedArray,
     IsSomething,
+    Random,
     Set,
     Stack, 
     StringUtil,
