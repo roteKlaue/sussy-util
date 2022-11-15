@@ -554,9 +554,16 @@ deprecated isSymbol function<br>
 
 ### v1.7.0-alpha
 
+`Change`
+
+renamed function StringUtil.isNumber to StringUtil.isInteger<br>
+
 `Added`
 
 added StringUtil.splice() function<br>
+added StringUtil.isFloat() function<br>
+added StringUtil.ltrim() function<br>
+added StringUtil.rtrim() function<br>
 
 `Remove`
 

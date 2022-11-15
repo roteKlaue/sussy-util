@@ -39,9 +39,14 @@ export default class StringUtil {
         return !!username.match(/^.{4,32}#\d{4}$/);
     }
 
-    static isNumeric(value:string):boolean {
+    static isInteger(value:string):boolean {
         return /^\d+$/.test(value);
     }
+
+    static isFloat(value:string):boolean {
+        return /^(-)?(\d)*(\.)?(\d)*$/.test(value);
+    }
+
 
     static isStrongPassword(value:string):boolean {
         return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(value);
@@ -194,5 +199,17 @@ export default class StringUtil {
         if(typeof str !== "string" || typeof offset !== 'number' || offset > str.length) return "";
         const calculatedOffset = offset < 0 ? this.length + offset:offset;
         return str.substring(0, calculatedOffset) + text + str.substring(calculatedOffset + (removeCount? removeCount: 0));
+    }
+
+    static isEmpty(str:string):boolean {
+        return (!str || str.length === 0 || str === "");
+    }
+
+    static ltrim(str:string):string {
+        return str.replace(/^\s+/, "");
+    }
+    
+    static rtrim(str:string):string {
+        return str.replace(/\s+$/, "");
     }
 }
