@@ -5,10 +5,10 @@
     <strong>Version 1.7.0</strong>
     <br>
     <a href="https://www.npmjs.com/package/sussyutilbyraphaelbader"><img src="https://img.shields.io/npm/v/sussyutilbyraphaelbader.svg?style=flat"></a>
-    <a href="https://npmjs.org/package/sussyutilbyraphaelbader"><img src="https://img.shields.io/npm/dm/sussyutilbyraphaelbader?style=flat"></a>
     <a href="https://npmjs.org/package/sussyutilbyraphaelbader"><img src="https://img.shields.io/npm/dt/sussyutilbyraphaelbader.svg?style=flat"></a>
     <a href="https://packagephobia.com/result?p=sussyutilbyraphaelbader"><img src="https://packagephobia.com/badge?p=sussyutilbyraphaelbader"></a>
     <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-1-red.svg?style=flat"></a>
+    <a href="https://www.npmjs.com/package/sussyutilbyraphaelbader"> <img src="https://shields.io/npm/l/sussyutilbyraphaelbader.svg"> </a>
 </p>
 
 # Table of Contents
