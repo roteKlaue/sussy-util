@@ -71,4 +71,8 @@ export default class Set<T> {
     toString():string {
         return `Set: ${this.items.toString()}`;
     }
+
+    toJSONString():string {
+        return JSON.stringify(this.items);
+    }
 }

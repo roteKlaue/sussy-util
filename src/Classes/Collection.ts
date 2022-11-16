@@ -1,6 +1,6 @@
 import AlreadyExistsInCollectionError from "../Error/AlreadyExistsInCollectionError";
 import ImprovedArray from "./ImprovedArray";
-import MapEntries from "../Interfaces/MapEntry";
+import MapEntries from "../types/MapEntry";
 
 export default class Collection <K,V> {
 	private map:ImprovedArray<MapEntries<K,V>> = new ImprovedArray<MapEntries<K,V>>();
@@ -18,6 +18,10 @@ export default class Collection <K,V> {
 		this.map.push({key:key, value:value});
 	}
 
+	put(kv:MapEntries<K,V>):void {
+		this.map = this.map.filter((e) => e.key !== kv.key) as ImprovedArray<MapEntries<K,V>>;
+		this.map.push(kv);
+	}
 
 	remove(key:K):MapEntries<K,V> {
 		const object = this.map.find((e) => e.key === key);
@@ -33,5 +37,21 @@ export default class Collection <K,V> {
 
 	toArray():MapEntries<K,V>[] {
 		return this.map;
+	}
+
+	count(): number {
+        return Object.keys(this.map).length;
+    }
+
+	has(key: K): boolean {
+		return !!this.map.find((e) => e.key === key);
+    }
+
+    missing(key: K): boolean {
+        return !this.has(key);
+    }
+
+	toJSONString():string {
+		return JSON.stringify(this.map);
 	}
 }

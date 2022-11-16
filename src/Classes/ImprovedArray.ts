@@ -86,10 +86,13 @@ export default class ImprovedArray<T> extends Array<T> {
         return result;
     }
 
-
     flatten():void {
         const newARR = ImprovedArray.flat(this);
         this.clear();
         this.push(...newARR);
+    }
+
+    toJSONString():string {
+        return JSON.stringify(this);
     }
 }

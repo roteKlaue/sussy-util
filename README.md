@@ -2,7 +2,7 @@
 <p align="center">
     Just a few Functions and Classes made by me
     <br>
-    <strong>Version 1.7.0 Beta</strong>
+    <strong>Version 1.7.0</strong>
     <br>
     <a href="https://www.npmjs.com/package/sussyutilbyraphaelbader"><img src="https://img.shields.io/npm/v/sussyutilbyraphaelbader.svg?style=flat"></a>
     <a href="https://npmjs.org/package/sussyutilbyraphaelbader"><img src="https://img.shields.io/npm/dm/sussyutilbyraphaelbader?style=flat"></a>
@@ -42,11 +42,16 @@
     - [removeProperty](#removeproperty)
     - [removeXDigits](#removexdigits)
     - [strickJSONParse](#strickjsonparse)
+  - [Types and Interfaces](#types-and-interfaces)
+    - [MapEntry](#mapentry)
+    - [MutableObject](#mutableobject)
+    - [PromiseOr](#promiseor)
   - [Updating](#updating)
     - [Going from 1.0.X to 1.1.X](#going-from-10x-to-11x)
     - [Going from 1.1.X to 1.2.X](#going-from-11x-to-12x)
     - [Going from 1.4.X to 1.5.X](#going-from-14x-to-15x)
     - [Going from 1.5.X to 1.6.X](#going-from-15x-to-16x)
+    - [Going from 1.6.X to 1.7.X](#going-from-16x-to-17x)
   - [Change Log](#change-log)
     - [v1.5.0](#v150)
     - [v1.6.0-alpha](#v160-alpha)
@@ -54,6 +59,7 @@
     - [v1.6.0](#v160)
     - [v1.7.0-alpha](#v170-alpha)
     - [v1.7.0-beta](#v170-beta)
+    - [v1.7.0](#v170)
 
 ## Classes
 
@@ -74,9 +80,15 @@
 >
 > //usage example
 > collection.add({ key: /* your key */ , value: /* your value */ });
+> collection.put({ key: /* your key */ , value: /* your value */ }); // add or replace
 > const value = collection.get(key);
 > collection.remove(key);
-> collection.toArray(); // returns a array of {key, value}
+> collection.toArray(); // returns a array of MapEntry
+> collection.has(key);
+> collection.missing(key);
+> collection.toString();
+> collection.toJSONString();
+> collection.count(); // returns the amount of entries
 >```
 
 ### DateUtil
@@ -129,6 +141,7 @@
 > array.scramble(); // scrambles the array
 > array.countOccurrences(value); // counts how often the value given is in the array
 > array.flatten(); // flattens the array
+> array.toJSONString();
 >```
 
 ### IsSomething
@@ -180,6 +193,8 @@
 > const length = set.length(); // returns number of elements in set
 > set.remove(number); // removes the element at index
 > set.changeCheckFunction(() => {}); // changes the check function for each element
+> set.toString();
+> set.toJSONString();
 >```
 
 ### Stack
@@ -195,6 +210,8 @@
 > const value = stack.peek(); // returns value on top of stack without removing it
 > stack.empty(); // returns if stack is empty
 > stack.toArray(); // returns stack as array
+> stack.toString();
+> stack.toJSONString();
 >```
 
 ### StringUtil
@@ -233,6 +250,7 @@
 > StringUtil.repeat(string, number); // returns string repeated number amount of times
 > StringUtil.rpad(string, number); // returns string padded on the right site to given length: number
 > StringUtil.lpad(string, number); // returns string padded on the left site to given length: number
+> StringUtil.uncapitalize(string);
 >```
 
 ## Functions
@@ -419,6 +437,34 @@
 > strickJSONParse("{ sus:true }"); // output: { sus:true }
 >```
 
+## Types and Interfaces
+  - [MapEntry](#mapentry)
+  - [MutableObject](#mutableobject)
+  - [PromiseOr](#promiseor)
+
+### MapEntry
+
+>```ts
+> const { MapEntry } = require('sussyutilbyraphaelbader');
+> const keyValue = {} as MapEntry;
+> console.log(keyValue); // output: { key: undefined, value: undefined };
+>```
+
+### MutableObject
+
+>```ts
+> const { MutableObject } = require('sussyutilbyraphaelbader');
+> const sussy = { sus:true, imposter:true, mine:"no" } as MutableObject<any>;
+> sussy["temp"] = 3; // allowed
+>```
+
+### PromiseOr
+
+>```ts
+> const { PromiseOr } = require('sussyutilbyraphaelbader');
+> function dummy():PromiseOr<string> {}; // returns promise<string> | string
+> ```
+
 ## Updating
 
 ### Going from 1.0.X to 1.1.X
@@ -473,6 +519,18 @@ Brought all isSomething functions into the IsSomething class as static functions
 > const { IsSomething } = require('sussyutilbyraphaelbader');
 > IsSomething.isFunction(() => {}); // output: true
 >```
+
+### Going from 1.6.X to 1.7.X
+
+>```js
+> // old	
+> const { getNumberInRange } = require('sussyutilbyraphaelbader');
+> getNumberInRange(1,4);
+> 
+> // new
+> const { Random } = require('sussyutilbyraphaelbader');
+> Random.randomInt(1,4);
+> ```
 
 ## Change Log
 
@@ -600,9 +658,34 @@ deprecated getNumberInRange function<br>
 
 `Added`
 
-class Random <br>
+added Random class<br>
 added Random.prototype.randomInt function<br>
 added Random.prototype.randomDouble function<br>
 added Random.prototype.randomChar function<br>
 added Random.prototype.randomString function<br>
 added primefactors function<br>
+
+### v1.7.0
+
+`Change`
+
+deprecated objectToMutableObject function<br>
+changed Random.prototype.randomInt to Random.randomInt <br>
+changed Random.prototype.randomDouble to Random.randomDouble <br>
+changed Random.prototype.randomString to Random.randomString <br>
+changed Random.prototype.randomChar to Random.randomChar <br>
+
+`Added`
+
+added Collection.prototype.count function<br>
+added Collection.prototype.put function<br>
+added Collection.prototype.has function<br>
+added Collection.prototype.missing function<br>
+added Collection.prototype.toJSONString function<br>
+added StringUtil.uncapitalize function<br>
+added ImprovedArray.prototype.toJSONString function<br>
+added Set.prototype.toJSONString function<br>
+added Stack.prototype.toJSONString function<br>
+added type PromiseOr<br>
+added getObjectKeys function<br>
+added getProjectRoot function<br>

@@ -90,6 +90,10 @@ export default class StringUtil {
         return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
     }
 
+    static uncapitalize(value:string):string {
+        return (value.charAt(0).toLowerCase() + value.slice(1));
+    }
+
     static isIPv4 (value:string):boolean {
         return /^(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(value);
     }

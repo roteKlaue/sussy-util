@@ -33,4 +33,8 @@ export default class Stack<T> {
     toArray():T[] {
         return this.items;
     }
+
+    toJSONString():string {
+        return JSON.stringify(this.items);
+    }
 }

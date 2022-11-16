@@ -1,6 +1,7 @@
 import { Collection, DateUtil, ImprovedArray, IsSomething, Random, Set, Stack, StringUtil } from './allClasses';
 import { AlreadyExistsInCollectionError, IndexOutOfBoundsError } from "./allErrors";
-import { addProperty, asyncHandler, attributesToArray, betterRound, bytesToSize, callbackify, callIfFunction, deepClone, getRandomNumberInRange, getTypeString, hasProperty, hasValue, measureTime, merge, objectToString, removeFirstDigit, removeLastDigit, removeProperty, removeXDigits, strictJSONParse } from "./allFunctions";
+import { addProperty, asyncHandler, attributesToArray, betterRound, bytesToSize, callbackify, callIfFunction, deepClone, getObjectKeys, getProjectRoot, getRandomNumberInRange, getTypeString, hasProperty, hasValue, measureTime, merge, objectToMutableObject, objectToString, removeFirstDigit, removeLastDigit, removeProperty, removeXDigits, strictJSONParse } from "./allFunctions";
+import { MapEntry, MutableObject, PromiseOr } from './allInterfaces';
 
 /** @deprecated */
 const as = ():void => {
@@ -31,16 +32,22 @@ export {
     callbackify,
     callIfFunction,
     deepClone,
+    getObjectKeys,
+    getProjectRoot,
     getRandomNumberInRange,
     getTypeString,
     hasProperty,
     hasValue,
     measureTime,
     merge,
+    objectToMutableObject,
     objectToString,
     removeFirstDigit,
     removeLastDigit,
     removeProperty,
     removeXDigits,
-    strictJSONParse
+    strictJSONParse,
+    MapEntry,
+    MutableObject,
+    PromiseOr,
 };

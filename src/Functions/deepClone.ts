@@ -1,4 +1,4 @@
-import MutableObject from "../Interfaces/MutableObject";
+import MutableObject from "../types/MutableObject";
 import IsSomething from "../Classes/IsSomething";
 
 export default function clone(obj:MutableObject<any>|MutableObject<any>[]):MutableObject<any>|MutableObject<any>[] {

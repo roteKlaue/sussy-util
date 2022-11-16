@@ -1,4 +1,4 @@
-import MutableObject from "../Interfaces/MutableObject";
+import MutableObject from "../types/MutableObject";
 
 export default function (obj:MutableObject<any>, prop:string, value:any):MutableObject<any> {
     if (typeof obj !== "object") {
