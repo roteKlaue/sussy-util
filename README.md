@@ -9,6 +9,7 @@
     <a href="https://packagephobia.com/result?p=sussyutilbyraphaelbader"><img src="https://packagephobia.com/badge?p=sussyutilbyraphaelbader"></a>
     <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-1-red.svg?style=flat"></a>
     <a href="https://www.npmjs.com/package/sussyutilbyraphaelbader"> <img src="https://shields.io/npm/l/sussyutilbyraphaelbader.svg"> </a>
+    <a href="https://www.jsdelivr.com/package/npm/sussyutilbyraphaelbader"> <img src="https://data.jsdelivr.com/v1/package/npm/sussyutilbyraphaelbader/badge?style=rounded"> </a>
 </p>
 
 # Table of Contents

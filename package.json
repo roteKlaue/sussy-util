@@ -42,5 +42,10 @@
   },
   "dependencies": {
     "fs": "^0.0.1-security"
-  }
+  },
+  
+  "engines": {
+    "node": ">=10",
+    "pnpm": ">=3"
+}
 }
