@@ -2,7 +2,7 @@
 <p align="center">
     Just a few Functions and Classes made by me
     <br>
-    <strong>Version 1.7.0</strong>
+    <strong>Version 1.7.1</strong>
     <br>
     <a href="https://www.npmjs.com/package/sussyutilbyraphaelbader"><img src="https://img.shields.io/npm/v/sussyutilbyraphaelbader.svg?style=flat"></a>
     <a href="https://npmjs.org/package/sussyutilbyraphaelbader"><img src="https://img.shields.io/npm/dt/sussyutilbyraphaelbader.svg?style=flat"></a>
