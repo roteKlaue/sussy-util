@@ -693,11 +693,11 @@ added getProjectRoot function<br>
 
 ### v1.7.1
 
-`Change`
+`Change`<br>
 bugfix in primefactors<br>
 updated hasValue function<br>
 bugfix in hasValue<br>
 updated hasProperty<br>
 
-`added`
+`added`<br>
 added Random.randomElement<br>
