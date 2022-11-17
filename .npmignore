@@ -4,3 +4,4 @@ node_modules
 .gitattributes
 tsconfig.json
 .vscode
+pnpm-lock.yaml
