@@ -1,6 +1,6 @@
 import AlreadyExistsInCollectionError from "../Error/AlreadyExistsInCollectionError";
 import ImprovedArray from "./ImprovedArray";
-import MapEntries from "../types/MapEntry";
+import MapEntries from "../Types/MapEntry";
 
 export default class Collection <K,V> {
 	private map:ImprovedArray<MapEntries<K,V>> = new ImprovedArray<MapEntries<K,V>>();

@@ -60,6 +60,7 @@
     - [v1.7.0-alpha](#v170-alpha)
     - [v1.7.0-beta](#v170-beta)
     - [v1.7.0](#v170)
+    - [v1.7.1](#v171)
 
 ## Classes
 
@@ -689,3 +690,14 @@ added Stack.prototype.toJSONString function<br>
 added type PromiseOr<br>
 added getObjectKeys function<br>
 added getProjectRoot function<br>
+
+### v1.7.1
+
+`Change`
+bugfix in primefactors<br>
+updated hasValue function<br>
+bugfix in hasValue<br>
+updated hasProperty<br>
+
+`added`
+added Random.randomElement<br>

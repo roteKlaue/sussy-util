@@ -1,6 +1,4 @@
-import IsSomething from "../Classes/IsSomething";
-import Stack from "../Classes/Stack";
-import Set from "../Classes/Set";
+import { Collection, Set, Stack, IsSomething } from "../allClasses";
 
 export default function hasValue(a:any):boolean {
     if ((IsSomething.isString(a) && a.length > 0) || IsSomething.isBoolean(a) || a === null || IsSomething.isNumber(a) || IsSomething.isFunction(a) || (IsSomething.isRegExp(a) && a.length > 0)) {
@@ -15,6 +13,10 @@ export default function hasValue(a:any):boolean {
         }
     }
 
+    if(a instanceof Set || a instanceof Stack || a instanceof Collection) {
+        return hasValue(a.toArray());
+    }
+
     if(typeof a === 'object' && !IsSomething.isArray(a)) {
         for (const key in a) {
             if(a.hasOwnProperty(key)) {
@@ -23,10 +25,6 @@ export default function hasValue(a:any):boolean {
                 }
             }
         }
-    }
-
-    if(a instanceof Set || a instanceof Stack) {
-        return hasValue(a.toArray());
     }
 
     return false;

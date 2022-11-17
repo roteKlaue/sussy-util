@@ -1,19 +1,14 @@
-import { IsSomething } from "../allClasses";
-
-const prime = (numb:number):number[] => {
+export default (numb:number):number[] => {
+    numb = numb || 10;
     const primefactors = [];
-        if(numb < 2) return [];
-        for(let i = 2; numb > 1; i++){
-            if(numb % i == 0){
-                if(!IsSomething.isPrime(i)) {
-                    primefactors.push(...prime(i));
-                } else {
-                    primefactors.push(i);
-                }
+    if(numb < 2) return [];
+    for(let i = 2; numb > 1; i++){
+        if(numb % i == 0){
+            for(let j = 0; numb % i == 0; j++){
+                primefactors.push(i);
                 numb /= i;
             }
         }
-        return primefactors;
+    }
+    return primefactors;
 }
-
-export default prime;

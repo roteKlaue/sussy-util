@@ -1,4 +1,4 @@
-import MutableObject from "../types/MutableObject";
+import MutableObject from "../Types/MutableObject";
 
 /** @deprecated */
 export default function(value: Object):MutableObject<any> {

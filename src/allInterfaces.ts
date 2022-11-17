@@ -1,6 +1,6 @@
-import MutableObject from "./types/MutableObject";
-import MapEntry from "./types/MapEntry";
-import PromiseOr from "./types/PromiseOr";
+import MutableObject from "./Types/MutableObject";
+import MapEntry from "./Types/MapEntry";
+import PromiseOr from "./Types/PromiseOr";
 
 export {
     MutableObject,
