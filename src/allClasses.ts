@@ -1,3 +1,4 @@
+import AbstractClass from "./Classes/AbstractClass";
 import Collection from "./Classes/Collection";
 import DateUtil from "./Classes/DateUtil";
 import ImprovedArray from "./Classes/ImprovedArray";
@@ -8,6 +9,7 @@ import Stack from "./Classes/Stack";
 import StringUtil from "./Classes/StringUtil";
 
 export {
+    AbstractClass,
     Collection,
     DateUtil,
     ImprovedArray,

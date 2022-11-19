@@ -1,8 +1,14 @@
-export default class DateUtil {
-    static monthAbrs:string[] = ["jan","feb","mar","apr","may","jun","jul","aug","sep","okt","nov","dec"];
-    static mFullNames:string[] = ["January","February","March", "April","May","June","July","August","September","October","November","December"];
-    static dayAbrs:string[] = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
-    static dFullNames:string[] = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday", "Sunday"];
+import AbstractClass from "./AbstractClass";
+
+export default abstract class DateUtil extends AbstractClass {
+    private static monthAbrs:string[] = ["jan","feb","mar","apr","may","jun","jul","aug","sep","okt","nov","dec"];
+    private static mFullNames:string[] = ["January","February","March", "April","May","June","July","August","September","October","November","December"];
+    private static dayAbrs:string[] = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+    private static dFullNames:string[] = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday", "Sunday"];
+
+    constructor() {
+        super(DateUtil);
+    }
 
     static getCurrentDate():Date {
         return new Date(Date.now());

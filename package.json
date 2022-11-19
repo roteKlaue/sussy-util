@@ -1,6 +1,6 @@
 {
   "name": "sussyutilbyraphaelbader",
-  "version": "1.7.0",
+  "version": "1.8.0-alpha.1",
   "description": "Util package made by me",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
@@ -8,9 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc",
     "prepublish": "tsc",
-    "publish": "npm publish",
-    "git push": "git push",
-    "git pull": "git pull"
+    "publish": "npm publish"
   },
   "repository": {
     "type": "git",
@@ -47,5 +45,5 @@
   "engines": {
     "node": ">=10",
     "pnpm": ">=3"
-}
+  }
 }

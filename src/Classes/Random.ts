@@ -1,6 +1,11 @@
 import { IsSomething } from "../allClasses";
+import AbstractClass from "./AbstractClass";
 
-export default class Random {
+export default class Random extends AbstractClass {
+    constructor() {
+        super(Random);
+    }
+
     public static randomInt(lower = 0, upper = 10) {
         lower = Math.floor(lower);
         upper = Math.ceil(upper);
@@ -20,7 +25,7 @@ export default class Random {
         return length === 0? "": this.randomChar(charset) + this.randomString(--length, charset);
     }
 
-    public static randomElement(arr:any[]):any {
-        return IsSomething.isArray(arr)? arr[Math.floor(Math.random() * arr.length)]:arr;
+    public static randomElement<T>(arr:T[]):T {
+        return IsSomething.isArray(arr)? arr[Math.floor(Math.random() * arr.length)]:arr as T;
     }
 }

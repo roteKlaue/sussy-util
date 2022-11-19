@@ -1,20 +1,34 @@
+<p align="center"><img src="./logo.png"></p>
 <h3 align="center">Util by Bader</h3>
 <p align="center">
     Just a few Functions and Classes made by me
     <br>
-    <strong>Version 1.7.1</strong>
+    <strong>Version 1.8.0 Alpha</strong>
     <br>
-    <a href="https://www.npmjs.com/package/sussyutilbyraphaelbader"><img src="https://img.shields.io/npm/v/sussyutilbyraphaelbader.svg?style=flat"></a>
-    <a href="https://npmjs.org/package/sussyutilbyraphaelbader"><img src="https://img.shields.io/npm/dt/sussyutilbyraphaelbader.svg?style=flat"></a>
-    <a href="https://packagephobia.com/result?p=sussyutilbyraphaelbader"><img src="https://packagephobia.com/badge?p=sussyutilbyraphaelbader"></a>
-    <a href="#contributors"><img src="https://img.shields.io/badge/all_contributors-1-red.svg?style=flat"></a>
-    <a href="https://www.npmjs.com/package/sussyutilbyraphaelbader"> <img src="https://shields.io/npm/l/sussyutilbyraphaelbader.svg"> </a>
-    <a href="https://www.jsdelivr.com/package/npm/sussyutilbyraphaelbader"> <img src="https://data.jsdelivr.com/v1/package/npm/sussyutilbyraphaelbader/badge?style=rounded"> </a>
+    <a href="https://www.npmjs.com/package/sussyutilbyraphaelbader">
+        <img src="https://img.shields.io/npm/v/sussyutilbyraphaelbader.svg?style=flat">
+    </a>
+    <a href="https://npmjs.org/package/sussyutilbyraphaelbader">
+        <img src="https://img.shields.io/npm/dt/sussyutilbyraphaelbader.svg?style=flat">
+    </a>
+    <a href="https://packagephobia.com/result?p=sussyutilbyraphaelbader">
+        <img src="https://packagephobia.com/badge?p=sussyutilbyraphaelbader">
+    </a>
+    <a href="#contributors">
+        <img src="https://img.shields.io/badge/all_contributors-1-red.svg?style=flat">
+    </a>
+    <a href="https://www.npmjs.com/package/sussyutilbyraphaelbader"> 
+        <img src="https://shields.io/npm/l/sussyutilbyraphaelbader.svg"> 
+    </a>
+    <a href="https://www.jsdelivr.com/package/npm/sussyutilbyraphaelbader"> 
+        <img src="https://data.jsdelivr.com/v1/package/npm/sussyutilbyraphaelbader/badge?style=rounded"> 
+    </a>
 </p>
 
 # Table of Contents
 - [Table of Contents](#table-of-contents)
   - [Classes](#classes)
+    - [AbstractClass](#abstractclass)
     - [Collection](#collection)
     - [DateUtil](#dateutil)
     - [ImprovedArray](#improvedarray)
@@ -62,9 +76,11 @@
     - [v1.7.0-beta](#v170-beta)
     - [v1.7.0](#v170)
     - [v1.7.1](#v171)
+    - [v1.8.0-alpha](#v180-alpha)
 
 ## Classes
 
+ - [AbstractClass](#abstractclass)
  - [Collection](#collection)
  - [DateUtil](#dateutil)
  - [IsSomething](#issomething)
@@ -73,6 +89,20 @@
  - [Set](#set)
  - [Stack](#stack)
  - [StringUtil](#stringutil)
+
+### AbstractClass
+
+This class allows you to make an abstract class in JavaScript.
+
+Usage:
+>```js
+> const { AbstractClass } = require('sussyutilbyraphaelbader');
+> class SUS extends AbstractClass {
+>   constructor() {
+>     super(SUS); // now it will throw an error if you try to make an instance of this class without extending it first
+>   }
+> }
+>```
 
 ### Collection
 >```js
@@ -178,6 +208,7 @@
 >Random.randomDouble(upper, lower); // returns a random double with upper and lower bounds
 >Random.randomString(length, charset?); // returns a random string with given length and charset
 >Random.randomChar(charset?); // returns a random char with given charset
+>Random.randomElement(array?); // returns a random element of an array
 >```
 
 ### Set
@@ -228,7 +259,7 @@
 > StringUtil.isStrongPassword("kaljsd"); // checks if string is a strong password | output: false
 > StringUtil.isWeakPassword("kaljsd"); // checks if string is a weak password | output: true
 > StringUtil.isEmail("sussyBalls@gmail.com"); // checks if string is a email  | output: true
-> StringUtil.isNumeric("12wqeq"); // output: false
+> StringUtil.isInteger("12wqeq"); // output: false
 > StringUtil.isURL("https://sus.com/"); // output: true
 > StringUtil.shorten("Amogus SUS", length, elipse count);
 > StringUtil.slugify("Amogus SUS"); // returns amogus-sus
@@ -253,6 +284,10 @@
 > StringUtil.rpad(string, number); // returns string padded on the right site to given length: number
 > StringUtil.lpad(string, number); // returns string padded on the left site to given length: number
 > StringUtil.uncapitalize(string);
+> StringUtil.isFloat(string);
+> StringUtil.splice();
+> StringUtil.rtrim();
+> StringUtil.ltrim();
 >```
 
 ## Functions
@@ -700,5 +735,25 @@ updated hasValue function<br>
 bugfix in hasValue<br>
 updated hasProperty<br>
 
-`added`<br>
+`Added`<br>
 added Random.randomElement<br>
+
+### v1.8.0-alpha
+
+`Added`
+
+added AbstractClass class<bar>
+added AbstractClassInstanceCallError error-class<br>
+
+`Change`
+
+made DateUtil an AbstractClass<br>
+made Random as AbstractClass<br>
+made IsSomething an AbstractClass<br>
+made StringUtil as AbstractClass<br>
+added new parameter to stack constructor<br>
+
+`Remove`
+
+removed objectToMutableobject function<br>
+removed getRandomNumberInRange function<br>

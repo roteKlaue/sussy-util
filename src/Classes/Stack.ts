@@ -4,7 +4,9 @@ import ImprovedArray from "./ImprovedArray";
 export default class Stack<T> {
     private items:ImprovedArray<T> = new ImprovedArray<T>();
 
-    constructor() {};
+    constructor(initElm: Array<T>) {
+        this.items.push(...initElm);
+    };
 
     push(...elm:T[]):void {
         this.items.push(...elm);

@@ -1,6 +1,11 @@
 import { hasValue, objectToString } from "../allFunctions";
+import AbstractClass from "./AbstractClass";
 
-export default class isSomething {
+export default class IsSomething extends AbstractClass {
+    constructor() {
+        super(IsSomething);
+    }
+
     static isArray(arg:any):boolean {
         return Array.isArray(arg) || objectToString(arg) === "[object Array]";
     }

@@ -1,7 +1,10 @@
+import AbstractClass from "./AbstractClass";
 import ImprovedArray from "./ImprovedArray";
 
-export default class StringUtil {
-    constructor() {}
+export default class StringUtil extends AbstractClass {
+    constructor() {
+        super(StringUtil);
+    }
 
     static reverse(input:string): string {
         return input.split('').reverse().join('');
