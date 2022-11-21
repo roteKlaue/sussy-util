@@ -2,6 +2,7 @@ import { hasValue, objectToString } from "../allFunctions";
 import AbstractClass from "./AbstractClass";
 
 export default class IsSomething extends AbstractClass {
+    // TODO: Documentation
     constructor() {
         super(IsSomething);
     }

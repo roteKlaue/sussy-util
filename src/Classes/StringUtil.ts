@@ -2,6 +2,7 @@ import AbstractClass from "./AbstractClass";
 import ImprovedArray from "./ImprovedArray";
 
 export default class StringUtil extends AbstractClass {
+    // TODO: Documentation
     constructor() {
         super(StringUtil);
     }

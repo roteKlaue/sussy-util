@@ -1,6 +1,7 @@
 import AbstractClass from "./AbstractClass";
 
 export default abstract class DateUtil extends AbstractClass {
+    // TODO: Documentation
     private static monthAbrs:string[] = ["jan","feb","mar","apr","may","jun","jul","aug","sep","okt","nov","dec"];
     private static mFullNames:string[] = ["January","February","March", "April","May","June","July","August","September","October","November","December"];
     private static dayAbrs:string[] = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];

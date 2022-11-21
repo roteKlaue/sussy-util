@@ -3,6 +3,7 @@ import ImprovedArray from "./ImprovedArray";
 import MapEntries from "../Types/MapEntry";
 
 export default class Collection <K,V> {
+    // TODO: Documentation
 	private map:ImprovedArray<MapEntries<K,V>> = new ImprovedArray<MapEntries<K,V>>();
 
 	get(key:K):V|undefined {

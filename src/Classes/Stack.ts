@@ -2,6 +2,7 @@ import IndexOutOfBoundsError from "../Error/IndexOutOfBoundsError";
 import ImprovedArray from "./ImprovedArray";
 
 export default class Stack<T> {
+    // TODO: Documentation
     private items:ImprovedArray<T> = new ImprovedArray<T>();
 
     constructor(initElm: Array<T>) {

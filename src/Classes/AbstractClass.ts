@@ -2,6 +2,7 @@ import AbstractClassInstanceCallError from "../Error/AbstractClassInstanceCallEr
 import IsSomething from "./IsSomething";
 
 export default class AbstractClass {
+    // TODO: Documentation
     constructor(Constructor:Function) {
         if(!IsSomething.isClass(Constructor)) throw new TypeError("Constructor must be a class.");
         if(this.constructor == Constructor) {

@@ -2,6 +2,7 @@ import IndexOutOfBoundsError from "../Error/IndexOutOfBoundsError";
 import Set from "./Set";
 
 export default class ImprovedArray<T> extends Array<T> {
+    // TODO: Documentation
     constructor(... _elements:T[]) {
         super(_elements.length);
         _elements.forEach((_e,i)=> this[i] = _e);

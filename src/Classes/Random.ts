@@ -2,6 +2,7 @@ import { IsSomething } from "../allClasses";
 import AbstractClass from "./AbstractClass";
 
 export default class Random extends AbstractClass {
+    // TODO: Documentation
     constructor() {
         super(Random);
     }

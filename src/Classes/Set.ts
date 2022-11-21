@@ -2,6 +2,7 @@ import IndexOutOfBoundsError from "../Error/IndexOutOfBoundsError";
 import ImprovedArray from "./ImprovedArray";
 
 export default class Set<T> {
+    // TODO: Documentation
     private items = new ImprovedArray<T>();
     private checkFunction:Function = (arrayParam:T, newItem:T) => arrayParam === newItem;
 
