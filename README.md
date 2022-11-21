@@ -774,7 +774,7 @@ added Random.randomElement<br>
 
 `Added`
 
-added AbstractClass class<bar>
+added AbstractClass class<br>
 added AbstractClassInstanceCallError error-class<br>
 
 `Change`
