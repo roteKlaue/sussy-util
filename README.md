@@ -1,4 +1,4 @@
-<p style="display:flex;justify-content:center;height: 200px;"><img src="./logo.png"></p>
+<p align="center" style="height: 200px;"><img src="./logo.png"></p>
 <h3 align="center">Sussy Util</h3>
 <p align="center">
     Just a few Functions and Classes made by me
