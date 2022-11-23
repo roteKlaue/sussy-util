@@ -3,7 +3,7 @@
 <p align="center">
     Just a few Functions and Classes made by me
     <br>
-    <strong>Version 1.8.0 Alpha</strong>
+    <strong>Version 1.8.0 Beta</strong>
     <br>
     <a href="https://www.npmjs.com/package/sussyutilbyraphaelbader">
         <img src="https://img.shields.io/npm/v/sussyutilbyraphaelbader.svg?style=flat">

@@ -1,3 +1,3 @@
-export default function (o:any):string {
+export default (o:any):string => {
     return Object.prototype.toString.call(o);
 }

@@ -1,6 +1,6 @@
 import IsSomething from "../Classes/IsSomething";
 
-export default function(arg:any):string|undefined {
+export default (arg:any):string|undefined => {
     if(typeof arg === 'boolean' || typeof arg === "number" || typeof arg === 'undefined' || typeof arg === 'bigint' || typeof arg === 'symbol' || typeof arg === 'string') {
         return typeof arg;
     }

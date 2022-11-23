@@ -5,3 +5,4 @@ node_modules
 tsconfig.json
 .vscode
 pnpm-lock.yaml
+logo.png

@@ -7,7 +7,7 @@ import callbackify from "./Functions/callbackify";
 import callIfFunction from "./Functions/callIfFunction";
 import deepClone from "./Functions/deepClone";
 import getObjectKeys from "./Functions/getObjectKeys";
-import { getProjectRoot } from "./Functions/getProjectRoot";
+import getProjectRoot from "./Functions/getProjectRoot";
 import getTypeString from "./Functions/getTypeString";
 import hasProperty from "./Functions/hasProperty";
 import hasValue from "./Functions/hasValue";
