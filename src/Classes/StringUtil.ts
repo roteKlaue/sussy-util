@@ -1,7 +1,7 @@
-import AbstractClass from "./AbstractClass";
+import { AbstractClass } from "../allClasses";
 import ImprovedArray from "./ImprovedArray";
 
-export default class StringUtil extends AbstractClass {
+export default abstract class StringUtil extends AbstractClass {
     // TODO: Documentation
     constructor() {
         super(StringUtil);

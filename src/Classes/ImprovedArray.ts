@@ -96,4 +96,8 @@ export default class ImprovedArray<T> extends Array<T> {
     toJSONString():string {
         return JSON.stringify(this);
     }
+
+    shuffle() {
+        this.sort(() => (Math.random() > .5) ? 1 : -1);
+    }
 }

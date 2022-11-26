@@ -1,7 +1,7 @@
 import { IsSomething } from "../allClasses";
-import AbstractClass from "./AbstractClass";
+import { AbstractClass } from "../allClasses";
 
-export default class Random extends AbstractClass {
+export default abstract class Random extends AbstractClass {
     // TODO: Documentation
     constructor() {
         super(Random);

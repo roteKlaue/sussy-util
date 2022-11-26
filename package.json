@@ -7,7 +7,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc",
-    "prepublish": "tsc",
     "publish": "npm publish"
   },
   "repository": {

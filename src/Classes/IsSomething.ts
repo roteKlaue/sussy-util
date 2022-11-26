@@ -1,7 +1,7 @@
 import { hasValue, objectToString } from "../allFunctions";
-import AbstractClass from "./AbstractClass";
+import { AbstractClass } from "../allClasses";
 
-export default class IsSomething extends AbstractClass {
+export default abstract class IsSomething extends AbstractClass {
     // TODO: Documentation
     constructor() {
         super(IsSomething);
