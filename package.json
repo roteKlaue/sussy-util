@@ -1,12 +1,13 @@
 {
   "name": "sussyutilbyraphaelbader",
-  "version": "1.8.0-beta.1",
+  "version": "1.8.0-beta.2",
   "description": "Util package made by me",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc",
+    "prepublish": "tsc",
     "publish": "npm publish"
   },
   "repository": {
