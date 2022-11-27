@@ -77,6 +77,7 @@
     - [v1.7.0](#v170)
     - [v1.7.1](#v171)
     - [v1.8.0-alpha](#v180-alpha)
+    - [v1.8.0-beta](#v180-beta)
 
 ## Classes
 
@@ -343,6 +344,7 @@ Usage:
     - [v1.7.0](#v170)
     - [v1.7.1](#v171)
     - [v1.8.0-alpha](#v180-alpha)
+    - [v1.8.0-beta](#v180-beta)
 
 ### addProperty
 
@@ -789,3 +791,11 @@ added new parameter to stack constructor<br>
 
 removed objectToMutableobject function<br>
 removed getRandomNumberInRange function<br>
+
+### v1.8.0-beta
+
+`Added`
+
+added stringToB64 function<br>
+added b64ToString function<br>
+added ImprovedArray.prototype.shuffle function<br>

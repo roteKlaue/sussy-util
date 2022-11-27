@@ -98,6 +98,11 @@ export default class ImprovedArray<T> extends Array<T> {
     }
 
     shuffle() {
-        this.sort(() => (Math.random() > .5) ? 1 : -1);
+        let array = this;
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
     }
 }

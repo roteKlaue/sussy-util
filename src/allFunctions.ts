@@ -1,6 +1,7 @@
 import addProperty from "./Functions/addProperty";
 import asyncHandler from "./Functions/asyncHandler";
 import attributesToArray from "./Functions/attributesToArray";
+import b64ToString from "./Functions/b64ToString";
 import betterRound from "./Functions/betterRound";
 import bytesToSize from "./Functions/bytes";
 import callbackify from "./Functions/callbackify";
@@ -19,11 +20,13 @@ import removeLastDigit from "./Functions/removeLastDigit";
 import removeProperty from "./Functions/removeProperty";
 import removeXDigits from "./Functions/removeXDigits";
 import strictJSONParse from "./Functions/strictJSONParse";
+import stringToB64 from "./Functions/stringToB64";
 
 export {
     addProperty,
     asyncHandler,
     attributesToArray,
+    b64ToString,
     betterRound,
     bytesToSize,
     callbackify,
@@ -41,5 +44,6 @@ export {
     removeLastDigit,
     removeProperty,
     removeXDigits,
-    strictJSONParse
+    strictJSONParse,
+    stringToB64
 }
