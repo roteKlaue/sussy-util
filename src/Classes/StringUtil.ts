@@ -220,4 +220,8 @@ export default abstract class StringUtil extends AbstractClass {
     static rtrim(str:string):string {
         return str.replace(/\s+$/, "");
     }
+
+    static camelToKebab(str:string) {
+        return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+    }
 }

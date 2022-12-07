@@ -119,4 +119,8 @@ export default abstract class IsSomething extends AbstractClass {
         if (!this.isClass(constructor)) return null;
         return value instanceof constructor;
     }
+
+    static isDateValid(date:Date) {
+        return !Number.isNaN(date.getTime());
+    }
 }
