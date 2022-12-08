@@ -1,6 +1,6 @@
 import { Collection, Set, Stack, IsSomething } from "../allClasses";
 
-const hasValue:Function = (a:any):boolean => {
+const hasValue = (a:any):boolean => {
     if ((IsSomething.isString(a) && a.length > 0) || IsSomething.isBoolean(a) || a === null || IsSomething.isNumber(a) || IsSomething.isFunction(a) || (IsSomething.isRegExp(a) && a.length > 0)) {
         return true;
     }
