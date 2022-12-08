@@ -1,0 +1,1 @@
+export default (val:any): 0 | undefined => isNaN(val) ? 0 : this;

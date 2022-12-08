@@ -49,7 +49,7 @@ export default class ImprovedArray<T> extends Array<T> {
     }
 
     sum():T|string {
-        return this.reduce(function (acc:any, value):any {
+        return this.reduce((acc:any, value):any => {
             return acc + value;
         });
     }
@@ -97,12 +97,11 @@ export default class ImprovedArray<T> extends Array<T> {
         return JSON.stringify(this);
     }
 
-    shuffle() {
+    shuffle():void {
         let array = this;
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         }
-        return array;
     }
 }
