@@ -1,3 +1,4 @@
+/** @deprecated */
 export default (num:number, digit = 0):number => {
     digit = Math.floor(digit);
     if(digit < 0) digit = 0;

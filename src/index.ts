@@ -1,7 +1,7 @@
-import { AbstractClass, Collection, DateUtil, ImprovedArray, IsSomething, Random, Set, Stack, StringUtil } from './allClasses';
+import { AbstractClass, BetterMath, Collection, DateUtil, ImprovedArray, IsSomething, Random, Set, Stack, StringUtil } from './allClasses';
 import { AbstractClassInstanceCallError, AlreadyExistsInCollectionError, IndexOutOfBoundsError } from "./allErrors";
 import { addProperty, asyncHandler, attributesToArray, betterRound, bytesToSize, callbackify, callIfFunction, deepClone, getObjectKeys, getProjectRoot, getTypeString, hasProperty, hasValue, measureTime, merge, objectToString, removeFirstDigit, removeLastDigit, removeProperty, removeXDigits, strictJSONParse } from "./allFunctions";
-import { MapEntry, MutableObject, PromiseOr } from './allInterfaces';
+import { MapEntry, MutableObject, Point, PromiseOr } from './allInterfaces';
 
 /** @deprecated */
 const as = ():void => {
@@ -15,6 +15,7 @@ export default as;
 
 export {
     AbstractClass,
+    BetterMath,
     Collection, 
     DateUtil,
     ImprovedArray,
@@ -49,5 +50,6 @@ export {
     strictJSONParse,
     MapEntry,
     MutableObject,
+    Point,
     PromiseOr,
 };

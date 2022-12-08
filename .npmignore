@@ -7,3 +7,5 @@ tsconfig.json
 pnpm-lock.yaml
 logo.png
 .github
+CODE_OF_CONDUCT.md
+SECURITY.md

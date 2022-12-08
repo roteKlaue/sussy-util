@@ -3,7 +3,7 @@
 <p align="center">
     Just a few Functions and Classes made by me
     <br>
-    <strong>Version 1.8.0 Beta</strong>
+    <strong>Version 1.8.0</strong>
     <br>
     <a href="https://www.npmjs.com/package/sussyutilbyraphaelbader">
         <img src="https://img.shields.io/npm/v/sussyutilbyraphaelbader.svg?style=flat">
@@ -76,8 +76,7 @@
     - [v1.7.0-beta](#v170-beta)
     - [v1.7.0](#v170)
     - [v1.7.1](#v171)
-    - [v1.8.0-alpha](#v180-alpha)
-    - [v1.8.0-beta](#v180-beta)
+    - [v1.8.0](#v180)
 
 ## Classes
 
@@ -292,19 +291,6 @@ Usage:
 >```
 
 ## Functions
-
-- [Table of Contents](#table-of-contents)
-  - [Classes](#classes)
-    - [AbstractClass](#abstractclass)
-    - [Collection](#collection)
-    - [DateUtil](#dateutil)
-    - [ImprovedArray](#improvedarray)
-    - [IsSomething](#issomething)
-    - [Random](#random)
-    - [Set](#set)
-    - [Stack](#stack)
-    - [StringUtil](#stringutil)
-  - [Functions](#functions)
     - [addProperty](#addproperty)
     - [asyncHandler](#asynchandler)
     - [attributesToArray](#attributestoarray)
@@ -324,27 +310,6 @@ Usage:
     - [removeProperty](#removeproperty)
     - [removeXDigits](#removexdigits)
     - [strickJSONParse](#strickjsonparse)
-  - [Types and Interfaces](#types-and-interfaces)
-    - [MapEntry](#mapentry)
-    - [MutableObject](#mutableobject)
-    - [PromiseOr](#promiseor)
-  - [Updating](#updating)
-    - [Going from 1.0.X to 1.1.X](#going-from-10x-to-11x)
-    - [Going from 1.1.X to 1.2.X](#going-from-11x-to-12x)
-    - [Going from 1.4.X to 1.5.X](#going-from-14x-to-15x)
-    - [Going from 1.5.X to 1.6.X](#going-from-15x-to-16x)
-    - [Going from 1.6.X to 1.7.X](#going-from-16x-to-17x)
-  - [Change Log](#change-log)
-    - [v1.5.0](#v150)
-    - [v1.6.0-alpha](#v160-alpha)
-    - [v1.6.0-beta](#v160-beta)
-    - [v1.6.0](#v160)
-    - [v1.7.0-alpha](#v170-alpha)
-    - [v1.7.0-beta](#v170-beta)
-    - [v1.7.0](#v170)
-    - [v1.7.1](#v171)
-    - [v1.8.0-alpha](#v180-alpha)
-    - [v1.8.0-beta](#v180-beta)
 
 ### addProperty
 
@@ -772,12 +737,24 @@ updated hasProperty<br>
 `Added`<br>
 added Random.randomElement<br>
 
-### v1.8.0-alpha
+### v1.8.0
 
 `Added`
 
 added AbstractClass class<br>
+added BetterMath class<br>
 added AbstractClassInstanceCallError error-class<br>
+added stringToB64 function<br>
+added b64ToString function<br>
+added ImprovedArray.prototype.shuffle function<br>
+added BetterMath.round function <br>
+added BetterMath.random function <br>
+added BetterMath.distance function <br>
+added BetterMath.square function <br>
+added IsSomething.isDateValid function<br>
+added Random.randomElementInRange function<br>
+added StringUtil.camelToKebab function<br>
+added Point Interface<br>
 
 `Change`
 
@@ -791,11 +768,3 @@ added new parameter to stack constructor<br>
 
 removed objectToMutableobject function<br>
 removed getRandomNumberInRange function<br>
-
-### v1.8.0-beta
-
-`Added`
-
-added stringToB64 function<br>
-added b64ToString function<br>
-added ImprovedArray.prototype.shuffle function<br>
