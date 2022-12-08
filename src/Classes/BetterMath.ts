@@ -1,4 +1,5 @@
 import { AbstractClass } from "../allClasses";
+import Point from "../Types/Point";
 
 export default class BetterMath extends AbstractClass {
     constructor() {
@@ -16,5 +17,13 @@ export default class BetterMath extends AbstractClass {
 
     static random():number {
         return Math.random();
+    }
+
+    static square(num:number):number {
+        return num * num;
+    }
+
+    static distane(args:[Point], i:number = 0) {
+        return (i - 1 >= args.length)? 0:Math.sqrt(this.square(args[i].x - args[i + 1].x) + this.square(args[i].y - args[i].y));
     }
 }

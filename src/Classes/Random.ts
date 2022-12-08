@@ -29,4 +29,8 @@ export default abstract class Random extends AbstractClass {
     public static randomElement<T>(arr:T[]):T {
         return IsSomething.isArray(arr)? arr[Math.floor(Math.random() * arr.length)]:arr as T;
     }
+
+    public static randomElementInRange<T>(arr: T[], start: number, end: number):T {
+        return arr[Math.floor(Math.random() * (end - start + 1)) + start];
+    }
 }

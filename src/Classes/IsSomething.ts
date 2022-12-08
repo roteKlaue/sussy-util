@@ -121,6 +121,6 @@ export default abstract class IsSomething extends AbstractClass {
     }
 
     static isDateValid(date:Date) {
-        return !Number.isNaN(date.getTime());
+        return !isNaN(date.getTime());
     }
 }
