@@ -763,6 +763,7 @@ made Random as AbstractClass<br>
 made IsSomething an AbstractClass<br>
 made StringUtil as AbstractClass<br>
 added new parameter to stack constructor<br>
+deprecated betterRound function<br>
 
 `Remove`
 
