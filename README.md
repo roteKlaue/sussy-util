@@ -291,25 +291,25 @@ Usage:
 >```
 
 ## Functions
-    - [addProperty](#addproperty)
-    - [asyncHandler](#asynchandler)
-    - [attributesToArray](#attributestoarray)
-    - [betterRound](#betterround)
-    - [bytesToSize](#bytestosize)
-    - [callbackify](#callbackify)
-    - [callIfFunction](#calliffunction)
-    - [deepClone](#deepclone)
-    - [getTypeString](#gettypestring)
-    - [hasProperty](#hasproperty)
-    - [hasValue](#hasvalue)
-    - [measureTime](#measuretime)
-    - [merge](#merge)
-    - [objectToString](#objecttostring)
-    - [removeFirstDigit](#removefirstdigit)
-    - [removeLastDigit](#removelastdigit)
-    - [removeProperty](#removeproperty)
-    - [removeXDigits](#removexdigits)
-    - [strickJSONParse](#strickjsonparse)
+- [addProperty](#addproperty)
+- [asyncHandler](#asynchandler)
+- [attributesToArray](#attributestoarray)
+- [betterRound](#betterround)
+- [bytesToSize](#bytestosize)
+- [callbackify](#callbackify)
+- [callIfFunction](#calliffunction)
+- [deepClone](#deepclone)
+- [getTypeString](#gettypestring)
+- [hasProperty](#hasproperty)
+- [hasValue](#hasvalue)
+- [measureTime](#measuretime)
+- [merge](#merge)
+- [objectToString](#objecttostring)
+- [removeFirstDigit](#removefirstdigit)
+- [removeLastDigit](#removelastdigit)
+- [removeProperty](#removeproperty)
+- [removeXDigits](#removexdigits)
+- [strickJSONParse](#strickjsonparse)
 
 ### addProperty
 
@@ -763,6 +763,7 @@ made Random as AbstractClass<br>
 made IsSomething an AbstractClass<br>
 made StringUtil as AbstractClass<br>
 added new parameter to stack constructor<br>
+deprecated betterRound function<br>
 
 `Remove`
 
