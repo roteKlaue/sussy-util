@@ -1,5 +1,5 @@
 import { AbstractClass, ImprovedArray, PrimeNumbers } from "../allClasses";
-import Point from "../Types/Point";
+import { Point } from "../allInterfaces";
 
 export default abstract class BetterMath extends AbstractClass {
     static primes = new PrimeNumbers();
