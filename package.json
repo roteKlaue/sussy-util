@@ -1,6 +1,6 @@
 {
   "name": "sussyutilbyraphaelbader",
-  "version": "1.8.0-beta.5",
+  "version": "1.8.1",
   "description": "Util package made by me",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
@@ -28,9 +28,7 @@
     "@types/node": "^18.11.5"
   },
   "dependencies": {
-    "fs": "^0.0.1-security"
   },
-  
   "engines": {
     "node": ">=10",
     "pnpm": ">=3"

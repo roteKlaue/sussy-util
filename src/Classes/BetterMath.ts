@@ -1,7 +1,7 @@
 import { AbstractClass } from "../allClasses";
 import Point from "../Types/Point";
 
-export default class BetterMath extends AbstractClass {
+export default abstract class BetterMath extends AbstractClass {
     constructor() {
         super(BetterMath);
     }
@@ -25,5 +25,13 @@ export default class BetterMath extends AbstractClass {
 
     static distane(args:[Point], i:number = 0) {
         return (i - 1 >= args.length)? 0:Math.sqrt(this.square(args[i].x - args[i + 1].x) + this.square(args[i].y - args[i].y));
+    }
+
+    static greatestCommonDivisor(a:number, b:number):number {
+        return 0;
+    }
+
+    static gcd(a:number, b:number):number {
+        return this.greatestCommonDivisor(a,b);
     }
 }

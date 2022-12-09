@@ -40,11 +40,11 @@ export default class ImprovedArray<T> extends Array<T> {
         return this.length === 0;
     }
 
-    none (predicate:Function):boolean {
+    none (predicate:(value:T) => boolean):boolean {
         return this.reduce((acc, value) => !acc && !predicate(value), false);
     }
 
-    rejected(predicate:Function):ImprovedArray<T> {
+    rejected(predicate:(val:T,ind:number,arr:T[])=>boolean):ImprovedArray<T> {
         return new ImprovedArray<T>(...this.filter((val,ind,arr) => !predicate(val,ind,arr)));
     }
 
@@ -103,5 +103,9 @@ export default class ImprovedArray<T> extends Array<T> {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
         }
+    }
+
+    each(callbackfn:(elm:T, i:number, arr:T[])=>void):void {
+        this.forEach(callbackfn);
     }
 }

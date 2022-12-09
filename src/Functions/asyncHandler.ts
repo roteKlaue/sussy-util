@@ -1,4 +1,4 @@
-export default async (promise:Function, ...args:any[]):Promise<[any,null|Error]> => {
+export default async (promise:(...a:any)=>Promise<any>, ...args:any[]):Promise<[any,null|Error]> => {
 	try {
 		const data = await promise(...args);
 		return [data, null];

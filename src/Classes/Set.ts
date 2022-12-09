@@ -4,7 +4,7 @@ import ImprovedArray from "./ImprovedArray";
 export default class Set<T> {
     // TODO: Documentation
     private items = new ImprovedArray<T>();
-    private checkFunction:Function = (arrayParam:T, newItem:T) => arrayParam === newItem;
+    private checkFunction:(a:T,b:T) => boolean = (arrayParam:T, newItem:T) => arrayParam === newItem;
 
     constructor(...items:T[]) {
         for (let index = 0; index < items.length; index++) {
@@ -65,7 +65,7 @@ export default class Set<T> {
         return [...this.items];
     }
 
-    changeCheckFunction(fun:Function):void {
+    changeCheckFunction(fun:(a:T,b:T) => boolean):void {
         this.checkFunction = fun;
     }
 

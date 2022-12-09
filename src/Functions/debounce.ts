@@ -1,7 +1,7 @@
-export default (fn: Function, wait?:number, immediate = false):Function => {
+export default (fn: Function, wait?:number, immediate = false):((...args:any)=> void) => {
     let timeout:number|undefined|NodeJS.Timeout;
 
-    const setDebounce = (...args:any[]) => {
+    const setDebounce = (...args:any[]):void => {
         const later = () => {
             timeout = undefined;
             if (!immediate) {
