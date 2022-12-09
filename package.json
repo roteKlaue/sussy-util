@@ -23,7 +23,7 @@
     "backend"
   ],
   "author": "roteKlaue",
-  "license": "GNU-3.0",
+  "license": "GPL-3.0",
   "devDependencies": {
     "@types/node": "^18.11.5"
   },
