@@ -24,10 +24,10 @@ export default abstract class BetterMath extends AbstractClass {
     static square(num:number):number {
         return num * num;
     }
-
-    static distane(args:[Point], i:number = 0) {
-        return (i - 1 >= args.length)? 0:Math.sqrt(this.square(args[i].x - args[i + 1].x) + this.square(args[i].y - args[i].y));
-    }
+    static distance = (path: Point[], index:number = 0):number => 
+        path.length === index? 
+            0: 
+            Math.sqrt(this.square(path[index].x - path[index + 1].x) + this.square(path[index].y - path[index + 1].y)) + this.distance(path, ++index);
 
     static greatestCommonDivisor(a:number, b:number):number {
         const primes = this.primes.addPrimes(a<b?a:b);
