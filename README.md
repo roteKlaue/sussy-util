@@ -3,7 +3,7 @@
 <p align="center">
     Just a few Functions and Classes made by me
     <br>
-    <strong>Version 1.8.0</strong>
+    <strong>Version 1.9.0</strong>
     <br>
     <a href="https://www.npmjs.com/package/sussyutilbyraphaelbader">
         <img src="https://img.shields.io/npm/v/sussyutilbyraphaelbader.svg?style=flat">
@@ -29,10 +29,12 @@
 - [Table of Contents](#table-of-contents)
   - [Classes](#classes)
     - [AbstractClass](#abstractclass)
+    - [BetterMath](#bettermath)
     - [Collection](#collection)
     - [DateUtil](#dateutil)
     - [ImprovedArray](#improvedarray)
     - [IsSomething](#issomething)
+    - [PrimeNumbers](#primenumbers)
     - [Random](#random)
     - [Set](#set)
     - [Stack](#stack)
@@ -102,6 +104,22 @@ Usage:
 >     super(SUS); // now it will throw an error if you try to make an instance of this class without extending it first
 >   }
 > }
+>```
+
+### BetterMath
+
+>```js
+> const { BetterMath } = require('sussyutilbyraphaelbader');
+> BetterMath.distance(...Point); // returns the total distance between all given points
+> BetterMath.round(number, digit); // returns round a number to a certain digit
+> BetterMath.square(number); // returns the square of a number
+> BetterMath.greatestCommonDivisor(a, b);
+> BetterMath.gcd(a, b); // identical to BetterMath.greatestCommonDivisor
+> BetterMath.lowestCommonDenominator(a,b);
+> BetterMath.lcm(a, b); // identical to BetterMath.lowestCommonDenominator
+> BetterMath.average([13, 12, 11]); // returns the average value of a number array
+> BetterMath.avg(); // identical to BetterMath.average
+> BetterMath.median();
 >```
 
 ### Collection
@@ -199,6 +217,16 @@ Usage:
 > IsSomething.isSymbol(); // returns true if the given is a instanceof Symbol
 > ```
 
+### PrimeNumbers
+Get prime numbers and save them in an array for later use
+
+>```js
+> const { PrimeNumbers } = require('sussyutilbyraphaelbader');
+> const primes = new PrimeNumbers();
+> primes.getTill(highedsNumber);
+> primes.addPrimes(amount);
+>```
+
 ### Random
 
 >```js
@@ -209,6 +237,7 @@ Usage:
 >Random.randomString(length, charset?); // returns a random string with given length and charset
 >Random.randomChar(charset?); // returns a random char with given charset
 >Random.randomElement(array?); // returns a random element of an array
+>Random.randomElementInRange(array?); // returns a random element of an array in range
 >```
 
 ### Set
@@ -291,25 +320,25 @@ Usage:
 >```
 
 ## Functions
-- [addProperty](#addproperty)
-- [asyncHandler](#asynchandler)
-- [attributesToArray](#attributestoarray)
-- [betterRound](#betterround)
-- [bytesToSize](#bytestosize)
-- [callbackify](#callbackify)
-- [callIfFunction](#calliffunction)
-- [deepClone](#deepclone)
-- [getTypeString](#gettypestring)
-- [hasProperty](#hasproperty)
-- [hasValue](#hasvalue)
-- [measureTime](#measuretime)
-- [merge](#merge)
-- [objectToString](#objecttostring)
-- [removeFirstDigit](#removefirstdigit)
-- [removeLastDigit](#removelastdigit)
-- [removeProperty](#removeproperty)
-- [removeXDigits](#removexdigits)
-- [strickJSONParse](#strickjsonparse)
+    - [addProperty](#addproperty)
+    - [asyncHandler](#asynchandler)
+    - [attributesToArray](#attributestoarray)
+    - [betterRound](#betterround)
+    - [bytesToSize](#bytestosize)
+    - [callbackify](#callbackify)
+    - [callIfFunction](#calliffunction)
+    - [deepClone](#deepclone)
+    - [getTypeString](#gettypestring)
+    - [hasProperty](#hasproperty)
+    - [hasValue](#hasvalue)
+    - [measureTime](#measuretime)
+    - [merge](#merge)
+    - [objectToString](#objecttostring)
+    - [removeFirstDigit](#removefirstdigit)
+    - [removeLastDigit](#removelastdigit)
+    - [removeProperty](#removeproperty)
+    - [removeXDigits](#removexdigits)
+    - [strickJSONParse](#strickjsonparse)
 
 ### addProperty
 

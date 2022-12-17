@@ -2,7 +2,7 @@ import { AbstractClass, ImprovedArray, PrimeNumbers } from "../allClasses";
 import { Point } from "../allInterfaces";
 
 export default abstract class BetterMath extends AbstractClass {
-    static primes = new PrimeNumbers();
+    private static primes = new PrimeNumbers();
 
     constructor() {
         super(BetterMath);
@@ -24,6 +24,7 @@ export default abstract class BetterMath extends AbstractClass {
     static square(num: number): number {
         return num * num;
     }
+
     static distance = (path: Point[], index: number = 0): number =>
         path.length === index ?
             0 :
@@ -81,7 +82,7 @@ export default abstract class BetterMath extends AbstractClass {
         values.sort((a, b) => a - b);
 
         const length = values.length;
-        
+
         if (length % 2 === 0) {
             return (values[length / 2 - 1] + values[length / 2]) / 2;
         }
