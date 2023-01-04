@@ -1,3 +1,5 @@
 build
 node_modules
 .vscode
+test.ts
+test.js

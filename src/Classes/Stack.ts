@@ -3,41 +3,41 @@ import ImprovedArray from "./ImprovedArray";
 
 export default class Stack<T> {
     // TODO: Documentation
-    private items:ImprovedArray<T> = new ImprovedArray<T>();
+    private items: ImprovedArray<T> = new ImprovedArray<T>();
 
     constructor(initElm: Array<T>) {
         this.items.push(...initElm);
     };
 
-    push(...elm:T[]):void {
+    push(...elm: T[]): void {
         this.items.push(...elm);
     }
 
-    peek():T {
-        if(this.items.length < 0) throw new IndexOutOfBoundsError(); 
+    peek(): T {
+        if (this.items.length < 0) throw new IndexOutOfBoundsError();
         return this.items[this.items.length - 1];
     }
 
-    pop():T {
-        if(this.items.length < 0) throw new IndexOutOfBoundsError(); 
+    pop(): T {
+        if (this.items.length < 0) throw new IndexOutOfBoundsError();
         const sus = this.items.pop();
-        if(!sus) throw new IndexOutOfBoundsError();
+        if (!sus) throw new IndexOutOfBoundsError();
         return sus;
     }
 
-    empty():boolean {
+    empty(): boolean {
         return this.items.isEmpty();
     }
 
-    toString():string {
+    toString(): string {
         return `Stack: ${this.items.toString()}`;
     }
 
-    toArray():T[] {
+    toArray(): T[] {
         return this.items;
     }
 
-    toJSONString():string {
+    toJSONString(): string {
         return JSON.stringify(this.items);
     }
 }

@@ -17,20 +17,20 @@ export default abstract class Random extends AbstractClass {
         return this.randomInt(lower, upper) + Math.random();
     }
 
-    public static randomChar(charset?: string):string {
-        charset = ((IsSomething.isString(charset))? charset: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") || "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        return charset.charAt(this.randomInt(0, charset.length - 1));    
+    public static randomChar(charset?: string): string {
+        charset = ((IsSomething.isString(charset)) ? charset : "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") || "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        return charset.charAt(this.randomInt(0, charset.length - 1));
     }
 
-    public static randomString(length = 10, charset?: string):string {
-        return length === 0? "": this.randomChar(charset) + this.randomString(--length, charset);
+    public static randomString(length = 10, charset?: string): string {
+        return length === 0 ? "" : this.randomChar(charset) + this.randomString(--length, charset);
     }
 
-    public static randomElement<T>(arr:T[]):T {
-        return IsSomething.isArray(arr)? arr[Math.floor(Math.random() * arr.length)]:arr as T;
+    public static randomElement<T>(arr: T[]): T {
+        return IsSomething.isArray(arr) ? arr[Math.floor(Math.random() * arr.length)] : arr as T;
     }
 
-    public static randomElementInRange<T>(arr: T[], start: number, end: number):T {
+    public static randomElementInRange<T>(arr: T[], start: number, end: number): T {
         return arr[Math.floor(Math.random() * (end - start + 1)) + start];
     }
 }
