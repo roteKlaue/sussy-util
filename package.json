@@ -1,17 +1,16 @@
 {
-  "name": "sussyutilbyraphaelbader",
-  "version": "1.9.0-dev.0.0.2",
+  "name": "sussy-util",
+  "version": "1.9.0-dev.0.0.3",
   "description": "Util package made by me",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "tsc",
-    "publish": "npm publish"
+    "compile": "tsc"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/roteKlaue/SussyUtilMadeByMe.git"
+    "url": "https://github.com/roteKlaue/sussy-util.git"
   },
   "keywords": [
     "js",
