@@ -1,9 +1,7 @@
-import { AbstractClass, ImprovedArray, PrimeNumbers } from "../allClasses";
+import { AbstractClass } from "../allClasses";
 import { Point } from "../allInterfaces";
 
 export default abstract class BetterMath extends AbstractClass {
-    private static primes = new PrimeNumbers();
-
     constructor() {
         super(BetterMath);
     }
@@ -31,19 +29,13 @@ export default abstract class BetterMath extends AbstractClass {
             Math.sqrt(this.square(path[index].x - path[index + 1].x) + this.square(path[index].y - path[index + 1].y)) + this.distance(path, ++index);
 
     static greatestCommonDivisor(a: number, b: number): number {
-        const primes = this.primes.addPrimes(a < b ? a : b);
-        const factors = new ImprovedArray<number>(0);
-
-        for (let i = 0; i < primes.length; i++) {
-            const prime = primes[i];
-            while (a % prime === 0 && b % prime === 0) {
-                a /= prime;
-                b /= prime;
-                factors.push(prime);
+        let gcd = 1;
+        for (let i = 1; i <= a && i <= b; i++) {
+            if (a % i == 0 && b % i == 0) {
+                gcd = i;
             }
         }
-
-        return factors.reduce(((t, c) => t * c));
+        return gcd;
     }
 
     static gcd(a: number, b: number): number {
