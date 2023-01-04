@@ -5,23 +5,23 @@
     <br>
     <strong>Version 1.9.0</strong>
     <br>
-    <a href="https://www.npmjs.com/package/sussyutilbyraphaelbader">
-        <img src="https://img.shields.io/npm/v/sussyutilbyraphaelbader.svg?style=flat">
+    <a href="https://www.npmjs.com/package/sussy-util">
+        <img src="https://img.shields.io/npm/v/sussy-util.svg?style=flat">
     </a>
-    <a href="https://npmjs.org/package/sussyutilbyraphaelbader">
-        <img src="https://img.shields.io/npm/dt/sussyutilbyraphaelbader.svg?style=flat">
+    <a href="https://npmjs.org/package/sussy-util">
+        <img src="https://img.shields.io/npm/dt/sussy-util.svg?style=flat">
     </a>
-    <a href="https://packagephobia.com/result?p=sussyutilbyraphaelbader">
-        <img src="https://packagephobia.com/badge?p=sussyutilbyraphaelbader">
+    <a href="https://packagephobia.com/result?p=sussy-util">
+        <img src="https://packagephobia.com/badge?p=sussy-util">
     </a>
     <a href="#contributors">
         <img src="https://img.shields.io/badge/all_contributors-1-red.svg?style=flat">
     </a>
-    <a href="https://www.npmjs.com/package/sussyutilbyraphaelbader"> 
-        <img src="https://shields.io/npm/l/sussyutilbyraphaelbader.svg"> 
+    <a href="https://www.npmjs.com/package/sussy-util"> 
+        <img src="https://shields.io/npm/l/sussy-util.svg"> 
     </a>
-    <a href="https://www.jsdelivr.com/package/npm/sussyutilbyraphaelbader"> 
-        <img src="https://data.jsdelivr.com/v1/package/npm/sussyutilbyraphaelbader/badge?style=rounded"> 
+    <a href="https://www.jsdelivr.com/package/npm/sussy-util"> 
+        <img src="https://data.jsdelivr.com/v1/package/npm/sussy-util/badge?style=rounded"> 
     </a>
 </p>
 
@@ -98,7 +98,7 @@ This class allows you to make an abstract class in JavaScript.
 
 Usage:
 >```js
-> const { AbstractClass } = require('sussyutilbyraphaelbader');
+> const { AbstractClass } = require('sussy-util');
 > class SUS extends AbstractClass {
 >   constructor() {
 >     super(SUS); // now it will throw an error if you try to make an instance of this class without extending it first
@@ -109,7 +109,7 @@ Usage:
 ### BetterMath
 
 >```js
-> const { BetterMath } = require('sussyutilbyraphaelbader');
+> const { BetterMath } = require('sussy-util');
 > BetterMath.distance(...Point); // returns the total distance between all given points
 > BetterMath.round(number, digit); // returns round a number to a certain digit
 > BetterMath.square(number); // returns the square of a number
@@ -125,7 +125,7 @@ Usage:
 ### Collection
 >```js
 > // create a collection
-> const { Collection } = require('sussyutilbyraphaelbader');
+> const { Collection } = require('sussy-util');
 > const collection = new Collection();
 >
 > //usage example
@@ -145,7 +145,7 @@ Usage:
 
 >```js
 > // get DateUtil class
-> const { DateUtil } = require('sussyutilbyraphaelbader');
+> const { DateUtil } = require('sussy-util');
 >
 > //static functions
 > DateUtil.getCurrentDate(); // returns the current date
@@ -170,7 +170,7 @@ Usage:
 
 >```js
 > // create a ImprovedArray
-> const { ImprovedArray } = require('sussyutilbyraphaelbader');
+> const { ImprovedArray } = require('sussy-util');
 > const array = new ImprovedArray(/* put initial items here */);
 >
 > //usage example
@@ -198,7 +198,7 @@ Usage:
 
 >```js
 > // get IsSomething class
-> const { IsSomething } = require('sussyutilbyraphaelbader');
+> const { IsSomething } = require('sussy-util');
 >
 > // static methods
 > IsSomething.isArray(); // returns true if the given value is a array
@@ -221,7 +221,7 @@ Usage:
 Get prime numbers and save them in an array for later use
 
 >```js
-> const { PrimeNumbers } = require('sussyutilbyraphaelbader');
+> const { PrimeNumbers } = require('sussy-util');
 > const primes = new PrimeNumbers();
 > primes.getTill(highedsNumber);
 > primes.addPrimes(amount);
@@ -230,7 +230,7 @@ Get prime numbers and save them in an array for later use
 ### Random
 
 >```js
->const { Random } = require('sussyutilbyraphaelbader');
+>const { Random } = require('sussy-util');
 >
 >Random.randomInt(upper, lower); // returns a random integer with upper and lower bounds given
 >Random.randomDouble(upper, lower); // returns a random double with upper and lower bounds
@@ -244,7 +244,7 @@ Get prime numbers and save them in an array for later use
 
 >```js
 > // create a Set
-> const { Set } = require('sussyutilbyraphaelbader');
+> const { Set } = require('sussy-util');
 > const set = new Set();
 >
 > //usage example
@@ -263,7 +263,7 @@ Get prime numbers and save them in an array for later use
 
 >```js
 > // create a Stack
-> const { Stack } = require('sussyutilbyraphaelbader');
+> const { Stack } = require('sussy-util');
 > const stack = new Stack();
 >
 > //usage example
@@ -280,7 +280,7 @@ Get prime numbers and save them in an array for later use
 
 >```ts
 > // get StringUtil class
-> const { StringUtil } = require('sussyutilbyraphaelbader');
+> const { StringUtil } = require('sussy-util');
 >
 > //static function example usage
 > StringUtil.reverse("Sussy"); // reverses the string | output: yssus
@@ -320,37 +320,37 @@ Get prime numbers and save them in an array for later use
 >```
 
 ## Functions
-- [addProperty](#addproperty)
-- [asyncHandler](#asynchandler)
-- [attributesToArray](#attributestoarray)
-- [betterRound](#betterround)
-- [bytesToSize](#bytestosize)
-- [callbackify](#callbackify)
-- [callIfFunction](#calliffunction)
-- [deepClone](#deepclone)
-- [getTypeString](#gettypestring)
-- [hasProperty](#hasproperty)
-- [hasValue](#hasvalue)
-- [measureTime](#measuretime)
-- [merge](#merge)
-- [objectToString](#objecttostring)
-- [removeFirstDigit](#removefirstdigit)
-- [removeLastDigit](#removelastdigit)
-- [removeProperty](#removeproperty)
-- [removeXDigits](#removexdigits)
-- [strickJSONParse](#strickjsonparse)
+  - [addProperty](#addproperty)
+  - [asyncHandler](#asynchandler)
+  - [attributesToArray](#attributestoarray)
+  - [betterRound](#betterround)
+  - [bytesToSize](#bytestosize)
+  - [callbackify](#callbackify)
+  - [callIfFunction](#calliffunction)
+  - [deepClone](#deepclone)
+  - [getTypeString](#gettypestring)
+  - [hasProperty](#hasproperty)
+  - [hasValue](#hasvalue)
+  - [measureTime](#measuretime)
+  - [merge](#merge)
+  - [objectToString](#objecttostring)
+  - [removeFirstDigit](#removefirstdigit)
+  - [removeLastDigit](#removelastdigit)
+  - [removeProperty](#removeproperty)
+  - [removeXDigits](#removexdigits)
+  - [strickJSONParse](#strickjsonparse)
 
 ### addProperty
 
 >```js
-> const { addProperty } = require('sussyutilbyraphaelbader');
+> const { addProperty } = require('sussy-util');
 > addProperty({sus:true}, "imposter", true); // output: { sus:true, imposter:true }
 >```
 
 ### asyncHandler
 
 >```js
-> const { asyncHandler } = require('sussyutilbyraphaelbader');
+> const { asyncHandler } = require('sussy-util');
 > const [ result, error ] = await asyncHandler(promiseFunction, params);
 > if(error) {
 >   console.log(error);
@@ -364,21 +364,21 @@ Get prime numbers and save them in an array for later use
 ### attributesToArray
 
 >```js
-> const { attributesToArray } = require('sussyutilbyraphaelbader');
+> const { attributesToArray } = require('sussy-util');
 > attributesToArray({ sus:true, imposter:true }, true); // output: [true, true];
 >```
 
 ### betterRound
 
 >```js
-> const { betterRound } = require('sussyutilbyraphaelbader');
+> const { betterRound } = require('sussy-util');
 > console.log(betterRound(123.56, 1)); // output: 123.6
 > ```
 
 ### bytesToSize
 
 >```js
-> const { bytesToSize } = require('sussyutilbyraphaelbader');
+> const { bytesToSize } = require('sussy-util');
 > const bytesString = bytesToSize(12300);
 > console.log(bytesString); // output: 12.0 KB
 >```
@@ -386,7 +386,7 @@ Get prime numbers and save them in an array for later use
 ### callbackify
 
 >```js
-> const { callbackify, betterRound } = require('sussyutilbyraphaelbader');
+> const { callbackify, betterRound } = require('sussy-util');
 > callbackify(betterRound, (res, err) => {
 >   if(err) {
 >     //do something
@@ -399,7 +399,7 @@ Get prime numbers and save them in an array for later use
 ### callIfFunction
 
 >```js
-> const { callIfFunction } = require('sussyutilbyraphaelbader');
+> const { callIfFunction } = require('sussy-util');
 > callIfFunction(() => true); // output: true
 > callIfFunction({hi:false}); // output: null
 >```
@@ -407,14 +407,14 @@ Get prime numbers and save them in an array for later use
 ### deepClone
 
 >```js
-> const { deepClone } = require('sussyutilbyraphaelbader');
+> const { deepClone } = require('sussy-util');
 > deepClone({er:true, us:{or:true}}): // output: {er:true, us:{or:true}}
 >```
 
 ### getTypeString 
 
 >```js
-> const { getTypeString } = require('sussyutilbyraphaelbader');
+> const { getTypeString } = require('sussy-util');
 > getTypeString(213); // output: number
 > getTypeString("sad"); // output: string
 > getTypeString(class sus { constructor(){} }); // output: class
@@ -424,14 +424,14 @@ Get prime numbers and save them in an array for later use
 ### hasProperty
 
 >```js
-> const { hasProperty } = require('sussyutilbyraphaelbader');
+> const { hasProperty } = require('sussy-util');
 > hasProperty({ sus:true }, "sus"); // output: true
 > ```
 
 ### hasValue
 
 >```js
-> const { hasValue } = require('sussyutilbyraphaelbader');
+> const { hasValue } = require('sussy-util');
 > console.log(hasValue(123)); // output: true
 > console.log(hasValue([]); // output: false
 > console.log(hasValue([23]); // output: true
@@ -449,56 +449,56 @@ Get prime numbers and save them in an array for later use
 ### measureTime
 
 > ```js
-> const { measureTime } = require('sussyutilbyraphaelbader');
+> const { measureTime } = require('sussy-util');
 > measureTime(label, function, params); // logs the time it takes to run the function
 > ```
 
 ### merge
 
 >```js
-> const { merge } = require('sussyutilbyraphaelbader');
+> const { merge } = require('sussy-util');
 > console.log(merge({ a:12, b:34 }, { m:34 })); // output: { a:12, b:34, m:34 }
 >```
 
 ### objectToString
 
 >```js
-> const { objectToString } = require('sussyutilbyraphaelbader');
+> const { objectToString } = require('sussy-util');
 > objectToString({}); // output: [object Object]
 >```
 
 ### removeFirstDigit 
 
 >```js
-> const { removeFirstDigit } = require('sussyutilbyraphaelbader');
+> const { removeFirstDigit } = require('sussy-util');
 > console.log(removeFirstDigit(123); // output: 23
 > ```
 
 ### removeLastDigit
 
 >```js
-> const { removeLastDigit } = require('sussyutilbyraphaelbader');
+> const { removeLastDigit } = require('sussy-util');
 > console.log(removeLastDigit(123)); // output: 12
 > ```
 
 ### removeProperty
 
 >```js
-> const { removeProperty } = require('sussyutilbyraphaelbader');
+> const { removeProperty } = require('sussy-util');
 > removeProperty({ sus:true, imposter:true }, "imposter"); // output: { sus:true }
 >```
 
 ### removeXDigits
 
 >```js
-> const { removeXDigits } = require('sussyutilbyraphaelbader');
+> const { removeXDigits } = require('sussy-util');
 > console.log(removeXDigits(7213, 3); // removes x amount of digits from behind | output: 7
 > ```
 
 ### strickJSONParse
 
 >```js
-> const { strickJSONParse } = require('sussyutilbyraphaelbader');
+> const { strickJSONParse } = require('sussy-util');
 > strickJSONParse("{ sus:true }"); // output: { sus:true }
 >```
 
@@ -510,7 +510,7 @@ Get prime numbers and save them in an array for later use
 ### MapEntry
 
 >```ts
-> const { MapEntry } = require('sussyutilbyraphaelbader');
+> const { MapEntry } = require('sussy-util');
 > const keyValue = {} as MapEntry;
 > console.log(keyValue); // output: { key: undefined, value: undefined };
 >```
@@ -518,7 +518,7 @@ Get prime numbers and save them in an array for later use
 ### MutableObject
 
 >```ts
-> const { MutableObject } = require('sussyutilbyraphaelbader');
+> const { MutableObject } = require('sussy-util');
 > const sussy = { sus:true, imposter:true, mine:"no" } as MutableObject<any>;
 > sussy["temp"] = 3; // allowed
 >```
@@ -526,7 +526,7 @@ Get prime numbers and save them in an array for later use
 ### PromiseOr
 
 >```ts
-> const { PromiseOr } = require('sussyutilbyraphaelbader');
+> const { PromiseOr } = require('sussy-util');
 > function dummy():PromiseOr<string> {}; // returns promise<string> | string
 > ```
 
@@ -537,11 +537,11 @@ renamed Class impArray to improvedArray
 
 >```js
 >// old
->const { impArray } = require('sussyutilbyraphaelbader');
+>const { impArray } = require('sussy-util');
 >const array = new impArray();
 >
 >// new
->const { improvedArray } = require('sussyutilbyraphaelbader');
+>const { improvedArray } = require('sussy-util');
 >const array = new improvedArray();
 >```
 
@@ -550,11 +550,11 @@ renamed Class improvedArray to ImprovedArray
 
 >```js
 >// old
->const { improvedArray } = require('sussyutilbyraphaelbader');
+>const { improvedArray } = require('sussy-util');
 >const array = new improvedArray();
 >
 >// new
->const { ImprovedArray } = require('sussyutilbyraphaelbader');
+>const { ImprovedArray } = require('sussy-util');
 >const a = new ImprovedArray();
 >```
 
@@ -563,12 +563,12 @@ Made all the non static String Functions static
 
 >```js
 >// old
->const { StringUtil } = require('sussyutilbyraphaelbader');
+>const { StringUtil } = require('sussy-util');
 >const util = new StringUtil();
 >util.generatePassword(length);
 >
 > // new
->const { StringUtil } = require('sussyutilbyraphaelbader');
+>const { StringUtil } = require('sussy-util');
 >StringUtil.generatePassword(length, charset?);
 >```
 
@@ -577,11 +577,11 @@ Brought all isSomething functions into the IsSomething class as static functions
 
 >```js
 > // old
-> const { isFunction } = require('sussyutilbyraphaelbader');
+> const { isFunction } = require('sussy-util');
 > isFunction(() => { return true }) // output: true
 >
 > // new
-> const { IsSomething } = require('sussyutilbyraphaelbader');
+> const { IsSomething } = require('sussy-util');
 > IsSomething.isFunction(() => {}); // output: true
 >```
 
@@ -589,11 +589,11 @@ Brought all isSomething functions into the IsSomething class as static functions
 
 >```js
 > // old	
-> const { getNumberInRange } = require('sussyutilbyraphaelbader');
+> const { getNumberInRange } = require('sussy-util');
 > getNumberInRange(1,4);
 > 
 > // new
-> const { Random } = require('sussyutilbyraphaelbader');
+> const { Random } = require('sussy-util');
 > Random.randomInt(1,4);
 > ```
 
