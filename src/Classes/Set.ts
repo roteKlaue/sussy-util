@@ -1,5 +1,5 @@
-import IndexOutOfBoundsError from "../Error/IndexOutOfBoundsError";
-import ImprovedArray from "./ImprovedArray";
+import { IndexOutOfBoundsError } from "../Error";
+import { ImprovedArray } from ".";
 
 export default class Set<T> {
     // TODO: Documentation

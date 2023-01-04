@@ -1,4 +1,4 @@
-import AbstractClassInstanceCallError from "../Error/AbstractClassInstanceCallError";
+import { AbstractClassInstanceCallError } from "../Error";
 export default class AbstractClass {
     // TODO: Documentation
     constructor(Constructor: Function) {

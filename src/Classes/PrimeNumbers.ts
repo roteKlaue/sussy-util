@@ -1,4 +1,4 @@
-import IsSomething from "./IsSomething";
+import { IsSomething } from ".";
 
 export default class PrimeNumbers {
     private current: number = 0;

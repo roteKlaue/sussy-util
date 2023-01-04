@@ -1,5 +1,4 @@
-import { AbstractClass } from ".";
-import ImprovedArray from "./ImprovedArray";
+import { AbstractClass, ImprovedArray } from ".";
 
 export default abstract class StringUtil extends AbstractClass {
     // TODO: Documentation
