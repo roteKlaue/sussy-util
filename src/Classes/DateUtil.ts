@@ -33,13 +33,15 @@ export default abstract class DateUtil extends AbstractClass {
         return today;
     }
 
-    public static compareDates(dt1: Date, dt2: Date): number {
-        if (!(dt1 instanceof Date && dt2 instanceof Date)) throw new TypeError("expected Date for dt1 and dt2");
+    public static compareDates<T extends Date>(dt1: T|number|Date, dt2: T|number|Date): number {
+        dt1 = this.toDate(dt1);
+        dt2 = this.toDate(dt2);
         return dt1.valueOf() - dt2.valueOf();
     }
 
-    public static equals(dt1: Date, dt2: Date): boolean {
-        if (!(dt1 instanceof Date && dt2 instanceof Date)) throw new TypeError("expected Date for dt1 and dt2");
+    public static equals<T extends Date>(dt1: T|number|Date, dt2: T|number|Date): boolean {
+        dt1 = this.toDate(dt1);
+        dt2 = this.toDate(dt2);
         return dt1.valueOf() === dt2.valueOf();
     }
 
@@ -102,5 +104,28 @@ export default abstract class DateUtil extends AbstractClass {
     public static formatRelative(date1: Date, date2: Date, format: string): string {
         if (!IsSomething.isInstanceOf(date1, Date) || !IsSomething.isInstanceOf(date2, Date)) throw new TypeError("date1 and date2 have to be of type Date.");
         return new Intl.RelativeTimeFormat(format).format((date1.getTime() - date2.getTime()) / 1000, "seconds");
+    }
+
+    public static toDate<T extends Date>(date: T|Number):Date {
+        if(typeof date === "number") {
+            return new Date(date);
+        }
+        return date as Date;
+    }
+
+    public static isAfter<T extends Date>(date1:T|number|Date, date2: T|number|Date): boolean {
+        date1 = this.toDate(date1);
+        date2 = this.toDate(date2);
+        return date1.getTime() < date2.getTime();
+    }
+
+    public static isBefore<T extends Date>(date1:T|number|Date, date2: T|number|Date): boolean {
+        date1 = this.toDate(date1);
+        date2 = this.toDate(date2);
+        return date1.getTime() > date2.getTime();
+    }
+
+    public static yearsToMonths(years: number): number {
+        return Math.floor(years * 12);
     }
 }
