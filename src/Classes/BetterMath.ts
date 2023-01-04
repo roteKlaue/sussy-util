@@ -1,5 +1,5 @@
-import { AbstractClass } from "../allClasses";
-import { Point } from "../allInterfaces";
+import { AbstractClass } from ".";
+import { Point } from "../Types/allInterfaces";
 
 export default abstract class BetterMath extends AbstractClass {
     constructor() {

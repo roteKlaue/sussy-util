@@ -1,5 +1,4 @@
-import { IsSomething } from "../allClasses";
-import { AbstractClass } from "../allClasses";
+import { IsSomething, AbstractClass } from ".";
 
 export default abstract class Random extends AbstractClass {
     // TODO: Documentation

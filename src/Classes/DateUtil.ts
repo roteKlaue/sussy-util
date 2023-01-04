@@ -1,4 +1,4 @@
-import { AbstractClass, IsSomething } from "../allClasses";
+import { AbstractClass, IsSomething } from ".";
 
 export default abstract class DateUtil extends AbstractClass {
     // TODO: Documentation

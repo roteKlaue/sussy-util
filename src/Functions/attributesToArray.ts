@@ -1,4 +1,4 @@
-import { MutableObject } from "../allInterfaces";
+import { MutableObject } from "../Types/allInterfaces";
 
 export default (obj:MutableObject<any>, removeNull:boolean):any[] => {
     if(!obj || typeof obj !== 'object') {

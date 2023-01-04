@@ -1,4 +1,4 @@
-import { MutableObject } from "../allInterfaces";
+import { MutableObject } from "../Types/allInterfaces";
 import fs from "fs";
 
 const getContentFromDirectory = (dir:string) => {

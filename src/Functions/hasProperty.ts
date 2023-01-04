@@ -1,4 +1,4 @@
-import { IsSomething } from "../allClasses";
+import { IsSomething } from "../Classes";
 
 export default (obj:Object, prop:string):boolean => {
     if(!IsSomething.isString(prop)) return false;

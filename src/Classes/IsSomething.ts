@@ -1,5 +1,5 @@
-import { hasValue, objectToString } from "../allFunctions";
-import { AbstractClass } from "../allClasses";
+import { hasValue, objectToString } from "../Functions";
+import { AbstractClass } from ".";
 
 export default abstract class IsSomething extends AbstractClass {
     // TODO: Documentation

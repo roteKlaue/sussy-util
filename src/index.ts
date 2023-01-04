@@ -1,7 +1,7 @@
-import { AbstractClass, BetterMath, Collection, DateUtil, ImprovedArray, IsSomething, PrimeNumbers, Random, Set, Stack, StringUtil } from './allClasses';
-import { AbstractClassInstanceCallError, AlreadyExistsInCollectionError, IndexOutOfBoundsError } from "./allErrors";
-import { addProperty, asyncHandler, attributesToArray, betterRound, bytesToSize, callbackify, callIfFunction, deepClone, getObjectKeys, getProjectRoot, getTypeString, hasProperty, hasValue, measureTime, merge, objectToString, removeFirstDigit, removeLastDigit, removeProperty, removeXDigits, strictJSONParse } from "./allFunctions";
-import { MapEntry, MutableObject, Point, PromiseOr } from './allInterfaces';
+import { AbstractClass, BetterMath, Collection, DateUtil, ImprovedArray, IsSomething, PrimeNumbers, Random, Set, Stack, StringUtil } from './Classes';
+import { AbstractClassInstanceCallError, AlreadyExistsInCollectionError, IndexOutOfBoundsError } from "./Error";
+import { addProperty, asyncHandler, attributesToArray, betterRound, bytesToSize, callbackify, callIfFunction, deepClone, getObjectKeys, getProjectRoot, getTypeString, hasProperty, hasValue, measureTime, merge, objectToString, removeFirstDigit, removeLastDigit, removeProperty, removeXDigits, strictJSONParse } from "./Functions";
+import { MapEntry, MutableObject, Point, PromiseOr } from './Types';
 import util from "util";
 
 /** @deprecated */
