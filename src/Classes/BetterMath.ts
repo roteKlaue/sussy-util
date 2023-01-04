@@ -6,7 +6,7 @@ export default abstract class BetterMath extends AbstractClass {
         super(BetterMath);
     }
 
-    static round(value: number, digit: number): number {
+    public static round(value: number, digit: number): number {
         digit = Math.floor(digit);
         if (digit < 0) digit = 0;
         if (digit === 0) {
@@ -15,20 +15,20 @@ export default abstract class BetterMath extends AbstractClass {
         return Math.round(value * Math.pow(10, digit)) / Math.pow(10, digit);
     }
 
-    static random(): number {
+    public static random(): number {
         return Math.random();
     }
 
-    static square(num: number): number {
+    public static square(num: number): number {
         return num * num;
     }
 
-    static distance = (path: Point[], index: number = 0): number =>
+    public static distance = (path: Point[], index: number = 0): number =>
         path.length === index ?
             0 :
             Math.sqrt(this.square(path[index].x - path[index + 1].x) + this.square(path[index].y - path[index + 1].y)) + this.distance(path, ++index);
 
-    static greatestCommonDivisor(a: number, b: number): number {
+    public static greatestCommonDivisor(a: number, b: number): number {
         let gcd = 1;
         for (let i = 1; i <= a && i <= b; i++) {
             if (a % i == 0 && b % i == 0) {
@@ -38,11 +38,11 @@ export default abstract class BetterMath extends AbstractClass {
         return gcd;
     }
 
-    static gcd(a: number, b: number): number {
+    public static gcd(a: number, b: number): number {
         return this.greatestCommonDivisor(a, b);
     }
 
-    static lowestCommonDenominator(a: number, b: number): number {
+    public static lowestCommonDenominator(a: number, b: number): number {
         if (a === 0 || b === 0) {
             return 0;
         }
@@ -58,19 +58,19 @@ export default abstract class BetterMath extends AbstractClass {
         return lcm;
     }
 
-    static lcm(a: number, b: number): number {
+    public static lcm(a: number, b: number): number {
         return this.lowestCommonDenominator(a, b);
     }
 
-    static average(numbers: number[]): number {
+    public static average(numbers: number[]): number {
         return numbers.reduce((a, b) => a + b, 0) / numbers.length;
     }
 
-    static avg(numbers: number[]): number {
+    public static avg(numbers: number[]): number {
         return this.average(numbers);
     }
 
-    static median(values: number[]): number {
+    public static median(values: number[]): number {
         values.sort((a, b) => a - b);
 
         const length = values.length;

@@ -7,15 +7,15 @@ export default abstract class IsSomething extends AbstractClass {
         super(IsSomething);
     }
 
-    static isArray(arg: any): boolean {
+    public static isArray(arg: any): boolean {
         return Array.isArray(arg) || objectToString(arg) === "[object Array]";
     }
 
-    static isBoolean(arg: any): boolean {
+    public static isBoolean(arg: any): boolean {
         return arg && (typeof arg === 'boolean' || arg === "true" || arg === "false");
     }
 
-    static isClass(arg: any): boolean {
+    public static isClass(arg: any): boolean {
         if (typeof arg !== 'function') {
             return false;
         }
@@ -31,50 +31,50 @@ export default abstract class IsSomething extends AbstractClass {
         return false;
     }
 
-    static isDate(arg: any): boolean {
+    public static isDate(arg: any): boolean {
         return arg && (arg.constructor === Date.constructor && arg instanceof Date);
     }
 
-    static isDefined(arg: any): boolean {
+    public static isDefined(arg: any): boolean {
         return typeof arg !== 'undefined';
     }
 
-    static isEmpty(arg: any): boolean {
+    public static isEmpty(arg: any): boolean {
         return !hasValue(arg);
     }
 
-    static isError(arg: any): boolean {
+    public static isError(arg: any): boolean {
         return arg && (arg.constructor === Error.constructor && arg instanceof Error);
     }
 
-    static isEven(num: number): boolean | null {
+    public static isEven(num: number): boolean | null {
         if (typeof num !== "number") {
             return null;
         }
         return num / 2 === 0;
     }
 
-    static isFunction(a: any): boolean {
+    public static isFunction(a: any): boolean {
         return a && (typeof a === 'function' || a instanceof Function) && !this.isClass(a);
     }
 
-    static isInfinite(arg: any): boolean {
+    public static isInfinite(arg: any): boolean {
         return arg && (arg === Infinity || arg === -Infinity);
     }
 
-    static isNullorUndefined(arg: any): boolean {
+    public static isNullorUndefined(arg: any): boolean {
         return arg === null || arg === undefined;
     }
 
-    static isNumber(arg: any): boolean {
+    public static isNumber(arg: any): boolean {
         return arg && (typeof arg === 'number' || (typeof arg === "string" && /^\d+$/.test(arg)));
     }
 
-    static isObject(arg: any): boolean {
+    public static isObject(arg: any): boolean {
         return arg && (typeof arg === "object" && arg instanceof Object && !this.isArray(arg));
     }
 
-    static isPrime(num: number): boolean | null {
+    public static isPrime(num: number): boolean | null {
         if (typeof num !== 'number') {
             return null;
         }
@@ -95,32 +95,32 @@ export default abstract class IsSomething extends AbstractClass {
         return true;
     }
 
-    static isPrimitive(arg: any): boolean {
+    public static isPrimitive(arg: any): boolean {
         return this.isNullorUndefined(arg) || this.isString(arg) || this.isNumber(arg) || this.isBoolean(arg) || this.isSymbol(arg);
     }
 
-    static isRegExp(arg: any): boolean {
+    public static isRegExp(arg: any): boolean {
         return arg && (arg instanceof RegExp || arg.constructor === RegExp.constructor);
     }
 
-    static isString(args: any): boolean {
+    public static isString(args: any): boolean {
         return args && (typeof args === "string" || args instanceof String || (args + "") === args);
     }
 
-    static isSymbol(arg: any): boolean {
+    public static isSymbol(arg: any): boolean {
         return arg && (typeof arg === "symbol" || arg instanceof Symbol);
     }
 
-    static isType(arg: any, type: String): boolean {
+    public static isType(arg: any, type: String): boolean {
         return typeof arg === type;
     }
 
-    static isInstanceOf(value: any, constructor: Function): boolean | null {
+    public static isInstanceOf(value: any, constructor: Function): boolean | null {
         if (!this.isClass(constructor)) return null;
         return value instanceof constructor;
     }
 
-    static isDateValid(date: Date) {
+    public static isDateValid(date: Date) {
         return !isNaN(date.getTime());
     }
 }

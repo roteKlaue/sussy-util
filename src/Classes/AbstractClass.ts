@@ -8,7 +8,7 @@ export default class AbstractClass {
         }
     }
 
-    static isClass(arg: Function) {
+    public static isClass(arg: Function) {
         if (typeof arg !== 'function') {
             return false;
         }
