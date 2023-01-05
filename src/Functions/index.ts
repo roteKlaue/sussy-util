@@ -21,6 +21,8 @@ import removeProperty from "./removeProperty";
 import removeXDigits from "./removeXDigits";
 import strictJSONParse from "./strictJSONParse";
 import stringToB64 from "./stringToB64";
+import syncTimeout from "./syncTimeout";
+import toOrdinal from "./toOrdinal";
 
 export {
     addProperty,
@@ -45,5 +47,7 @@ export {
     removeProperty,
     removeXDigits,
     strictJSONParse,
-    stringToB64
+    stringToB64,
+    syncTimeout,
+    toOrdinal,
 }

@@ -1,6 +1,6 @@
 import { AbstractClass, BetterMath, Collection, DateUtil, ImprovedArray, IsSomething, PrimeNumbers, Random, Set, Stack, StringUtil } from './Classes';
 import { AbstractClassInstanceCallError, AlreadyExistsInCollectionError, IndexOutOfBoundsError } from "./Error";
-import { addProperty, asyncHandler, attributesToArray, betterRound, bytesToSize, callbackify, callIfFunction, deepClone, getObjectKeys, getProjectRoot, getTypeString, hasProperty, hasValue, measureTime, merge, objectToString, removeFirstDigit, removeLastDigit, removeProperty, removeXDigits, strictJSONParse } from "./Functions";
+import { addProperty, asyncHandler, attributesToArray, b64ToString, betterRound, bytesToSize, callbackify, callIfFunction, deepClone, getObjectKeys, getProjectRoot, getTypeString, hasProperty, hasValue, measureTime, merge, objectToString, removeFirstDigit, removeLastDigit, removeProperty, removeXDigits, strictJSONParse, stringToB64, syncTimeout, toOrdinal } from "./Functions";
 import { MapEntry, MutableObject, Point, PromiseOr } from './Types';
 import util from "util";
 
@@ -32,6 +32,7 @@ export {
     addProperty,
     asyncHandler, 
     attributesToArray,
+    b64ToString,
     betterRound,
     bytesToSize,
     callbackify,
@@ -50,6 +51,9 @@ export {
     removeProperty,
     removeXDigits,
     strictJSONParse,
+    stringToB64,
+    syncTimeout,
+    toOrdinal,
     MapEntry,
     MutableObject,
     Point,
