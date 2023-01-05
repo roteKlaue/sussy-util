@@ -9,10 +9,6 @@ export default (obj:MutableObject<any>, prop:string, value:any):MutableObject<an
         return obj;
     }
 
-    if (typeof value === "undefined") {
-        return obj; 
-    }
-
     obj[prop] = value;
     return obj;
 }
