@@ -63,7 +63,7 @@ export default abstract class IsSomething extends AbstractClass {
     }
 
     public static isNullorUndefined(arg: any): boolean {
-        return arg === null || arg === undefined;
+        return arg === null || arg === void 0;
     }
 
     public static isNumber(arg: any): boolean {

@@ -3,7 +3,7 @@ export default (fn: Function, wait?:number, immediate = false):((...args:any) =>
 
     const setDebounce = (...args:any[]):void => {
         const later = () => {
-            timeout = undefined;
+            timeout = void 0;
             if (!immediate) {
                 fn.apply(later, args);
             }
@@ -20,4 +20,3 @@ export default (fn: Function, wait?:number, immediate = false):((...args:any) =>
 
     return setDebounce;
 }
-undefined
