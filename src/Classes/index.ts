@@ -9,6 +9,7 @@ import PrimeNumbers from "./PrimeNumbers";
 import Random from "./Random";
 import Set from "./Set";
 import Stack from "./Stack";
+import StopWatch from "./StopWatch";
 import StringUtil from "./StringUtil";
 import TemperatureConverter from "./TemperatureConverter";
 
@@ -24,6 +25,7 @@ export {
     Random,
     Set,
     Stack,
+    StopWatch,
     StringUtil,
     TemperatureConverter,
 }
