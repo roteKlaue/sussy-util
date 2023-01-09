@@ -10,6 +10,7 @@ import Random from "./Random";
 import Set from "./Set";
 import Stack from "./Stack";
 import StringUtil from "./StringUtil";
+import TemperatureConverter from "./TemperatureConverter";
 
 export {
     AbstractClass,
@@ -24,4 +25,5 @@ export {
     Set,
     Stack,
     StringUtil,
+    TemperatureConverter,
 }
