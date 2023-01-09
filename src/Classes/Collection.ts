@@ -10,13 +10,15 @@ export default class Collection<K, V> {
 		return this.map.find((e) => e.key === key)?.value;
 	}
 
-	set({ key, value }: MapEntry<K, V>): void {
+	set({ key, value }: MapEntry<K, V>): MapEntry<K, V> {
 		const object = this.map.find((e) => e.key === key);
 		if (object) {
-			throw new AlreadyExistsInCollectionError("There is already a key value pair with this key");
+			object.value = value;
+			return object;
 		}
 
 		this.map.push({ key: key, value: value });
+		return { key, value: value };
 	}
 
 	put(kv: MapEntry<K, V>): void {
@@ -24,10 +26,10 @@ export default class Collection<K, V> {
 		this.map.push(kv);
 	}
 
-	remove(key: K): MapEntry<K, V> {
+	remove(key: K): MapEntry<K, V> | undefined {
 		const object = this.map.find((e) => e.key === key);
 		if (!object) {
-			throw new AlreadyExistsInCollectionError("There is no a key value pair with this key");
+			return void 0;
 		}
 		return this.map.remove(this.map.indexOf(object));
 	}
@@ -41,7 +43,7 @@ export default class Collection<K, V> {
 	}
 
 	count(): number {
-		return Object.keys(this.map).length;
+		return this.map.length;
 	}
 
 	has(key: K): boolean {
@@ -54,5 +56,9 @@ export default class Collection<K, V> {
 
 	toJSONString(): string {
 		return JSON.stringify(this.map);
+	}
+
+	clearMap(): void {
+		this.map = new ImprovedArray<MapEntry<K, V>>();
 	}
 }

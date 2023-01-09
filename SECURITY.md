@@ -4,12 +4,9 @@
 
 | Version   | Supported          |
 | --------- | ------------------ |
+| 1.9.0-b   | :white_check_mark: |
 | 1.8.0     | :white_check_mark: |
-| 1.7.1     | :white_check_mark: |
-| 1.6.0     | :white_check_mark: |
-| 1.5.0     | :white_check_mark: |
-| 1.4.2     | :white_check_mark: |
-| < 1.4.1   | :x:                |
+| < 1.8.0   | :x:                |
 
 ## Reporting a Vulnerability
 
