@@ -1,5 +1,6 @@
 import addProperty from "./addProperty";
 import asyncHandler from "./asyncHandler";
+import asyncTimeout from "./asyncTimeout";
 import attributesToArray from "./attributesToArray";
 import b64ToString from "./b64ToString";
 import betterRound from "./betterRound";
@@ -27,6 +28,7 @@ import toOrdinal from "./toOrdinal";
 export {
     addProperty,
     asyncHandler,
+    asyncTimeout,
     attributesToArray,
     b64ToString,
     betterRound,

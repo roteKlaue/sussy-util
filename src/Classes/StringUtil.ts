@@ -223,4 +223,12 @@ export default abstract class StringUtil extends AbstractClass {
     public static camelToKebab(str: string) {
         return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
     }
+
+    public static isPalindrome(str: string) {
+        const lowerCaseStr = str.toLowerCase();
+        const strArray = lowerCaseStr.split('');
+        const reversedArray = strArray.reverse();
+        const reversedStr = reversedArray.join('');
+        return reversedStr === lowerCaseStr;
+    }
 }

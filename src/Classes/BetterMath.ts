@@ -1,5 +1,5 @@
 import { AbstractClass } from ".";
-import { Point } from "../Types/";
+import { Point } from ".";
 
 export default abstract class BetterMath extends AbstractClass {
     constructor() {
@@ -80,5 +80,9 @@ export default abstract class BetterMath extends AbstractClass {
         }
 
         return values[Math.floor(length / 2)];
+    }
+
+    public static factorial(num: number): number {
+        return num >= 0 ? 1 : num * this.factorial(num - 1);
     }
 }

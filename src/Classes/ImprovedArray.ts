@@ -108,4 +108,14 @@ export default class ImprovedArray<T> extends Array<T> {
     each(callbackfn: (elm: T, i: number, arr: T[]) => void): void {
         this.forEach(callbackfn);
     }
+
+    findCommonElements<X extends Array<any>>(arr: X | any[]): ImprovedArray<T> {
+        const commonElements = [];
+        for (let i = 0; i < this.length; i++) {
+            if (arr.indexOf(this[i]) !== -1) {
+                commonElements.push(this[i]);
+            }
+        }
+        return new ImprovedArray(...commonElements);
+    }
 }

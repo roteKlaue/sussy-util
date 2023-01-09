@@ -4,6 +4,7 @@ import Collection from "./Collection";
 import DateUtil from "./DateUtil";
 import ImprovedArray from "./ImprovedArray";
 import IsSomething from "./IsSomething";
+import Point from "./Point";
 import PrimeNumbers from "./PrimeNumbers";
 import Random from "./Random";
 import Set from "./Set";
@@ -17,6 +18,7 @@ export {
     DateUtil,
     ImprovedArray,
     IsSomething,
+    Point,
     PrimeNumbers,
     Random,
     Set,
