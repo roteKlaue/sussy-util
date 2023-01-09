@@ -27,7 +27,7 @@ export default class StopWatch {
         this.starttime = Date.now();
         this.rounds.clear();
         this.totalTimePause = 0;
-        this.pauseStartTime = undefined;
+        this.pauseStartTime = void 0;
     }
 
     time(): number {
