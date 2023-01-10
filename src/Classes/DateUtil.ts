@@ -101,6 +101,7 @@ export default abstract class DateUtil extends AbstractClass {
         return new Date(new Date(nowDate.getFullYear(), nowDate.getMonth() + 1).valueOf() - 86400000);
     }
 
+    /** @deprecated */
     public static formatRelative(date1: Date, date2: Date, format: string): string {
         if (!IsSomething.isInstanceOf(date1, Date) || !IsSomething.isInstanceOf(date2, Date)) throw new TypeError("date1 and date2 have to be of type Date.");
         return new Intl.RelativeTimeFormat(format).format((date1.getTime() - date2.getTime()) / 1000, "seconds");

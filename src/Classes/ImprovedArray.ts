@@ -60,6 +60,7 @@ export default class ImprovedArray<T> extends Array<T> {
         this.push(...newArray);
     }
 
+    /** @deprecated */
     scramble(): void {
         let lengthArr = this.length;
         while (lengthArr) {
@@ -105,9 +106,7 @@ export default class ImprovedArray<T> extends Array<T> {
         }
     }
 
-    each(callbackfn: (elm: T, i: number, arr: T[]) => void): void {
-        this.forEach(callbackfn);
-    }
+    each = this.forEach;
 
     findCommonElements<X extends Array<any>>(arr: X | any[]): ImprovedArray<T> {
         const commonElements = [];

@@ -34,10 +34,13 @@
     - [DateUtil](#dateutil)
     - [ImprovedArray](#improvedarray)
     - [IsSomething](#issomething)
+    - [Point](#point)
     - [PrimeNumbers](#primenumbers)
+    - [Queue](#queue)
     - [Random](#random)
     - [Set](#set)
     - [Stack](#stack)
+    - [StopWatch](#stopwatch)
     - [StringUtil](#stringutil)
   - [Functions](#functions)
     - [addProperty](#addproperty)
@@ -69,16 +72,6 @@
     - [Going from 1.4.X to 1.5.X](#going-from-14x-to-15x)
     - [Going from 1.5.X to 1.6.X](#going-from-15x-to-16x)
     - [Going from 1.6.X to 1.7.X](#going-from-16x-to-17x)
-  - [Change Log](#change-log)
-    - [v1.5.0](#v150)
-    - [v1.6.0-alpha](#v160-alpha)
-    - [v1.6.0-beta](#v160-beta)
-    - [v1.6.0](#v160)
-    - [v1.7.0-alpha](#v170-alpha)
-    - [v1.7.0-beta](#v170-beta)
-    - [v1.7.0](#v170)
-    - [v1.7.1](#v171)
-    - [v1.8.0](#v180)
 
 ## Classes
 
@@ -119,7 +112,8 @@ Usage:
 > BetterMath.lcm(a, b); // identical to BetterMath.lowestCommonDenominator
 > BetterMath.average([13, 12, 11]); // returns the average value of a number array
 > BetterMath.avg(); // identical to BetterMath.average
-> BetterMath.median();
+> BetterMath.median([12, 12, 11]); // returns the median value of a number array
+> BetterMath.factorial(number); // returns the factorial value of given number
 >```
 
 ### Collection
@@ -139,6 +133,7 @@ Usage:
 > collection.toString();
 > collection.toJSONString();
 > collection.count(); // returns the amount of entries
+> collection.clearMap(); // removes all elements
 >```
 
 ### DateUtil
@@ -164,6 +159,10 @@ Usage:
 > DateUtil.leapYearsInRange(12, 2020); // returns all leap years in the given range
 > DateUtil.getMonthFirstDay(); // returns the first day of the current month
 > DateUtil.getMonthLastDay(); // returns the last day of the current month
+> DateUtil.toDate(); // returns a date object from number or date or extened classes
+> DateUtil.isAfter(date1, date2); // returns boolean based on if the second date is after the first one
+> DateUtil.isBefore(date1, date2); // returns boolean based on if the second date is before the first one
+> DateUtil.yearsToMonths(number); // returns the amount of months in total based on years
 > ```
 
 ### ImprovedArray
@@ -188,10 +187,13 @@ Usage:
 > array.rejected(function); // opposite of Array.prototype.filter
 > array.sum(); // returns the sum of all elements of the array
 > array.removeDuplicates(); // removes duplicates
-> array.scramble(); // scrambles the array
+> array.scramble(); // scrambles the array | deprecated
 > array.countOccurrences(value); // counts how often the value given is in the array
 > array.flatten(); // flattens the array
 > array.toJSONString();
+> array.shuffle(); // shuffles the array
+> array.findCommonElements(array); // returns new array with elements wich are in both arrays
+> array.each((e,i,array) => {}); // shorter version of Array.forEach
 >```
 
 ### IsSomething
@@ -215,7 +217,20 @@ Usage:
 > IsSomething.isRegExp(); // returns true if the given value is a regular expression
 > IsSomething.isString(); // returns true if the given value is a string
 > IsSomething.isSymbol(); // returns true if the given is a instanceof Symbol
+> IsSomething.isType(variable, type); // returns true if the given variable is of type type 
+> IsSomething.isInstanceOf(object, classConstructor); // returns true if given object is an instance on said class
+> IsSomething.isDateValid(date); // checks if given date is valid
 > ```
+
+
+### Point
+
+>```js
+> const { Point } = require('sussy-util');
+> const point = new Point(x, y);
+> point.distanceTo(new Point(x2, y2));
+> point.slopeTo(new Point(x3, y3));
+>```
 
 ### PrimeNumbers
 Get prime numbers and save them in an array for later use
@@ -226,6 +241,17 @@ Get prime numbers and save them in an array for later use
 > primes.getTill(highedsNumber);
 > primes.addPrimes(amount);
 >```
+
+### Queue
+
+>```js
+> const { Queue } = require('sussy-util');
+>
+> const queue = new Queue();
+> queue.push(...elements);
+> queue.peek();
+> queue.shift();
+> ```
 
 ### Random
 
@@ -276,6 +302,18 @@ Get prime numbers and save them in an array for later use
 > stack.toJSONString();
 >```
 
+### StopWatch
+
+>```js
+> const { StopWatch } = require('sussy-util');
+> const stopwatch = new StopWatch(); // stopwatch start at objet creation
+>
+> stopwatch.pause(); // pauses the stopwatch
+> stopwatch.resume(); // resumes the stopwatch
+> stopwatch.reset(); // resets the stopwatch
+> stopwatch.time(); // returns the current time in milliseconds
+>```
+
 ### StringUtil
 
 >```ts
@@ -315,19 +353,23 @@ Get prime numbers and save them in an array for later use
 > StringUtil.uncapitalize(string);
 > StringUtil.isFloat(string);
 > StringUtil.splice();
-> StringUtil.rtrim();
-> StringUtil.ltrim();
+> StringUtil.rtrim("    sususu   "); // return: "    sususu"
+> StringUtil.ltrim("    sususu   "); // return: "sususu   "
+> StringUtil.camelToKebab();
+> StringUtil.isPalindrome("")
 >```
 
 ## Functions
   - [addProperty](#addproperty)
   - [asyncHandler](#asynchandler)
+  - [asyncTimeout](#asynctimeout)
   - [attributesToArray](#attributestoarray)
   - [betterRound](#betterround)
   - [bytesToSize](#bytestosize)
   - [callbackify](#callbackify)
   - [callIfFunction](#calliffunction)
   - [deepClone](#deepclone)
+  - [getObjectKeys](#getobjectkeys)
   - [getTypeString](#gettypestring)
   - [hasProperty](#hasproperty)
   - [hasValue](#hasvalue)
@@ -339,6 +381,7 @@ Get prime numbers and save them in an array for later use
   - [removeProperty](#removeproperty)
   - [removeXDigits](#removexdigits)
   - [strickJSONParse](#strickjsonparse)
+  - [syncTimeout](#synctimeout)
 
 ### addProperty
 
@@ -361,6 +404,13 @@ Get prime numbers and save them in an array for later use
 > }
 >```
 
+### asyncTimeout
+
+>```js
+> const { asyncTimeout } = require('sussy-util');
+> await asyncTimeout(time_in_milliseconds);
+>```
+
 ### attributesToArray
 
 >```js
@@ -369,6 +419,8 @@ Get prime numbers and save them in an array for later use
 >```
 
 ### betterRound
+
+Deprecated
 
 >```js
 > const { betterRound } = require('sussy-util');
@@ -409,6 +461,13 @@ Get prime numbers and save them in an array for later use
 >```js
 > const { deepClone } = require('sussy-util');
 > deepClone({er:true, us:{or:true}}): // output: {er:true, us:{or:true}}
+>```
+
+### getObjectKeys
+
+>```js
+> const { getObjectKeys } = require('sussy-util');
+> getObjectKeys({ sus_:true, nein:false }); // output: ["sus_", "nein"]
 >```
 
 ### getTypeString 
@@ -500,6 +559,13 @@ Get prime numbers and save them in an array for later use
 >```js
 > const { strickJSONParse } = require('sussy-util');
 > strickJSONParse("{ sus:true }"); // output: { sus:true }
+>```
+
+### syncTimeout
+
+>```js
+> const { syncTimeout } = require('sussy-util');
+> syncTimeout(time_to_wait);
 >```
 
 ## Types and Interfaces
@@ -596,205 +662,3 @@ Brought all isSomething functions into the IsSomething class as static functions
 > const { Random } = require('sussy-util');
 > Random.randomInt(1,4);
 > ```
-
-## Change Log
-
-### v1.5.0
-
-`Changes`
-
-changed StringUtil.prototype.generatePassword to StringUtil.generatePassword <br>
-added new param to StringUtil.generatePassword <br>
-<br>
-changed StringUtil.prototype.generateString to StringUtil.generatePassword <br>
-added new param to StringUtil.generateString <br>
-<br>
-changed StringUtil.prototype.generateCharacter to StringUtil.generateCharacter <br>
-added new param to StringUtil.generateCharacter <br>
-<br>
-changed merge to accept MutableObject instead of Object <br>
-
-`New`
-
-added callIfFunction function<br>
-added attributesToArray function<br>
-added addProperty function<br>
-added hasProperty function<br>
-added isObject function<br>
-added removeProperty function<br>
-added DateUtil.getMonthFirstDay<br>
-added DateUtil.getMonthLastDay<br>
-added ImprovedArray.prototype.flatten<br>
-added StringUtil.contains<br>
-added StringUtil.getRatingString<br>
-added StringUtil.normalizeLineBreaks<br>
-added	StringUtil.wordCount<br>
-added MutableObject interface<br>
-
-### v1.6.0-alpha
-
-`New`
-
-added IsSomething class<br>
-added IsSomething.isArray function<br>
-added IsSomething.isBoolean function <br>
-added IsSomething.isClass function<br>
-added IsSomething.isDate function<br>
-added IsSomething.isError function<br>
-added IsSomething.isEven function<br>
-added IsSomething.isFunction function<br>
-added IsSomething.isNullorUndefined function<br>
-added IsSomething.isNumber function<br>
-added IsSomething.isObject function<br>
-added IsSomething.isOdd function<br>
-added IsSomething.isPrime function<br>
-added IsSomething.isRegExp function<br>
-added IsSomething.isString function<br>
-added IsSomething.isSymbol function<br>
-
-### v1.6.0-beta
-
-`New`
-
-added objectToMutableObject function<br>
-added IsSomething.isDefined function<br>
-added IsSomething.isEmpty function<br>
-added IsSomething.isInfinite function<br>
-added IsSomething.isPrimitive function<br>
-added IsSomething.isType function<br>
-added IsSomething.isInstanceOf function<br>
-
-### v1.6.0
-
-`Change`
-
-deprecated isArray function<br>
-deprecated isBoolean function <br>
-deprecated isClass function<br>
-deprecated isDate function<br>
-deprecated isError function<br>
-deprecated isEven function<br>
-deprecated isFunction function<br>
-deprecated isNullorUndefined function<br>
-deprecated isNumber function<br>
-deprecated isObject function<br>
-deprecated isOdd function<br>
-deprecated isPrime function<br>
-deprecated isRegExp function<br>
-deprecated isString function<br>
-deprecated isSymbol function<br>
-
-### v1.7.0-alpha
-
-`Change`
-
-renamed function StringUtil.isNumber to StringUtil.isInteger<br>
-
-`Added`
-
-added StringUtil.splice function<br>
-added StringUtil.isFloat function<br>
-added StringUtil.ltrim function<br>
-added StringUtil.rtrim function<br>
-
-`Remove`
-
-removed isArray function<br>
-removed isBoolean function <br>
-removed isClass function<br>
-removed isDate function<br>
-removed isError function<br>
-removed isEven function<br>
-removed isFunction function<br>
-removed isNullorUndefined function<br>
-removed isNumber function<br>
-removed isObject function<br>
-removed isOdd function<br>
-removed isPrime function<br>
-removed isRegExp function<br>
-removed isString function<br>
-removed isSymbol function<br>
-
-### v1.7.0-beta
-
-`Change`
-
-deprecated getNumberInRange function<br>
-
-`Added`
-
-added Random class<br>
-added Random.prototype.randomInt function<br>
-added Random.prototype.randomDouble function<br>
-added Random.prototype.randomChar function<br>
-added Random.prototype.randomString function<br>
-added primefactors function<br>
-
-### v1.7.0
-
-`Change`
-
-deprecated objectToMutableObject function<br>
-changed Random.prototype.randomInt to Random.randomInt <br>
-changed Random.prototype.randomDouble to Random.randomDouble <br>
-changed Random.prototype.randomString to Random.randomString <br>
-changed Random.prototype.randomChar to Random.randomChar <br>
-
-`Added`
-
-added Collection.prototype.count function<br>
-added Collection.prototype.put function<br>
-added Collection.prototype.has function<br>
-added Collection.prototype.missing function<br>
-added Collection.prototype.toJSONString function<br>
-added StringUtil.uncapitalize function<br>
-added ImprovedArray.prototype.toJSONString function<br>
-added Set.prototype.toJSONString function<br>
-added Stack.prototype.toJSONString function<br>
-added type PromiseOr<br>
-added getObjectKeys function<br>
-added getProjectRoot function<br>
-
-### v1.7.1
-
-`Change`<br>
-bugfix in primefactors<br>
-updated hasValue function<br>
-bugfix in hasValue<br>
-updated hasProperty<br>
-
-`Added`<br>
-added Random.randomElement<br>
-
-### v1.8.0
-
-`Added`
-
-added AbstractClass class<br>
-added BetterMath class<br>
-added AbstractClassInstanceCallError error-class<br>
-added stringToB64 function<br>
-added b64ToString function<br>
-added ImprovedArray.prototype.shuffle function<br>
-added BetterMath.round function <br>
-added BetterMath.random function <br>
-added BetterMath.distance function <br>
-added BetterMath.square function <br>
-added IsSomething.isDateValid function<br>
-added Random.randomElementInRange function<br>
-added StringUtil.camelToKebab function<br>
-added Point Interface<br>
-
-`Change`
-
-made DateUtil an AbstractClass<br>
-made Random as AbstractClass<br>
-made IsSomething an AbstractClass<br>
-made StringUtil as AbstractClass<br>
-added new parameter to stack constructor<br>
-deprecated betterRound function<br>
-
-`Remove`
-
-removed objectToMutableobject function<br>
-removed getRandomNumberInRange function<br>
