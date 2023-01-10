@@ -75,6 +75,7 @@
     - [Going from 1.4.X to 1.5.X](#going-from-14x-to-15x)
     - [Going from 1.5.X to 1.6.X](#going-from-15x-to-16x)
     - [Going from 1.6.X to 1.7.X](#going-from-16x-to-17x)
+    - [Going from 1.8.X to 1.9.X](#going-from-18x-to-19x)
 
 ## Classes
 
@@ -670,3 +671,15 @@ Brought all isSomething functions into the IsSomething class as static functions
 > const { Random } = require('sussy-util');
 > Random.randomInt(1,4);
 > ```
+
+### Going from 1.8.X to 1.9.X
+
+>```js
+> // old
+> const { betterRound } = require('sussy-util');
+> betterRount(12.34, 1);
+>
+> // new
+> const { BetterMath } = require('sussy-util');
+> BetterMath.round(12.34, 1);
+>```
