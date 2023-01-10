@@ -1,4 +1,4 @@
-import { AbstractClass, BetterMath, Collection, DateUtil, ImprovedArray, IsSomething, Point, PrimeNumbers, Random, Set, Stack, StopWatch, StringUtil, TemperatureConverter } from './Classes';
+import { AbstractClass, BetterMath, Collection, DateUtil, ImprovedArray, IsSomething, Point, PrimeNumbers, Queue, Random, Set, Stack, StopWatch, StringUtil, TemperatureConverter } from './Classes';
 import { AbstractClassInstanceCallError, AlreadyExistsInCollectionError, IndexOutOfBoundsError } from "./Error";
 import { addProperty, asyncHandler, asyncTimeout, attributesToArray, b64ToString, betterRound, bytesToSize, callbackify, callIfFunction, deepClone, getObjectKeys, getProjectRoot, getTypeString, hasProperty, hasValue, measureTime, merge, objectToString, removeFirstDigit, removeLastDigit, removeProperty, removeXDigits, strictJSONParse, stringToB64, syncTimeout, toOrdinal } from "./Functions";
 import { MapEntry, MutableObject, PromiseOr, TemperatureUnits } from './Types';
@@ -23,6 +23,7 @@ export {
     IsSomething,
     Point,
     PrimeNumbers,
+    Queue,
     Random,
     Set,
     Stack,

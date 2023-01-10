@@ -6,6 +6,7 @@ import ImprovedArray from "./ImprovedArray";
 import IsSomething from "./IsSomething";
 import Point from "./Point";
 import PrimeNumbers from "./PrimeNumbers";
+import Queue from "./Queue";
 import Random from "./Random";
 import Set from "./Set";
 import Stack from "./Stack";
@@ -22,6 +23,7 @@ export {
     IsSomething,
     Point,
     PrimeNumbers,
+    Queue,
     Random,
     Set,
     Stack,
