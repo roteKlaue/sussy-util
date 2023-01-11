@@ -3,11 +3,11 @@ import asyncHandler from "./asyncHandler";
 import asyncTimeout from "./asyncTimeout";
 import attributesToArray from "./attributesToArray";
 import b64ToString from "./b64ToString";
-import betterRound from "./betterRound";
 import bytesToSize from "./bytes";
 import callbackify from "./callbackify";
 import callIfFunction from "./callIfFunction";
 import deepClone from "./deepClone";
+import deepCompare from "./deepCompare";
 import getObjectKeys from "./getObjectKeys";
 import getProjectRoot from "./getProjectRoot";
 import getTypeString from "./getTypeString";
@@ -31,11 +31,11 @@ export {
     asyncTimeout,
     attributesToArray,
     b64ToString,
-    betterRound,
     bytesToSize,
     callbackify,
     callIfFunction,
     deepClone,
+    deepCompare,
     getProjectRoot,
     getObjectKeys,
     getTypeString,

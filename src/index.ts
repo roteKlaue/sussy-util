@@ -1,6 +1,6 @@
 import { AbstractClass, BetterMath, Collection, DateUtil, ImprovedArray, IsSomething, Point, PrimeNumbers, Queue, Random, Set, Stack, StopWatch, StringUtil, TemperatureConverter } from './Classes';
 import { AbstractClassInstanceCallError, AlreadyExistsInCollectionError, IndexOutOfBoundsError } from "./Error";
-import { addProperty, asyncHandler, asyncTimeout, attributesToArray, b64ToString, betterRound, bytesToSize, callbackify, callIfFunction, deepClone, getObjectKeys, getProjectRoot, getTypeString, hasProperty, hasValue, measureTime, merge, objectToString, removeFirstDigit, removeLastDigit, removeProperty, removeXDigits, strictJSONParse, stringToB64, syncTimeout, toOrdinal } from "./Functions";
+import { addProperty, asyncHandler, asyncTimeout, attributesToArray, b64ToString, bytesToSize, callbackify, callIfFunction, deepClone, deepCompare, getObjectKeys, getProjectRoot, getTypeString, hasProperty, hasValue, measureTime, merge, objectToString, removeFirstDigit, removeLastDigit, removeProperty, removeXDigits, strictJSONParse, stringToB64, syncTimeout, toOrdinal } from "./Functions";
 import { MapEntry, MutableObject, PromiseOr, TemperatureUnits } from './Types';
 import util from "util";
 
@@ -38,11 +38,11 @@ export {
     asyncTimeout,
     attributesToArray,
     b64ToString,
-    betterRound,
     bytesToSize,
     callbackify,
     callIfFunction,
     deepClone,
+    deepCompare,
     getObjectKeys,
     getProjectRoot,
     getTypeString,
