@@ -138,17 +138,16 @@ Usage:
 > const collection = new Collection();
 >
 > //usage example
-> collection.add({ key: /* your key */ , value: /* your value */ });
-> collection.put({ key: /* your key */ , value: /* your value */ }); // add or replace
-> const value = collection.get(key);
-> collection.remove(key);
-> collection.toArray(); // returns a array of MapEntry
-> collection.has(key);
-> collection.missing(key);
-> collection.toString();
-> collection.toJSONString();
-> collection.count(); // returns the amount of entries
-> collection.clearMap(); // removes all elements
+> collection.add({ key: /* your key */ , value: /* your value */ }); // this method takes in an object that has a key and a value and sets it in the map, if the key already exists in the map it updates the value, and returns the object that was set.
+> const value = collection.get(key); // this method takes in a key of type "K" and returns the value of type "V" associated with that key if it exists in the map, otherwise it returns undefined.
+> collection.remove(key); // this method takes in a key of type "K" and removes the key-value pair associated with that key if it exists in the map, it returns the removed object if it exists, otherwise it returns undefined.
+> collection.toArray(); // this method returns the map as an array of key-value pairs.
+> collection.has(key); // this method takes in a key of type "K" and returns true if the key exists in the map, otherwise it returns false.
+> collection.missing(key); // this method takes in a key of type "K" and returns true if the key does not exist in the map, otherwise it returns false.
+> collection.toString(); // this method returns the string representation of the map.
+> collection.toJSONString(); // this method returns the JSON string representation of the map.
+> collection.count(); // this method returns the count of items in the map.
+> collection.clearMap(); // this method empties the map.
 >```
 
 ### DataConverter

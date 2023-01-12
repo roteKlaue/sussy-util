@@ -1,4 +1,3 @@
-import { AlreadyExistsInCollectionError } from "../Error/";
 import ImprovedArray from "./ImprovedArray";
 import { MapEntry } from "../Types";
 
@@ -21,6 +20,7 @@ export default class Collection<K, V> {
 		return { key, value: value };
 	}
 
+	/** @deprecated */
 	put(kv: MapEntry<K, V>): void {
 		this.map = this.map.filter((e) => e.key !== kv.key) as ImprovedArray<MapEntry<K, V>>;
 		this.map.push(kv);
