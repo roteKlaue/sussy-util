@@ -1,11 +1,11 @@
 import MutableObject from "./MutableObject";
 import MapEntry from "./MapEntry";
 import PromiseOr from "./PromiseOr";
-import TemperatureUnits from "./TemperatureUnits";
+import UnitType from "./UnitType";
 
 export {
     MutableObject,
     MapEntry,
     PromiseOr,
-    TemperatureUnits,
+    UnitType,
 }

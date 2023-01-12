@@ -1,9 +1,11 @@
 import AbstractClass from "./AbstractClass";
 import BetterMath from "./BetterMath";
 import Collection from "./Collection";
+import DataConverter from "./DataConverter";
 import DateUtil from "./DateUtil";
 import ImprovedArray from "./ImprovedArray";
 import IsSomething from "./IsSomething";
+import LRUCache from "./LRUCache";
 import Point from "./Point";
 import PrimeNumbers from "./PrimeNumbers";
 import Queue from "./Queue";
@@ -12,15 +14,17 @@ import Set from "./Set";
 import Stack from "./Stack";
 import StopWatch from "./StopWatch";
 import StringUtil from "./StringUtil";
-import TemperatureConverter from "./TemperatureConverter";
+import UnitConverter from "./UnitConverter";
 
 export {
     AbstractClass,
     BetterMath,
     Collection,
+    DataConverter,
     DateUtil,
     ImprovedArray,
     IsSomething,
+    LRUCache,
     Point,
     PrimeNumbers,
     Queue,
@@ -29,5 +33,5 @@ export {
     Stack,
     StopWatch,
     StringUtil,
-    TemperatureConverter,
+    UnitConverter,
 }

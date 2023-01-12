@@ -1,7 +1,7 @@
-import { AbstractClass, BetterMath, Collection, DateUtil, ImprovedArray, IsSomething, Point, PrimeNumbers, Queue, Random, Set, Stack, StopWatch, StringUtil, TemperatureConverter } from './Classes';
+import { AbstractClass, BetterMath, Collection, DataConverter, DateUtil, ImprovedArray, IsSomething, LRUCache, Point, PrimeNumbers, Queue, Random, Set, Stack, StopWatch, StringUtil, UnitConverter } from './Classes';
 import { AbstractClassInstanceCallError, AlreadyExistsInCollectionError, IndexOutOfBoundsError } from "./Error";
 import { addProperty, asyncHandler, asyncTimeout, attributesToArray, b64ToString, bytesToSize, callbackify, callIfFunction, deepClone, deepCompare, getObjectKeys, getProjectRoot, getTypeString, hasProperty, hasValue, measureTime, merge, objectToString, removeFirstDigit, removeLastDigit, removeProperty, removeXDigits, strictJSONParse, stringToB64, syncTimeout, toOrdinal } from "./Functions";
-import { MapEntry, MutableObject, PromiseOr, TemperatureUnits } from './Types';
+import { MapEntry, MutableObject, PromiseOr, UnitType } from './Types';
 import util from "util";
 
 /** @deprecated */
@@ -18,9 +18,11 @@ export {
     AbstractClass,
     BetterMath,
     Collection,
+    DataConverter,
     DateUtil,
     ImprovedArray,
     IsSomething,
+    LRUCache,
     Point,
     PrimeNumbers,
     Queue,
@@ -29,7 +31,7 @@ export {
     Stack,
     StopWatch,
     StringUtil,
-    TemperatureConverter,
+    UnitConverter,
     AbstractClassInstanceCallError,
     AlreadyExistsInCollectionError,
     IndexOutOfBoundsError,
@@ -62,5 +64,5 @@ export {
     MapEntry,
     MutableObject,
     PromiseOr,
-    TemperatureUnits,
+    UnitType,
 };
