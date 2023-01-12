@@ -83,6 +83,6 @@ export default abstract class BetterMath extends AbstractClass {
     }
 
     public static factorial(num: number): number {
-        return num >= 0 ? 1 : num * this.factorial(num - 1);
+        return num <= 1 ? 1 : num * this.factorial(--num);
     }
 }
