@@ -116,20 +116,20 @@ Usage:
 
 ### BetterMath
 
-BetterMath has multiple static methods that perform different mathematical operations. The methods are as follows:<br>
-
-* `round(value: number, digit: number): number` : rounds a number to a specified number of digits.<br>
-* `random(): number` : returns a random number between 0 and 1.<br>
-* `square(num: number): number` : returns the square of a given number.<br>
-* `distance(path: Point[], index: number = 0): number` : calculates the total distance between a list of Point objects, starting at the given index.<br>
-* `greatestCommonDivisor(a: number, b: number): number` : returns the greatest common divisor of two numbers using a loop.<br>
-* `gcd(a: number, b: number): number` : an alias for the greatestCommonDivisor method.<br>
-* `lowestCommonDenominator(a: number, b: number)` : number: returns the lowest common multiple of two numbers using a while loop.
-* `lcm(a: number, b: number): number` : an alias for the lowestCommonDenominator method.<br>
-* `average(numbers: number[]): number` : returns the average of a list of numbers.<br>
-* `avg(numbers: number[]): number` : an alias for the average method.<br>
-* `median(values: number[]): number` : returns the median of a list of numbers.<br>
-* `factorial(num: number): number` : returns the factorial of a given number.<br>
+>```js
+> const { BetterMath } = require('sussy-util');
+> BetterMath.distance(...Point); // calculates the total distance between a list of Point objects, starting at the given index.
+> BetterMath.round(number, digit); // rounds a number to a specified number of digits.
+> BetterMath.square(number); // returns the square of a given number.
+> BetterMath.greatestCommonDivisor(a, b); // returns the greatest common divisor of two numbers.
+> BetterMath.gcd(a, b); // an alias for the `greatestCommonDivisor` method
+> BetterMath.lowestCommonDenominator(a,b); // returns the lowest common multiple of two numbers.
+> BetterMath.lcm(a, b); // an alias for the `lowestCommonDenominator` method.
+> BetterMath.average([13, 12, 11]); // returns the average of a list of numbers
+> BetterMath.avg(); // an alias for the `average` method
+> BetterMath.median([12, 12, 11]); // returns the median of a list of numbers
+> BetterMath.factorial(number); // returns the factorial of a given number
+>```
 
 ### Collection
 >```js
