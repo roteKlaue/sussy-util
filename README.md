@@ -155,8 +155,8 @@ Usage:
 >```js
 > const { DataConverter } = require('sussy-util');
 >
-> DataConverter.csvToJson();
-> DataConverter.jsonToCsv();
+> DataConverter.csvToJson(); // The csvToJson method takes a string argument, which is expected to be in CSV format, and converts it to an array of objects. It does this by splitting the input string on newline characters to get an array of lines, then splitting each line on comma characters to get an array of values. The first line is assumed to be the header row, and is used to create property names for the JSON objects. The resulting JSON array is returned
+> DataConverter.jsonToCsv(); // The jsonToCsv takes an array of objects as input and returning a CSV formatted string. It does this by extracting the property names from the first object in the input array, using these property names to create a header row, then mapping over the input array to create an array of row strings, where each row is formed by extracting the values of the properties for each object in the input array and joining them with commas. Finally, it join all the rows with newline characters and return the final CSV string.
 >```
 
 ### DateUtil
@@ -167,22 +167,22 @@ Usage:
 >
 > //static functions
 > DateUtil.getCurrentDate(); // returns the current date
-> DateUtil.today(); // returns the current date at 00:00:00
-> DateUtil.tomorrow(); // returns the next day at 00:00:00
-> DateUtil.yesterday(); // returns the last day at 00:00:00
-> DateUtil.conpareDates(date1,date2); // returns and interger based on which date is bigger
-> DateUtil.equals(date1, date2); // returns boolean based of if both dates are identical
-> DateUtil.getMonthAbbr(month); // returns the abbreviated month name based on the number given 
-> DateUtil.getMonthFullName(month); // returns the full month name based on the number given 
-> DateUtil.getDayAbbr(day); // returns the abbreviated day name based on the number given
-> DateUtil.getDayFullName(day); // returns the full day name based on the number given
-> DateUtil.isLeapYear(year); // returns boolean based on if the given year is a leap year
-> DateUtil.weekFirstDay(); // returns the first week day of the current week
-> DateUtil.weekLastDay(); // returns the last week day of the current week
-> DateUtil.leapYearsInRange(12, 2020); // returns all leap years in the given range
+> DateUtil.today(); // Returns the current date with the time set to 00:00:00 (midnight).
+> DateUtil.tomorrow(); // Returns the date for tomorrow with the time set to 00:00:00 (midnight).
+> DateUtil.yesterday(); // Returns the date for yesterday with the time set to 00:00:00 (midnight).
+> DateUtil.conpareDates(date1,date2); // `compareDates(dt1: T | number | Date, dt2: T | number | Date):` Compares two dates and returns the difference in milliseconds. If the first date is greater than the second date, a positive number will be returned. If the first date is less than the second date, a negative number will be returned. If the dates are equal, 0 will be returned.
+> DateUtil.equals(date1, date2); // `equals(dt1: T | number | Date, dt2: T | number | Date):` Compares two dates and returns true if the dates are equal, false otherwise.
+> DateUtil.getMonthAbbr(month); // Returns the abbreviation of the month for the given number (0-11).
+> DateUtil.getMonthFullName(month); // Returns the full name of the month for the given number (0-11).
+> DateUtil.getDayAbbr(day); // Returns the abbreviation of the day for the given number (0-6).
+> DateUtil.getDayFullName(day); // Returns the full name of the day for the given number (0-6).
+> DateUtil.isLeapYear(year); //  Returns true if the given year is a leap year, false otherwise.
+> DateUtil.weekFirstDay(); // Returns the date for the first day of the current week with the time set to 00:00:00 (midnight).
+> DateUtil.weekLastDay(); // Returns the date for the last day of the current week with the time set to 00:00:00 (midnight).
+> DateUtil.leapYearsInRange(12, 2020); // Returns an array of all leap years within the given range (inclusive).
 > DateUtil.getMonthFirstDay(); // returns the first day of the current month
 > DateUtil.getMonthLastDay(); // returns the last day of the current month
-> DateUtil.toDate(); // returns a date object from number or date or extened classes
+> DateUtil.toDate(); // Returns a date object for the given date, number or date-like object.
 > DateUtil.isAfter(date1, date2); // returns boolean based on if the second date is after the first one
 > DateUtil.isBefore(date1, date2); // returns boolean based on if the second date is before the first one
 > DateUtil.yearsToMonths(number); // returns the amount of months in total based on years
@@ -199,24 +199,25 @@ Usage:
 > // getting items from array
 > const elm = array[index];
 > //has all Array functions
-> array.insertAt(index, ...values); // inserts items at index
-> array.remove(index); // remove elements from array at index
+> array.insertAt(index, ...values); // nserts the given items at the given index in the array. Throws an error if the index is out of bounds.
+> array.remove(index); // Removes an element from the array at the given index and returns the removed element. Throws an error if the index is out of bounds.
 > const index = array.getRandomIndex(); // returns random index of array
 > const element = array.getRandomElement(); // returns element at random index
-> array.clear(); // removes all elements
-> array.clone(); // returns clone
-> const empty = array.isEmpty(); // returns if the array is empty true else false
-> array.none(function); // returns true if none of the array elements fits the specified function
-> array.rejected(function); // opposite of Array.prototype.filter
+> array.clear(); // Removes all elements from the array.
+> array.clone(); // Returns a new ImprovedArray with the same elements as the original array.
+> const empty = array.isEmpty(); // Returns true if the array is empty, false otherwise.
+> array.none(function); // Returns true if none of the elements in the array pass the given predicate, false otherwise.
+> array.rejected(function); // Returns a new ImprovedArray with all elements from the original array that fail the given predicate.
 > array.sum(); // returns the sum of all elements of the array
-> array.removeDuplicates(); // removes duplicates
-> array.scramble(); // scrambles the array | deprecated
-> array.countOccurrences(value); // counts how often the value given is in the array
-> array.flatten(); // flattens the array
-> array.toJSONString();
-> array.shuffle(); // shuffles the array
+> array.removeDuplicates(); // Removes all duplicate elements from the array.
+> array.scramble(); // Shuffles the elements of the array in a random order. Deprecated in favor of `shuffle()` method
+> array.countOccurrences(value); // Returns the number of times the given value appears in the array.
+> array.flatten(); // Flattens the array, removing all nested arrays.
+> array.toJSONString(); // Returns a JSON string representation of the array.
+> array.shuffle(); // Shuffles the elements of the array in a random order.
 > array.findCommonElements(array); // returns new array with elements wich are in both arrays
-> array.each((e,i,array) => {}); // shorter version of Array.forEach
+> array.each((e,i,array) => {}); // An alias for the forEach method.
+> array.findCommonElements(array); // `findCommonElements<X extends Array<any>>(arr: X | any[]):` Returns a new ImprovedArray with all the common elements between the current array and the passed array.
 >```
 
 ### IsSomething
@@ -248,16 +249,21 @@ Usage:
 ### LRUCache
 
 >```js
+> const { LRUCache } = require('sussy-util');
 >
+> const cache = new LRUCache(5); // LRUCache constructor takes a number for setting the maximum number of entries in the cache
+> cache.add("daysiwanttolive", 12); // Adds a new key-value pair to the cache. If the key already exists in the cache, the existing value is updated with the new value and the timestamp is updated to the current time. If the cache is at its maximum capacity, the least recently used key-value pair is removed from the cache to make room for the new one.
+> cache.get("daysiwanttolive"); // Returns the value associated with the given key. If the key does not exist in the cache, it returns undefined. If the key does exist, the timestamp associated with the key is updated to the current time.
+> cache.removeLRU(); // Removes the least recently used key-value pair from the cache. It iterates over the keys in the cache, checking the timestamps associated with each key. The key with the oldest timestamp is removed from the cache, and the currentSize is decremented.
 >```
 
 ### Point
 
 >```js
 > const { Point } = require('sussy-util');
-> const point = new Point(x, y);
-> point.distanceTo(new Point(x2, y2));
-> point.slopeTo(new Point(x3, y3));
+> const point = new Point(x, y); // Initializes a new Point object with the given x and y coordinates.
+> point.distanceTo(new Point(x2, y2)); // Calculates the distance between the current point and the point passed as an argument. It returns the value of the distance in a number.
+> point.slopeTo(new Point(x3, y3)); // Calculates the slope between the current point and the point passed as an argument. It returns the value of the slope in a number.
 >```
 
 ### PrimeNumbers
@@ -266,8 +272,8 @@ Get prime numbers and save them in an array for later use
 >```js
 > const { PrimeNumbers } = require('sussy-util');
 > const primes = new PrimeNumbers();
-> primes.getTill(highedsNumber);
-> primes.addPrimes(amount);
+> primes.getTill(highedsNumber); // function takes in a number and returns an array of prime numbers that are less than or equal to that number. It first checks if the input number is greater than the current property. If it is, it uses a for loop to iterate through the numbers from the current property to the input number. Within the loop, it checks if the current number is even or not prime, if it is then it continues to the next number, otherwise it pushes the number to the primes array and updates the current property to the input number. If the input number is less than or equal to the current property, it filters the primes array to return only numbers less than or equal to the input number.
+> primes.addPrimes(amount); // function takes in a number and adds that many prime numbers to the primes array. It uses a while loop to iterate until the input number is greater than 0. Within the loop, it increments the current property by 1, then checks if the current property is prime using the isPrime helper function. If it is, it pushes the current property to the primes array and decrements the input number by 1. Finally, it returns the primes array.
 >```
 
 ### Queue
@@ -275,10 +281,11 @@ Get prime numbers and save them in an array for later use
 >```js
 > const { Queue } = require('sussy-util');
 >
-> const queue = new Queue();
-> queue.push(...elements);
-> queue.peek();
-> queue.shift();
+> const queue = new Queue(); // takes in an array and it pushes that array to the items property.
+> queue.push(...elements); // function takes in any number of elements of type T and pushes them to the items array.
+> queue.peek(); // function returns the first element of the items array or undefined if the array is empty
+> queue.shift(); // function removes the first element of the items array and returns it or undefined if the array is empty
+> queue.empty(); // function returns a boolean indicating whether the items array is empty or not
 > ```
 
 ### Random
@@ -286,12 +293,12 @@ Get prime numbers and save them in an array for later use
 >```js
 >const { Random } = require('sussy-util');
 >
->Random.randomInt(upper, lower); // returns a random integer with upper and lower bounds given
->Random.randomDouble(upper, lower); // returns a random double with upper and lower bounds
->Random.randomString(length, charset?); // returns a random string with given length and charset
->Random.randomChar(charset?); // returns a random char with given charset
->Random.randomElement(array?); // returns a random element of an array
->Random.randomElementInRange(array?); // returns a random element of an array in range
+>Random.randomInt(upper, lower); // function generates a random integer between the lower and upper bounds provided. If no bounds are provided, it defaults to 0 and 10. It uses Math.floor and Math.ceil to ensure that the returned number is an integer.
+>Random.randomDouble(upper, lower); // function generates a random double between the lower and upper bounds provided. If no bounds are provided, it defaults to 0 and 10. It calls the randomInt method to get a random integer and then adds a random decimal value to it.
+>Random.randomString(length, charset?); // function generates a random string of a given length, with characters chosen from a given character set or from a default set of "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789". It uses recursion to repeatedly call the randomChar method to generate a new character until the desired length is reached.
+>Random.randomChar(charset?); // function generates a random character from a given character set or from a default set of "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789". It uses the randomInt method to get a random index from the character set, and then uses the charAt method to get the character at that index.
+>Random.randomElement(array?); // function generates a random element from a given array
+>Random.randomElementInRange(array?); // function generates a random element from a given range of an array.
 >```
 
 ### Set
@@ -302,15 +309,18 @@ Get prime numbers and save them in an array for later use
 > const set = new Set();
 >
 > //usage example
-> set.push(elm); // put elm in set if not already in set
-> set.delete(elm); // removes the first elements which equals elm
-> set.isEmpty(); // returns if set is empty
-> const elm = set.get(index); // returns elm at index
-> const length = set.length(); // returns number of elements in set
-> set.remove(number); // removes the element at index
-> set.changeCheckFunction(() => {}); // changes the check function for each element
-> set.toString();
-> set.toJSONString();
+> set.push(elm); // function takes in an element of type T and pushes it to the items array after checking that it is not already in the array.
+> set.delete(elm); // function takes in an element of type T and removes it from the items array.
+> set.isEmpty(); // function returns a boolean indicating whether the items array is empty or not
+> const elm = set.get(index); // function takes in an index and returns the element of the items array at that index. If the index is out of bounds, it throws an exception.
+> const length = set.length(); //  function returns the length of the items array
+> set.remove(number); // function takes in an index and removes the element of the items array at that index. If the index is out of bounds, it throws an exception.
+> set.changeCheckFunction(() => {}); // function allows the user to change the checkFunction property.
+> set.clear(); // function empties the items array
+> set.clone(); // function creates a new Set<T> object and copies all the elements of the current set to it.
+> set.toString(); // function returns a string representation of the set and its items
+> set.toJSONString(); // function returns a JSON string representation of the items array.
+> set.toArray(); // function returns the items array
 >```
 
 ### Stack
@@ -340,6 +350,8 @@ Get prime numbers and save them in an array for later use
 > stopwatch.resume(); // resumes the stopwatch
 > stopwatch.reset(); // resets the stopwatch
 > stopwatch.time(); // returns the current time in milliseconds
+> stopwatch.round(); // This method saves the current time as a round. It first calls the fixPausedTime method to correct the time if the stopwatch was paused. Then it calculates the time of the round by subtracting the total time passed (including pauses) from the start time. Finally, it adds the round time to the rounds array using the push method.
+> 
 >```
 
 ### StringUtil
