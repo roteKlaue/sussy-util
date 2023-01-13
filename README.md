@@ -399,6 +399,23 @@ Get prime numbers and save them in an array for later use
 > StringUtil.isPalindrome("")
 >```
 
+### UnitConverter
+
+>```ts
+> const { UnitConverter } = require("sussy-util");
+>
+> UnitConverter.kelvinToCelsius(val: number); // This function converts a value from Kelvin to Celsius. It takes a number as an argument and returns the equivalent value in Celsius by adding the offset of 273.15.
+> UnitConverter.celsiusToKelvin(val: number); // This function converts a value from Celsius to Kelvin. It takes a number as an argument and returns the equivalent value in Kelvin by subtracting the offset of 273.15.
+> UnitConverter.fahrenheitToKelvin(val: number); // This function converts a value from Fahrenheit to Kelvin. It first converts the Fahrenheit value to Celsius using the fahrenheitToCelsius function, then converts it to Kelvin using the celsiusToKelvin function.
+> UnitConverter.kelvinToFahrenheit(val: number); // This function converts a value from Kelvin to Fahrenheit. It first converts the Kelvin value to Celsius using the kelvinToCelsius function, then converts it to Fahrenheit using the celsiusToFahrenheit function.
+> UnitConverter.kilometersToMiles(kilometers: number); // This function converts a value from kilometers to miles. It takes a number of kilometers as an argument and returns the equivalent number of miles by dividing the number of kilometers by the conversion factor of 1.60934.
+> UnitConverter.milesToKilometers(miles: number); // This function converts a value from miles to kilometers. It takes a number of miles as an argument and returns the equivalent number of kilometers by multiplying the number of miles by the conversion factor of 1.60934.
+> UnitConverter.celsiusToFahrenheit(celsius: number); // This function converts a value from Celsius to Fahrenheit. It takes a number in Celsius as an argument and returns the equivalent value in Fahrenheit by multiplying the value by 9/5 and adding 32.
+> UnitConverter.fahrenheitToCelsius(fahrenheit: number); // This function converts a value from Fahrenheit to Celsius. It takes a number in Fahrenheit as an argument and returns the equivalent value in Celsius by subtracting 32 and multiplying the result by 5/9.
+> UnitConverter.convert(value: number, from: UnitType, to: UnitType); // This function takes a value, and the unit type of the value and the unit type that the value needs to be converted to as an argument and returns the equivalent value in the destination unit. It checks if the conversion type is a known conversion type and if not it throws an error.
+>```
+
+
 ## Functions
   - [addProperty](#addproperty)
   - [asyncHandler](#asynchandler)
