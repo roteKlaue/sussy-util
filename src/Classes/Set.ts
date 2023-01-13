@@ -65,8 +65,8 @@ export default class Set<T> {
         return [...this.items];
     }
 
-    changeCheckFunction(fun: (a: T, b: T) => boolean): void {
-        this.checkFunction = fun;
+    changeCheckFunction(predicate: (a: T, b: T) => boolean): void {
+        this.checkFunction = predicate;
     }
 
     toString(): string {
