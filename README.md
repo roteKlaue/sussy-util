@@ -417,6 +417,7 @@ Get prime numbers and save them in an array for later use
 
 
 ## Functions
+
   - [addProperty](#addproperty)
   - [asyncHandler](#asynchandler)
   - [asyncTimeout](#asynctimeout)
