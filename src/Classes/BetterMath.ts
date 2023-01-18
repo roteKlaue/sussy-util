@@ -29,13 +29,10 @@ export default abstract class BetterMath extends AbstractClass {
             Math.sqrt(this.square(path[index].x - path[index + 1].x) + this.square(path[index].y - path[index + 1].y)) + this.distance(path, ++index);
 
     public static greatestCommonDivisor(a: number, b: number): number {
-        let gcd = 1;
-        for (let i = 1; i <= a && i <= b; i++) {
-            if (a % i == 0 && b % i == 0) {
-                gcd = i;
-            }
+        if (b === 0) {
+            return a;
         }
-        return gcd;
+        return this.greatestCommonDivisor(b, a % b);
     }
 
     public static gcd(a: number, b: number): number {
@@ -43,19 +40,8 @@ export default abstract class BetterMath extends AbstractClass {
     }
 
     public static lowestCommonDenominator(a: number, b: number): number {
-        if (a === 0 || b === 0) {
-            return 0;
-        }
-
-        const abs = { a: Math.abs(a), b: Math.abs(b) };
-        const absHigherNumber = Math.max(abs.a, abs.b);
-        const absLowerNumber = Math.min(abs.a, abs.b);
-
-        let lcm = absHigherNumber;
-        while (lcm % absLowerNumber !== 0) {
-            lcm += absHigherNumber;
-        }
-        return lcm;
+        const gcd = this.greatestCommonDivisor(a, b);
+        return (a / gcd) * b;
     }
 
     public static lcm(a: number, b: number): number {
