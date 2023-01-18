@@ -14,7 +14,7 @@ export default class Collection<K, V> extends Map<K, V> {
 		return `Collection: ${this.toString()}`;
 	}
 
-	toArray() {
+	toArray(): MapEntry<K, V>[] {
 		return Array.from(this.entries()).map(e => ({ key: e[0], value: e[1] }));;
 	}
 

@@ -1,4 +1,4 @@
-export default (n: number):string => {
+export default (n: number): string => {
     const lastDigit = n % 10;
     if (n === 11 || n === 12 || n === 13) {
         return n + 'th';

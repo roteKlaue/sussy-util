@@ -1,3 +1,3 @@
-export default <T>(sus:T):undefined => {
-    return void(sus);
+export default <T>(sus: T): undefined => {
+    return void (sus);
 }
