@@ -1,4 +1,3 @@
-import ImprovedArray from "./ImprovedArray";
 import { MapEntry } from "../Types";
 
 export default class Collection<K, V> extends Map<K, V> {
@@ -16,7 +15,7 @@ export default class Collection<K, V> extends Map<K, V> {
 	}
 
 	toArray() {
-		return Array.from(this.entries());
+		return Array.from(this.entries()).map(e => ({ key: e[0], value: e[1] }));;
 	}
 
 	count(): number {
