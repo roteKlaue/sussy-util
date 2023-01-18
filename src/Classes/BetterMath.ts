@@ -56,19 +56,37 @@ export default abstract class BetterMath extends AbstractClass {
         return this.average(numbers);
     }
 
-    public static median(values: number[]): number {
-        values.sort((a, b) => a - b);
-
-        const length = values.length;
-
-        if (length % 2 === 0) {
-            return (values[length / 2 - 1] + values[length / 2]) / 2;
-        }
-
-        return values[Math.floor(length / 2)];
-    }
-
     public static factorial(num: number): number {
         return num <= 1 ? 1 : num * this.factorial(--num);
+    }
+
+    private static quickselect(arr: number[], k: number): number {
+        if (arr.length === 1) {
+            return arr[0];
+        }
+
+        const pivot = arr[Math.floor(Math.random() * arr.length)];
+        const lows = arr.filter(x => x < pivot);
+        const highs = arr.filter(x => x > pivot);
+        const pivots = arr.filter(x => x === pivot);
+
+        if (k < lows.length) {
+            return this.quickselect(lows, k);
+        } else if (k < lows.length + pivots.length) {
+            return pivots[0];
+        } else {
+            return this.quickselect(highs, k - lows.length - pivots.length);
+        }
+    }
+
+    public static median(values: number[]): number {
+        const length = values.length;
+        const middle = Math.floor(length / 2);
+
+        if (length % 2 === 0) {
+            return (this.quickselect(values, middle - 1) + this.quickselect(values, middle)) / 2;
+        }
+
+        return this.quickselect(values, middle);
     }
 }
