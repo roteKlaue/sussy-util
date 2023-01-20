@@ -18,18 +18,17 @@ export default abstract class StringUtil extends AbstractClass {
 
     public static randomString(length: number, characterset?: string): string {
         characterset = characterset || "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        let result = '';
-        for (let i = 0; i < length; i++) {
-            result += this.randomCharacter(characterset);
-        }
-        return result;
+        const chars: string[] = [];
+        chars.length = length;
+        chars.map(e => this.randomCharacter(characterset));
+        return chars.join('');
     }
 
     public static randomDiscordUsername(withSufix = false): string {
         const length = Math.floor(Math.random() * 29) + 4;
         let name = this.randomString(length);
 
-        if (!StringUtil.isDiscordUsername(name)) {
+        if (!StringUtil.isDiscordUsername(`${name}#0000`)) {
             name = this.randomDiscordUsername(false);
         }
 
