@@ -1,4 +1,5 @@
 import IndexOutOfBoundsError from "../Error/IndexOutOfBoundsError";
+import ArrayUtils from "./ArrayUtil";
 import Set from "./Set";
 
 export default class ImprovedArray<T> extends Array<T> {
@@ -76,20 +77,8 @@ export default class ImprovedArray<T> extends Array<T> {
         return this.reduce((a: number, v: T) => v === value ? a + 1 : a + 0, 0);
     }
 
-    static flat(arr: any[]): any[] {
-        const result: any[] = [];
-        for (const item of arr) {
-            if (Array.isArray(item)) {
-                result.push(...this.flat(item));
-            } else {
-                result.push(item);
-            }
-        }
-        return result;
-    }
-
     flatten(): void {
-        const newARR = ImprovedArray.flat(this);
+        const newARR = ArrayUtils.flat(this);
         this.clear();
         this.push(...newARR);
     }
@@ -109,12 +98,12 @@ export default class ImprovedArray<T> extends Array<T> {
     each = this.forEach;
 
     findCommonElements<X extends Array<any>>(arr: X | any[]): ImprovedArray<T> {
-        const commonElements = [];
+        const commonElements: T[] = [];
         for (let i = 0; i < this.length; i++) {
             if (arr.indexOf(this[i]) !== -1) {
                 commonElements.push(this[i]);
             }
         }
-        return new ImprovedArray(...commonElements);
+        return new ImprovedArray<T>(...commonElements);
     }
 }

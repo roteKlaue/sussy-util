@@ -55,7 +55,7 @@ export default abstract class IsSomething extends AbstractClass {
     }
 
     public static isFunction(a: any): boolean {
-        return a && (typeof a === 'function' || a instanceof Function) && !this.isClass(a);
+        return a && (typeof a === 'function' || a instanceof Function) && !IsSomething.isClass(a);
     }
 
     public static isInfinite(arg: any): boolean {
@@ -71,7 +71,7 @@ export default abstract class IsSomething extends AbstractClass {
     }
 
     public static isObject(arg: any): boolean {
-        return arg && (typeof arg === "object" && arg instanceof Object && !this.isArray(arg));
+        return arg && (typeof arg === "object" && arg instanceof Object && !IsSomething.isArray(arg));
     }
 
     public static isPrime(num: number): boolean | null {
@@ -96,7 +96,7 @@ export default abstract class IsSomething extends AbstractClass {
     }
 
     public static isPrimitive(arg: any): boolean {
-        return this.isNullorUndefined(arg) || this.isString(arg) || this.isNumber(arg) || this.isBoolean(arg) || this.isSymbol(arg);
+        return IsSomething.isNullorUndefined(arg) || IsSomething.isString(arg) || IsSomething.isNumber(arg) || IsSomething.isBoolean(arg) || IsSomething.isSymbol(arg);
     }
 
     public static isRegExp(arg: any): boolean {
@@ -116,7 +116,7 @@ export default abstract class IsSomething extends AbstractClass {
     }
 
     public static isInstanceOf(value: any, constructor: Function): boolean | null {
-        if (!this.isClass(constructor)) return null;
+        if (!IsSomething.isClass(constructor)) return null;
         return value instanceof constructor;
     }
 

@@ -1,4 +1,5 @@
 import AbstractClass from "./AbstractClass";
+import ArrayUtils from "./ArrayUtil";
 import BetterMath from "./BetterMath";
 import Collection from "./Collection";
 import DataConverter from "./DataConverter";
@@ -18,6 +19,7 @@ import UnitConverter from "./UnitConverter";
 
 export {
     AbstractClass,
+    ArrayUtils,
     BetterMath,
     Collection,
     DataConverter,

@@ -8,6 +8,7 @@ import callbackify from "./callbackify";
 import callIfFunction from "./callIfFunction";
 import deepClone from "./deepClone";
 import deepCompare from "./deepCompare";
+import fibonacci from "./fibonacci";
 import getObjectKeys from "./getObjectKeys";
 import getProjectRoot from "./getProjectRoot";
 import getTypeString from "./getTypeString";
@@ -36,6 +37,7 @@ export {
     callIfFunction,
     deepClone,
     deepCompare,
+    fibonacci,
     getProjectRoot,
     getObjectKeys,
     getTypeString,
