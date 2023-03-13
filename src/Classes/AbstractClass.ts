@@ -9,7 +9,7 @@ export default class AbstractClass {
                 arg();
             }
             catch (e) {
-                if (/^Class constructor/.test((e as TypeError).message)) {
+                if (/^Class constructor/.test((e as Error).message)) {
                     return true;
                 }
             }

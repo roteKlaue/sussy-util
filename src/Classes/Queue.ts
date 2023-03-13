@@ -1,38 +1,61 @@
 import { ImprovedArray } from ".";
 
 export default class Queue<T> {
-    // TODO: Documentation
     private items: ImprovedArray<T> = new ImprovedArray<T>();
 
     constructor(initElm: Array<T>) {
         this.items.push(...initElm);
     };
 
-    push(...elm: T[]): void {
+    /**
+     * The function takes a variable number of arguments of type T and pushes them into the items array
+     * @param {T[]} elm - T[]
+     */
+    public push(...elm: T[]): void {
         this.items.push(...elm);
     }
 
-    peek(): T | undefined {
+    /**
+     * It returns the first element of the array
+     * @returns The first item in the array.
+     */
+    public peek(): T | undefined {
         return this.items[0];
     }
 
-    shift(): T | undefined {
+    /**
+     * It removes the first element from an array and returns that element
+     * @returns The first element of the array.
+     */
+    public shift(): T | undefined {
         return this.items.shift();
     }
 
-    empty(): boolean {
+    /**
+     * Returns true if the stack is empty, false otherwise
+     * @returns The method returns a boolean value.
+     */
+    public empty(): boolean {
         return this.items.isEmpty();
     }
 
-    toString(): string {
+    public toString(): string {
         return `Queue: ${this.items.toString()}`;
     }
 
-    toArray(): T[] {
-        return this.items;
+    /**
+     * This function returns a copy of the items array.
+     * @returns The clone of the items array.
+     */
+    public toArray(): T[] {
+        return this.items.clone();
     }
 
-    toJSONString(): string {
+    /**
+     * It takes the items array and converts it to a JSON string.
+     * @returns The JSON string representation of the items array.
+     */
+    public toJSONString(): string {
         return JSON.stringify(this.items);
     }
 }

@@ -2,7 +2,6 @@ import { IndexOutOfBoundsError } from "../Error";
 import { ImprovedArray } from ".";
 
 export default class Set<T> {
-    // TODO: Documentation
     private items = new ImprovedArray<T>();
     private checkFunction: (a: T, b: T) => boolean = (arrayParam: T, newItem: T) => arrayParam === newItem;
 
@@ -15,13 +14,21 @@ export default class Set<T> {
         }
     }
 
-    push(item: T): void {
+    /**
+     * If the item is not already in the array, add it
+     * @param {T} item - T - The item to be pushed into the array.
+     */
+    public push(item: T): void {
         if (!this.items.some((item2) => this.checkFunction(item2, item))) {
             this.items.push(item);
         }
     }
 
-    delete(item: T): void {
+    /**
+     * finds and removes the item from the Set
+     * @param {T} item - T - The item to delete
+     */
+    public delete(item: T): void {
         this.items.find((v, i) => {
             if (v === item) {
                 this.items.remove(i);
@@ -29,7 +36,11 @@ export default class Set<T> {
         });
     }
 
-    get(index: number): T {
+    /**
+     * @param {number} index - number - The index of the item to get
+     * @returns The item at the index.
+     */
+    public get(index: number): T {
         if (typeof index !== 'number') throw new TypeError('index must be a number');
         if (index < 0 || index >= this.length()) {
             throw new IndexOutOfBoundsError(`Index: ${index} is out of bounds for length ${this.length()}`);
@@ -37,23 +48,43 @@ export default class Set<T> {
         return this.items[index];
     }
 
-    isEmpty(): boolean {
+    /**
+     * Returns true if the stack is empty, false otherwise
+     * @returns The return type is boolean.
+     */
+    public isEmpty(): boolean {
         return this.items.isEmpty();
     }
 
-    length(): number {
+    /**
+     * The length function returns the length of the items array
+     * @returns The length of the items array.
+     */
+    public length(): number {
         return this.items.length;
     }
 
-    clear(): void {
+    /**
+     * The clear() function clears the items in the Set
+     */
+    public clear(): void {
         this.items.clear();
     }
 
-    clone() {
+    /**
+     * The clone function creates a new Set object and passes the items of the current Set object to
+     * the new Set object
+     * @returns A new Set object with the same items as the original Set object.
+     */
+    public clone() {
         return new Set<T>(...this.items);
     }
 
-    remove(index: number): void {
+    /**
+     * The remove function removes an item from the list at the specified index.
+     * @param {number} index - number - The index of the item to remove.
+     */
+    public remove(index: number): void {
         if (typeof index !== 'number') throw new TypeError('index must be a number');
         if (index < 0 || index >= this.length()) {
             throw new IndexOutOfBoundsError(`Index: ${index} is out of bounds for length ${this.length()}`);
@@ -61,19 +92,31 @@ export default class Set<T> {
         this.items.remove(index);
     }
 
-    toArray(): T[] {
+    /**
+     * The spread operator (...) is used to convert the Set to an array
+     * @returns An array of the items in the set.
+     */
+    public toArray(): T[] {
         return [...this.items];
     }
 
-    changeCheckFunction(predicate: (a: T, b: T) => boolean): void {
+    /**
+     * This function changes the check function to the one passed in as a parameter.
+     * @param predicate - (a: T, b: T) => boolean
+     */
+    public changeCheckFunction(predicate: (a: T, b: T) => boolean): void {
         this.checkFunction = predicate;
     }
 
-    toString(): string {
+    public toString(): string {
         return `Set: ${this.items.toString()}`;
     }
 
-    toJSONString(): string {
+    /**
+     * It takes the items array and converts it to a JSON string.
+     * @returns The JSON string representation of the items array.
+     */
+    public toJSONString(): string {
         return JSON.stringify(this.items);
     }
 }

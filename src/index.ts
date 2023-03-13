@@ -1,3 +1,4 @@
+/* Exporting all the classes, errorclasses, functions, and types from the files in the same directory. */
 export * from './Classes';
 export * from './Error';
 export * from './Functions';

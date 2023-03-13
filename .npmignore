@@ -1,11 +1,14 @@
-src
+/src
 .gitignore
-node_modules
+/node_modules
 .gitattributes
 tsconfig.json
 .vscode
 pnpm-lock.yaml
 logo.png
-.github
+/.github
 CODE_OF_CONDUCT.md
 SECURITY.md
+/docs
+/generated
+/CHANGELOG

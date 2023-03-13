@@ -1,6 +1,6 @@
 {
   "name": "sussy-util",
-  "version": "1.10.0-dev-2.1.3",
+  "version": "1.10.0-dev-2.1.4",
   "description": "Util package made by me",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
@@ -24,9 +24,7 @@
   "author": "roteKlaue",
   "license": "GPL-3.0",
   "devDependencies": {
-    "@types/node": "^18.11.5"
-  },
-  "dependencies": {
+    "@types/node": "^18.14.2"
   },
   "engines": {
     "node": ">=10",
