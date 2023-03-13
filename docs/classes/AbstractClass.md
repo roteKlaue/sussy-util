@@ -1,4 +1,4 @@
-[sussy-util](../../README.md) / [classes](../README.md) / StringUtil
+[sussy-util](../README.md) / [classes](./README.md) / AbstractClass
 
 # Class: AbstractClass
 
@@ -6,7 +6,7 @@
 
 ### Constructors
 
-- [constructor](default.md#constructor)
+- [constructor](AbstractClass.md#constructor)
 
 ## Constructors
 
@@ -22,4 +22,4 @@
 
 #### Defined in
 
-[AbstractClass.ts:3](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/d057c7a/src/Classes/AbstractClass.ts#L3)
+[AbstractClass.ts:3](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/AbstractClass.ts#L3)

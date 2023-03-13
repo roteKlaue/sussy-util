@@ -1,4 +1,4 @@
-[sussy-util](../README.md) / [classes](./README.md) / StringUtil
+[sussy-util](../README.md) / [classes](./README.md) / ArrayUtil
 
 # Class: ArrayUtil
 
@@ -6,23 +6,23 @@
 
 ### Constructors
 
-- [constructor](default.md#constructor)
+- [constructor](ArrayUtil.md#constructor)
 
 ### Methods
 
-- [clear](default.md#clear)
-- [clone](default.md#clone)
-- [countOccurrences](default.md#countoccurrences)
-- [difference](default.md#difference)
-- [flat](default.md#flat)
-- [insert](default.md#insert)
-- [intersection](default.md#intersection)
-- [remove](default.md#remove)
-- [removeDuplicates](default.md#removeduplicates)
-- [shuffle](default.md#shuffle)
-- [sortByKey](default.md#sortbykey)
-- [union](default.md#union)
-- [zip](default.md#zip)
+- [clear](ArrayUtil.md#clear)
+- [clone](ArrayUtil.md#clone)
+- [countOccurrences](ArrayUtil.md#countoccurrences)
+- [difference](ArrayUtil.md#difference)
+- [flat](ArrayUtil.md#flat)
+- [insert](ArrayUtil.md#insert)
+- [intersection](ArrayUtil.md#intersection)
+- [remove](ArrayUtil.md#remove)
+- [removeDuplicates](ArrayUtil.md#removeduplicates)
+- [shuffle](ArrayUtil.md#shuffle)
+- [sortByKey](ArrayUtil.md#sortbykey)
+- [union](ArrayUtil.md#union)
+- [zip](ArrayUtil.md#zip)
 
 ## Constructors
 
@@ -36,7 +36,7 @@ AbstractClass.constructor
 
 #### Defined in
 
-[ArrayUtil.ts:4](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/d057c7a/src/Classes/ArrayUtil.ts#L4)
+[ArrayUtil.ts:4](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L4)
 
 ## Methods
 
@@ -58,7 +58,7 @@ It clears an array by setting its length to zero
 
 #### Defined in
 
-[ArrayUtil.ts:80](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/d057c7a/src/Classes/ArrayUtil.ts#L80)
+[ArrayUtil.ts:80](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L80)
 
 ___
 
@@ -88,7 +88,7 @@ A new array with the same elements as the original array.
 
 #### Defined in
 
-[ArrayUtil.ts:89](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/d057c7a/src/Classes/ArrayUtil.ts#L89)
+[ArrayUtil.ts:89](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L89)
 
 ___
 
@@ -119,7 +119,7 @@ The number of occurrences of the value in the array.
 
 #### Defined in
 
-[ArrayUtil.ts:72](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/d057c7a/src/Classes/ArrayUtil.ts#L72)
+[ArrayUtil.ts:72](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L72)
 
 ___
 
@@ -151,7 +151,7 @@ The difference between two arrays.
 
 #### Defined in
 
-[ArrayUtil.ts:51](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/d057c7a/src/Classes/ArrayUtil.ts#L51)
+[ArrayUtil.ts:51](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L51)
 
 ___
 
@@ -174,7 +174,7 @@ item into the result array.
 
 #### Defined in
 
-[ArrayUtil.ts:11](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/d057c7a/src/Classes/ArrayUtil.ts#L11)
+[ArrayUtil.ts:11](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L11)
 
 ___
 
@@ -207,7 +207,7 @@ a new array with the items inserted at the specified index.
 
 #### Defined in
 
-[ArrayUtil.ts:141](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/d057c7a/src/Classes/ArrayUtil.ts#L141)
+[ArrayUtil.ts:141](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L141)
 
 ___
 
@@ -239,7 +239,7 @@ An array of the elements that are in both a and b.
 
 #### Defined in
 
-[ArrayUtil.ts:30](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/d057c7a/src/Classes/ArrayUtil.ts#L30)
+[ArrayUtil.ts:30](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L30)
 
 ___
 
@@ -270,7 +270,7 @@ A new array with all the items that are not equal to the item passed in.
 
 #### Defined in
 
-[ArrayUtil.ts:119](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/d057c7a/src/Classes/ArrayUtil.ts#L119)
+[ArrayUtil.ts:119](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L119)
 
 ___
 
@@ -301,7 +301,7 @@ A new array with the duplicates removed.
 
 #### Defined in
 
-[ArrayUtil.ts:99](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/d057c7a/src/Classes/ArrayUtil.ts#L99)
+[ArrayUtil.ts:99](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L99)
 
 ___
 
@@ -330,7 +330,7 @@ This function takes an array of any type and shuffles it in place.
 
 #### Defined in
 
-[ArrayUtil.ts:59](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/d057c7a/src/Classes/ArrayUtil.ts#L59)
+[ArrayUtil.ts:59](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L59)
 
 ___
 
@@ -361,7 +361,7 @@ An array of objects.
 
 #### Defined in
 
-[ArrayUtil.ts:109](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/d057c7a/src/Classes/ArrayUtil.ts#L109)
+[ArrayUtil.ts:109](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L109)
 
 ___
 
@@ -392,7 +392,7 @@ An array of unique values from both arrays.
 
 #### Defined in
 
-[ArrayUtil.ts:40](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/d057c7a/src/Classes/ArrayUtil.ts#L40)
+[ArrayUtil.ts:40](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L40)
 
 ___
 
@@ -424,4 +424,4 @@ An array of tuples.
 
 #### Defined in
 
-[ArrayUtil.ts:129](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/d057c7a/src/Classes/ArrayUtil.ts#L129)
+[ArrayUtil.ts:129](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L129)

@@ -14,7 +14,7 @@
     "topbarLinks": [
       {
         "name": "Documentation",
-        "url": "https://github.com/roteklaue/sussy-util/master/docs"
+        "url": "https://github.com/roteklaue/sussy-util/tree/master/docs"
       }
     ],
     "topbarCtaButton": {
@@ -25,12 +25,12 @@
       {
         "name": "Changelog",
         "icon": "list",
-        "url": "https://github.com/roteklaue/sussy-util/master/CHANGELOG"
+        "url": "https://github.com/roteklaue/sussy-util/tree/master/CHANGELOG"
       },
       {
         "name": "DEV",
         "icon": "list",
-        "url": "https://github.com/roteklaue/sussy-util/dev/CHANGELOG"
+        "url": "https://github.com/roteklaue/sussy-util/tree/dev/CHANGELOG"
       }
     ],
     "navigation": [
