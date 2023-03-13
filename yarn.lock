@@ -2,13 +2,6 @@
 # yarn lockfile v1
 
 
-<<<<<<< HEAD
 "@types/node@^18.14.2":
-  "integrity" "sha512-1uEQxww3DaghA0RxqHx0O0ppVlo43pJhepY51OxuQIKHpjbnYLA7vcdwioNPzIqmC2u3I/dmylcqjlh0e7AyUA=="
-  "resolved" "https://registry.npmjs.org/@types/node/-/node-18.14.2.tgz"
-  "version" "18.14.2"
-=======
-"@types/node@^18.11.5":
-  version "18.14.6"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.14.6.tgz#ae1973dd2b1eeb1825695bb11ebfb746d27e3e93"
->>>>>>> 99734aff7dbe2ad645389211287fcfa6c42db1cf
+  version "18.15.0"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.15.0.tgz#286a65e3fdffd691e170541e6ecb0410b16a38be"
