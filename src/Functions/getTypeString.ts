@@ -1,7 +1,11 @@
 import IsSomething from "../Classes/IsSomething";
 
+/**
+ * @param {any} arg - arg - the value to be tested
+ * @returns {string} returns a string name of the data type of the given variable
+*/
 export default (arg: any): string | undefined => {
-    if (typeof arg === 'boolean' || typeof arg === "number" || typeof arg === 'undefined' || typeof arg === 'bigint' || typeof arg === 'symbol' || typeof arg === 'string') {
+    if (['boolean', 'number', 'string', 'symbol', 'bigint', 'undefined'].includes(typeof arg)) {
         return typeof arg;
     }
 

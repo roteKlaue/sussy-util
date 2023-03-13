@@ -1,5 +1,10 @@
 import { MutableObject } from "../Types";
 
+/**
+ * It compares two objects and returns true if they are the same, and false if they are not
+ * @param obj - MutableObject<any> - The first object to compare
+ * @param obj2 - MutableObject<any> - The object to compare to.
+ */
 const deepCompare = (obj: MutableObject<any>, obj2: MutableObject<any>): boolean => {
     if (typeof obj !== typeof obj2) {
         return false;

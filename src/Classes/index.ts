@@ -16,6 +16,7 @@ import Stack from "./Stack";
 import StopWatch from "./StopWatch";
 import StringUtil from "./StringUtil";
 import UnitConverter from "./UnitConverter";
+import UrlUtil from "./UrlUtil";
 
 export {
     AbstractClass,
@@ -36,4 +37,5 @@ export {
     StopWatch,
     StringUtil,
     UnitConverter,
+    UrlUtil,
 }

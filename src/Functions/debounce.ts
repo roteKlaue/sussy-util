@@ -1,4 +1,4 @@
-export default (fn: Function, wait?: number, immediate = false): ((...args: any) => void) => {
+const debounce = (fn: Function, wait?: number, immediate = false): ((...args: any) => void) => {
     let timeout: number | undefined | NodeJS.Timeout;
 
     const setDebounce = (...args: any[]): void => {
@@ -19,4 +19,6 @@ export default (fn: Function, wait?: number, immediate = false): ((...args: any)
     };
 
     return setDebounce;
-}
+};
+
+export default debounce;

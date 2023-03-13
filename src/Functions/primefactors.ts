@@ -1,3 +1,8 @@
+/**
+ * returns an array of prime factors of a number
+ * @param {number} numb - numb - the number of which the prime factors should be computed
+ * @returns {number[]} array of prime factors
+ */
 export default (numb: number): number[] => {
     numb = numb || 10;
     const primefactors = [];

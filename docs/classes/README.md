@@ -24,3 +24,4 @@
 | `StopWatch` | [Documentation](./StopWatch.md) |
 | `StringUtil` | [Documentation](./StringUtil.md) |
 | `UnitConverter` | [Documentation](./UnitConverter.md) |
+| `UrlUtil` | [Documentation](./UrlUtil.md) |

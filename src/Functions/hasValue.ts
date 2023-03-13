@@ -1,5 +1,10 @@
 import { Collection, Set, Stack, IsSomething } from "../Classes";
 
+/**
+ * Returns true if a value exists, false if empty. Works with deeply nested values using object paths.
+ * @param {any} a - any
+ * @returns A function that takes a parameter and returns a boolean.
+ */
 const hasValue = (a: any): boolean => {
     if ((IsSomething.isString(a) && a.length > 0) || IsSomething.isBoolean(a) || a === null || IsSomething.isNumber(a) || IsSomething.isFunction(a) || (IsSomething.isRegExp(a) && a.length > 0)) {
         return true;
