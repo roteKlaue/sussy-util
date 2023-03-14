@@ -1,4 +1,4 @@
-[sussy-util`| [Documentation](../README.md) / functions
+[sussy-util](../README.md) / functions
 
 # Functions
 
