@@ -1,6 +1,6 @@
 {
   "name": "sussy-util",
-  "version": "1.10.0-dev-2.1.4",
+  "version": "1.10.0",
   "description": "Util package made by me",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
