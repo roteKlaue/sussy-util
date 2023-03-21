@@ -38,7 +38,7 @@ export default class ArrayUtils extends AbstractClass {
      * @returns An array of unique values from both arrays.
      */
     public static union<T>(a: T[], b: T[]): T[] {
-        return Array.from(new Set([...a, ...b]));
+        return [...new Set([...a, ...b])];
     }
 
     /**
@@ -70,7 +70,7 @@ export default class ArrayUtils extends AbstractClass {
      * @returns The number of occurrences of the value in the array.
      */
     public static countOccurrences<T>(array: T[], value: T): number {
-        return array.reduce((a: number, v: T) => v === value ? a + 1 : a + 0, 0);
+        return array.reduce((a, v) => v === value ? a + 1 : a, 0);
     }
 
     /**
@@ -78,7 +78,7 @@ export default class ArrayUtils extends AbstractClass {
      * @param {any[]} array - any[]
      */
     public static clear(array: any[]): void {
-        array.splice(0, array.length);
+        array.length = 0;
     }
 
     /**
@@ -119,7 +119,7 @@ export default class ArrayUtils extends AbstractClass {
     public static remove<T>(arr: T[], item: T): T[] {
         return arr.filter(val => val !== item);
     }
-    
+
     /**
      * It takes two arrays of different types and returns an array of tuples
      * @param {T[]} arr1 - T[]
@@ -140,5 +140,35 @@ export default class ArrayUtils extends AbstractClass {
      */
     public static insert<T>(arr: T[], index: number, ...items: T[]): T[] {
         return [...arr.slice(0, index), ...items, ...arr.slice(index)];
+    }
+
+    /**
+     * It takes an array and returns a new array with all the unique subarrays.
+     * @param {any[][]} arr - any[][] - The array to get the unique subarrays from.
+     * @returns A new array with all the unique subarrays.
+     */
+    public static uniqueSubarrays(arr: any[][]): any[][] {
+        const map = new Map(arr.map(v => [JSON.stringify(v), v]));
+        return [...map.values()];
+    }
+
+
+    public static quickselect(arr: number[], k: number): number {
+        if (arr.length === 1) {
+            return arr[0];
+        }
+
+        const pivot = arr[Math.floor(Math.random() * arr.length)];
+        const lows = arr.filter(x => x < pivot);
+        const highs = arr.filter(x => x > pivot);
+        const pivots = arr.filter(x => x === pivot);
+
+        if (k < lows.length) {
+            return this.quickselect(lows, k);
+        } else if (k < lows.length + pivots.length) {
+            return pivots[0];
+        } else {
+            return this.quickselect(highs, k - lows.length - pivots.length);
+        }
     }
 }

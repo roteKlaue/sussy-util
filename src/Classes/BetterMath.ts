@@ -1,4 +1,4 @@
-import { AbstractClass } from ".";
+import { AbstractClass, ArrayUtils } from ".";
 import { Point } from ".";
 
 export default abstract class BetterMath extends AbstractClass {
@@ -21,10 +21,17 @@ export default abstract class BetterMath extends AbstractClass {
         return Math.round(value * Math.pow(10, digit)) / Math.pow(10, digit);
     }
 
+    /**
+     * @deprecated
+    */
     public static random(): number {
         return Math.random();
     }
 
+    /**
+     * @param {number} num number to be squared
+     * @returns {number} num²
+     */
     public static square(num: number): number {
         return num * num;
     }
@@ -48,6 +55,13 @@ export default abstract class BetterMath extends AbstractClass {
         return this.greatestCommonDivisor(b, a % b);
     }
 
+    /**
+     * If b is 0, return a, otherwise return the greatest common divisor of b and the remainder of a
+     * divided by b.
+     * @param {number} a - The first number to find the greatest common divisor of.
+     * @param {number} b - number = 0
+     * @returns The greatest common divisor of a and b.
+     */
     public static gcd(a: number, b: number): number {
         return this.greatestCommonDivisor(a, b);
     }
@@ -63,6 +77,12 @@ export default abstract class BetterMath extends AbstractClass {
         return (a / gcd) * b;
     }
 
+    /**
+     * It returns the lowest common denominator of two numbers.
+     * @param {number} a - number, b: number
+     * @param {number} b - number - The second number to find the lowest common denominator of.
+     * @returns The lowest common denominator of two numbers.
+     */
     public static lcm(a: number, b: number): number {
         return this.lowestCommonDenominator(a, b);
     }
@@ -77,6 +97,12 @@ export default abstract class BetterMath extends AbstractClass {
         return numbers.reduce((a, b) => a + b, 0) / numbers.length;
     }
 
+    /**
+     * It takes an array of numbers, adds them together, divides the sum by the number of elements in
+     * the array, and returns the result
+     * @param {number[]} numbers - number[] - An array of numbers to average.
+     * @returns The average of the numbers in the array.
+     */
     public static avg(numbers: number[]): number {
         return this.average(numbers);
     }
@@ -91,25 +117,6 @@ export default abstract class BetterMath extends AbstractClass {
         return num <= 1 ? 1 : num * this.factorial(--num);
     }
 
-    private static quickselect(arr: number[], k: number): number {
-        if (arr.length === 1) {
-            return arr[0];
-        }
-
-        const pivot = arr[Math.floor(Math.random() * arr.length)];
-        const lows = arr.filter(x => x < pivot);
-        const highs = arr.filter(x => x > pivot);
-        const pivots = arr.filter(x => x === pivot);
-
-        if (k < lows.length) {
-            return this.quickselect(lows, k);
-        } else if (k < lows.length + pivots.length) {
-            return pivots[0];
-        } else {
-            return this.quickselect(highs, k - lows.length - pivots.length);
-        }
-    }
-
     /**
      * @param {number[]} values - number[] - The array of numbers to get the median of.
      * @returns The median of the array.
@@ -119,9 +126,9 @@ export default abstract class BetterMath extends AbstractClass {
         const middle = Math.floor(length / 2);
 
         if (length % 2 === 0) {
-            return (this.quickselect(values, middle - 1) + this.quickselect(values, middle)) / 2;
+            return (ArrayUtils.quickselect(values, middle - 1) + ArrayUtils.quickselect(values, middle)) / 2;
         }
 
-        return this.quickselect(values, middle);
+        return ArrayUtils.quickselect(values, middle);
     }
 }
