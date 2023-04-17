@@ -1,4 +1,4 @@
-import { AbstractClass, ImprovedArray, Random } from ".";
+import { AbstractClass, Random } from ".";
 
 export default abstract class StringUtil extends AbstractClass {
     constructor() {
