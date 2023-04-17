@@ -1,4 +1,4 @@
-import { AbstractClass, ImprovedArray } from ".";
+import { AbstractClass, ImprovedArray, Random } from ".";
 
 export default abstract class StringUtil extends AbstractClass {
     constructor() {
@@ -23,8 +23,7 @@ export default abstract class StringUtil extends AbstractClass {
      */
     public static randomCharacter(charset?: string): string {
         charset = charset || "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        const set = new ImprovedArray<string>(...new Set<string>(...charset.split('')));
-        return set.getRandomElement();
+        return Random.randomChar([...new Set<string>(...charset.split(''))].join(""));
     }
 
     /**
@@ -48,7 +47,7 @@ export default abstract class StringUtil extends AbstractClass {
      * @returns A random string that is a valid discord username.
      */
     public static randomDiscordUsername(withSufix = false): string {
-        const length = Math.floor(Math.random() * 29) + 4;
+        const length = crypto.getRandomValues(new Uint32Array(1))[0] % 29 + 4;
         let name = StringUtil.randomString(length);
 
         if (!StringUtil.isDiscordUsername(`${name}#0000`)) {
@@ -57,7 +56,8 @@ export default abstract class StringUtil extends AbstractClass {
 
         if (!withSufix) return name;
 
-        return `${name}#${Math.floor(Math.random() * 10)}${Math.floor(Math.random() * 10)}${Math.floor(Math.random() * 10)}${Math.floor(Math.random() * 10)}`;
+        const rands = crypto.getRandomValues(new Uint32Array(4));
+        return `${name}#${rands[0] % 10}${rands[1] % 10}${rands[2] % 10}${rands[3] % 10}`;
     }
 
     /**
@@ -351,7 +351,7 @@ export default abstract class StringUtil extends AbstractClass {
      * @returns A random color code.
      */
     public static randomColorCode(): string {
-        return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+        return `#${((new Uint32Array(1))[0] % 16777215).toString(16)}`;
     }
 
     /**

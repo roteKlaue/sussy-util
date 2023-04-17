@@ -158,7 +158,7 @@ export default class ArrayUtils extends AbstractClass {
             return arr[0];
         }
 
-        const pivot = arr[Math.floor(Math.random() * arr.length)];
+        const pivot = arr[new Uint32Array(1)[0] % arr.length];
         const lows = arr.filter(x => x < pivot);
         const highs = arr.filter(x => x > pivot);
         const pivots = arr.filter(x => x === pivot);

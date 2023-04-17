@@ -25,7 +25,7 @@ export default abstract class BetterMath extends AbstractClass {
      * @deprecated
     */
     public static random(): number {
-        return Math.random();
+        return crypto.getRandomValues(new Uint32Array(1))[0];
     }
 
     /**

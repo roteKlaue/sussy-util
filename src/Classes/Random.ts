@@ -13,13 +13,14 @@ export default abstract class Random extends AbstractClass {
      */
     public static randomInt(lower = 0, upper = 10) {
         lower = Math.floor(lower);
-        upper = Math.ceil(upper);
-        return Math.floor(Math.random() * (upper - lower + 1)) + lower;
+        upper = Math.ceil(upper) - lower;
+        return (crypto.getRandomValues(new Uint32Array(1))[0] % upper) + lower;
     }
 
     /**
      * This function returns a random integer between the lower and upper bounds, inclusive, and adds a
      * random decimal to it.
+     * @deprecated
      * @param [lower=0] - The lower bound of the random number.
      * @param [upper=10] - The upper bound of the random number.
      * @returns A random number between the lower and upper bounds.
@@ -59,7 +60,7 @@ export default abstract class Random extends AbstractClass {
      * @returns The return type is T.
      */
     public static randomElement<T>(arr: T[]): T {
-        return IsSomething.isArray(arr) ? arr[Math.floor(Math.random() * arr.length)] : arr as T;
+        return IsSomething.isArray(arr) ? arr[crypto.getRandomValues(new Uint32Array(1))[0] % arr.length] : arr as T;
     }
 
     /**
@@ -70,6 +71,6 @@ export default abstract class Random extends AbstractClass {
      * @returns The random element in the array.
      */
     public static randomElementInRange<T>(arr: T[], start: number, end: number): T {
-        return arr[Math.floor(Math.random() * (end - start + 1)) + start];
+        return arr[this.randomInt(start, end)];
     }
 }

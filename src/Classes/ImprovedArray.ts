@@ -12,7 +12,7 @@ export default class ImprovedArray<T> extends Array<T> {
      * @returns The random index of the array.
      */
     getRandomIndex(): number {
-        return Math.floor(Math.random() * this.length);
+        return new Uint32Array(1)[0] % this.length;
     }
 
     /**
