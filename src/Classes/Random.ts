@@ -19,18 +19,6 @@ export default abstract class Random extends AbstractClass {
     }
 
     /**
-     * This function returns a random integer between the lower and upper bounds, inclusive, and adds a
-     * random decimal to it.
-     * @deprecated
-     * @param [lower=0] - The lower bound of the random number.
-     * @param [upper=10] - The upper bound of the random number.
-     * @returns A random number between the lower and upper bounds.
-     */
-    public static randomDouble(lower = 0, upper = 10) {
-        return crypto.randomInt(0, 10) + Math.random();
-    }
-
-    /**
      * It returns a random character from a given string, or a random character from the default string
      * if no string is given.
      * 

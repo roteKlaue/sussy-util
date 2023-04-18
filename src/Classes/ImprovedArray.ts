@@ -114,18 +114,6 @@ export default class ImprovedArray<T> extends Array<T> {
         this.push(...newArray);
     }
 
-    /** @deprecated */
-    scramble(): void {
-        let lengthArr = this.length;
-        while (lengthArr) {
-            lengthArr -= 1;
-            const randomIndex = Math.floor(Math.random() * lengthArr);
-            const temp = this[lengthArr];
-            this[lengthArr] = this[randomIndex];
-            this[randomIndex] = temp;
-        }
-    }
-
     /**
      * The reduce function takes a function as an argument, and that function takes two arguments, the
      * first being the accumulator, and the second being the current value. The accumulator is

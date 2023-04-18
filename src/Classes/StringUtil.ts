@@ -397,11 +397,6 @@ export default abstract class StringUtil extends AbstractClass {
         return str.indexOf(substring, fromIndex) !== -1;
     }
 
-    /** @deprecated */
-    public static repeat(str: string, n: number): string {
-        return (new Array(n + 1)).join(str);
-    }
-
     /**
      * @param {string} str - string - The string to pad.
      * @param {number} minLen - The minimum length of the string.
@@ -410,7 +405,7 @@ export default abstract class StringUtil extends AbstractClass {
      */
     public static rpad(str: string, minLen: number, ch?: string): string {
         ch = ch || ' ';
-        return (str.length < minLen) ? str + StringUtil.repeat(ch, minLen - str.length) : str;
+        return (str.length < minLen) ? str + ch.repeat(minLen - str.length) : str;
     }
 
     /**
@@ -421,7 +416,7 @@ export default abstract class StringUtil extends AbstractClass {
      */
     public static lpad(str: string, minLen: number, ch?: string): string {
         ch = ch || ' ';
-        return ((str.length < minLen) ? StringUtil.repeat(ch, minLen - str.length) + str : str);
+        return ((str.length < minLen) ? ch.repeat(minLen - str.length) + str : str);
     }
 
     /**

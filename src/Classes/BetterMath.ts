@@ -22,13 +22,6 @@ export default abstract class BetterMath extends AbstractClass {
     }
 
     /**
-     * @deprecated
-    */
-    public static random(): number {
-        return crypto.getRandomValues(new Uint32Array(1))[0];
-    }
-
-    /**
      * @param {number} num number to be squared
      * @returns {number} num²
      */
