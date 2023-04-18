@@ -1,4 +1,5 @@
 import { IsSomething, AbstractClass } from ".";
+import crypto from "crypto";
 
 export default abstract class Random extends AbstractClass {
     constructor() {
@@ -14,7 +15,7 @@ export default abstract class Random extends AbstractClass {
     public static randomInt(lower = 0, upper = 10) {
         lower = Math.floor(lower);
         upper = Math.ceil(upper) - lower;
-        return (crypto.getRandomValues(new Uint32Array(1))[0] % upper) + lower;
+        return crypto.randomInt(lower, upper);
     }
 
     /**
@@ -26,7 +27,7 @@ export default abstract class Random extends AbstractClass {
      * @returns A random number between the lower and upper bounds.
      */
     public static randomDouble(lower = 0, upper = 10) {
-        return this.randomInt(lower, upper) + Math.random();
+        return crypto.randomInt(0, 10) + Math.random();
     }
 
     /**
@@ -40,8 +41,8 @@ export default abstract class Random extends AbstractClass {
      * @returns A random character from the charset.
      */
     public static randomChar(charset?: string): string {
-        charset = ((IsSomething.isString(charset)) ? charset : "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") || "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-        return charset.charAt(this.randomInt(0, charset.length - 1));
+        charset = ((IsSomething.isString(charset)) ? charset : "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") || "";
+        return charset.charAt(this.randomInt(0, charset.length));
     }
 
     /**
@@ -60,7 +61,7 @@ export default abstract class Random extends AbstractClass {
      * @returns The return type is T.
      */
     public static randomElement<T>(arr: T[]): T {
-        return IsSomething.isArray(arr) ? arr[crypto.getRandomValues(new Uint32Array(1))[0] % arr.length] : arr as T;
+        return IsSomething.isArray(arr) ? arr[crypto.randomInt(arr.length)] : arr as T;
     }
 
     /**

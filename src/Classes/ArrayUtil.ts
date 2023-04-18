@@ -1,4 +1,5 @@
 import AbstractClass from "./AbstractClass";
+import Random from "./Random";
 
 export default class ArrayUtils extends AbstractClass {
     constructor() { super(ArrayUtils); }
@@ -38,7 +39,7 @@ export default class ArrayUtils extends AbstractClass {
      * @returns An array of unique values from both arrays.
      */
     public static union<T>(a: T[], b: T[]): T[] {
-        return [...new Set([...a, ...b])];
+        return [...new Set<T>([...a, ...b])];
     }
 
     /**
@@ -97,7 +98,7 @@ export default class ArrayUtils extends AbstractClass {
      * @returns A new array with the duplicates removed.
      */
     public static removeDuplicates<T>(arr: T[]): T[] {
-        return [...new Set(arr)];
+        return [...new Set<T>(arr)];
     }
 
     /**
@@ -158,7 +159,7 @@ export default class ArrayUtils extends AbstractClass {
             return arr[0];
         }
 
-        const pivot = arr[crypto.getRandomValues(new Uint32Array(1))[0] % arr.length];
+        const pivot = arr[Random.randomInt(0, arr.length)];
         const lows = arr.filter(x => x < pivot);
         const highs = arr.filter(x => x > pivot);
         const pivots = arr.filter(x => x === pivot);

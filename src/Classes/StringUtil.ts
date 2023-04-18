@@ -47,7 +47,7 @@ export default abstract class StringUtil extends AbstractClass {
      * @returns A random string that is a valid discord username.
      */
     public static randomDiscordUsername(withSufix = false): string {
-        const length = crypto.getRandomValues(new Uint32Array(1))[0] % 29 + 4;
+        const length = Random.randomInt(4, 33);
         let name = StringUtil.randomString(length);
 
         if (!StringUtil.isDiscordUsername(`${name}#0000`)) {
@@ -55,9 +55,7 @@ export default abstract class StringUtil extends AbstractClass {
         }
 
         if (!withSufix) return name;
-
-        const rands = crypto.getRandomValues(new Uint32Array(4));
-        return `${name}#${rands[0] % 10}${rands[1] % 10}${rands[2] % 10}${rands[3] % 10}`;
+        return `${name}#${Random.randomInt(0, 10)}${Random.randomInt(0, 10)}${Random.randomInt(0, 10)}${Random.randomInt(0, 10)}`;
     }
 
     /**
@@ -340,7 +338,7 @@ export default abstract class StringUtil extends AbstractClass {
      */
     public static generatePassword(length: number, characters?: string): string {
         characters = characters || "ascdefghijklmnopqrstuvwxyzABCDEFGHIJLMOPRSTUVWXYZ1234567890!§$%&?#*+~'";
-        if (StringUtil.isWeakPassword([...new Set(characters.split(""))].join(""))) throw new Error("Not enough characters to generate password");
+        if (StringUtil.isWeakPassword([...new Set<string>(characters.split(""))].join(""))) throw new Error("Not enough characters to generate password");
         const result = StringUtil.randomString(length, characters);
         if (StringUtil.isStrongPassword(result)) return result;
         return StringUtil.generatePassword(length, characters);

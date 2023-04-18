@@ -1,5 +1,6 @@
 import IndexOutOfBoundsError from "../Error/IndexOutOfBoundsError";
 import ArrayUtils from "./ArrayUtil";
+import Random from "./Random";
 
 export default class ImprovedArray<T> extends Array<T> {
     constructor(..._elements: T[]) {
@@ -12,7 +13,7 @@ export default class ImprovedArray<T> extends Array<T> {
      * @returns The random index of the array.
      */
     getRandomIndex(): number {
-        return crypto.getRandomValues(new Uint32Array(1))[0] % this.length;
+        return Random.randomInt(0, this.length);
     }
 
     /**
