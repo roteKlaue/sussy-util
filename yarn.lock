@@ -2,6 +2,6 @@
 # yarn lockfile v1
 
 
-"@types/node@^18.14.2":
-  version "18.15.11"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-18.15.11.tgz#b3b790f09cb1696cffcec605de025b088fa4225f"
+"@types/node@^20.1.4":
+  version "20.1.4"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-20.1.4.tgz#83f148d2d1f5fe6add4c53358ba00d97fc4cdb71"
