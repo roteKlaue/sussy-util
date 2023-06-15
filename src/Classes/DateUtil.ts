@@ -11,7 +11,7 @@ class DateUtil {
      * It returns a new Date object with the current date and time.
      * @returns A new Date object with the current date and time.
      */
-    private getCurrentDate(): Date {
+    public getCurrentDate(): Date {
         return new Date(Date.now());
     }
 
