@@ -1,18 +1,15 @@
 import { hasValue, objectToString } from "../Functions";
-import { AbstractClass } from ".";
 
-export default abstract class IsSomething extends AbstractClass {
-    // TODO: Documentation
-    constructor() {
-        super(IsSomething);
-    }
+class IsSomething {
+    private static instance: IsSomething = new IsSomething();
+    private constructor() {}
 
     /**
      * If the argument is an array, return true, otherwise return false.
      * @param {any} arg - any
      * @returns a boolean value.
      */
-    public static isArray(arg: any): boolean {
+    public isArray(arg: any): boolean {
         return Array.isArray(arg) || objectToString(arg) === "[object Array]";
     }
 
@@ -22,7 +19,7 @@ export default abstract class IsSomething extends AbstractClass {
      * @param {any} arg - any
      * @returns A boolean value.
      */
-    public static isBoolean(arg: any): boolean {
+    public isBoolean(arg: any): boolean {
         return arg && (typeof arg === 'boolean' || arg === "true" || arg === "false");
     }
 
@@ -32,7 +29,7 @@ export default abstract class IsSomething extends AbstractClass {
      * @param {any} arg - any - The argument to check if it's a class.
      * @returns A boolean value.
      */
-    public static isClass(arg: any): boolean {
+    public isClass(arg: any): boolean {
         if (typeof arg !== 'function') {
             return false;
         }
@@ -54,7 +51,7 @@ export default abstract class IsSomething extends AbstractClass {
      * @param {any} arg - any
      * @returns The constructor of the Date object.
      */
-    public static isDate(arg: any): boolean {
+    public isDate(arg: any): boolean {
         return arg && (arg.constructor === Date.constructor && arg instanceof Date);
     }
 
@@ -63,7 +60,7 @@ export default abstract class IsSomething extends AbstractClass {
      * @param {any} arg - any
      * @returns The type of the argument.
      */
-    public static isDefined(arg: any): boolean {
+    public isDefined(arg: any): boolean {
         return typeof arg !== 'undefined';
     }
 
@@ -72,7 +69,7 @@ export default abstract class IsSomething extends AbstractClass {
      * @param {any} arg - any
      * @returns The return value is a boolean.
      */
-    public static isEmpty(arg: any): boolean {
+    public isEmpty(arg: any): boolean {
         return !hasValue(arg);
     }
 
@@ -82,7 +79,7 @@ export default abstract class IsSomething extends AbstractClass {
      * @param {any} arg - any
      * @returns The constructor of the Error object.
      */
-    public static isError(arg: any): boolean {
+    public isError(arg: any): boolean {
         return arg && (arg.constructor === Error.constructor && arg instanceof Error);
     }
 
@@ -91,7 +88,7 @@ export default abstract class IsSomething extends AbstractClass {
      * @param {number} num - number - This is the parameter that we are passing into the function.
      * @returns A function that takes a number and returns a boolean or null.
      */
-    public static isEven(num: number): boolean | null {
+    public isEven(num: number): boolean | null {
         if (typeof num !== "number") {
             return null;
         }
@@ -103,8 +100,8 @@ export default abstract class IsSomething extends AbstractClass {
      * @param {any} a - any
      * @returns A boolean value.
      */
-    public static isFunction(a: any): boolean {
-        return a && (typeof a === 'function' || a instanceof Function) && !IsSomething.isClass(a);
+    public isFunction(a: any): boolean {
+        return a && (typeof a === 'function' || a instanceof Function) && !this.isClass(a);
     }
 
     /**
@@ -112,7 +109,7 @@ export default abstract class IsSomething extends AbstractClass {
      * @param {any} arg - any
      * @returns a boolean value.
      */
-    public static isInfinite(arg: any): boolean {
+    public isInfinite(arg: any): boolean {
         return arg && (arg === Infinity || arg === -Infinity);
     }
 
@@ -121,7 +118,7 @@ export default abstract class IsSomething extends AbstractClass {
      * @param {any} arg - any
      * @returns The return value is a boolean.
      */
-    public static isNullorUndefined(arg: any): boolean {
+    public isNullorUndefined(arg: any): boolean {
         return arg === null || arg === void 0;
     }
 
@@ -129,7 +126,7 @@ export default abstract class IsSomething extends AbstractClass {
      * It returns true if the argument is a number or a string that contains only digits
      * @param {any} arg - any
      */
-    public static isNumber(arg: any): boolean {
+    public isNumber(arg: any): boolean {
         return arg && (typeof arg === 'number' || (typeof arg === "string" && /^\d+$/.test(arg)));
     }
 
@@ -137,8 +134,8 @@ export default abstract class IsSomething extends AbstractClass {
      * If the argument is not null, and is an object, and is not an array, then return true.
      * @param {any} arg - any
      */
-    public static isObject(arg: any): boolean {
-        return arg && (typeof arg === "object" && arg instanceof Object && !IsSomething.isArray(arg));
+    public isObject(arg: any): boolean {
+        return arg && (typeof arg === "object" && arg instanceof Object && !this.isArray(arg));
     }
 
     /**
@@ -147,7 +144,7 @@ export default abstract class IsSomething extends AbstractClass {
      * @param {number} num - number - The number to check if it's prime.
      * @returns A boolean value.
      */
-    public static isPrime(num: number): boolean | null {
+    public isPrime(num: number): boolean | null {
         if (typeof num !== 'number') {
             return null;
         }
@@ -174,8 +171,8 @@ export default abstract class IsSomething extends AbstractClass {
      * @param {any} arg - any
      * @returns A boolean value.
      */
-    public static isPrimitive(arg: any): boolean {
-        return IsSomething.isNullorUndefined(arg) || IsSomething.isString(arg) || IsSomething.isNumber(arg) || IsSomething.isBoolean(arg) || IsSomething.isSymbol(arg);
+    public isPrimitive(arg: any): boolean {
+        return this.isNullorUndefined(arg) || this.isString(arg) || this.isNumber(arg) || this.isBoolean(arg) || this.isSymbol(arg);
     }
 
     /**
@@ -184,7 +181,7 @@ export default abstract class IsSomething extends AbstractClass {
      * @param {any} arg - any
      * @returns a boolean value.
      */
-    public static isRegExp(arg: any): boolean {
+    public isRegExp(arg: any): boolean {
         return arg && (arg instanceof RegExp || arg.constructor === RegExp.constructor);
     }
 
@@ -193,7 +190,7 @@ export default abstract class IsSomething extends AbstractClass {
      * a string
      * @param {any} args - any
      */
-    public static isString(args: any): boolean {
+    public isString(args: any): boolean {
         return args && (typeof args === "string" || args instanceof String || (args + "") === args);
     }
 
@@ -203,7 +200,7 @@ export default abstract class IsSomething extends AbstractClass {
      * @param {any} arg - any
      * @returns a boolean value.
      */
-    public static isSymbol(arg: any): boolean {
+    public isSymbol(arg: any): boolean {
         return arg && (typeof arg === "symbol" || arg instanceof Symbol);
     }
 
@@ -214,7 +211,7 @@ export default abstract class IsSomething extends AbstractClass {
      * @param {String} type - The type of the argument.
      * @returns The type of the argument.
      */
-    public static isType(arg: any, type: String): boolean {
+    public isType(arg: any, type: String): boolean {
         return typeof arg === type;
     }
 
@@ -224,8 +221,8 @@ export default abstract class IsSomething extends AbstractClass {
      * @param {Function} constructor - The constructor function to check against.
      * @returns The return value is a boolean.
      */
-    public static isInstanceOf(value: any, constructor: Function): boolean | null {
-        if (!IsSomething.isClass(constructor)) return null;
+    public isInstanceOf(value: any, constructor: Function): boolean | null {
+        if (!this.isClass(constructor)) return null;
         return value instanceof constructor;
     }
 
@@ -234,7 +231,13 @@ export default abstract class IsSomething extends AbstractClass {
      * @param {Date} date - The date to check.
      * @returns The return value is a boolean.
      */
-    public static isDateValid(date: Date) {
+    public isDateValid(date: Date) {
         return !isNaN(date.getTime());
     }
+
+    public static getInstance() {
+        return this.instance;
+    }
 }
+
+export default IsSomething.getInstance();

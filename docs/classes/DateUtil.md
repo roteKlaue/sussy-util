@@ -19,7 +19,6 @@
 
 - [compareDates](DateUtil.md#comparedates)
 - [equals](DateUtil.md#equals)
-- [formatRelative](DateUtil.md#formatrelative)
 - [getCurrentDate](DateUtil.md#getcurrentdate)
 - [getDayAbbr](DateUtil.md#getdayabbr)
 - [getDayFullName](DateUtil.md#getdayfullname)
@@ -156,20 +155,6 @@ A boolean value.
 [DateUtil.ts:69](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/DateUtil.ts#L69)
 
 ___
-
-### formatRelative
-
-▸ `Static` **formatRelative**(`date1`, `date2`, `format`): `string`
-
-**`Deprecated`**
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `date1` | `Date` |
-| `date2` | `Date` |
-| `format` | `string` |
 
 #### Returns
 

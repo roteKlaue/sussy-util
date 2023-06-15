@@ -66,7 +66,6 @@
 - [remove](ImprovedArray.md#remove)
 - [removeDuplicates](ImprovedArray.md#removeduplicates)
 - [reverse](ImprovedArray.md#reverse)
-- [scramble](ImprovedArray.md#scramble)
 - [shift](ImprovedArray.md#shift)
 - [shuffle](ImprovedArray.md#shuffle)
 - [slice](ImprovedArray.md#slice)
@@ -1322,22 +1321,6 @@ Array.reverse
 #### Defined in
 
 typescript/lib/lib.es5.d.ts:1344
-
-___
-
-### scramble
-
-▸ **scramble**(): `void`
-
-**`Deprecated`**
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/Classes/ImprovedArray.ts:117](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ImprovedArray.ts#L117)
 
 ___
 

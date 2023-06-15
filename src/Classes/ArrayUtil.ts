@@ -1,15 +1,16 @@
-import AbstractClass from "./AbstractClass";
 import Random from "./Random";
 
-export default class ArrayUtils extends AbstractClass {
-    constructor() { super(ArrayUtils); }
+class ArrayUtils {
+    private static instance: ArrayUtils = new ArrayUtils();
+
+    private constructor() {}
 
     /**
      * If the item is an array, then push the flattened array into the result array, otherwise push the
      * item into the result array.
      * @param {any[]} arr - any[] - The array to flatten.
      */
-    public static flat(arr: any[]): any[] {
+    public flat(arr: any[]): any[] {
         const result: any[] = [];
         for (const item of arr) {
             if (Array.isArray(item)) {
@@ -28,7 +29,7 @@ export default class ArrayUtils extends AbstractClass {
      * @param {T[]} b - T[]
      * @returns An array of the elements that are in both a and b.
      */
-    public static intersection<T>(a: T[], b: T[]): T[] {
+    public intersection<T>(a: T[], b: T[]): T[] {
         return a.filter(x => b.includes(x));
     }
 
@@ -38,7 +39,7 @@ export default class ArrayUtils extends AbstractClass {
      * @param {T[]} b - T[]
      * @returns An array of unique values from both arrays.
      */
-    public static union<T>(a: T[], b: T[]): T[] {
+    public union<T>(a: T[], b: T[]): T[] {
         return [...new Set<T>([...a, ...b])];
     }
 
@@ -49,7 +50,7 @@ export default class ArrayUtils extends AbstractClass {
      * @param {T[]} b - T[] - The array to compare against
      * @returns The difference between two arrays.
      */
-    public static difference<T>(a: T[], b: T[]): T[] {
+    public difference<T>(a: T[], b: T[]): T[] {
         return a.filter(x => !b.includes(x));
     }
 
@@ -57,7 +58,7 @@ export default class ArrayUtils extends AbstractClass {
      * This function takes an array of any type and shuffles it in place.
      * @param {T | X[]} array - T | X[]
      */
-    public static shuffle<X, T extends Array<X>>(array: T | X[]): void {
+    public shuffle<X, T extends Array<X>>(array: T | X[]): void {
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [array[i], array[j]] = [array[j], array[i]];
@@ -70,7 +71,7 @@ export default class ArrayUtils extends AbstractClass {
      * @param {T} value - T - The value to count occurrences of.
      * @returns The number of occurrences of the value in the array.
      */
-    public static countOccurrences<T>(array: T[], value: T): number {
+    public countOccurrences<T>(array: T[], value: T): number {
         return array.reduce((a, v) => v === value ? a + 1 : a, 0);
     }
 
@@ -78,7 +79,7 @@ export default class ArrayUtils extends AbstractClass {
      * It clears an array by setting its length to zero
      * @param {any[]} array - any[]
      */
-    public static clear(array: any[]): void {
+    public clear(array: any[]): void {
         array.length = 0;
     }
 
@@ -87,7 +88,7 @@ export default class ArrayUtils extends AbstractClass {
      * @param {T[]} array - T[] - The array to clone.
      * @returns A new array with the same elements as the original array.
      */
-    public static clone<T>(array: T[]): Array<T> {
+    public clone<T>(array: T[]): Array<T> {
         return [...array];
     }
 
@@ -97,7 +98,7 @@ export default class ArrayUtils extends AbstractClass {
      * @param {T[]} arr - T[] - The array to remove duplicates from.
      * @returns A new array with the duplicates removed.
      */
-    public static removeDuplicates<T>(arr: T[]): T[] {
+    public removeDuplicates<T>(arr: T[]): T[] {
         return [...new Set<T>(arr)];
     }
 
@@ -107,7 +108,7 @@ export default class ArrayUtils extends AbstractClass {
      * @param key - keyof T
      * @returns An array of objects.
      */
-    public static sortByKey<T extends Object>(arr: T[], key: keyof T): T[] {
+    public sortByKey<T extends Object>(arr: T[], key: keyof T): T[] {
         return arr.sort((a, b) => a[key] > b[key] ? 1 : -1);
     }
 
@@ -117,7 +118,7 @@ export default class ArrayUtils extends AbstractClass {
      * @param {T} item - The item to remove from the array.
      * @returns A new array with all the items that are not equal to the item passed in.
      */
-    public static remove<T>(arr: T[], item: T): T[] {
+    public remove<T>(arr: T[], item: T): T[] {
         return arr.filter(val => val !== item);
     }
 
@@ -127,7 +128,7 @@ export default class ArrayUtils extends AbstractClass {
      * @param {U[]} arr2 - U[]
      * @returns An array of tuples.
      */
-    public static zip<T, U>(arr1: T[], arr2: U[]): [T, U][] {
+    public zip<T, U>(arr1: T[], arr2: U[]): [T, U][] {
         return arr1.map((val, i) => [val, arr2[i]]);
     }
 
@@ -139,7 +140,7 @@ export default class ArrayUtils extends AbstractClass {
      * @param {T[]} items - T[] - The items to insert into the array.
      * @returns a new array with the items inserted at the specified index.
      */
-    public static insert<T>(arr: T[], index: number, ...items: T[]): T[] {
+    public insert<T>(arr: T[], index: number, ...items: T[]): T[] {
         return [...arr.slice(0, index), ...items, ...arr.slice(index)];
     }
 
@@ -148,13 +149,13 @@ export default class ArrayUtils extends AbstractClass {
      * @param {any[][]} arr - any[][] - The array to get the unique subarrays from.
      * @returns A new array with all the unique subarrays.
      */
-    public static uniqueSubarrays(arr: any[][]): any[][] {
+    public uniqueSubarrays(arr: any[][]): any[][] {
         const map = new Map(arr.map(v => [JSON.stringify(v), v]));
         return [...map.values()];
     }
 
 
-    public static quickselect(arr: number[], k: number): number {
+    public quickselect(arr: number[], k: number): number {
         if (arr.length === 1) {
             return arr[0];
         }
@@ -172,4 +173,10 @@ export default class ArrayUtils extends AbstractClass {
             return this.quickselect(highs, k - lows.length - pivots.length);
         }
     }
+
+    public static getInstance(): ArrayUtils {
+        return this.instance;
+    }
 }
+
+export default ArrayUtils.getInstance();

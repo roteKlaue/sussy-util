@@ -17,6 +17,8 @@ import StopWatch from "./StopWatch";
 import StringUtil from "./StringUtil";
 import UnitConverter from "./UnitConverter";
 import UrlUtil from "./UrlUtil";
+import Vector2d from "./Vector2d";
+import Vector3d from "./Vector3d";
 
 export {
     AbstractClass,
@@ -38,4 +40,6 @@ export {
     StringUtil,
     UnitConverter,
     UrlUtil,
+    Vector2d,
+    Vector3d,
 }

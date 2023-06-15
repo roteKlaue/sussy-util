@@ -1,10 +1,4 @@
-import AbstractClass from "./AbstractClass";
-
-export default class DataConverter extends AbstractClass {
-    constructor() {
-        super(DataConverter);
-    }
-
+export default class DataConverter {
     /**
      * It takes a CSV string and returns an array of objects.
      * The first line of the CSV is assumed to be the header row.
