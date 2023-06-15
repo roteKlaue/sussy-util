@@ -43,7 +43,6 @@
 - [randomColorCode](StringUtil.md#randomcolorcode)
 - [randomDiscordUsername](StringUtil.md#randomdiscordusername)
 - [randomString](StringUtil.md#randomstring)
-- [repeat](StringUtil.md#repeat)
 - [reverse](StringUtil.md#reverse)
 - [rpad](StringUtil.md#rpad)
 - [rtrim](StringUtil.md#rtrim)
@@ -873,29 +872,6 @@ A string of random characters.
 #### Defined in
 
 [StringUtil.ts:36](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L36)
-
-___
-
-### repeat
-
-▸ `Static` **repeat**(`str`, `n`): `string`
-
-**`Deprecated`**
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `str` | `string` |
-| `n` | `number` |
-
-#### Returns
-
-`string`
-
-#### Defined in
-
-[StringUtil.ts:403](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L403)
 
 ___
 

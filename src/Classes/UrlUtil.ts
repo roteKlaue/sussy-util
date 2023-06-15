@@ -1,13 +1,15 @@
 import MutableObject from "../Types/MutableObject";
-import AbstractClass from "./AbstractClass";
 
-export default class UrlUtils extends AbstractClass {
+class UrlUtils {
+    private static instance: UrlUtils = new UrlUtils();
+    private constructor() {}
+
     /**
      * If the URL is valid, it will return true, otherwise it will return false.
      * @param {string} url - The URL to validate.
      * @returns {boolean} A boolean value.
      */
-    public static isUrl(url: string): boolean {
+    public isUrl(url: string): boolean {
         try {
             new URL(url);
             return true;
@@ -21,7 +23,7 @@ export default class UrlUtils extends AbstractClass {
      * @param {string} url - The URL to parse.
      * @returns A new URL object.
      */
-    public static parseUrl(url: string): URL {
+    public parseUrl(url: string): URL {
         return new URL(url);
     }
 
@@ -30,7 +32,7 @@ export default class UrlUtils extends AbstractClass {
      * @param {string} url - The URL to get the domain name from.
      * @returns The hostname of the URL.
      */
-    public static getDomainName(url: string): string {
+    public getDomainName(url: string): string {
         return new URL(url).hostname;
     }
 
@@ -39,7 +41,7 @@ export default class UrlUtils extends AbstractClass {
      * @param {string} url - The URL to parse.
      * @returns The pathname of the url.
      */
-    public static getPath(url: string): string {
+    public getPath(url: string): string {
         return new URL(url).pathname;
     }
 
@@ -50,7 +52,7 @@ export default class UrlUtils extends AbstractClass {
      * @param params - MutableObject<string>
      * @returns A string
      */
-    public static addQueryParams(url: string, params: MutableObject<string>): string {
+    public addQueryParams(url: string, params: MutableObject<string>): string {
         const parsedUrl = this.parseUrl(url);
         Object.entries(params).forEach(([key, value]) => parsedUrl.searchParams.append(key, value));
         return parsedUrl.toString();
@@ -62,7 +64,7 @@ export default class UrlUtils extends AbstractClass {
      * @param {string} param - The query parameter to remove
      * @returns A string
      */
-    public static removeQueryParam(url: string, param: string): string {
+    public removeQueryParam(url: string, param: string): string {
         const parsedUrl = this.parseUrl(url);
         parsedUrl.searchParams.delete(param);
         return parsedUrl.toString();
@@ -75,7 +77,7 @@ export default class UrlUtils extends AbstractClass {
      * @param params - MutableObject<string>
      * @returns A string
      */
-    public static editQueryParams(url: string, params: MutableObject<string>): string {
+    public editQueryParams(url: string, params: MutableObject<string>): string {
         const parsedUrl = this.parseUrl(url);
         Object.entries(params).forEach(([key, value]) => {
             if (parsedUrl.searchParams.has(key)) {
@@ -85,4 +87,10 @@ export default class UrlUtils extends AbstractClass {
         });
         return parsedUrl.toString();
     }
+
+    public static getInstance(): UrlUtils {
+        return this.instance;
+    }
 }
+
+export default UrlUtils.getInstance();

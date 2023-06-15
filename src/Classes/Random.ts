@@ -1,10 +1,9 @@
-import { IsSomething, AbstractClass } from ".";
+import { IsSomething } from ".";
 import crypto from "crypto";
 
-export default abstract class Random extends AbstractClass {
-    constructor() {
-        super(Random);
-    }
+class Random {
+    private static instance: Random = new Random();
+    private constructor() {};
 
     /**
      * It returns a random integer between the lower and upper bounds, inclusive.
@@ -12,7 +11,7 @@ export default abstract class Random extends AbstractClass {
      * @param [upper=10] - The upper bound of the random number.
      * @returns A random integer between the lower and upper bounds.
      */
-    public static randomInt(lower = 0, upper = 10) {
+    public randomInt(lower = 0, upper = 10) {
         lower = Math.floor(lower);
         upper = Math.ceil(upper) - lower;
         return crypto.randomInt(lower, upper);
@@ -28,7 +27,7 @@ export default abstract class Random extends AbstractClass {
      * @param {string} [charset] - The character set to use. If not provided, it will default to "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
      * @returns A random character from the charset.
      */
-    public static randomChar(charset?: string): string {
+    public randomChar(charset?: string): string {
         charset = ((IsSomething.isString(charset)) ? charset : "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") || "";
         return charset.charAt(this.randomInt(0, charset.length));
     }
@@ -39,7 +38,7 @@ export default abstract class Random extends AbstractClass {
      * "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".
      * @returns A string of random characters.
      */
-    public static randomString(length = 10, charset?: string): string {
+    public randomString(length = 10, charset?: string): string {
         return length === 0 ? "" : this.randomChar(charset) + this.randomString(--length, charset);
     }
 
@@ -48,7 +47,7 @@ export default abstract class Random extends AbstractClass {
      * @param {T[]} arr - T[] - The array to get a random element from.
      * @returns The return type is T.
      */
-    public static randomElement<T>(arr: T[]): T {
+    public randomElement<T>(arr: T[]): T {
         return IsSomething.isArray(arr) ? arr[crypto.randomInt(arr.length)] : arr as T;
     }
 
@@ -59,7 +58,13 @@ export default abstract class Random extends AbstractClass {
      * @param {number} end - The index of the last element in the range.
      * @returns The random element in the array.
      */
-    public static randomElementInRange<T>(arr: T[], start: number, end: number): T {
+    public randomElementInRange<T>(arr: T[], start: number, end: number): T {
         return arr[this.randomInt(start, end)];
     }
+
+    public static getInstance(): Random {
+        return this.instance;
+    }
 }
+
+export default Random.getInstance();

@@ -1,10 +1,11 @@
 import { IsSomething } from ".";
 
-export default class PrimeNumbers {
+export class PrimeNumbers {
+    private static instance: PrimeNumbers = new PrimeNumbers();
     private current: number = 0;
     private primes: number[] = [];
 
-    constructor() { }
+    private constructor() {}
 
     /**
      * It returns an array of prime numbers up to a given number.
@@ -39,4 +40,10 @@ export default class PrimeNumbers {
 
         return this.primes;
     }
+
+    public static getInstance(): PrimeNumbers {
+        return this.instance;
+    }
 }
+
+export default PrimeNumbers.getInstance();

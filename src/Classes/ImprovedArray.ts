@@ -12,7 +12,7 @@ export default class ImprovedArray<T> extends Array<T> {
      * It returns a random number between 0 and the length of the array.
      * @returns The random index of the array.
      */
-    getRandomIndex(): number {
+    public getRandomIndex(): number {
         return Random.randomInt(0, this.length);
     }
 
@@ -20,7 +20,7 @@ export default class ImprovedArray<T> extends Array<T> {
      * It returns a random element from the array
      * @returns The random element from the array.
      */
-    getRandomElement(): T {
+    public getRandomElement(): T {
         return this[this.getRandomIndex()];
     }
 
@@ -30,7 +30,7 @@ export default class ImprovedArray<T> extends Array<T> {
      * @returns The splice method returns an array containing the deleted elements. If only one element
      * is removed, an array of one element is returned.
      */
-    remove(index: number): T {
+    public remove(index: number): T {
         if (typeof index !== 'number') throw new TypeError('index must be a number');
         if (index >= this.length || index < 0) throw new IndexOutOfBoundsError(`${index} is out of bounds for length: ${this.length}`);
         return this.splice(Math.floor(index), 1)[0];
@@ -42,7 +42,7 @@ export default class ImprovedArray<T> extends Array<T> {
      * @param {number} index - The index to insert the items at.
      * @param {T[]} items - T[]
      */
-    insertAt(index: number, ...items: T[]): void {
+    public insertAt(index: number, ...items: T[]): void {
         if (typeof index !== 'number') throw new TypeError('index must be a number');
         if (index >= this.length || index < 0) throw new IndexOutOfBoundsError(`${index} is out of bounds for length: ${this.length}`);
         this.push(...items, ...this.splice(index, this.length - index - 1));
@@ -51,7 +51,7 @@ export default class ImprovedArray<T> extends Array<T> {
     /**
      * The clear() function removes all elements from an array
      */
-    clear(): void {
+    public clear(): void {
         this.splice(0, this.length);
     }
 
@@ -60,7 +60,7 @@ export default class ImprovedArray<T> extends Array<T> {
      * argument
      * @returns A new instance of ImprovedArray with the same elements as the original.
      */
-    clone(): ImprovedArray<T> {
+    public clone(): ImprovedArray<T> {
         return new ImprovedArray<T>(...this);
     }
 
@@ -68,7 +68,7 @@ export default class ImprovedArray<T> extends Array<T> {
      * If the length of the array is equal to zero, return true, otherwise return false.
      * @returns The length of the array.
      */
-    isEmpty(): boolean {
+    public isEmpty(): boolean {
         return this.length === 0;
     }
 
@@ -82,7 +82,7 @@ export default class ImprovedArray<T> extends Array<T> {
      * callback function. The value is the current value in the array. The initial value is the value
      * that the accumulator is set to before the
      */
-    none(predicate: (value: T) => boolean): boolean {
+    public none(predicate: (value: T) => boolean): boolean {
         return this.reduce((acc, value) => !acc && !predicate(value), false);
     }
 
@@ -91,7 +91,7 @@ export default class ImprovedArray<T> extends Array<T> {
      * @param predicate - (val: T, ind: number, arr: T[]) => boolean
      * @returns A new instance of ImprovedArray with the filtered values.
      */
-    rejected(predicate: (val: T, ind: number, arr: T[]) => boolean): ImprovedArray<T> {
+    public rejected(predicate: (val: T, ind: number, arr: T[]) => boolean): ImprovedArray<T> {
         return new ImprovedArray<T>(...this.filter((val, ind, arr) => !predicate(val, ind, arr)));
     }
 
@@ -99,7 +99,7 @@ export default class ImprovedArray<T> extends Array<T> {
      * The function `sum` returns the sum of all the elements in the array
      * @returns The return type is T | string.
      */
-    sum(): T | string {
+    public sum(): T | string {
         return this.reduce((acc: any, value): any => {
             return acc + value;
         });
@@ -108,7 +108,7 @@ export default class ImprovedArray<T> extends Array<T> {
     /**
      * removes all duplicates from the array
      */
-    removeDuplicates(): void {
+    public removeDuplicates(): void {
         const newArray = new Set<T>([...this]);
         this.clear();
         this.push(...newArray);
@@ -122,14 +122,14 @@ export default class ImprovedArray<T> extends Array<T> {
      * @param {T} value - T - The value to count occurrences of.
      * @returns The number of times the value is found in the array.
      */
-    countOccurrences(value: T): number {
+    public countOccurrences(value: T): number {
         return this.reduce((a: number, v: T) => v === value ? a + 1 : a + 0, 0);
     }
 
     /**
      * It takes an array of arrays and flattens it into a single array.
      */
-    flatten(): void {
+    public flatten(): void {
         const newARR = ArrayUtils.flat(this);
         this.clear();
         this.push(...newARR);
@@ -139,14 +139,14 @@ export default class ImprovedArray<T> extends Array<T> {
      * This function takes an object and returns a string that represents the object in JSON format.
      * @returns The JSON string representation of the object.
      */
-    toJSONString(): string {
+    public toJSONString(): string {
         return JSON.stringify(this);
     }
 
     /**
      * For each element in the array, swap it with a random element in the array.
      */
-    shuffle(): void {
+    public shuffle(): void {
         let array = this;
         for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -155,14 +155,16 @@ export default class ImprovedArray<T> extends Array<T> {
     }
 
     /* shorthand for `forEach` */
-    each = this.forEach;
+    public each(callbackfn: (value: T, index: number, array: T[]) => void, thisArg?: any): void {
+        this.forEach(callbackfn, thisArg);
+    };
 
     /**
      * It takes an array of any type and returns an array of the same type.
      * @param {X | any[]} arr - X | any[]
      * @returns An array of common elements.
      */
-    findCommonElements<X extends Array<any>>(arr: X | any[]): ImprovedArray<T> {
+    public findCommonElements<X extends Array<any>>(arr: X | any[]): ImprovedArray<T> {
         const commonElements: T[] = [];
         for (let i = 0; i < this.length; i++) {
             if (arr.indexOf(this[i]) !== -1) {
