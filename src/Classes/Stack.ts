@@ -21,7 +21,7 @@ export default class Stack<T> {
      * @returns The last item in the array.
      */
     public peek(): T {
-        if (this.items.length < 0) throw new IndexOutOfBoundsError();
+        if (this.items.isEmpty()) throw new IndexOutOfBoundsError();
         return this.items[this.items.length - 1];
     }
 
@@ -31,10 +31,8 @@ export default class Stack<T> {
      * @returns The last item in the array.
      */
     public pop(): T {
-        if (this.items.length < 0) throw new IndexOutOfBoundsError();
-        const sus = this.items.pop();
-        if (!sus) throw new IndexOutOfBoundsError();
-        return sus;
+        if (this.items.isEmpty()) throw new IndexOutOfBoundsError();
+        return this.items.pop()!!;
     }
 
     /**
@@ -59,5 +57,45 @@ export default class Stack<T> {
      */
     public toJSONString(): string {
         return JSON.stringify(this.items);
+    }
+
+    /**
+     * Returns the number of elements in the stack.
+     * @returns The number of elements in the stack.
+     */
+    public size(): number {
+        return this.items.length;
+    }
+
+    /**
+     * Returns a new stack that is a copy of the current stack.
+     * @returns A new stack with the same elements as the current stack.
+     */
+    public clone(): Stack<T> {
+        return new Stack<T>(this.items.clone());
+    }
+
+    public clear(): void {
+        this.items.clear();
+    }
+
+    public [Symbol.iterator](): Iterator<T> {
+        let index = this.items.length - 1;
+
+        return {
+            next: (): IteratorResult<T> => {
+                if (index >= 0) {
+                    return {
+                        value: this.items[index--],
+                        done: false,
+                    };
+                } else {
+                    return {
+                        value: undefined!,
+                        done: true,
+                    };
+                }
+            },
+        };
     }
 }
