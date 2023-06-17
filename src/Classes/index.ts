@@ -7,6 +7,7 @@ import DateUtil from "./DateUtil";
 import ImprovedArray from "./ImprovedArray";
 import IsSomething from "./IsSomething";
 import LRUCache from "./LRUCache";
+import MatrixOperations from "./MatrixOperations";
 import Point from "./Point";
 import PrimeNumbers from "./PrimeNumbers";
 import Queue from "./Queue";
@@ -30,6 +31,7 @@ export {
     ImprovedArray,
     IsSomething,
     LRUCache,
+    MatrixOperations,
     Point,
     PrimeNumbers,
     Queue,

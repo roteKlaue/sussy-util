@@ -1,6 +1,4 @@
-interface JSONObject {
-    [key: string]: string | number | boolean | JSONObject | JSONObject[];
-}
+import { JSONObject } from "../Types/";
 
 export default class DataConverter {
     /**
