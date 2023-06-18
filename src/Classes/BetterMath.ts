@@ -2,7 +2,7 @@ import { ArrayUtils, Point } from ".";
 
 class BetterMath {
     private static instance: BetterMath = new BetterMath();
-    private constructor() {}
+    private constructor() { }
 
     /**
      * Round a number to a specified number of decimal places.
@@ -20,8 +20,9 @@ class BetterMath {
     }
 
     /**
-     * @param {number} num number to be squared
-     * @returns {number} num²
+     * Calculate the square of a number.
+     * @param {number} num - The number to calculate the square of.
+     * @returns {number} The square of the number.
      */
     public square(num: number): number {
         return num * num;
@@ -123,6 +124,84 @@ class BetterMath {
         return ArrayUtils.quickselect(values, middle);
     }
 
+    /**
+     * Calculate the nth root of a number.
+     * @param {number} number - The number.
+     * @param {number} n - The root to calculate.
+     * @returns {number} The nth root of the number.
+     * @throws {Error} Cannot calculate even root of a negative number.
+     */
+    public nthRoot(number: number, n: number): number {
+        if (number < 0 && n % 2 !== 1) {
+            throw new Error("Cannot calculate even root of a negative number.");
+        }
+        return Math.pow(number, 1 / n);
+    }
+
+    /**
+     * Calculate the logarithm of a number with a specified base.
+     * @param {number} number - The number.
+     * @param {number} base - The base of the logarithm.
+     * @returns {number} The logarithm of the number with the specified base.
+     */
+    public logarithm(number: number, base: number): number {
+        return Math.log(number) / Math.log(base);
+    }
+
+    /**
+     * Calculate the number of permutations of r elements from a set of n elements.
+     * @param {number} n - The total number of elements.
+     * @param {number} r - The number of elements to select.
+     * @returns {number} The number of permutations.
+     * @throws {Error} n must be greater than or equal to r in permutations.
+     */
+    public permutations(n: number, r: number): number {
+        if (n < r) {
+            throw new Error("n must be greater than or equal to r in permutations.");
+        }
+        let result = 1;
+        for (let i = n; i > n - r; i--) {
+            result *= i;
+        }
+        return result;
+    }
+
+    /**
+     * Calculate the number of combinations of r elements from a set of n elements.
+     * @param {number} n - The total number of elements.
+     * @param {number} r - The number of elements to select.
+     * @returns {number} The number of combinations.
+     * @throws {Error} n must be greater than or equal to r in combinations.
+     */
+    public combinations(n: number, r: number): number {
+        if (n < r) {
+            throw new Error("n must be greater than or equal to r in combinations.");
+        }
+        return this.permutations(n, r) / this.factorial(r);
+    }
+
+    /**
+     * Convert degrees to radians.
+     * @param {number} degrees - The value in degrees.
+     * @returns {number} The value in radians.
+     */
+    public degreesToRadians(degrees: number): number {
+        return (degrees * Math.PI) / 180;
+    }
+   
+    /**
+     * Convert radians to degrees.
+     * @param {number} radians - The value in radians.
+     * @returns {number} The value in degrees.
+     */
+    public radiansToDegrees(radians: number): number {
+        return (radians * 180) / Math.PI;
+    }
+
+    /**
+     * Get the instance of the BetterMath class (Singleton pattern).
+     * @returns {BetterMath} The instance of the BetterMath class.
+     */
     public static getInstance(): BetterMath {
         return this.instance;
     }

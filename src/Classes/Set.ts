@@ -119,4 +119,52 @@ export default class Set<T> {
     public toJSONString(): string {
         return JSON.stringify(this.items);
     }
+
+    /**
+     * Returns true if the Set contains the specified item, false otherwise.
+     * @param item - The item to search for in the Set.
+     * @returns A boolean indicating whether the item exists in the Set.
+     */
+    public has(item: T): boolean {
+        return this.items.some((item2) => this.checkFunction(item2, item));
+    }
+
+    /**
+     * Executes a provided callback function once for each item in the Set.
+     * @param callback - A function to execute for each item in the Set.
+     */
+    public forEach(callback: (item: T) => void): void {
+        this.items.forEach(callback);
+    }
+
+    /* shorthand for `forEach` */
+    public each(callbackfn: (item: T) => void): void {
+        this.forEach(callbackfn);
+    };
+
+    /**
+     * Returns a new Set that contains the items from both the current Set and another Set.
+     * @param set - The Set to merge with the current Set.
+     * @returns A new Set that contains items from both Sets.
+     */
+    public merge(set: Set<T>): Set<T> {
+        const mergedSet = new Set<T>(...this.items);
+        set.each((item) => mergedSet.push(item));
+        return mergedSet;
+    }
+
+    /**
+     * Returns a new Set that contains items from the current Set that are not present in another Set.
+     * @param set - The Set to subtract from the current Set.
+     * @returns A new Set that contains items from the current Set excluding those present in the other Set.
+     */
+    public subtract(set: Set<T>): Set<T> {
+        const subtractedSet = new Set<T>();
+        this.each((item) => {
+            if (!set.has(item)) {
+                subtractedSet.push(item);
+            }
+        });
+        return subtractedSet;
+    }
 }

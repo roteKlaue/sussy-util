@@ -1,4 +1,6 @@
 import IndexOutOfBoundsError from "../Error/IndexOutOfBoundsError";
+import { deepClone } from "../Functions";
+import { MutableObject } from "../Types";
 import ArrayUtils from "./ArrayUtil";
 import Random from "./Random";
 
@@ -172,5 +174,15 @@ export default class ImprovedArray<T> extends Array<T> {
             }
         }
         return new ImprovedArray<T>(...commonElements);
+    }
+
+    /**
+     * Returns a copy of the array. 
+     * Each element will be copied into each and every property.
+     * 
+     * Does NOT make a new instance a class, just takes the properties of the old object and recreates them.
+     */
+    public deepClone(): ImprovedArray<T> {
+        return new ImprovedArray<T>(...this.map(e => (deepClone(e as MutableObject<unknown>) as T)));
     }
 }

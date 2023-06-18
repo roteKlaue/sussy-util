@@ -1,10 +1,6 @@
-import { AbstractClass, Random } from ".";
+import { Random } from ".";
 
-export default abstract class StringUtil extends AbstractClass {
-    constructor() {
-        super(StringUtil);
-    }
-
+export default class StringUtil {
     /**
      * It takes a string, splits it into an array of characters, reverses the array, and joins the
      * array back into a string

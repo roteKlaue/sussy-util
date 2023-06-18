@@ -89,10 +89,7 @@ export default class UnitConverter extends AbstractClass {
     }
 
     /**
-     * "Convert a temperature in Celsius to Fahrenheit."
-     * 
-     * The first line of the function is a comment. It's a good idea to include a comment at the top of
-     * each function that describes what the function does
+     * Convert a temperature in Celsius to Fahrenheit.
      * @param {number} celsius - number - The temperature in celsius
      * @returns The temperature in Fahrenheit.
      */
@@ -101,10 +98,7 @@ export default class UnitConverter extends AbstractClass {
     }
 
     /**
-     * "Convert a temperature in Fahrenheit to Celsius."
-     * 
-     * The first line of the function is a comment. It's a good idea to include a comment at the top of
-     * each function that describes what the function does
+     * Convert a temperature in Fahrenheit to Celsius.
      * @param {number} fahrenheit - number - The temperature in Fahrenheit
      * @returns The return value is the result of the calculation.
      */
@@ -113,7 +107,7 @@ export default class UnitConverter extends AbstractClass {
     }
 
     /**
-     * If the conversion is not possible, throw an error, otherwise, return the result of the
+     * If the conversion is not possible, throws an error, otherwise, returns the result of the
      * conversion.
      * 
      * @param {number} value - number - The value to convert
