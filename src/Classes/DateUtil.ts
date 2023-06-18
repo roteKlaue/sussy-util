@@ -178,7 +178,6 @@ class DateUtil {
     /**
      * If the input is a number, return a new Date object with the number as the constructor argument.
      * Otherwise, return the input as a Date object.
-     * </code>
      * @param {T | Number} date - T | Number
      * @returns A Date object.
      */

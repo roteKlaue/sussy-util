@@ -2,7 +2,7 @@ import MutableObject from "../Types/MutableObject";
 
 class UrlUtils {
     private static instance: UrlUtils = new UrlUtils();
-    private constructor() {}
+    private constructor() { }
 
     /**
      * If the URL is valid, it will return true, otherwise it will return false.
@@ -86,6 +86,53 @@ class UrlUtils {
             parsedUrl.searchParams.set(key, value);
         });
         return parsedUrl.toString();
+    }
+
+    /**
+     * It takes a URL and returns an object containing the query parameters as key-value pairs.
+     * @param {string} url - The URL to extract query parameters from.
+     * @returns {MutableObject<string>} An object containing the query parameters.
+     */
+    public getQueryParams(url: string): MutableObject<string> {
+        const parsedUrl = this.parseUrl(url);
+        const queryParams: MutableObject<string> = {};
+        parsedUrl.searchParams.forEach((value, key) => {
+            queryParams[key] = value;
+        });
+        return queryParams;
+    }
+
+    /**
+     * It takes a URL and a query parameter name, and returns the value of the specified query parameter.
+     * @param {string} url - The URL to extract the query parameter value from.
+     * @param {string} param - The query parameter name.
+     * @returns {string | null} The value of the specified query parameter, or null if it doesn't exist.
+     */
+    public getQueryParamValue(url: string, param: string): string | null {
+        const parsedUrl = this.parseUrl(url);
+        return parsedUrl.searchParams.get(param);
+    }
+
+    /**
+     * It takes a URL and a new path, and returns a new URL with the updated path.
+     * @param {string} url - The URL to update the path for.
+     * @param {string} newPath - The new path to set.
+     * @returns {string} The updated URL with the new path.
+     */
+    public updatePath(url: string, newPath: string): string {
+        const parsedUrl = this.parseUrl(url);
+        parsedUrl.pathname = newPath;
+        return parsedUrl.toString();
+    }
+
+    /**
+     * It takes a URL and returns a boolean indicating whether it has any query parameters.
+     * @param {string} url - The URL to check for query parameters.
+     * @returns {boolean} A boolean value indicating if the URL has query parameters.
+     */
+    public hasQueryParams(url: string): boolean {
+        const parsedUrl = this.parseUrl(url);
+        return parsedUrl.searchParams && parsedUrl.searchParams.toString() !== '';
     }
 
     public static getInstance(): UrlUtils {

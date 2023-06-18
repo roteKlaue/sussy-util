@@ -1,79 +1,91 @@
-import { ImprovedArray } from ".";
+import { EventEmitter } from 'events';
 
-export default class StopWatch {
-    private starttime: number;
-    private readonly rounds: ImprovedArray<number> = new ImprovedArray<number>();
+export default class StopWatch extends EventEmitter {
+    private startTime: number;
+    private readonly rounds: number[] = [];
     private pauseStartTime: number | undefined;
-    private totalTimePause: number = 0;
+    private totalTimePaused: number = 0;
 
     constructor() {
-        this.starttime = Date.now();
+        super();
+        this.startTime = performance.now();
     }
 
     /**
-     * If the pauseStartTime is set, then set the totalTimePause to the current time minus the
-     * pauseStartTime and set the pauseStartTime to the current time.
+     * Fixes the elapsed time when the stopwatch is paused.
      */
     private fixPausedTime() {
         if (this.pauseStartTime) {
-            const time = Date.now();
-            this.totalTimePause += time - this.pauseStartTime;
+            const time = performance.now();
+            this.totalTimePaused += time - this.pauseStartTime;
             this.pauseStartTime = time;
         }
     }
 
     /**
-     * It takes the current time, subtracts the total time paused, and subtracts the sum of all
-     * previous rounds.
+     * Records a round by calculating the lap time and emitting a 'round' event.
      */
     public round(): void {
         this.fixPausedTime();
-        this.rounds.push(this.starttime - (this.totalTimePause + this.rounds.reduce((e, b) => e + b, 0)));
+        const lapTime = performance.now() - (this.totalTimePaused + this.startTime + this.rounds.reduce((acc, val) => acc + val, 0));
+        this.rounds.push(lapTime);
+        this.emit('round', lapTime);
     }
 
     /**
-     * Reset the timer to its initial state.
+     * Resets the stopwatch to its initial state and emits a 'reset' event.
      */
     public reset(): void {
-        this.starttime = Date.now();
-        this.rounds.clear();
-        this.totalTimePause = 0;
+        this.emit('reset', this.time(), [...this.rounds]);
+        this.startTime = performance.now();
+        this.rounds.length = 0;
+        this.totalTimePaused = 0;
         this.pauseStartTime = void 0;
     }
 
     /**
-     * If the game is paused, add the time that has passed since the game was paused to the total time
-     * that the game has been paused.
-     * @returns The time since the timer was started, minus the time the timer was paused.
+     * Returns the elapsed time in milliseconds.
+     * @returns The elapsed time in milliseconds.
      */
     public time(): number {
         this.fixPausedTime();
-        return Date.now() - this.starttime - this.totalTimePause;
+        return performance.now() - this.startTime - this.totalTimePaused;
     }
 
     /**
-     * This function returns the rounds array.
-     * @returns The rounds array.
+     * Returns the recorded rounds.
+     * @returns An array of lap times for each round.
      */
-    public getRounds() {
-        return this.rounds;
+    public getRounds(): number[] {
+        return [...this.rounds];
     }
 
     /**
-     * If the pauseStartTime is not set, then set it to the current time.
+     * Pauses the stopwatch and emits a 'pause' event.
      */
     public pause(): void {
-        if (!this.pauseStartTime) this.pauseStartTime = Date.now();
+        if (!this.pauseStartTime) {
+            this.pauseStartTime = performance.now();
+            this.emit('pause');
+        }
     }
 
     /**
-     * If the pauseStartTime is defined, then fix the paused time and set the pauseStartTime to
-     * undefined.
+     * Resumes the stopwatch if paused and emits a 'resume' event.
      */
     public resume(): void {
         if (this.pauseStartTime) {
             this.fixPausedTime();
             this.pauseStartTime = void 0;
+            this.emit('resume');
         }
+    }
+
+    /**
+     * Adds an event listener for the 'round' event.
+     * @param callback - The callback function to be called when a 'round' event is emitted.
+     */
+    public onRound(callback: (lapTime: number) => void): void {
+        this.on('round', callback);
     }
 }
