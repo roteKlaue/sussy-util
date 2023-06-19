@@ -14,6 +14,7 @@ import getProjectRoot from "./getProjectRoot";
 import getTypeString from "./getTypeString";
 import hasProperty from "./hasProperty";
 import hasValue from "./hasValue";
+import mapObjectValues from "./mapObjectValues";
 import measureTime from "./measureTime";
 import merge from "./merge";
 import objectToString from "./objectToString";
@@ -43,6 +44,7 @@ export {
     getTypeString,
     hasProperty,
     hasValue,
+    mapObjectValues,
     measureTime,
     merge,
     objectToString,

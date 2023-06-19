@@ -1,5 +1,6 @@
 import { IsSomething } from ".";
 import crypto from "crypto";
+import { MutableObject } from "../Types";
 
 class Random {
     private static instance: Random = new Random();
@@ -7,6 +8,8 @@ class Random {
 
     /**
      * It returns a random integer between the lower and upper bounds, inclusive.
+     *
+     * min <= n < max
      * @param [lower=0] - The lowest number that can be returned.
      * @param [upper=10] - The upper bound of the random number.
      * @returns A random integer between the lower and upper bounds.
@@ -60,6 +63,25 @@ class Random {
      */
     public randomElementInRange<T>(arr: T[], start: number, end: number): T {
         return arr[this.randomInt(start, end)];
+    }
+
+    /**
+     * Generates a random element from an object by selecting a random property.
+     * @param {T} obj - The object to choose a random property from.
+     * @returns The value of a random property in the object.
+     */
+    public randomProperty<T extends Object>(obj: T): T[keyof T] {
+        const keys = Object.keys(obj);
+        const randomKey = keys[this.randomInt(0, keys.length)];
+        return (obj as MutableObject<any>)[randomKey];
+    }
+
+    /**
+     * Generates a random boolean value.
+     * @returns A random boolean value.
+     */
+    public randomBoolean(): boolean {
+        return this.randomInt(0, 2) == 0;
     }
 
     public static getInstance(): Random {
