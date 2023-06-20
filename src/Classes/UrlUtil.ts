@@ -96,9 +96,8 @@ class UrlUtils {
     public getQueryParams(url: string): MutableObject<string> {
         const parsedUrl = this.parseUrl(url);
         const queryParams: MutableObject<string> = {};
-        parsedUrl.searchParams.forEach((value, key) => {
-            queryParams[key] = value;
-        });
+        parsedUrl.searchParams.forEach((value, key) => 
+            queryParams[key] = value);
         return queryParams;
     }
 

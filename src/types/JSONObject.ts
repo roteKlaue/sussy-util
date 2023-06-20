@@ -1,3 +1,3 @@
-export default interface JSONObject {
-    [key: string]: string | number | boolean | JSONObject | JSONObject[];
-}
+import MutableObject from "./MutableObject";
+
+export default interface JSONObject extends MutableObject<string | number | boolean | JSONObject | JSONObject[] | string[] | boolean[] | number[]> {}

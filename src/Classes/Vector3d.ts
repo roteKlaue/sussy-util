@@ -1,19 +1,9 @@
 export default class Vector3d {
-    x: number = 0;
-    y: number = 0;
-    z: number = 0;
+    public readonly x: number;
+    public readonly y: number;
+    public readonly z: number;
 
     constructor(x: number = 0, y: number = 0, z: number = 0) {
-        this.set(x, y, z);
-    }
-
-    /**
-     * Sets the x, y, and z components of the vector.
-     * @param x - The new value for the x-component.
-     * @param y - The new value for the y-component.
-     * @param z - The new value for the z-component.
-     */
-    public set(x: number, y: number, z: number): void {
         this.x = x;
         this.y = y;
         this.z = z;
@@ -138,6 +128,23 @@ export default class Vector3d {
      */
     public isPerpendicularTo(vector: Vector3d): boolean {
         return this.dotProduct(vector) === 0;
+    }
+
+    /**
+     * Returns a vector with the absolute values of the original vector's components.
+     * @returns {Vector3d} - A new Vector2d object with absolute values.
+     */
+    public abs(): Vector3d {
+        return new Vector3d(Math.abs(this.x), Math.abs(this.y), Math.abs(this.z));
+    }
+
+    /**
+     * Checks if the vector is equal to another vector.
+     * @param {Vector3d} vector - The vector to compare with.
+     * @returns {boolean} - True if the vectors are equal, false otherwise.
+     */
+    public equals(vector: Vector3d): boolean {
+        return this.x === vector.x && this.y === vector.y && this.z === vector.z;
     }
 
     /**

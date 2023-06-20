@@ -36,8 +36,8 @@ class IsSomething {
 
         try {
             arg();
-        } catch (e: any) {
-            if (/^Class constructor/.test(e.message)) {
+        } catch (e) {
+            if (/^Class constructor/.test((e as Error).message)) {
                 return true;
             }
         }

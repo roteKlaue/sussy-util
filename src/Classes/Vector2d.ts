@@ -1,18 +1,8 @@
 export default class Vector2d {
-    private x: number;
-    private y: number;
+    public readonly x: number;
+    public readonly y: number;
 
     constructor(x: number = 0, y: number = 0) {
-        this.x = x;
-        this.y = y;
-    }
-
-    /**
-     * Sets the x and y coordinates of the vector.
-     * @param {number} x - The new x-coordinate.
-     * @param {number} y - The new y-coordinate.
-     */
-    public set(x: number, y: number): void {
         this.x = x;
         this.y = y;
     }
@@ -95,6 +85,45 @@ export default class Vector2d {
      */
     public dotProduct(vector: Vector2d): number {
         return this.x * vector.x + this.y * vector.y;
+    }
+
+    /**
+     * Calculates the distance between two vectors.
+     * @param {Vector2d} vector - The vector to calculate the distance to.
+     * @returns {number} - The distance between the two vectors.
+     */
+    public distanceTo(vector: Vector2d): number {
+        const dx = vector.x - this.x;
+        const dy = vector.y - this.y;
+        return Math.sqrt(dx * dx + dy * dy);
+    }
+
+    /**
+     * Calculates the angle between two vectors in radians.
+     * @param {Vector2d} vector - The vector to calculate the angle to.
+     * @returns {number} - The angle between the two vectors in radians.
+     */
+    public angleTo(vector: Vector2d): number {
+        const dot = this.dotProduct(vector);
+        const magProduct = this.magnitude() * vector.magnitude();
+        return Math.acos(dot / magProduct);
+    }
+
+    /**
+     * Returns a vector with the absolute values of the original vector's components.
+     * @returns {Vector2d} - A new Vector2d object with absolute values.
+     */
+    public abs(): Vector2d {
+        return new Vector2d(Math.abs(this.x), Math.abs(this.y));
+    }
+
+    /**
+     * Checks if the vector is equal to another vector.
+     * @param {Vector2d} vector - The vector to compare with.
+     * @returns {boolean} - True if the vectors are equal, false otherwise.
+     */
+    public equals(vector: Vector2d): boolean {
+        return this.x === vector.x && this.y === vector.y;
     }
 
     public toString(): string {

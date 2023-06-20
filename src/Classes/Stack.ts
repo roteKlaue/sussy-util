@@ -2,11 +2,11 @@ import { IndexOutOfBoundsError } from "../Error";
 import { ImprovedArray } from ".";
 
 export default class Stack<T> {
-    private items: ImprovedArray<T> = new ImprovedArray<T>();
+    private items: ImprovedArray<T>;
 
-    constructor(initElm: Array<T>) {
-        this.items.push(...initElm);
-    };
+    constructor(initElm: T[] = []) {
+        this.items = new ImprovedArray<T>(...initElm);
+    }
 
     /**
      * The function takes a variable number of arguments of type T and pushes them into the items array
@@ -21,7 +21,7 @@ export default class Stack<T> {
      * @returns The last item in the array.
      */
     public peek(): T {
-        if (this.items.isEmpty()) throw new IndexOutOfBoundsError();
+        if (this.items.isEmpty()) throw new IndexOutOfBoundsError("Stack is empty.");
         return this.items[this.items.length - 1];
     }
 
@@ -31,8 +31,8 @@ export default class Stack<T> {
      * @returns The last item in the array.
      */
     public pop(): T {
-        if (this.items.isEmpty()) throw new IndexOutOfBoundsError();
-        return this.items.pop()!!;
+        if (this.items.isEmpty()) throw new IndexOutOfBoundsError("Stack is empty.");
+        return this.items.pop()!;
     }
 
     /**
@@ -77,6 +77,35 @@ export default class Stack<T> {
 
     public clear(): void {
         this.items.clear();
+    }
+
+    /**
+     * Returns a new stack that contains the reversed order of the elements in the current stack.
+     * @returns {Stack<T>} A new stack with reversed elements.
+     */
+    public reverse(): Stack<T> {
+        const reversedArray = this.items.clone().reverse();
+        return new Stack<T>(reversedArray);
+    }
+
+    /**
+     * Removes all occurrences of a specific element from the stack.
+     * @param {T} element - The element to be removed.
+     * @returns {number} The number of elements removed from the stack.
+     */
+    public removeAll(element: T): number {
+        const originalSize = this.size();
+        this.items = new ImprovedArray<T>(...this.items.filter((item) => item !== element));
+        return originalSize - this.size();
+    }
+
+    /**
+     * Returns a new stack that contains the unique elements from the current stack.
+     * @returns {Stack<T>} A new stack with unique elements.
+     */
+    public distinct(): Stack<T> {
+        const uniqueArray = [...new Set(this.items.clone())];
+        return new Stack<T>(uniqueArray);
     }
 
     public [Symbol.iterator](): Iterator<T> {

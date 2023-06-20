@@ -54,7 +54,7 @@ export default class ImprovedArray<T> extends Array<T> {
      * The clear() function removes all elements from an array
      */
     public clear(): void {
-        this.splice(0, this.length);
+        this.length = 0;
     }
 
     /**
