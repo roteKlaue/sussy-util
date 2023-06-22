@@ -1,7 +1,6 @@
 import { MutableObject, UnitType } from "../Types";
-import AbstractClass from "./AbstractClass";
 
-export default class UnitConverter extends AbstractClass {
+export default class UnitConverter {
     private static readonly KILOMETERS_PER_MILE = 1.60934;
     private static readonly FAHRENHEIT_TO_CELSIUS_OFFSET = 32;
     private static readonly KELVIN_TO_CELSIUS_OFFSET = 273.15;
@@ -27,10 +26,6 @@ export default class UnitConverter extends AbstractClass {
             Miles: this.kilometersToMiles,
         } as const
     } as MutableObject<MutableObject<(arg0: number) => number | undefined> | undefined>;
-
-    constructor() {
-        super(UnitConverter);
-    }
 
     /**
      * This function takes a number and adds 273.15 to it.
@@ -117,10 +112,46 @@ export default class UnitConverter extends AbstractClass {
      */
     public static convert(value: number, from: UnitType, to: UnitType): number {
         // @ts-ignore this can not happen because the first check already checked for that case
-        if(!this.map[from] || !this.map[from][to]) {
+        if (!this.map[from] || !this.map[from][to]) {
             throw new TypeError("Unknown conversion type.");
         }
         // @ts-ignore can not happen because the if statement before checks for it
         return this.map[from][to](value);
+    }
+
+    /**
+     * Converts a speed from kilometers per hour to miles per hour.
+     * @param {number} kmPerHour - The speed in kilometers per hour.
+     * @returns {number} The speed in miles per hour.
+     */
+    public static kilometersPerHourToMilesPerHour(kmPerHour: number): number {
+        return kmPerHour / this.KILOMETERS_PER_MILE;
+    }
+
+    /**
+     * Converts a speed from miles per hour to kilometers per hour.
+     * @param {number} mph - The speed in miles per hour.
+     * @returns {number} The speed in kilometers per hour.
+     */
+    public static milesPerHourToKilometersPerHour(mph: number): number {
+        return mph * this.KILOMETERS_PER_MILE;
+    }
+
+    /**
+     * Converts a weight from kilograms to pounds.
+     * @param {number} kilograms - The weight in kilograms.
+     * @returns {number} The weight in pounds.
+     */
+    public static kilogramsToPounds(kilograms: number): number {
+        return kilograms * 2.20462;
+    }
+
+    /**
+     * Converts a weight from pounds to kilograms.
+     * @param {number} pounds - The weight in pounds.
+     * @returns {number} The weight in kilograms.
+     */
+    public static poundsToKilograms(pounds: number): number {
+        return pounds / 2.20462;
     }
 }

@@ -1,10 +1,11 @@
 import { EventEmitter } from 'events';
 
 export default class StopWatch extends EventEmitter {
-    private startTime: number;
     private readonly rounds: number[] = [];
-    private pauseStartTime: number | undefined;
     private totalTimePaused: number = 0;
+    private pauseStartTime?: number;
+    private threshold?: number;
+    private startTime: number;
 
     constructor() {
         super();
@@ -30,6 +31,10 @@ export default class StopWatch extends EventEmitter {
         const lapTime = performance.now() - (this.totalTimePaused + this.startTime + this.rounds.reduce((acc, val) => acc + val, 0));
         this.rounds.push(lapTime);
         this.emit('round', lapTime);
+
+        if (lapTime > (this.threshold? this.threshold : Infinity)) {
+            this.emit('lapExceededThreshold', lapTime);
+        }
     }
 
     /**
@@ -79,6 +84,41 @@ export default class StopWatch extends EventEmitter {
             this.pauseStartTime = void 0;
             this.emit('resume');
         }
+    }
+
+    public formatLapTime(lapTime: number): string {
+        const minutes = Math.floor(lapTime / 60000);
+        const seconds = Math.floor((lapTime % 60000) / 1000);
+        const milliseconds = Math.floor(lapTime % 1000);
+        return `${minutes}:${seconds.toString().padStart(2, '0')}.${milliseconds.toString().padStart(3, '0')}`;
+    }
+
+    public getAverageLapTime(): number {
+        const totalLaps = this.rounds.length;
+        if (totalLaps === 0) {
+            return 0;
+        }
+        const totalTime = this.rounds.reduce((acc, lapTime) => acc + lapTime, 0);
+        return totalTime / totalLaps;
+    }
+
+    public getMaximumLapTime(): number {
+        return Math.max(...this.rounds);
+    }
+    
+    public getMinimumLapTime(): number {
+        return Math.min(...this.rounds);
+    }
+
+    public setLapTimeThreshold(threshold: number): void {
+        this.threshold = threshold;
+    }
+
+    public getLapTimeAtIndex(index: number): number | undefined {
+        if (index >= 0 && index < this.rounds.length) {
+            return this.rounds[index];
+        }
+        return void 0;
     }
 
     /**
