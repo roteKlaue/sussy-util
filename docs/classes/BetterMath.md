@@ -8,41 +8,56 @@
 
 - [constructor](BetterMath.md#constructor)
 
+### Properties
+
+- [instance](BetterMath.md#instance)
+
 ### Methods
 
 - [average](BetterMath.md#average)
 - [avg](BetterMath.md#avg)
+- [combinations](BetterMath.md#combinations)
+- [degreesToRadians](BetterMath.md#degreestoradians)
 - [distance](BetterMath.md#distance)
 - [factorial](BetterMath.md#factorial)
 - [gcd](BetterMath.md#gcd)
 - [greatestCommonDivisor](BetterMath.md#greatestcommondivisor)
 - [lcm](BetterMath.md#lcm)
+- [logarithm](BetterMath.md#logarithm)
 - [lowestCommonDenominator](BetterMath.md#lowestcommondenominator)
 - [median](BetterMath.md#median)
-- [quickselect](BetterMath.md#quickselect)
-- [random](BetterMath.md#random)
+- [nthRoot](BetterMath.md#nthroot)
+- [permutations](BetterMath.md#permutations)
+- [radiansToDegrees](BetterMath.md#radianstodegrees)
 - [round](BetterMath.md#round)
 - [square](BetterMath.md#square)
+- [getInstance](BetterMath.md#getinstance)
 
 ## Constructors
 
 ### constructor
 
-• **new BatterMath**()
-
-#### Overrides
-
-AbstractClass.constructor
+• `Private` **new BetterMath**()
 
 #### Defined in
 
-[BetterMath.ts:5](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/BetterMath.ts#L5)
+[BetterMath.ts:5](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/BetterMath.ts#L5)
+
+## Properties
+
+### instance
+
+▪ `Static` `Private` **instance**: [`BetterMath`](BetterMath.md)
+
+#### Defined in
+
+[BetterMath.ts:4](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/BetterMath.ts#L4)
 
 ## Methods
 
 ### average
 
-▸ `Static` **average**(`numbers`): `number`
+▸ **average**(`numbers`): `number`
 
 It takes an array of numbers, adds them together, divides the sum by the number of elements in
 the array, and returns the result
@@ -61,39 +76,97 @@ The average of the numbers in the array.
 
 #### Defined in
 
-[BetterMath.ts:76](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/BetterMath.ts#L76)
+[BetterMath.ts:88](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/BetterMath.ts#L88)
 
 ___
 
 ### avg
 
-▸ `Static` **avg**(`numbers`): `number`
+▸ **avg**(`numbers`): `number`
+
+It takes an array of numbers, adds them together, divides the sum by the number of elements in
+the array, and returns the result
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `numbers` | `number`[] |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `numbers` | `number`[] | number[] - An array of numbers to average. |
 
 #### Returns
 
 `number`
 
+The average of the numbers in the array.
+
 #### Defined in
 
-[BetterMath.ts:80](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/BetterMath.ts#L80)
+[BetterMath.ts:98](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/BetterMath.ts#L98)
+
+___
+
+### combinations
+
+▸ **combinations**(`n`, `r`): `number`
+
+Calculate the number of combinations of r elements from a set of n elements.
+
+**`Throws`**
+
+n must be greater than or equal to r in combinations.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `n` | `number` | The total number of elements. |
+| `r` | `number` | The number of elements to select. |
+
+#### Returns
+
+`number`
+
+The number of combinations.
+
+#### Defined in
+
+[BetterMath.ts:176](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/BetterMath.ts#L176)
+
+___
+
+### degreesToRadians
+
+▸ **degreesToRadians**(`degrees`): `number`
+
+Convert degrees to radians.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `degrees` | `number` | The value in degrees. |
+
+#### Returns
+
+`number`
+
+The value in radians.
+
+#### Defined in
+
+[BetterMath.ts:188](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/BetterMath.ts#L188)
 
 ___
 
 ### distance
 
-▸ `Static` **distance**(`path`, `index?`): `number`
+▸ **distance**(`path`, `index?`): `number`
 
 #### Parameters
 
 | Name | Type | Default value |
 | :------ | :------ | :------ |
-| `path` | `Point`[] | `undefined` |
+| `path` | `BetterMath`[] | `undefined` |
 | `index` | `number` | `0` |
 
 #### Returns
@@ -102,13 +175,13 @@ ___
 
 #### Defined in
 
-[BetterMath.ts:32](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/BetterMath.ts#L32)
+[BetterMath.ts:31](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/BetterMath.ts#L31)
 
 ___
 
 ### factorial
 
-▸ `Static` **factorial**(`num`): `number`
+▸ **factorial**(`num`): `number`
 
 If the number is less than or equal to 1, return 1, otherwise return the number multiplied by
 the factorial of the number minus 1
@@ -127,34 +200,13 @@ The factorial of the number passed in.
 
 #### Defined in
 
-[BetterMath.ts:90](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/BetterMath.ts#L90)
+[BetterMath.ts:108](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/BetterMath.ts#L108)
 
 ___
 
 ### gcd
 
-▸ `Static` **gcd**(`a`, `b`): `number`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `a` | `number` |
-| `b` | `number` |
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[BetterMath.ts:51](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/BetterMath.ts#L51)
-
-___
-
-### greatestCommonDivisor
-
-▸ `Static` **greatestCommonDivisor**(`a`, `b`): `number`
+▸ **gcd**(`a`, `b`): `number`
 
 If b is 0, return a, otherwise return the greatest common divisor of b and the remainder of a
 divided by b.
@@ -174,34 +226,39 @@ The greatest common divisor of a and b.
 
 #### Defined in
 
-[BetterMath.ts:44](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/BetterMath.ts#L44)
+[BetterMath.ts:57](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/BetterMath.ts#L57)
 
 ___
 
-### lcm
+### greatestCommonDivisor
 
-▸ `Static` **lcm**(`a`, `b`): `number`
+▸ **greatestCommonDivisor**(`a`, `b`): `number`
+
+If b is 0, return a, otherwise return the greatest common divisor of b and the remainder of a
+divided by b.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `a` | `number` |
-| `b` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `a` | `number` | The first number to find the greatest common divisor of. |
+| `b` | `number` | number = 0 |
 
 #### Returns
 
 `number`
 
+The greatest common divisor of a and b.
+
 #### Defined in
 
-[BetterMath.ts:66](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/BetterMath.ts#L66)
+[BetterMath.ts:43](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/BetterMath.ts#L43)
 
 ___
 
-### lowestCommonDenominator
+### lcm
 
-▸ `Static` **lowestCommonDenominator**(`a`, `b`): `number`
+▸ **lcm**(`a`, `b`): `number`
 
 It returns the lowest common denominator of two numbers.
 
@@ -220,13 +277,63 @@ The lowest common denominator of two numbers.
 
 #### Defined in
 
-[BetterMath.ts:61](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/BetterMath.ts#L61)
+[BetterMath.ts:78](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/BetterMath.ts#L78)
+
+___
+
+### logarithm
+
+▸ **logarithm**(`number`, `base`): `number`
+
+Calculate the logarithm of a number with a specified base.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `number` | `number` | The number. |
+| `base` | `number` | The base of the logarithm. |
+
+#### Returns
+
+`number`
+
+The logarithm of the number with the specified base.
+
+#### Defined in
+
+[BetterMath.ts:147](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/BetterMath.ts#L147)
+
+___
+
+### lowestCommonDenominator
+
+▸ **lowestCommonDenominator**(`a`, `b`): `number`
+
+It returns the lowest common denominator of two numbers.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `a` | `number` | number, b: number |
+| `b` | `number` | number - The second number to find the lowest common denominator of. |
+
+#### Returns
+
+`number`
+
+The lowest common denominator of two numbers.
+
+#### Defined in
+
+[BetterMath.ts:67](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/BetterMath.ts#L67)
 
 ___
 
 ### median
 
-▸ `Static` **median**(`values`): `number`
+▸ **median**(`values`): `number`
 
 #### Parameters
 
@@ -242,48 +349,95 @@ The median of the array.
 
 #### Defined in
 
-[BetterMath.ts:117](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/BetterMath.ts#L117)
+[BetterMath.ts:116](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/BetterMath.ts#L116)
 
 ___
 
-### quickselect
+### nthRoot
 
-▸ `Static` `Private` **quickselect**(`arr`, `k`): `number`
+▸ **nthRoot**(`number`, `n`): `number`
+
+Calculate the nth root of a number.
+
+**`Throws`**
+
+Cannot calculate even root of a negative number.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `arr` | `number`[] |
-| `k` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `number` | `number` | The number. |
+| `n` | `number` | The root to calculate. |
 
 #### Returns
 
 `number`
 
+The nth root of the number.
+
 #### Defined in
 
-[BetterMath.ts:94](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/BetterMath.ts#L94)
+[BetterMath.ts:134](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/BetterMath.ts#L134)
 
 ___
 
-### random
+### permutations
 
-▸ `Static` **random**(): `number`
+▸ **permutations**(`n`, `r`): `number`
+
+Calculate the number of permutations of r elements from a set of n elements.
+
+**`Throws`**
+
+n must be greater than or equal to r in permutations.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `n` | `number` | The total number of elements. |
+| `r` | `number` | The number of elements to select. |
 
 #### Returns
 
 `number`
 
+The number of permutations.
+
 #### Defined in
 
-[BetterMath.ts:24](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/BetterMath.ts#L24)
+[BetterMath.ts:158](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/BetterMath.ts#L158)
+
+___
+
+### radiansToDegrees
+
+▸ **radiansToDegrees**(`radians`): `number`
+
+Convert radians to degrees.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `radians` | `number` | The value in radians. |
+
+#### Returns
+
+`number`
+
+The value in degrees.
+
+#### Defined in
+
+[BetterMath.ts:197](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/BetterMath.ts#L197)
 
 ___
 
 ### round
 
-▸ `Static` **round**(`value`, `digit`): `number`
+▸ **round**(`value`, `digit`): `number`
 
 Round a number to a specified number of decimal places.
 
@@ -302,24 +456,46 @@ The rounded value.
 
 #### Defined in
 
-[BetterMath.ts:15](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/BetterMath.ts#L15)
+[BetterMath.ts:13](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/BetterMath.ts#L13)
 
 ___
 
 ### square
 
-▸ `Static` **square**(`num`): `number`
+▸ **square**(`num`): `number`
+
+Calculate the square of a number.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `num` | `number` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `num` | `number` | The number to calculate the square of. |
 
 #### Returns
 
 `number`
 
+The square of the number.
+
 #### Defined in
 
-[BetterMath.ts:28](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/BetterMath.ts#L28)
+[BetterMath.ts:27](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/BetterMath.ts#L27)
+
+___
+
+### getInstance
+
+▸ `Static` **getInstance**(): [`BetterMath`](BetterMath.md)
+
+Get the instance of the BetterMath class (Singleton pattern).
+
+#### Returns
+
+[`BetterMath`](BetterMath.md)
+
+The instance of the BetterMath class.
+
+#### Defined in
+
+[BetterMath.ts:205](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/BetterMath.ts#L205)

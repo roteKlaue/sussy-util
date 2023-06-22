@@ -10,7 +10,7 @@ export default class DataConverter {
      * @param {string} [del=,] - The delimiter in use in the CSV file.
      * @returns An array of objects.
      */
-    public static csvToJson(csv: string, del: string = ","): object[] {
+    public static csvToJson(csv: string, del: string = ","): JSONObject[] {
         const lines = csv.split('\n');
         const headers = lines[0].split(del);
         const jsonData: JSONObject[] = [];

@@ -22,7 +22,6 @@
 
 ### Properties
 
-- [each](ImprovedArray.md#each)
 - [length](ImprovedArray.md#length)
 - [[species]](ImprovedArray.md#[species])
 
@@ -36,6 +35,8 @@
 - [concat](ImprovedArray.md#concat)
 - [copyWithin](ImprovedArray.md#copywithin)
 - [countOccurrences](ImprovedArray.md#countoccurrences)
+- [deepClone](ImprovedArray.md#deepclone)
+- [each](ImprovedArray.md#each)
 - [entries](ImprovedArray.md#entries)
 - [every](ImprovedArray.md#every)
 - [fill](ImprovedArray.md#fill)
@@ -106,36 +107,9 @@ Array&lt;T\&gt;.constructor
 
 #### Defined in
 
-[src/Classes/ImprovedArray.ts:5](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ImprovedArray.ts#L5)
+[src/Classes/ImprovedArray.ts:8](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ImprovedArray.ts#L8)
 
 ## Properties
-
-### each
-
-• **each**: (`callbackfn`: (`value`: `T`, `index`: `number`, `array`: `T`[]) => `void`, `thisArg?`: `any`) => `void`
-
-#### Type declaration
-
-▸ (`callbackfn`, `thisArg?`): `void`
-
-Performs the specified action for each element in an array.
-
-##### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `callbackfn` | (`value`: `T`, `index`: `number`, `array`: `T`[]) => `void` | A function that accepts up to three arguments. forEach calls the callbackfn function one time for each element in the array. |
-| `thisArg?` | `any` | An object to which the this keyword can refer in the callbackfn function. If thisArg is omitted, undefined is used as the this value. |
-
-##### Returns
-
-`void`
-
-#### Defined in
-
-[src/Classes/ImprovedArray.ts:169](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ImprovedArray.ts#L169)
-
-___
 
 ### length
 
@@ -159,7 +133,7 @@ ___
 
 #### Inherited from
 
-Array.\_\_@species@179
+Array.\_\_@species@221
 
 #### Defined in
 
@@ -179,7 +153,7 @@ Iterator
 
 #### Inherited from
 
-Array.\_\_@iterator@82
+Array.\_\_@iterator@124
 
 #### Defined in
 
@@ -210,7 +184,7 @@ when they will be absent when used in a 'with' statement.
 
 #### Inherited from
 
-Array.\_\_@unscopables@84
+Array.\_\_@unscopables@144
 
 #### Defined in
 
@@ -222,13 +196,15 @@ ___
 
 ▸ **at**(`index`): `undefined` \| `T`
 
-Returns the item located at the specified index.
+Takes an integer value and returns the item at that index,
+allowing for positive and negative integers.
+Negative integers count back from the last item in the array.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `index` | `number` | The zero-based index of the desired code unit. A negative index will count back from the last item. |
+| Name | Type |
+| :------ | :------ |
+| `index` | `number` |
 
 #### Returns
 
@@ -240,7 +216,7 @@ Array.at
 
 #### Defined in
 
-typescript/lib/lib.es2022.array.d.ts:26
+node_modules/@types/node/globals.d.ts:91
 
 ___
 
@@ -256,7 +232,7 @@ The clear() function removes all elements from an array
 
 #### Defined in
 
-[src/Classes/ImprovedArray.ts:53](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ImprovedArray.ts#L53)
+[src/Classes/ImprovedArray.ts:56](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ImprovedArray.ts#L56)
 
 ___
 
@@ -275,7 +251,7 @@ A new instance of ImprovedArray with the same elements as the original.
 
 #### Defined in
 
-[src/Classes/ImprovedArray.ts:62](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ImprovedArray.ts#L62)
+[src/Classes/ImprovedArray.ts:65](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ImprovedArray.ts#L65)
 
 ___
 
@@ -381,7 +357,47 @@ The number of times the value is found in the array.
 
 #### Defined in
 
-[src/Classes/ImprovedArray.ts:136](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ImprovedArray.ts#L136)
+[src/Classes/ImprovedArray.ts:127](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ImprovedArray.ts#L127)
+
+___
+
+### deepClone
+
+▸ **deepClone**(): [`ImprovedArray`](ImprovedArray.md)<`T`\>
+
+Returns a copy of the array. 
+Each element will be copied into each and every property.
+
+Does NOT make a new instance a class, just takes the properties of the old object and recreates them.
+
+#### Returns
+
+[`ImprovedArray`](ImprovedArray.md)<`T`\>
+
+#### Defined in
+
+[src/Classes/ImprovedArray.ts:185](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ImprovedArray.ts#L185)
+
+___
+
+### each
+
+▸ **each**(`callbackfn`, `thisArg?`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `callbackfn` | (`value`: `T`, `index`: `number`, `array`: `T`[]) => `void` |
+| `thisArg?` | `any` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/Classes/ImprovedArray.ts:160](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ImprovedArray.ts#L160)
 
 ___
 
@@ -626,7 +642,7 @@ An array of common elements.
 
 #### Defined in
 
-[src/Classes/ImprovedArray.ts:176](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ImprovedArray.ts#L176)
+[src/Classes/ImprovedArray.ts:169](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ImprovedArray.ts#L169)
 
 ___
 
@@ -741,7 +757,7 @@ It takes an array of arrays and flattens it into a single array.
 
 #### Defined in
 
-[src/Classes/ImprovedArray.ts:143](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ImprovedArray.ts#L143)
+[src/Classes/ImprovedArray.ts:134](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ImprovedArray.ts#L134)
 
 ___
 
@@ -786,7 +802,7 @@ The random element from the array.
 
 #### Defined in
 
-[src/Classes/ImprovedArray.ts:22](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ImprovedArray.ts#L22)
+[src/Classes/ImprovedArray.ts:25](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ImprovedArray.ts#L25)
 
 ___
 
@@ -804,7 +820,7 @@ The random index of the array.
 
 #### Defined in
 
-[src/Classes/ImprovedArray.ts:14](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ImprovedArray.ts#L14)
+[src/Classes/ImprovedArray.ts:17](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ImprovedArray.ts#L17)
 
 ___
 
@@ -882,7 +898,7 @@ index.
 
 #### Defined in
 
-[src/Classes/ImprovedArray.ts:44](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ImprovedArray.ts#L44)
+[src/Classes/ImprovedArray.ts:47](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ImprovedArray.ts#L47)
 
 ___
 
@@ -900,7 +916,7 @@ The length of the array.
 
 #### Defined in
 
-[src/Classes/ImprovedArray.ts:70](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ImprovedArray.ts#L70)
+[src/Classes/ImprovedArray.ts:73](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ImprovedArray.ts#L73)
 
 ___
 
@@ -1035,7 +1051,7 @@ that the accumulator is set to before the
 
 #### Defined in
 
-[src/Classes/ImprovedArray.ts:84](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ImprovedArray.ts#L84)
+[src/Classes/ImprovedArray.ts:87](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ImprovedArray.ts#L87)
 
 ___
 
@@ -1258,7 +1274,7 @@ A new instance of ImprovedArray with the filtered values.
 
 #### Defined in
 
-[src/Classes/ImprovedArray.ts:93](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ImprovedArray.ts#L93)
+[src/Classes/ImprovedArray.ts:96](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ImprovedArray.ts#L96)
 
 ___
 
@@ -1283,7 +1299,7 @@ is removed, an array of one element is returned.
 
 #### Defined in
 
-[src/Classes/ImprovedArray.ts:32](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ImprovedArray.ts#L32)
+[src/Classes/ImprovedArray.ts:35](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ImprovedArray.ts#L35)
 
 ___
 
@@ -1299,7 +1315,7 @@ removes all duplicates from the array
 
 #### Defined in
 
-[src/Classes/ImprovedArray.ts:110](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ImprovedArray.ts#L110)
+[src/Classes/ImprovedArray.ts:113](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ImprovedArray.ts#L113)
 
 ___
 
@@ -1357,7 +1373,7 @@ For each element in the array, swap it with a random element in the array.
 
 #### Defined in
 
-[src/Classes/ImprovedArray.ts:160](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ImprovedArray.ts#L160)
+[src/Classes/ImprovedArray.ts:151](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ImprovedArray.ts#L151)
 
 ___
 
@@ -1513,7 +1529,7 @@ The return type is T | string.
 
 #### Defined in
 
-[src/Classes/ImprovedArray.ts:101](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ImprovedArray.ts#L101)
+[src/Classes/ImprovedArray.ts:104](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ImprovedArray.ts#L104)
 
 ___
 
@@ -1531,7 +1547,7 @@ The JSON string representation of the object.
 
 #### Defined in
 
-[src/Classes/ImprovedArray.ts:153](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ImprovedArray.ts#L153)
+[src/Classes/ImprovedArray.ts:144](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ImprovedArray.ts#L144)
 
 ___
 

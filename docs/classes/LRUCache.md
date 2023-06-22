@@ -46,7 +46,7 @@
 
 #### Defined in
 
-[LRUCache.ts:6](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/LRUCache.ts#L6)
+[src/Classes/LRUCache.ts:6](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/LRUCache.ts#L6)
 
 ## Properties
 
@@ -56,7 +56,7 @@
 
 #### Defined in
 
-[LRUCache.ts:2](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/LRUCache.ts#L2)
+[src/Classes/LRUCache.ts:2](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/LRUCache.ts#L2)
 
 ___
 
@@ -66,7 +66,7 @@ ___
 
 #### Defined in
 
-[LRUCache.ts:4](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/LRUCache.ts#L4)
+[src/Classes/LRUCache.ts:4](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/LRUCache.ts#L4)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[LRUCache.ts:3](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/LRUCache.ts#L3)
+[src/Classes/LRUCache.ts:3](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/LRUCache.ts#L3)
 
 ## Methods
 
@@ -102,7 +102,7 @@ The value of the key.
 
 #### Defined in
 
-[LRUCache.ts:20](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/LRUCache.ts#L20)
+[src/Classes/LRUCache.ts:20](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/LRUCache.ts#L20)
 
 ___
 
@@ -126,7 +126,7 @@ The value of the entry.value property.
 
 #### Defined in
 
-[LRUCache.ts:41](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/LRUCache.ts#L41)
+[src/Classes/LRUCache.ts:41](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/LRUCache.ts#L41)
 
 ___
 
@@ -143,4 +143,4 @@ key from the cache.
 
 #### Defined in
 
-[LRUCache.ts:54](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/LRUCache.ts#L54)
+[src/Classes/LRUCache.ts:54](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/LRUCache.ts#L54)

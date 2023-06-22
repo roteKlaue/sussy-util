@@ -8,6 +8,10 @@
 
 - [constructor](ArrayUtil.md#constructor)
 
+### Properties
+
+- [instance](ArrayUtil.md#instance)
+
 ### Methods
 
 - [clear](ArrayUtil.md#clear)
@@ -17,32 +21,42 @@
 - [flat](ArrayUtil.md#flat)
 - [insert](ArrayUtil.md#insert)
 - [intersection](ArrayUtil.md#intersection)
+- [quickSort](ArrayUtil.md#quicksort)
+- [quickselect](ArrayUtil.md#quickselect)
 - [remove](ArrayUtil.md#remove)
 - [removeDuplicates](ArrayUtil.md#removeduplicates)
 - [shuffle](ArrayUtil.md#shuffle)
 - [sortByKey](ArrayUtil.md#sortbykey)
 - [union](ArrayUtil.md#union)
+- [uniqueSubarrays](ArrayUtil.md#uniquesubarrays)
 - [zip](ArrayUtil.md#zip)
+- [getInstance](ArrayUtil.md#getinstance)
 
 ## Constructors
 
 ### constructor
 
-• **new ArrayUtil**()
-
-#### Overrides
-
-AbstractClass.constructor
+• `Private` **new ArrayUtil**()
 
 #### Defined in
 
-[ArrayUtil.ts:4](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L4)
+[ArrayUtil.ts:6](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ArrayUtil.ts#L6)
+
+## Properties
+
+### instance
+
+▪ `Static` `Private` **instance**: [`ArrayUtil`](ArrayUtil.md)
+
+#### Defined in
+
+[ArrayUtil.ts:4](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ArrayUtil.ts#L4)
 
 ## Methods
 
 ### clear
 
-▸ `Static` **clear**(`array`): `void`
+▸ **clear**(`array`): `void`
 
 It clears an array by setting its length to zero
 
@@ -58,13 +72,13 @@ It clears an array by setting its length to zero
 
 #### Defined in
 
-[ArrayUtil.ts:80](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L80)
+[ArrayUtil.ts:82](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ArrayUtil.ts#L82)
 
 ___
 
 ### clone
 
-▸ `Static` **clone**<`T`\>(`array`): `T`[]
+▸ **clone**<`T`\>(`array`): `T`[]
 
 It takes an array of any type, and returns a new array of the same type
 
@@ -88,13 +102,13 @@ A new array with the same elements as the original array.
 
 #### Defined in
 
-[ArrayUtil.ts:89](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L89)
+[ArrayUtil.ts:91](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ArrayUtil.ts#L91)
 
 ___
 
 ### countOccurrences
 
-▸ `Static` **countOccurrences**<`T`\>(`array`, `value`): `number`
+▸ **countOccurrences**<`T`\>(`array`, `value`): `number`
 
 It takes an array and a value, and returns the number of times the value occurs in the array.
 
@@ -119,13 +133,13 @@ The number of occurrences of the value in the array.
 
 #### Defined in
 
-[ArrayUtil.ts:72](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L72)
+[ArrayUtil.ts:74](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ArrayUtil.ts#L74)
 
 ___
 
 ### difference
 
-▸ `Static` **difference**<`T`\>(`a`, `b`): `T`[]
+▸ **difference**<`T`\>(`a`, `b`): `T`[]
 
 It takes two arrays, and returns an array of all the elements in the first array that are not in
 the second array
@@ -151,13 +165,13 @@ The difference between two arrays.
 
 #### Defined in
 
-[ArrayUtil.ts:51](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L51)
+[ArrayUtil.ts:53](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ArrayUtil.ts#L53)
 
 ___
 
 ### flat
 
-▸ `Static` **flat**(`arr`): `any`[]
+▸ **flat**(`arr`): `any`[]
 
 If the item is an array, then push the flattened array into the result array, otherwise push the
 item into the result array.
@@ -174,13 +188,13 @@ item into the result array.
 
 #### Defined in
 
-[ArrayUtil.ts:11](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L11)
+[ArrayUtil.ts:13](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ArrayUtil.ts#L13)
 
 ___
 
 ### insert
 
-▸ `Static` **insert**<`T`\>(`arr`, `index`, `...items`): `T`[]
+▸ **insert**<`T`\>(`arr`, `index`, `...items`): `T`[]
 
 It takes an array, an index, and any number of items, and returns a new array with the items
 inserted at the index.
@@ -207,13 +221,13 @@ a new array with the items inserted at the specified index.
 
 #### Defined in
 
-[ArrayUtil.ts:141](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L141)
+[ArrayUtil.ts:143](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ArrayUtil.ts#L143)
 
 ___
 
 ### intersection
 
-▸ `Static` **intersection**<`T`\>(`a`, `b`): `T`[]
+▸ **intersection**<`T`\>(`a`, `b`): `T`[]
 
 It takes two arrays of the same type and returns an array of that type containing the elements
 that are common to both arrays
@@ -239,13 +253,69 @@ An array of the elements that are in both a and b.
 
 #### Defined in
 
-[ArrayUtil.ts:30](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L30)
+[ArrayUtil.ts:32](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ArrayUtil.ts#L32)
+
+___
+
+### quickSort
+
+▸ **quickSort**<`T`\>(`arr`, `compareFn`): `T`[]
+
+Sorts an array in ascending order using the Quick Sort algorithm.
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `arr` | `T`[] | The input array to be sorted. |
+| `compareFn` | (`a`: `T`, `b`: `T`) => `number` | A function to compare two elements. |
+
+#### Returns
+
+`T`[]
+
+The sorted array.
+
+#### Defined in
+
+[ArrayUtil.ts:192](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ArrayUtil.ts#L192)
+
+___
+
+### quickselect
+
+▸ **quickselect**(`arr`, `k`): `number`
+
+Finds the k-th smallest element in an array using the Quickselect algorithm.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `arr` | `number`[] | The input array. |
+| `k` | `number` | The index of the desired smallest element (1-based). |
+
+#### Returns
+
+`number`
+
+The k-th smallest element in the array.
+
+#### Defined in
+
+[ArrayUtil.ts:165](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ArrayUtil.ts#L165)
 
 ___
 
 ### remove
 
-▸ `Static` **remove**<`T`\>(`arr`, `item`): `T`[]
+▸ **remove**<`T`\>(`arr`, `item`): `T`[]
 
 It takes an array and an item, and returns a new array with the item removed
 
@@ -270,13 +340,13 @@ A new array with all the items that are not equal to the item passed in.
 
 #### Defined in
 
-[ArrayUtil.ts:119](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L119)
+[ArrayUtil.ts:121](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ArrayUtil.ts#L121)
 
 ___
 
 ### removeDuplicates
 
-▸ `Static` **removeDuplicates**<`T`\>(`arr`): `T`[]
+▸ **removeDuplicates**<`T`\>(`arr`): `T`[]
 
 It takes an array of any type, and returns an array of the same type, with all duplicates
 removed
@@ -301,13 +371,13 @@ A new array with the duplicates removed.
 
 #### Defined in
 
-[ArrayUtil.ts:99](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L99)
+[ArrayUtil.ts:101](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ArrayUtil.ts#L101)
 
 ___
 
 ### shuffle
 
-▸ `Static` **shuffle**<`X`, `T`\>(`array`): `void`
+▸ **shuffle**<`X`, `T`\>(`array`): `void`
 
 This function takes an array of any type and shuffles it in place.
 
@@ -330,13 +400,13 @@ This function takes an array of any type and shuffles it in place.
 
 #### Defined in
 
-[ArrayUtil.ts:59](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L59)
+[ArrayUtil.ts:61](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ArrayUtil.ts#L61)
 
 ___
 
 ### sortByKey
 
-▸ `Static` **sortByKey**<`T`\>(`arr`, `key`): `T`[]
+▸ **sortByKey**<`T`\>(`arr`, `key`): `T`[]
 
 Sort an array of objects by a key of your choice.
 
@@ -361,13 +431,13 @@ An array of objects.
 
 #### Defined in
 
-[ArrayUtil.ts:109](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L109)
+[ArrayUtil.ts:111](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ArrayUtil.ts#L111)
 
 ___
 
 ### union
 
-▸ `Static` **union**<`T`\>(`a`, `b`): `T`[]
+▸ **union**<`T`\>(`a`, `b`): `T`[]
 
 It takes two arrays, concatenates them, removes duplicates, and returns the result
 
@@ -392,13 +462,37 @@ An array of unique values from both arrays.
 
 #### Defined in
 
-[ArrayUtil.ts:40](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L40)
+[ArrayUtil.ts:42](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ArrayUtil.ts#L42)
+
+___
+
+### uniqueSubarrays
+
+▸ **uniqueSubarrays**(`arr`): `any`[][]
+
+It takes an array and returns a new array with all the unique subarrays.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `arr` | `any`[][] | any[][] - The array to get the unique subarrays from. |
+
+#### Returns
+
+`any`[][]
+
+A new array with all the unique subarrays.
+
+#### Defined in
+
+[ArrayUtil.ts:152](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ArrayUtil.ts#L152)
 
 ___
 
 ### zip
 
-▸ `Static` **zip**<`T`, `U`\>(`arr1`, `arr2`): [`T`, `U`][]
+▸ **zip**<`T`, `U`\>(`arr1`, `arr2`): [`T`, `U`][]
 
 It takes two arrays of different types and returns an array of tuples
 
@@ -424,4 +518,18 @@ An array of tuples.
 
 #### Defined in
 
-[ArrayUtil.ts:129](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/ArrayUtil.ts#L129)
+[ArrayUtil.ts:131](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ArrayUtil.ts#L131)
+
+___
+
+### getInstance
+
+▸ `Static` **getInstance**(): [`ArrayUtil`](ArrayUtil.md)
+
+#### Returns
+
+[`ArrayUtil`](ArrayUtil.md)
+
+#### Defined in
+
+[ArrayUtil.ts:220](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ArrayUtil.ts#L220)

@@ -31,16 +31,23 @@
 
 - [[iterator]](Collection.md#[iterator])
 - [clear](Collection.md#clear)
+- [contains](Collection.md#contains)
 - [count](Collection.md#count)
 - [delete](Collection.md#delete)
 - [entries](Collection.md#entries)
+- [every](Collection.md#every)
+- [filter](Collection.md#filter)
 - [forEach](Collection.md#foreach)
 - [get](Collection.md#get)
 - [has](Collection.md#has)
 - [keys](Collection.md#keys)
+- [map](Collection.md#map)
+- [merge](Collection.md#merge)
 - [missing](Collection.md#missing)
+- [reduce](Collection.md#reduce)
 - [remove](Collection.md#remove)
 - [set](Collection.md#set)
+- [some](Collection.md#some)
 - [toArray](Collection.md#toarray)
 - [toJSONString](Collection.md#tojsonstring)
 - [toString](Collection.md#tostring)
@@ -104,7 +111,7 @@ typescript/lib/lib.es2015.iterable.d.ts:161
 
 #### Inherited from
 
-Map.\_\_@toStringTag@225
+Map.\_\_@toStringTag@104
 
 #### Defined in
 
@@ -132,7 +139,7 @@ ___
 
 #### Inherited from
 
-Map.\_\_@species@179
+Map.\_\_@species@221
 
 #### Defined in
 
@@ -152,7 +159,7 @@ Returns an iterable of entries in the map.
 
 #### Inherited from
 
-Map.\_\_@iterator@82
+Map.\_\_@iterator@124
 
 #### Defined in
 
@@ -178,6 +185,30 @@ typescript/lib/lib.es2015.collection.d.ts:23
 
 ___
 
+### contains
+
+▸ **contains**(`value`): `boolean`
+
+It checks if the map contains a specific value.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `value` | `V` | The value to search for in the map. |
+
+#### Returns
+
+`boolean`
+
+A boolean value indicating whether the value is found in the map.
+
+#### Defined in
+
+[src/Classes/Collection.ts:62](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Collection.ts#L62)
+
+___
+
 ### count
 
 ▸ **count**(): `number`
@@ -192,7 +223,7 @@ The size of the list.
 
 #### Defined in
 
-[src/Classes/Collection.ts:34](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/Collection.ts#L34)
+[src/Classes/Collection.ts:36](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Collection.ts#L36)
 
 ___
 
@@ -239,6 +270,54 @@ Map.entries
 #### Defined in
 
 typescript/lib/lib.es2015.iterable.d.ts:126
+
+___
+
+### every
+
+▸ **every**(`predicate`): `boolean`
+
+It checks if all entries in the Collection satisfy the provided predicate function.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `predicate` | `Predicate`<`V`, `K`\> | A predicate function that is called for each entry with arguments (value, key, collection). |
+
+#### Returns
+
+`boolean`
+
+A boolean value indicating whether all entries satisfy the predicate function.
+
+#### Defined in
+
+[src/Classes/Collection.ts:129](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Collection.ts#L129)
+
+___
+
+### filter
+
+▸ **filter**(`predicate`): [`Collection`](Collection.md)<`K`, `V`\>
+
+It returns a new Collection containing entries that satisfy the provided predicate function.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `predicate` | `Predicate`<`V`, `K`\> | A predicate function that is called for each entry with arguments (value, key, collection). |
+
+#### Returns
+
+[`Collection`](Collection.md)<`K`, `V`\>
+
+A new Collection containing entries that satisfy the predicate function.
+
+#### Defined in
+
+[src/Classes/Collection.ts:86](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Collection.ts#L86)
 
 ___
 
@@ -343,6 +422,58 @@ typescript/lib/lib.es2015.iterable.d.ts:131
 
 ___
 
+### map
+
+▸ **map**<`U`\>(`transformFn`): [`Collection`](Collection.md)<`K`, `U`\>
+
+It performs a transformation on each entry in the Collection and returns a new Collection with the transformed entries.
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `U` |
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `transformFn` | (`value`: `V`, `key`: `K`, `collection`: [`Collection`](Collection.md)<`K`, `V`\>) => `U` | A function that is called for each entry with arguments (value, key, collection). |
+
+#### Returns
+
+[`Collection`](Collection.md)<`K`, `U`\>
+
+A new Collection with the transformed entries.
+
+#### Defined in
+
+[src/Classes/Collection.ts:101](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Collection.ts#L101)
+
+___
+
+### merge
+
+▸ **merge**(`map`): `void`
+
+It merges the entries from another map into the current map.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `map` | [`Collection`](Collection.md)<`K`, `V`\> | The map to merge with the current map. |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/Classes/Collection.ts:75](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Collection.ts#L75)
+
+___
+
 ### missing
 
 ▸ **missing**(`key`): `boolean`
@@ -363,13 +494,44 @@ A boolean value.
 
 #### Defined in
 
-[src/Classes/Collection.ts:43](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/Collection.ts#L43)
+[src/Classes/Collection.ts:45](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Collection.ts#L45)
+
+___
+
+### reduce
+
+▸ **reduce**<`U`\>(`reducer`, `initialValue`): `U`
+
+It performs a reduce operation on the Collection, accumulating a single value based on the entries.
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `U` |
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `reducer` | (`accumulator`: `U`, `value`: `V`, `key`: `K`, `collection`: [`Collection`](Collection.md)<`K`, `V`\>) => `U` | A reducer function that is called for each entry with arguments (accumulator, value, key, collection). |
+| `initialValue` | `U` | An initial value for the accumulator. |
+
+#### Returns
+
+`U`
+
+The accumulated value after applying the reducer function to each entry.
+
+#### Defined in
+
+[src/Classes/Collection.ts:116](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Collection.ts#L116)
 
 ___
 
 ### remove
 
-▸ **remove**(`key`): `undefined` \| `MapEntry`<`K`, `V`\>
+▸ **remove**(`key`): `undefined` \| `default`<`K`, `V`\>
 
 It removes the key and value from the map.
 
@@ -381,19 +543,19 @@ It removes the key and value from the map.
 
 #### Returns
 
-`undefined` \| `MapEntry`<`K`, `V`\>
+`undefined` \| `default`<`K`, `V`\>
 
 The object that was removed from the map.
 
 #### Defined in
 
-[src/Classes/Collection.ts:9](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/Collection.ts#L9)
+[src/Classes/Collection.ts:11](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Collection.ts#L11)
 
 ___
 
 ### set
 
-▸ **set**(`key`, `value`): [`MapEntry`](../types/MapEntry.md)<`K`, `V`\>
+▸ **set**(`key`, `value`): [`Collection`](Collection.md)<`K`, `V`\>
 
 Adds a new element with a specified key and value to the Map. If an element with the same key already exists, the element will be updated.
 
@@ -406,7 +568,7 @@ Adds a new element with a specified key and value to the Map. If an element with
 
 #### Returns
 
-[`MapEntry`](../types/MapEntry.md)<`K`, `V`\>
+[`Collection`](Collection.md)<`K`, `V`\>
 
 #### Inherited from
 
@@ -418,21 +580,45 @@ typescript/lib/lib.es2015.collection.d.ts:44
 
 ___
 
+### some
+
+▸ **some**(`predicate`): `boolean`
+
+It checks if any entry in the Collection satisfies the provided predicate function.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `predicate` | `Predicate`<`V`, `K`\> | A predicate function that is called for each entry with arguments (value, key, collection). |
+
+#### Returns
+
+`boolean`
+
+A boolean value indicating whether any entry satisfies the predicate function.
+
+#### Defined in
+
+[src/Classes/Collection.ts:143](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Collection.ts#L143)
+
+___
+
 ### toArray
 
-▸ **toArray**(): [`MapEntry`](../types/MapEntry.md)<`K`, `V`\>[]
+▸ **toArray**(): `default`<`K`, `V`\>[]
 
 It converts the map to an array of objects.
 
 #### Returns
 
-[`MapEntry`](../types/MapEntry.md)<`K`, `V`\> []
+`default`<`K`, `V`\>[]
 
 An array of objects with key and value properties.
 
 #### Defined in
 
-[src/Classes/Collection.ts:26](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/Collection.ts#L26)
+[src/Classes/Collection.ts:28](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Collection.ts#L28)
 
 ___
 
@@ -450,7 +636,7 @@ The JSON string representation of the array.
 
 #### Defined in
 
-[src/Classes/Collection.ts:51](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/Collection.ts#L51)
+[src/Classes/Collection.ts:53](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Collection.ts#L53)
 
 ___
 
@@ -464,7 +650,7 @@ ___
 
 #### Defined in
 
-[src/Classes/Collection.ts:18](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/Collection.ts#L18)
+[src/Classes/Collection.ts:20](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Collection.ts#L20)
 
 ___
 

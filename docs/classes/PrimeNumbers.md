@@ -1,5 +1,6 @@
 [sussy-util](../README.md) / [classes](./README.md) / PrimeNumbers
 
+
 # Class: PrimeNumbers
 
 ## Table of contents
@@ -24,10 +25,6 @@
 
 • **new PrimeNumbers**()
 
-#### Defined in
-
-[PrimeNumbers.ts:7](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/PrimeNumbers.ts#L7)
-
 ## Properties
 
 ### current
@@ -36,7 +33,7 @@
 
 #### Defined in
 
-[PrimeNumbers.ts:4](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/PrimeNumbers.ts#L4)
+[src/Classes/PrimeNumbers.ts:4](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/PrimeNumbers.ts#L4)
 
 ___
 
@@ -46,7 +43,7 @@ ___
 
 #### Defined in
 
-[PrimeNumbers.ts:5](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/PrimeNumbers.ts#L5)
+[src/Classes/PrimeNumbers.ts:5](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/PrimeNumbers.ts#L5)
 
 ## Methods
 
@@ -70,7 +67,7 @@ The array of primes.
 
 #### Defined in
 
-[PrimeNumbers.ts:31](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/PrimeNumbers.ts#L31)
+[src/Classes/PrimeNumbers.ts:29](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/PrimeNumbers.ts#L29)
 
 ___
 
@@ -94,4 +91,4 @@ The primes array.
 
 #### Defined in
 
-[PrimeNumbers.ts:14](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/PrimeNumbers.ts#L14)
+[src/Classes/PrimeNumbers.ts:12](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/PrimeNumbers.ts#L12)

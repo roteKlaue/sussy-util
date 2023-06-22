@@ -38,7 +38,7 @@ import { classes } from "sussy-util";
 import { UrlUtil } from "sussy-util";
 ```
 
-## Documentation:  [classes](./classes/README.md) [functions](./functions/README.md)
+## Documentation:  [classes](./classes/README.md) [functions](./functions/README.md) [types](./types/README.md)
 
 ### Links
  * [`npm`](https://npmjs.com/package/sussy-util)

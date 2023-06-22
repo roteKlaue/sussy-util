@@ -8,6 +8,10 @@
 
 - [constructor](IsSomething.md#constructor)
 
+### Properties
+
+- [instance](IsSomething.md#instance)
+
 ### Methods
 
 - [isArray](IsSomething.md#isarray)
@@ -31,26 +35,33 @@
 - [isString](IsSomething.md#isstring)
 - [isSymbol](IsSomething.md#issymbol)
 - [isType](IsSomething.md#istype)
+- [getInstance](IsSomething.md#getinstance)
 
 ## Constructors
 
 ### constructor
 
-• **new IsSomething**()
-
-#### Overrides
-
-AbstractClass.constructor
+• `Private` **new IsSomething**()
 
 #### Defined in
 
-[IsSomething.ts:6](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L6)
+[IsSomething.ts:5](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L5)
+
+## Properties
+
+### instance
+
+▪ `Static` `Private` **instance**: [`IsSomething`](IsSomething.md)
+
+#### Defined in
+
+[IsSomething.ts:4](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L4)
 
 ## Methods
 
 ### isArray
 
-▸ `Static` **isArray**(`arg`): `boolean`
+▸ **isArray**(`arg`): `boolean`
 
 If the argument is an array, return true, otherwise return false.
 
@@ -68,13 +79,13 @@ a boolean value.
 
 #### Defined in
 
-[IsSomething.ts:15](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L15)
+[IsSomething.ts:12](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L12)
 
 ___
 
 ### isBoolean
 
-▸ `Static` **isBoolean**(`arg`): `boolean`
+▸ **isBoolean**(`arg`): `boolean`
 
 If the argument is not null and is either a boolean or a string that is either "true" or
 "false", then return true
@@ -93,13 +104,13 @@ A boolean value.
 
 #### Defined in
 
-[IsSomething.ts:25](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L25)
+[IsSomething.ts:22](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L22)
 
 ___
 
 ### isClass
 
-▸ `Static` **isClass**(`arg`): `boolean`
+▸ **isClass**(`arg`): `boolean`
 
 If the argument is a function, try to call it. If it throws an error with the message "Class
 constructor [class name] cannot be invoked without 'new'", then it's a class
@@ -118,13 +129,13 @@ A boolean value.
 
 #### Defined in
 
-[IsSomething.ts:35](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L35)
+[IsSomething.ts:32](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L32)
 
 ___
 
 ### isDate
 
-▸ `Static` **isDate**(`arg`): `boolean`
+▸ **isDate**(`arg`): `boolean`
 
 If the argument is an object and it's constructor is the Date constructor and it's an instance
 of Date, then it's a Date
@@ -143,13 +154,13 @@ The constructor of the Date object.
 
 #### Defined in
 
-[IsSomething.ts:57](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L57)
+[IsSomething.ts:54](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L54)
 
 ___
 
 ### isDateValid
 
-▸ `Static` **isDateValid**(`date`): `boolean`
+▸ **isDateValid**(`date`): `boolean`
 
 If the date is not a number, then it's not a valid date.
 
@@ -167,13 +178,13 @@ The return value is a boolean.
 
 #### Defined in
 
-[IsSomething.ts:237](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L237)
+[IsSomething.ts:234](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L234)
 
 ___
 
 ### isDefined
 
-▸ `Static` **isDefined**(`arg`): `boolean`
+▸ **isDefined**(`arg`): `boolean`
 
 It returns true if the argument is not undefined
 
@@ -191,13 +202,13 @@ The type of the argument.
 
 #### Defined in
 
-[IsSomething.ts:66](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L66)
+[IsSomething.ts:63](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L63)
 
 ___
 
 ### isEmpty
 
-▸ `Static` **isEmpty**(`arg`): `boolean`
+▸ **isEmpty**(`arg`): `boolean`
 
 If the argument is not null or undefined, then it has a value
 
@@ -215,13 +226,13 @@ The return value is a boolean.
 
 #### Defined in
 
-[IsSomething.ts:75](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L75)
+[IsSomething.ts:72](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L72)
 
 ___
 
 ### isError
 
-▸ `Static` **isError**(`arg`): `boolean`
+▸ **isError**(`arg`): `boolean`
 
 If the argument is an object and it's constructor is the Error constructor and it's an instance
 of Error, then it's an error
@@ -240,13 +251,13 @@ The constructor of the Error object.
 
 #### Defined in
 
-[IsSomething.ts:85](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L85)
+[IsSomething.ts:82](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L82)
 
 ___
 
 ### isEven
 
-▸ `Static` **isEven**(`num`): ``null`` \| `boolean`
+▸ **isEven**(`num`): ``null`` \| `boolean`
 
 If the input is a number, return true if the number is even, otherwise return false.
 
@@ -264,13 +275,13 @@ A function that takes a number and returns a boolean or null.
 
 #### Defined in
 
-[IsSomething.ts:94](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L94)
+[IsSomething.ts:91](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L91)
 
 ___
 
 ### isFunction
 
-▸ `Static` **isFunction**(`a`): `boolean`
+▸ **isFunction**(`a`): `boolean`
 
 If the object is a function, and it's not a class, then it's a function.
 
@@ -288,13 +299,13 @@ A boolean value.
 
 #### Defined in
 
-[IsSomething.ts:106](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L106)
+[IsSomething.ts:103](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L103)
 
 ___
 
 ### isInfinite
 
-▸ `Static` **isInfinite**(`arg`): `boolean`
+▸ **isInfinite**(`arg`): `boolean`
 
 It returns true if the argument is either Infinity or -Infinity
 
@@ -312,13 +323,13 @@ a boolean value.
 
 #### Defined in
 
-[IsSomething.ts:115](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L115)
+[IsSomething.ts:112](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L112)
 
 ___
 
 ### isInstanceOf
 
-▸ `Static` **isInstanceOf**(`value`, `constructor`): ``null`` \| `boolean`
+▸ **isInstanceOf**(`value`, `constructor`): ``null`` \| `boolean`
 
 If the constructor is a class, return whether the value is an instance of the constructor.
 
@@ -337,13 +348,13 @@ The return value is a boolean.
 
 #### Defined in
 
-[IsSomething.ts:227](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L227)
+[IsSomething.ts:224](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L224)
 
 ___
 
 ### isNullorUndefined
 
-▸ `Static` **isNullorUndefined**(`arg`): `boolean`
+▸ **isNullorUndefined**(`arg`): `boolean`
 
 If the argument is null or undefined, return true. Otherwise, return false
 
@@ -361,13 +372,13 @@ The return value is a boolean.
 
 #### Defined in
 
-[IsSomething.ts:124](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L124)
+[IsSomething.ts:121](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L121)
 
 ___
 
 ### isNumber
 
-▸ `Static` **isNumber**(`arg`): `boolean`
+▸ **isNumber**(`arg`): `boolean`
 
 It returns true if the argument is a number or a string that contains only digits
 
@@ -383,13 +394,13 @@ It returns true if the argument is a number or a string that contains only digit
 
 #### Defined in
 
-[IsSomething.ts:132](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L132)
+[IsSomething.ts:129](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L129)
 
 ___
 
 ### isObject
 
-▸ `Static` **isObject**(`arg`): `boolean`
+▸ **isObject**(`arg`): `boolean`
 
 If the argument is not null, and is an object, and is not an array, then return true.
 
@@ -405,13 +416,13 @@ If the argument is not null, and is an object, and is not an array, then return 
 
 #### Defined in
 
-[IsSomething.ts:140](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L140)
+[IsSomething.ts:137](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L137)
 
 ___
 
 ### isPrime
 
-▸ `Static` **isPrime**(`num`): ``null`` \| `boolean`
+▸ **isPrime**(`num`): ``null`` \| `boolean`
 
 If the number is less than 2, it's not prime. If it's even, it's not prime. If it's divisible by
 any odd number up to the square root of the number, it's not prime. Otherwise, it's prime
@@ -430,13 +441,13 @@ A boolean value.
 
 #### Defined in
 
-[IsSomething.ts:150](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L150)
+[IsSomething.ts:147](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L147)
 
 ___
 
 ### isPrimitive
 
-▸ `Static` **isPrimitive**(`arg`): `boolean`
+▸ **isPrimitive**(`arg`): `boolean`
 
 If the argument is null, undefined, a string, a number, a boolean, or a symbol, then return
 true, otherwise return false.
@@ -455,13 +466,13 @@ A boolean value.
 
 #### Defined in
 
-[IsSomething.ts:177](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L177)
+[IsSomething.ts:174](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L174)
 
 ___
 
 ### isRegExp
 
-▸ `Static` **isRegExp**(`arg`): `boolean`
+▸ **isRegExp**(`arg`): `boolean`
 
 If the argument is an instance of RegExp or the argument's constructor is the RegExp
 constructor, then return true
@@ -480,13 +491,13 @@ a boolean value.
 
 #### Defined in
 
-[IsSomething.ts:187](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L187)
+[IsSomething.ts:184](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L184)
 
 ___
 
 ### isString
 
-▸ `Static` **isString**(`args`): `boolean`
+▸ **isString**(`args`): `boolean`
 
 It checks if the argument is a string, or if it's a number, it checks if it can be converted to
 a string
@@ -503,13 +514,13 @@ a string
 
 #### Defined in
 
-[IsSomething.ts:196](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L196)
+[IsSomething.ts:193](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L193)
 
 ___
 
 ### isSymbol
 
-▸ `Static` **isSymbol**(`arg`): `boolean`
+▸ **isSymbol**(`arg`): `boolean`
 
 If the argument is a symbol or an object that is an instance of the Symbol class, then return
 true, otherwise return false.
@@ -528,13 +539,13 @@ a boolean value.
 
 #### Defined in
 
-[IsSomething.ts:206](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L206)
+[IsSomething.ts:203](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L203)
 
 ___
 
 ### isType
 
-▸ `Static` **isType**(`arg`, `type`): `boolean`
+▸ **isType**(`arg`, `type`): `boolean`
 
 This function returns true if the type of the argument is the same as the type passed in as a
 parameter.
@@ -554,4 +565,18 @@ The type of the argument.
 
 #### Defined in
 
-[IsSomething.ts:217](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/IsSomething.ts#L217)
+[IsSomething.ts:214](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L214)
+
+___
+
+### getInstance
+
+▸ `Static` **getInstance**(): [`IsSomething`](IsSomething.md)
+
+#### Returns
+
+[`IsSomething`](IsSomething.md)
+
+#### Defined in
+
+[IsSomething.ts:238](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/IsSomething.ts#L238)

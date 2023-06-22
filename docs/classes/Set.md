@@ -25,11 +25,16 @@
 - [clear](Set.md#clear)
 - [clone](Set.md#clone)
 - [delete](Set.md#delete)
+- [each](Set.md#each)
+- [forEach](Set.md#foreach)
 - [get](Set.md#get)
+- [has](Set.md#has)
 - [isEmpty](Set.md#isempty)
 - [length](Set.md#length)
+- [merge](Set.md#merge)
 - [push](Set.md#push)
 - [remove](Set.md#remove)
+- [subtract](Set.md#subtract)
 - [toArray](Set.md#toarray)
 - [toJSONString](Set.md#tojsonstring)
 - [toString](Set.md#tostring)
@@ -54,7 +59,7 @@
 
 #### Defined in
 
-[Set.ts:8](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b66779f/src/Classes/Set.ts#L8)
+[src/Classes/Set.ts:8](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Set.ts#L8)
 
 ## Properties
 
@@ -79,17 +84,17 @@
 
 #### Defined in
 
-[Set.ts:6](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b66779f/src/Classes/Set.ts#L6)
+[src/Classes/Set.ts:6](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Set.ts#L6)
 
 ___
 
 ### items
 
-• `Private` **items**: `ImprovedArray`<`T`\>
+• `Private` **items**: [`ImprovedArray`](ImprovedArray.md)<`T`\>
 
 #### Defined in
 
-[Set.ts:5](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b66779f/src/Classes/Set.ts#L5)
+[src/Classes/Set.ts:5](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Set.ts#L5)
 
 ## Methods
 
@@ -111,7 +116,7 @@ This function changes the check function to the one passed in as a parameter.
 
 #### Defined in
 
-[Set.ts:107](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b66779f/src/Classes/Set.ts#L107)
+[src/Classes/Set.ts:107](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Set.ts#L107)
 
 ___
 
@@ -127,7 +132,7 @@ The clear() function clears the items in the Set
 
 #### Defined in
 
-[Set.ts:70](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b66779f/src/Classes/Set.ts#L70)
+[src/Classes/Set.ts:70](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Set.ts#L70)
 
 ___
 
@@ -142,11 +147,11 @@ the new Set object
 
 [`Set`](Set.md)<`T`\>
 
-A new Array object with the same items as the original Set object.
+A new Set object with the same items as the original Set object.
 
 #### Defined in
 
-[Set.ts:79](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b66779f/src/Classes/Set.ts#L79)
+[src/Classes/Set.ts:79](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Set.ts#L79)
 
 ___
 
@@ -168,7 +173,49 @@ finds and removes the item from the Set
 
 #### Defined in
 
-[Set.ts:31](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b66779f/src/Classes/Set.ts#L31)
+[src/Classes/Set.ts:31](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Set.ts#L31)
+
+___
+
+### each
+
+▸ **each**(`callbackfn`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `callbackfn` | (`item`: `T`) => `void` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/Classes/Set.ts:141](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Set.ts#L141)
+
+___
+
+### forEach
+
+▸ **forEach**(`callback`): `void`
+
+Executes a provided callback function once for each item in the Set.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `callback` | (`item`: `T`) => `void` | A function to execute for each item in the Set. |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/Classes/Set.ts:136](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Set.ts#L136)
 
 ___
 
@@ -190,7 +237,31 @@ The item at the index.
 
 #### Defined in
 
-[Set.ts:43](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b66779f/src/Classes/Set.ts#L43)
+[src/Classes/Set.ts:43](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Set.ts#L43)
+
+___
+
+### has
+
+▸ **has**(`item`): `boolean`
+
+Returns true if the Set contains the specified item, false otherwise.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `item` | `T` | The item to search for in the Set. |
+
+#### Returns
+
+`boolean`
+
+A boolean indicating whether the item exists in the Set.
+
+#### Defined in
+
+[src/Classes/Set.ts:128](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Set.ts#L128)
 
 ___
 
@@ -208,7 +279,7 @@ The return type is boolean.
 
 #### Defined in
 
-[Set.ts:55](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b66779f/src/Classes/Set.ts#L55)
+[src/Classes/Set.ts:55](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Set.ts#L55)
 
 ___
 
@@ -226,7 +297,31 @@ The length of the items array.
 
 #### Defined in
 
-[Set.ts:63](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b66779f/src/Classes/Set.ts#L63)
+[src/Classes/Set.ts:63](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Set.ts#L63)
+
+___
+
+### merge
+
+▸ **merge**(`set`): [`Set`](Set.md)<`T`\>
+
+Returns a new Set that contains the items from both the current Set and another Set.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `set` | [`Set`](Set.md)<`T`\> | The Set to merge with the current Set. |
+
+#### Returns
+
+[`Set`](Set.md)<`T`\>
+
+A new Set that contains items from both Sets.
+
+#### Defined in
+
+[src/Classes/Set.ts:150](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Set.ts#L150)
 
 ___
 
@@ -248,7 +343,7 @@ If the item is not already in the array, add it
 
 #### Defined in
 
-[Set.ts:21](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b66779f/src/Classes/Set.ts#L21)
+[src/Classes/Set.ts:21](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Set.ts#L21)
 
 ___
 
@@ -270,7 +365,31 @@ The remove function removes an item from the list at the specified index.
 
 #### Defined in
 
-[Set.ts:87](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b66779f/src/Classes/Set.ts#L87)
+[src/Classes/Set.ts:87](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Set.ts#L87)
+
+___
+
+### subtract
+
+▸ **subtract**(`set`): [`Set`](Set.md)<`T`\>
+
+Returns a new Set that contains items from the current Set that are not present in another Set.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `set` | [`Set`](Set.md)<`T`\> | The Set to subtract from the current Set. |
+
+#### Returns
+
+[`Set`](Set.md)<`T`\>
+
+A new Set that contains items from the current Set excluding those present in the other Set.
+
+#### Defined in
+
+[src/Classes/Set.ts:161](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Set.ts#L161)
 
 ___
 
@@ -288,7 +407,7 @@ An array of the items in the set.
 
 #### Defined in
 
-[Set.ts:99](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b66779f/src/Classes/Set.ts#L99)
+[src/Classes/Set.ts:99](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Set.ts#L99)
 
 ___
 
@@ -306,7 +425,7 @@ The JSON string representation of the items array.
 
 #### Defined in
 
-[Set.ts:119](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b66779f/src/Classes/Set.ts#L119)
+[src/Classes/Set.ts:119](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Set.ts#L119)
 
 ___
 
@@ -320,4 +439,4 @@ ___
 
 #### Defined in
 
-[Set.ts:111](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b66779f/src/Classes/Set.ts#L111)
+[src/Classes/Set.ts:111](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Set.ts#L111)
