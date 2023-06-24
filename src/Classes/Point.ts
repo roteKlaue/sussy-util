@@ -36,9 +36,8 @@ export default class Point {
         if (dx === 0) {
             if (dy === 0) {
                 return Number.NEGATIVE_INFINITY;
-            } else {
-                return Number.POSITIVE_INFINITY;
             }
+            return Number.POSITIVE_INFINITY;
         }
 
         return dy / dx;

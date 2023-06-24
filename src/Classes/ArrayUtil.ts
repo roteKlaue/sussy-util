@@ -176,9 +176,8 @@ class ArrayUtils {
             return this.quickselect(lows, k);
         } else if (k < lows.length + pivots.length) {
             return pivots[0];
-        } else {
-            return this.quickselect(highs, k - lows.length - pivots.length);
         }
+        return this.quickselect(highs, k - lows.length - pivots.length);
     }
 
     /**
@@ -189,7 +188,7 @@ class ArrayUtils {
      * @param {Function} compareFn - A function to compare two elements.
      * @returns {T[]} The sorted array.
      */
-    public quickSort<T>(arr: T[], compareFn: (a: T, b:T) => number): T[] {
+    public quickSort<T>(arr: T[], compareFn: (a: T, b: T) => number): T[] {
         if (arr.length <= 1) {
             return arr;
         }

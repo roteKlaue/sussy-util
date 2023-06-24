@@ -49,11 +49,10 @@ export default class Vector2d {
      * @throws {Error} - Throws an error if the scalar is zero.
      */
     public divide(scalar: number): Vector2d {
-        if (scalar !== 0) {
-            return new Vector2d(this.x / scalar, this.y / scalar);
-        } else {
+        if (scalar === 0) {
             throw new Error("Cannot divide by zero.");
         }
+        return new Vector2d(this.x / scalar, this.y / scalar);
     }
 
     /**
