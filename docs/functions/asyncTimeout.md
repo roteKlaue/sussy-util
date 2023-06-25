@@ -2,7 +2,7 @@
 
 # asyncTimeout
 
-▸ **asyncTimeout**(`ms`): `Promise`<`number`\>
+▸ **asyncTimeout**(`ms`): `Promise`<`number` \| `Timeout`\>
 
 AsyncTimeout returns a Promise that resolves after a given number of milliseconds.
 
@@ -14,10 +14,11 @@ AsyncTimeout returns a Promise that resolves after a given number of millisecond
 
 #### Returns
 
-`Promise`<`number`\>
+`Promise`<`number` \| `Timeout`\>
 
 A function that returns a promise that resolves after a timeout.
 
 #### Defined in
 
-[asyncTimeout.ts:6](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/10106df/src/Functions/asyncTimeout.ts#L6)
+[asyncTimeout.ts:6](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/f47bf77/src/Functions/asyncTimeout.ts#L6)
+

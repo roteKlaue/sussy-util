@@ -7,15 +7,16 @@ export default class DataConverter {
      * The header row is used to create the keys for the objects in the array.
      * The values for the keys are taken from the subsequent rows.
      * @param {string} csv - string - The CSV string you want to convert to JSON
+     * @param {string} [del=,] - The delimiter in use in the CSV file.
      * @returns An array of objects.
      */
-    public static csvToJson(csv: string): object[] {
+    public static csvToJson(csv: string, del: string = ","): JSONObject[] {
         const lines = csv.split('\n');
-        const headers = lines[0].split(',');
+        const headers = lines[0].split(del);
         const jsonData: JSONObject[] = [];
 
         for (let i = 1; i < lines.length; i++) {
-            const values = lines[i].split(',');
+            const values = lines[i].split(del);
             const obj: JSONObject = {};
 
             for (let j = 0; j < headers.length; j++) {

@@ -62,14 +62,6 @@
 
 • **new StringUtil**()
 
-#### Overrides
-
-AbstractClass.constructor
-
-#### Defined in
-
-[StringUtil.ts:5](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L5)
-
 ## Methods
 
 ### camelCase
@@ -93,7 +85,7 @@ The first letter of the string is being returned in lowercase.
 
 #### Defined in
 
-[StringUtil.ts:276](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L276)
+[src/Classes/StringUtil.ts:270](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L270)
 
 ___
 
@@ -118,7 +110,7 @@ The string with the first letter lowercase.
 
 #### Defined in
 
-[StringUtil.ts:476](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L476)
+[src/Classes/StringUtil.ts:465](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L465)
 
 ___
 
@@ -143,7 +135,7 @@ string is being returned in lowercase.
 
 #### Defined in
 
-[StringUtil.ts:188](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L188)
+[src/Classes/StringUtil.ts:182](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L182)
 
 ___
 
@@ -168,7 +160,7 @@ A string
 
 #### Defined in
 
-[StringUtil.ts:286](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L286)
+[src/Classes/StringUtil.ts:280](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L280)
 
 ___
 
@@ -195,7 +187,7 @@ occurrence.
 
 #### Defined in
 
-[StringUtil.ts:398](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L398)
+[src/Classes/StringUtil.ts:392](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L392)
 
 ___
 
@@ -221,7 +213,7 @@ A string of length `length` that is a strong password.
 
 #### Defined in
 
-[StringUtil.ts:341](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L341)
+[src/Classes/StringUtil.ts:335](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L335)
 
 ___
 
@@ -241,7 +233,7 @@ ___
 
 #### Defined in
 
-[StringUtil.ts:369](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L369)
+[src/Classes/StringUtil.ts:363](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L363)
 
 ___
 
@@ -265,7 +257,7 @@ A boolean value.
 
 #### Defined in
 
-[StringUtil.ts:68](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L68)
+[src/Classes/StringUtil.ts:62](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L62)
 
 ___
 
@@ -290,7 +282,7 @@ A boolean value.
 
 #### Defined in
 
-[StringUtil.ts:117](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L117)
+[src/Classes/StringUtil.ts:111](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L111)
 
 ___
 
@@ -314,7 +306,7 @@ a boolean value.
 
 #### Defined in
 
-[StringUtil.ts:448](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L448)
+[src/Classes/StringUtil.ts:437](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L437)
 
 ___
 
@@ -338,7 +330,7 @@ A boolean value.
 
 #### Defined in
 
-[StringUtil.ts:87](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L87)
+[src/Classes/StringUtil.ts:81](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L81)
 
 ___
 
@@ -362,7 +354,7 @@ A boolean value.
 
 #### Defined in
 
-[StringUtil.ts:126](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L126)
+[src/Classes/StringUtil.ts:120](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L120)
 
 ___
 
@@ -387,7 +379,7 @@ A boolean value.
 
 #### Defined in
 
-[StringUtil.ts:226](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L226)
+[src/Classes/StringUtil.ts:220](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L220)
 
 ___
 
@@ -411,7 +403,7 @@ A boolean value.
 
 #### Defined in
 
-[StringUtil.ts:207](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L207)
+[src/Classes/StringUtil.ts:201](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L201)
 
 ___
 
@@ -435,7 +427,7 @@ A boolean value.
 
 #### Defined in
 
-[StringUtil.ts:216](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L216)
+[src/Classes/StringUtil.ts:210](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L210)
 
 ___
 
@@ -460,7 +452,7 @@ A boolean value.
 
 #### Defined in
 
-[StringUtil.ts:78](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L78)
+[src/Classes/StringUtil.ts:72](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L72)
 
 ___
 
@@ -484,7 +476,7 @@ A boolean value.
 
 #### Defined in
 
-[StringUtil.ts:235](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L235)
+[src/Classes/StringUtil.ts:229](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L229)
 
 ___
 
@@ -509,7 +501,7 @@ A boolean value.
 
 #### Defined in
 
-[StringUtil.ts:486](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L486)
+[src/Classes/StringUtil.ts:475](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L475)
 
 ___
 
@@ -534,7 +526,7 @@ A boolean value.
 
 #### Defined in
 
-[StringUtil.ts:245](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L245)
+[src/Classes/StringUtil.ts:239](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L239)
 
 ___
 
@@ -559,7 +551,7 @@ A boolean value.
 
 #### Defined in
 
-[StringUtil.ts:98](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L98)
+[src/Classes/StringUtil.ts:92](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L92)
 
 ___
 
@@ -583,7 +575,7 @@ A boolean value.
 
 #### Defined in
 
-[StringUtil.ts:144](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L144)
+[src/Classes/StringUtil.ts:138](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L138)
 
 ___
 
@@ -607,7 +599,7 @@ A boolean value.
 
 #### Defined in
 
-[StringUtil.ts:135](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L135)
+[src/Classes/StringUtil.ts:129](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L129)
 
 ___
 
@@ -631,7 +623,7 @@ The return value is a boolean.
 
 #### Defined in
 
-[StringUtil.ts:107](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L107)
+[src/Classes/StringUtil.ts:101](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L101)
 
 ___
 
@@ -656,7 +648,7 @@ string is being returned in its original case.
 
 #### Defined in
 
-[StringUtil.ts:266](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L266)
+[src/Classes/StringUtil.ts:260](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L260)
 
 ___
 
@@ -680,7 +672,7 @@ The string with the padding.
 
 #### Defined in
 
-[StringUtil.ts:424](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L424)
+[src/Classes/StringUtil.ts:413](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L413)
 
 ___
 
@@ -704,7 +696,7 @@ The string with the leading whitespace removed.
 
 #### Defined in
 
-[StringUtil.ts:457](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L457)
+[src/Classes/StringUtil.ts:446](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L446)
 
 ___
 
@@ -728,7 +720,7 @@ The string with no spaces.
 
 #### Defined in
 
-[StringUtil.ts:295](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L295)
+[src/Classes/StringUtil.ts:289](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L289)
 
 ___
 
@@ -743,7 +735,7 @@ It replaces all line breaks with the lineEnd parameter.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `str` | `string` | string - The string to normalize. |
-| `lineEnd?` | `string` | The line ending to normalize to (StringUtils to \n). |
+| `lineEnd?` | `string` | The line ending to normalize to (defaults to \n). |
 
 #### Returns
 
@@ -754,7 +746,7 @@ default lineEnd string.
 
 #### Defined in
 
-[StringUtil.ts:380](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L380)
+[src/Classes/StringUtil.ts:374](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L374)
 
 ___
 
@@ -779,7 +771,7 @@ The email address with the first half of the email address shortened to 3 charac
 
 #### Defined in
 
-[StringUtil.ts:316](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L316)
+[src/Classes/StringUtil.ts:310](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L310)
 
 ___
 
@@ -803,7 +795,7 @@ A random character from the charset.
 
 #### Defined in
 
-[StringUtil.ts:24](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L24)
+[src/Classes/StringUtil.ts:20](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L20)
 
 ___
 
@@ -821,7 +813,7 @@ A random color code.
 
 #### Defined in
 
-[StringUtil.ts:353](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L353)
+[src/Classes/StringUtil.ts:347](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L347)
 
 ___
 
@@ -846,7 +838,7 @@ A random string that is a valid discord username.
 
 #### Defined in
 
-[StringUtil.ts:50](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L50)
+[src/Classes/StringUtil.ts:45](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L45)
 
 ___
 
@@ -871,7 +863,7 @@ A string of random characters.
 
 #### Defined in
 
-[StringUtil.ts:36](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L36)
+[src/Classes/StringUtil.ts:31](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L31)
 
 ___
 
@@ -896,7 +888,7 @@ The reverse of the input string.
 
 #### Defined in
 
-[StringUtil.ts:14](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L14)
+[src/Classes/StringUtil.ts:10](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L10)
 
 ___
 
@@ -920,7 +912,7 @@ The string with the padding added to it.
 
 #### Defined in
 
-[StringUtil.ts:413](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L413)
+[src/Classes/StringUtil.ts:402](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L402)
 
 ___
 
@@ -944,7 +936,7 @@ The string with the whitespace removed from the end.
 
 #### Defined in
 
-[StringUtil.ts:466](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L466)
+[src/Classes/StringUtil.ts:455](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L455)
 
 ___
 
@@ -971,7 +963,7 @@ The value of the string is being returned.
 
 #### Defined in
 
-[StringUtil.ts:157](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L157)
+[src/Classes/StringUtil.ts:151](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L151)
 
 ___
 
@@ -996,7 +988,7 @@ A string
 
 #### Defined in
 
-[StringUtil.ts:169](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L169)
+[src/Classes/StringUtil.ts:163](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L163)
 
 ___
 
@@ -1023,7 +1015,7 @@ The string with the text inserted at the offset.
 
 #### Defined in
 
-[StringUtil.ts:437](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L437)
+[src/Classes/StringUtil.ts:426](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L426)
 
 ___
 
@@ -1047,7 +1039,7 @@ The string with all HTML tags removed.
 
 #### Defined in
 
-[StringUtil.ts:178](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L178)
+[src/Classes/StringUtil.ts:172](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L172)
 
 ___
 
@@ -1072,7 +1064,7 @@ the string with the first letter of each word capitalized.
 
 #### Defined in
 
-[StringUtil.ts:329](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L329)
+[src/Classes/StringUtil.ts:323](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L323)
 
 ___
 
@@ -1098,7 +1090,7 @@ code unit at the given index.
 
 #### Defined in
 
-[StringUtil.ts:306](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L306)
+[src/Classes/StringUtil.ts:300](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L300)
 
 ___
 
@@ -1123,7 +1115,7 @@ the rest of the string.
 
 #### Defined in
 
-[StringUtil.ts:198](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L198)
+[src/Classes/StringUtil.ts:192](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L192)
 
 ___
 
@@ -1149,7 +1141,7 @@ string is being returned in lowercase.
 
 #### Defined in
 
-[StringUtil.ts:256](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L256)
+[src/Classes/StringUtil.ts:250](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L250)
 
 ___
 
@@ -1173,4 +1165,4 @@ The number of words in the string.
 
 #### Defined in
 
-[StringUtil.ts:362](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/StringUtil.ts#L362)
+[src/Classes/StringUtil.ts:356](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/StringUtil.ts#L356)

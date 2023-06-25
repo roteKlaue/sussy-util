@@ -3,6 +3,6 @@
  * @param {string} val The base64 encoded value
  * @returns {string} The utf8 encoded value
  */
-export default (val: String): String => {
+export default (val: string): string => {
     return Buffer.from(val, 'base64').toString("utf8");
 }

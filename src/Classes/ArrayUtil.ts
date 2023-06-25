@@ -3,7 +3,7 @@ import Random from "./Random";
 class ArrayUtils {
     private static instance: ArrayUtils = new ArrayUtils();
 
-    private constructor() {}
+    private constructor() { }
 
     /**
      * If the item is an array, then push the flattened array into the result array, otherwise push the
@@ -155,6 +155,13 @@ class ArrayUtils {
     }
 
 
+    /**
+     * Finds the k-th smallest element in an array using the Quickselect algorithm.
+     *
+     * @param {number[]} arr - The input array.
+     * @param {number} k - The index of the desired smallest element (1-based).
+     * @returns {number} The k-th smallest element in the array.
+     */
     public quickselect(arr: number[], k: number): number {
         if (arr.length === 1) {
             return arr[0];
@@ -169,9 +176,44 @@ class ArrayUtils {
             return this.quickselect(lows, k);
         } else if (k < lows.length + pivots.length) {
             return pivots[0];
-        } else {
-            return this.quickselect(highs, k - lows.length - pivots.length);
         }
+        return this.quickselect(highs, k - lows.length - pivots.length);
+    }
+
+    /**
+     * Sorts an array in ascending order using the Quick Sort algorithm.
+     *
+     * @template T
+     * @param {T[]} arr - The input array to be sorted.
+     * @param {Function} compareFn - A function to compare two elements.
+     * @returns {T[]} The sorted array.
+     */
+    public quickSort<T>(arr: T[], compareFn: (a: T, b: T) => number): T[] {
+        if (arr.length <= 1) {
+            return arr;
+        }
+
+        const pivot = arr[arr.length - 1];
+
+        const smaller = [];
+        const greater = [];
+        const equal = [];
+
+        for (let i = 0; i < arr.length; i++) {
+            const compareResult = compareFn(arr[i], pivot);
+            if (compareResult < 0) {
+                smaller.push(arr[i]);
+            } else if (compareResult > 0) {
+                greater.push(arr[i]);
+            } else {
+                equal.push(arr[i]);
+            }
+        }
+
+        const sortedSmaller = this.quickSort(smaller, compareFn);
+        const sortedGreater = this.quickSort(greater, compareFn);
+
+        return sortedSmaller.concat(equal, sortedGreater);
     }
 
     public static getInstance(): ArrayUtils {

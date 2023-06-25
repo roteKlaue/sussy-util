@@ -1,12 +1,13 @@
 {
   "name": "sussy-util",
-  "version": "11.0.0-dev.3",
+  "version": "11.0.0",
   "description": "Util package made by me",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "tsc"
+    "compile": "tsc",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",

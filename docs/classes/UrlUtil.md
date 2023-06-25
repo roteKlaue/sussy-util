@@ -8,123 +8,223 @@
 
 - [constructor](UrlUtil.md#constructor)
 
+### Properties
+
+- [instance](UrlUtil.md#instance)
+
 ### Methods
 
 - [addQueryParams](UrlUtil.md#addqueryparams)
 - [editQueryParams](UrlUtil.md#editqueryparams)
 - [getDomainName](UrlUtil.md#getdomainname)
 - [getPath](UrlUtil.md#getpath)
+- [getQueryParamValue](UrlUtil.md#getqueryparamvalue)
+- [getQueryParams](UrlUtil.md#getqueryparams)
+- [hasQueryParams](UrlUtil.md#hasqueryparams)
 - [isUrl](UrlUtil.md#isurl)
 - [parseUrl](UrlUtil.md#parseurl)
 - [removeQueryParam](UrlUtil.md#removequeryparam)
+- [updatePath](UrlUtil.md#updatepath)
+- [getInstance](UrlUtil.md#getinstance)
 
 ## Constructors
 
 ### constructor
 
-• **new UrlUtil**(`Constructor`)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `Constructor` | `Function` |
-
-#### Inherited from
-
-AbstractClass.constructor
+• `Private` **new UrlUtil**()
 
 #### Defined in
 
-[AbstractClass.ts:3](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/2ba93e9/src/Classes/AbstractClass.ts#L3)
+[UrlUtil.ts:5](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/UrlUtil.ts#L5)
+
+## Properties
+
+### instance
+
+▪ `Static` `Private` **instance**: [`UrlUtil`](UrlUtil.md)
+
+#### Defined in
+
+[UrlUtil.ts:4](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/UrlUtil.ts#L4)
 
 ## Methods
 
 ### addQueryParams
 
-▸ `Static` **addQueryParams**(`url`, `params`): `string`
+▸ **addQueryParams**(`url`, `params`): `string`
+
+It takes a URL and a set of key-value pairs and returns a new URL with the key-value pairs added
+as query parameters.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-| `params` | `MutableObject`<`string`\> |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | string - The URL to add the query parameters to. |
+| `params` | `UrlUtil`<`string`\> | MutableObject<string> |
 
 #### Returns
 
 `string`
 
+A string
+
 #### Defined in
 
-UrlUtil.ts:31
+[UrlUtil.ts:55](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/UrlUtil.ts#L55)
 
 ___
 
 ### editQueryParams
 
-▸ `Static` **editQueryParams**(`url`, `params`): `string`
+▸ **editQueryParams**(`url`, `params`): `string`
+
+It takes a URL and a set of key-value pairs, and returns a new URL with the query parameters
+updated to match the key-value pairs
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-| `params` | `UrlUtil`<`string`\> |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | string - The URL to edit |
+| `params` | `UrlUtil`<`string`\> | MutableObject<string> |
 
 #### Returns
 
 `string`
 
+A string
+
 #### Defined in
 
-UrlUtil.ts:43
+[UrlUtil.ts:80](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/UrlUtil.ts#L80)
 
 ___
 
 ### getDomainName
 
-▸ `Static` **getDomainName**(`url`): `string`
+▸ **getDomainName**(`url`): `string`
+
+It takes a URL as a string, and returns the domain name as a string
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | The URL to get the domain name from. |
 
 #### Returns
 
 `string`
 
+The hostname of the URL.
+
 #### Defined in
 
-UrlUtil.ts:23
+[UrlUtil.ts:35](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/UrlUtil.ts#L35)
 
 ___
 
 ### getPath
 
-▸ `Static` **getPath**(`url`): `string`
+▸ **getPath**(`url`): `string`
+
+It takes a URL and returns the pathname of the URL
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | The URL to parse. |
 
 #### Returns
 
 `string`
 
+The pathname of the url.
+
 #### Defined in
 
-UrlUtil.ts:27
+[UrlUtil.ts:44](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/UrlUtil.ts#L44)
+
+___
+
+### getQueryParamValue
+
+▸ **getQueryParamValue**(`url`, `param`): ``null`` \| `string`
+
+It takes a URL and a query parameter name, and returns the value of the specified query parameter.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | The URL to extract the query parameter value from. |
+| `param` | `string` | The query parameter name. |
+
+#### Returns
+
+``null`` \| `string`
+
+The value of the specified query parameter, or null if it doesn't exist.
+
+#### Defined in
+
+[UrlUtil.ts:110](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/UrlUtil.ts#L110)
+
+___
+
+### getQueryParams
+
+▸ **getQueryParams**(`url`): `UrlUtil`<`string`\>
+
+It takes a URL and returns an object containing the query parameters as key-value pairs.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | The URL to extract query parameters from. |
+
+#### Returns
+
+`UrlUtil`<`string`\>
+
+An object containing the query parameters.
+
+#### Defined in
+
+[UrlUtil.ts:96](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/UrlUtil.ts#L96)
+
+___
+
+### hasQueryParams
+
+▸ **hasQueryParams**(`url`): `boolean`
+
+It takes a URL and returns a boolean indicating whether it has any query parameters.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | The URL to check for query parameters. |
+
+#### Returns
+
+`boolean`
+
+A boolean value indicating if the URL has query parameters.
+
+#### Defined in
+
+[UrlUtil.ts:132](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/UrlUtil.ts#L132)
 
 ___
 
 ### isUrl
 
-▸ `Static` **isUrl**(`url`): `boolean`
+▸ **isUrl**(`url`): `boolean`
 
 If the URL is valid, it will return true, otherwise it will return false.
 
@@ -142,45 +242,92 @@ A boolean value.
 
 #### Defined in
 
-UrlUtil.ts:10
+[UrlUtil.ts:12](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/UrlUtil.ts#L12)
 
 ___
 
 ### parseUrl
 
-▸ `Static` **parseUrl**(`url`): `URL`
+▸ **parseUrl**(`url`): `URL`
+
+It takes a string and returns a URL object
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | The URL to parse. |
 
 #### Returns
 
 `URL`
 
+A new URL object.
+
 #### Defined in
 
-UrlUtil.ts:19
+[UrlUtil.ts:26](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/UrlUtil.ts#L26)
 
 ___
 
 ### removeQueryParam
 
-▸ `Static` **removeQueryParam**(`url`, `param`): `string`
+▸ **removeQueryParam**(`url`, `param`): `string`
+
+It takes a URL and a query parameter name, and returns the URL with the query parameter removed.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `url` | `string` |
-| `param` | `string` |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | The URL to be parsed. |
+| `param` | `string` | The query parameter to remove |
 
 #### Returns
 
 `string`
 
+A string
+
 #### Defined in
 
-UrlUtil.ts:37
+[UrlUtil.ts:67](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/UrlUtil.ts#L67)
+
+___
+
+### updatePath
+
+▸ **updatePath**(`url`, `newPath`): `string`
+
+It takes a URL and a new path, and returns a new URL with the updated path.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `url` | `string` | The URL to update the path for. |
+| `newPath` | `string` | The new path to set. |
+
+#### Returns
+
+`string`
+
+The updated URL with the new path.
+
+#### Defined in
+
+[UrlUtil.ts:121](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/UrlUtil.ts#L121)
+
+___
+
+### getInstance
+
+▸ `Static` **getInstance**(): [`UrlUtil`](UrlUtil.md)
+
+#### Returns
+
+[`UrlUtil`](UrlUtil.md)
+
+#### Defined in
+
+[UrlUtil.ts:137](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/UrlUtil.ts#L137)

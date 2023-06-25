@@ -2,22 +2,28 @@
 
 # addProperty
 
-▸ **addProperty**(`obj`, `prop`, `value`): `MutableObject`<`any`\>
+▸ **addProperty**<`T`\>(`obj`, `prop`, `value`): `MutableObject`<`T`\>
 
-#### Parameters
+## Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+## Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `obj` | `MutableObject`<`any`\> | MutableObject<any\> - This is the object that we want to add a property to. |
+| `obj` | `MutableObject`<`T`\> | MutableObject<`T`\> - This is the object that we want to add a property to. |
 | `prop` | `string` | string - The property to add to the object |
-| `value` | `any` | any - The value to add to the object |
+| `value` | `T` | any - The value to add to the object |
 
-#### Returns
+## Returns
 
-`MutableObject`<`any`\>
+`MutableObject`<`T`\>
 
 The object that was passed in.
 
-#### Defined in
+## Defined in
 
-[addProperty.ts:9](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/10106df/src/Functions/addProperty.ts#L9)
+[addProperty.ts:9](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/f47bf77/src/Functions/addProperty.ts#L9)

@@ -10,13 +10,16 @@
 
 ### Properties
 
-- [ x ](Point.md#x)
-- [ y ](Point.md#y)
+- [x](Point.md#x)
+- [y](Point.md#y)
 
 ### Methods
 
+- [angleBetween](Point.md#anglebetween)
 - [distanceTo](Point.md#distanceto)
+- [midpointTo](Point.md#midpointto)
 - [slopeTo](Point.md#slopeto)
+- [vectorTo](Point.md#vectorto)
 
 ## Constructors
 
@@ -33,7 +36,7 @@
 
 #### Defined in
 
-[Point.ts:5](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/Point.ts#L5)
+[src/Classes/Point.ts:7](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Point.ts#L7)
 
 ## Properties
 
@@ -43,7 +46,7 @@
 
 #### Defined in
 
-[Point.ts:3](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/Point.ts#L3)
+[src/Classes/Point.ts:5](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Point.ts#L5)
 
 ___
 
@@ -53,9 +56,34 @@ ___
 
 #### Defined in
 
-[Point.ts:2](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/Point.ts#L2)
+[src/Classes/Point.ts:4](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Point.ts#L4)
 
 ## Methods
+
+### angleBetween
+
+▸ **angleBetween**(`p1`, `p2`): `number`
+
+Calculates the angle in degrees between two vectors formed by three points (this point, p1, and p2).
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `p1` | [`Point`](Point.md) | The second point. |
+| `p2` | [`Point`](Point.md) | The third point. |
+
+#### Returns
+
+`number`
+
+The angle in degrees between the two vectors.
+
+#### Defined in
+
+[src/Classes/Point.ts:75](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Point.ts#L75)
+
+___
 
 ### distanceTo
 
@@ -78,7 +106,31 @@ The distance between two points.
 
 #### Defined in
 
-[Point.ts:16](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/Point.ts#L16)
+[src/Classes/Point.ts:18](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Point.ts#L18)
+
+___
+
+### midpointTo
+
+▸ **midpointTo**(`other`): [`Point`](Point.md)
+
+The midpointTo() function returns the midpoint between the invoking point and the argument point.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `other` | [`Point`](Point.md) | Point - The point to which the midpoint is being calculated. |
+
+#### Returns
+
+[`Point`](Point.md)
+
+The midpoint between this point and the other point.
+
+#### Defined in
+
+[src/Classes/Point.ts:52](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Point.ts#L52)
 
 ___
 
@@ -105,4 +157,28 @@ The slope of the line between this point and the other point.
 
 #### Defined in
 
-[Point.ts:30](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/Point.ts#L30)
+[src/Classes/Point.ts:32](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Point.ts#L32)
+
+___
+
+### vectorTo
+
+▸ **vectorTo**(`other`): [`Vector2d`](Vector2d.md)
+
+Creates a Vector2d object from this point to the given point.
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `other` | [`Point`](Point.md) | The point to create a vector towards. |
+
+#### Returns
+
+[`Vector2d`](Vector2d.md)
+
+A Vector2d object representing the vector from this point to the given point.
+
+#### Defined in
+
+[src/Classes/Point.ts:63](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Point.ts#L63)

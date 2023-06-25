@@ -48,17 +48,17 @@
 
 #### Defined in
 
-[Queue.ts:6](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/Queue.ts#L6)
+[src/Classes/Queue.ts:6](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Queue.ts#L6)
 
 ## Properties
 
 ### items
 
-• `Private` **items**: `ImprovedArray`<`T`\>
+• `Private` **items**: [`ImprovedArray`](ImprovedArray.md)<`T`\>
 
 #### Defined in
 
-[Queue.ts:4](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/Queue.ts#L4)
+[src/Classes/Queue.ts:4](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Queue.ts#L4)
 
 ## Methods
 
@@ -76,7 +76,7 @@ The method returns a boolean value.
 
 #### Defined in
 
-[Queue.ts:38](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/Queue.ts#L38)
+[src/Classes/Queue.ts:38](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Queue.ts#L38)
 
 ___
 
@@ -94,7 +94,7 @@ The first item in the array.
 
 #### Defined in
 
-[Queue.ts:22](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/Queue.ts#L22)
+[src/Classes/Queue.ts:22](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Queue.ts#L22)
 
 ___
 
@@ -116,7 +116,7 @@ The function takes a variable number of arguments of type T and pushes them into
 
 #### Defined in
 
-[Queue.ts:14](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/Queue.ts#L14)
+[src/Classes/Queue.ts:14](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Queue.ts#L14)
 
 ___
 
@@ -134,7 +134,7 @@ The first element of the array.
 
 #### Defined in
 
-[Queue.ts:30](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/Queue.ts#L30)
+[src/Classes/Queue.ts:30](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Queue.ts#L30)
 
 ___
 
@@ -152,7 +152,7 @@ The clone of the items array.
 
 #### Defined in
 
-[Queue.ts:50](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/Queue.ts#L50)
+[src/Classes/Queue.ts:50](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Queue.ts#L50)
 
 ___
 
@@ -170,7 +170,7 @@ The JSON string representation of the items array.
 
 #### Defined in
 
-[Queue.ts:58](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/Queue.ts#L58)
+[src/Classes/Queue.ts:58](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Queue.ts#L58)
 
 ___
 
@@ -184,4 +184,4 @@ ___
 
 #### Defined in
 
-[Queue.ts:42](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/Queue.ts#L42)
+[src/Classes/Queue.ts:42](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/Queue.ts#L42)

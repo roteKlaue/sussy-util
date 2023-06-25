@@ -1,3 +1,5 @@
+import { MutableObject } from "../Types";
+
 class DateUtil {
     private static instance: DateUtil = new DateUtil();
     private static monthAbrs: string[] = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "okt", "nov", "dec"];
@@ -5,19 +7,19 @@ class DateUtil {
     private static dayAbrs: string[] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
     private static dFullNames: string[] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
-    private constructor() {}
+    private constructor() { }
 
     /**
-     * It returns a new Date object with the current date and time.
-     * @returns A new Date object with the current date and time.
+     * Returns a new Date object with the current date and time.
+     * @returns {Date} A new Date object with the current date and time.
      */
     public getCurrentDate(): Date {
         return new Date(Date.now());
     }
 
     /**
-     * This function returns a new Date object with the time set to midnight.
-     * @returns A date object with the current date and time.
+     * Returns a new Date object with the time set to midnight.
+     * @returns {Date} A Date object with the current date and time.
      */
     public today(): Date {
         const wash = this.getCurrentDate();
@@ -26,8 +28,8 @@ class DateUtil {
     }
 
     /**
-     * It returns a new Date object that is set to tomorrow's date
-     * @returns A date object that is the current date plus one day.
+     * Returns a new Date object that is set to tomorrow's date.
+     * @returns {Date} A date object that is the current date plus one day.
      */
     public tomorrow(): Date {
         const today = this.today();
@@ -36,8 +38,8 @@ class DateUtil {
     }
 
     /**
-     * It returns a new Date object that is set to yesterday's date
-     * @returns A date object that is yesterday's date.
+     * Returns a new Date object that is set to yesterday's date.
+     * @returns {Date} A date object that is yesterday's date.
      */
     public yesterday(): Date {
         const today = this.today();
@@ -46,10 +48,10 @@ class DateUtil {
     }
 
     /**
-     * It takes two dates and returns a number that is the difference between the two dates
-     * @param {T | number | Date} dt1 - T | number | Date
-     * @param {T | number | Date} dt2 - T | number | Date
-     * @returns The difference between the two dates in milliseconds.
+     * Compares two dates and returns the difference between them in milliseconds.
+     * @param {T | number | Date} dt1 - The first date.
+     * @param {T | number | Date} dt2 - The second date.
+     * @returns {number} The difference between the two dates in milliseconds.
      */
     public compareDates<T extends Date>(dt1: T | number | Date, dt2: T | number | Date): number {
         dt1 = this.toDate(dt1);
@@ -58,10 +60,10 @@ class DateUtil {
     }
 
     /**
-     * If the two dates are the same, return true, otherwise return false.
-     * @param {T | number | Date} dt1 - T | number | Date
-     * @param {T | number | Date} dt2 - T | number | Date
-     * @returns A boolean value.
+     * Checks if two dates are equal.
+     * @param {T | number | Date} dt1 - The first date.
+     * @param {T | number | Date} dt2 - The second date.
+     * @returns {boolean} True if the two dates are equal, false otherwise.
      */
     public equals<T extends Date>(dt1: T | number | Date, dt2: T | number | Date): boolean {
         dt1 = this.toDate(dt1);
@@ -70,9 +72,9 @@ class DateUtil {
     }
 
     /**
-     * It returns the month abbreviation for the given number.
-     * @param {number} number - number - The number of the month you want to get the abbreviation for.
-     * @returns The month abbreviation for the given number.
+     * Returns the month abbreviation for the given month number (1-12).
+     * @param {number} number - The month number (1-12).
+     * @returns {string} The month abbreviation.
      */
     public getMonthAbbr(number: number): string {
         if (typeof number !== 'number') throw new TypeError("expected number for number");
@@ -80,9 +82,9 @@ class DateUtil {
     }
 
     /**
-     * If the number is a number, return the month name, otherwise return an empty string.
-     * @param {number} number - number - The number of the month you want to get the full name of.
-     * @returns The full name of the month.
+     * Returns the full name of the month for the given month number (1-12).
+     * @param {number} number - The month number (1-12).
+     * @returns {string} The full name of the month.
      */
     public getMonthFullName(number: number): string {
         if (typeof number !== 'number') throw new TypeError("expected number for number");
@@ -90,10 +92,9 @@ class DateUtil {
     }
 
     /**
-     * If the number is a number and the number is in the array, return the day abbreviation, otherwise
-     * return an empty string.
-     * @param {number} number - number - The number of the day you want to get the abbreviation for.
-     * @returns The day abbreviation for the given number.
+     * Returns the day abbreviation for the given day number (0-6, where 0 is Sunday).
+     * @param {number} number - The day number (0-6).
+     * @returns {string} The day abbreviation.
      */
     public getDayAbbr(number: number): string {
         if (typeof number !== 'number') throw new TypeError("expected number for number");
@@ -101,9 +102,9 @@ class DateUtil {
     }
 
     /**
-     * If the number is a number, return the day name, otherwise return an empty string.
-     * @param {number} number - number - The number of the day you want to get the full name of.
-     * @returns The day full name.
+     * Returns the full name of the day for the given day number (0-6, where 0 is Sunday).
+     * @param {number} number - The day number (0-6).
+     * @returns {string} The full name of the day.
      */
     public getDayFullName(number: number): string {
         if (typeof number !== 'number') throw new TypeError("expected number for number");
@@ -111,11 +112,9 @@ class DateUtil {
     }
 
     /**
-     * If the year is not divisible by 4, then it is a common year. Otherwise, if the year is not
-     * divisible by 100, then it is a leap year. Otherwise, if the year is not divisible by 400, then
-     * it is a common year. Otherwise, it is a leap year.
-     * @param {number} year - number
-     * @returns The remainder of the year divided by 4, or 400.
+     * Checks if a given year is a leap year.
+     * @param {number} year - The year.
+     * @returns {boolean} True if the year is a leap year, false otherwise.
      */
     public isLeapYear(year: number): boolean {
         if (typeof year !== 'number') throw new TypeError("expected number for year");
@@ -141,16 +140,16 @@ class DateUtil {
     }
 
     /**
-     * Given a start year and an end year, return an array of all the leap years between them.
-     * @param {number} start - number - The start year
-     * @param {number} endYear - The end year of the range.
-     * @returns An array of leap years between the start and end year.
+     * Returns an array of leap years between a start and end year (inclusive).
+     * @param {number} startYear - The start year.
+     * @param {number} endYear - The end year.
+     * @returns {number[]} An array of leap years.
      */
-    public leapYearsInRange(start: number, endYear: number): number[] {
-        if (typeof start !== 'number' || typeof endYear !== 'number') throw new TypeError("expected number for start and endYear");
+    public leapYearsInRange(startYear: number, endYear: number): number[] {
+        if (typeof startYear !== 'number' || typeof endYear !== 'number') throw new TypeError("expected number for start and endYear");
         const sus = [];
 
-        for (let i = start; i <= endYear; i++) {
+        for (let i = startYear; i <= endYear; i++) {
             if (this.isLeapYear(i)) sus.push(i);
         }
 
@@ -158,8 +157,8 @@ class DateUtil {
     }
 
     /**
-     * Get the first day of the current month.
-     * @returns A new Date object with the current year and month.
+     * Returns the first day of the current month.
+     * @returns {Date} A Date object representing the first day of the current month.
      */
     public getMonthFirstDay(): Date {
         const nowDate = this.getCurrentDate();
@@ -167,8 +166,8 @@ class DateUtil {
     }
 
     /**
-     * It returns the last day of the current month.
-     * @returns The last day of the current month.
+     * Returns the last day of the current month.
+     * @returns {Date} A Date object representing the last day of the current month.
      */
     public getMonthLastDay(): Date {
         const nowDate = this.getCurrentDate();
@@ -176,16 +175,15 @@ class DateUtil {
     }
 
     /**
-     * If the input is a number, return a new Date object with the number as the constructor argument.
-     * Otherwise, return the input as a Date object.
-     * @param {T | Number} date - T | Number
-     * @returns A Date object.
+     * Converts the input to a Date object.
+     * @param {T | number | Date} input - The input value.
+     * @returns {Date} A Date object.
      */
-    public toDate<T extends Date>(date: T | Number): Date {
-        if (typeof date === "number") {
-            return new Date(date);
+    public toDate<T extends Date>(input: T | Number): Date {
+        if (typeof input === "number") {
+            return new Date(input);
         }
-        return date as Date;
+        return input as Date;
     }
 
     /**
@@ -219,6 +217,76 @@ class DateUtil {
      */
     public yearsToMonths(years: number): number {
         return Math.floor(years * 12);
+    }
+
+    /**
+     * Checks if a given date falls on a weekend (Saturday or Sunday).
+     * @param {T | number | Date} dt - The date to check.
+     * @returns {boolean} True if the date falls on a weekend, false otherwise.
+     */
+    public isWeekend<T extends Date>(dt: T | number | Date): boolean {
+        const date = this.toDate(dt);
+        const day = date.getDay();
+        return day === 0 || day === 6;
+    }
+
+    /**
+     * Calculates the difference in days between two dates.
+     * @param {T | number | Date} dt1 - The first date.
+     * @param {T | number | Date} dt2 - The second date.
+     * @returns {number} The difference in days between the two dates.
+     */
+    public getDaysDiff<T extends Date>(dt1: T | number | Date, dt2: T | number | Date): number {
+        const date1 = this.toDate(dt1);
+        const date2 = this.toDate(dt2);
+        const diffTime = date2.getTime() - date1.getTime();
+        const diffDays = Math.ceil(diffTime / (1000 * 3600 * 24));
+        return diffDays;
+    }
+
+    /**
+     * Adds the specified number of days to a given date.
+     * @param {T | number | Date} dt - The date to add days to.
+     * @param {number} days - The number of days to add.
+     * @returns {Date} The resulting date after adding the specified number of days.
+     */
+    public addDays<T extends Date>(dt: T | number | Date, days: number): Date {
+        const date = this.toDate(dt);
+        date.setDate(date.getDate() + days);
+        return date;
+    }
+
+    /**
+     * Formats a given date object into a string representation using the specified format.
+     * @param {T | number | Date} dt - The date object to format.
+     * @param {string} format - The format string. (e.g., 'YYYY-MM-DD')
+     * @returns {string} The formatted date string.
+     */
+    public formatDate<T extends Date>(dt: T | number | Date, format: string): string {
+        const date = this.toDate(dt);
+        const formatTokens = {
+            YYYY: date.getFullYear().toString(),
+            MM: String(date.getMonth() + 1).padStart(2, '0'),
+            DD: String(date.getDate()).padStart(2, '0'),
+            HH: String(date.getHours()).padStart(2, '0'),
+            mm: String(date.getMinutes()).padStart(2, '0'),
+            ss: String(date.getSeconds()).padStart(2, '0')
+        } as MutableObject<string>;
+
+        let formattedDate = format;
+        for (const token in formatTokens) {
+            formattedDate = formattedDate.replace(token, formatTokens[token]);
+        }
+
+        return formattedDate;
+    }
+
+    /**
+     * Returns the current timestamp in milliseconds.
+     * @returns {number} The current timestamp in milliseconds.
+     */
+    public getCurrentTimestamp(): number {
+        return Date.now();
     }
 
     public static getInstance(): DateUtil {

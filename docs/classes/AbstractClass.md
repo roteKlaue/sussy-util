@@ -1,5 +1,4 @@
 [sussy-util](../README.md) / [classes](./README.md) / AbstractClass
-
 # Class: AbstractClass
 
 ## Table of contents
@@ -22,4 +21,4 @@
 
 #### Defined in
 
-[AbstractClass.ts:3](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/master/src/Classes/AbstractClass.ts#L3)
+[src/Classes/AbstractClass.ts:3](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/AbstractClass.ts#L3)
