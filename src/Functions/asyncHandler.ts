@@ -1,11 +1,12 @@
 import { PromiseOr } from "../Types";
 
 /**
- * It takes a promise and returns a promise that resolves to an array of two elements, the first being
- * the resolved value of the promise and the second being the error if the promise was rejected
- * @param promise - (...a: any) => Promise<R>
- * @param {R[]} args - R[] - The arguments to pass to the promise.
- * @returns [R | null, null | T]
+ * Asynchronous error handling function.
+ * @template T - The error type.
+ * @template R - The result type.
+ * @param {(...args: any[]) => PromiseOr<R>} promise - The promise function to be executed.
+ * @param {...any[]} args - Additional arguments to be passed to the promise function.
+ * @returns {Promise<[R | null, null | T]>} A promise that resolves to a tuple containing the result and error.
  */
 const asyncHandler = async <T extends Error, R>(promise: (...a: any) => PromiseOr<R>, ...args: any[]): Promise<[R | null, null | T]> => {
 	try {

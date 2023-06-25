@@ -1,7 +1,8 @@
 /**
- * It takes a generic type, and returns undefined.
- * @param {T} sus - T - sus is a generic type T
- * @returns undefined
+ * Converts the provided value to undefined and returns it.
+ * @template T - The type of the value to convert.
+ * @param {T} sus - The value to convert.
+ * @returns {undefined} The converted value, which is always undefined.
  */
 const convertToUndefined = <T> (sus: T): undefined => {
     return void (sus);
