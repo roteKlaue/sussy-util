@@ -2,10 +2,10 @@ import { IndexOutOfBoundsError } from "../Error";
 import { ImprovedArray } from ".";
 
 export default class Stack<T> {
-    private items: ImprovedArray<T> = new ImprovedArray<T>();
+    private items: ImprovedArray<T>;
 
     constructor(initElm: Array<T>) {
-        this.items.push(...initElm);
+        this.items = new ImprovedArray<T>(...initElm);
     };
 
     /**
@@ -21,7 +21,7 @@ export default class Stack<T> {
      * @returns The last item in the array.
      */
     public peek(): T {
-        if (this.items.length < 0) throw new IndexOutOfBoundsError();
+        if (this.items.isEmpty()) throw new IndexOutOfBoundsError();
         return this.items[this.items.length - 1];
     }
 
@@ -31,7 +31,7 @@ export default class Stack<T> {
      * @returns The last item in the array.
      */
     public pop(): T {
-        if (this.items.length < 0) throw new IndexOutOfBoundsError();
+        if (this.items.isEmpty()) throw new IndexOutOfBoundsError();
         const sus = this.items.pop();
         if (!sus) throw new IndexOutOfBoundsError();
         return sus;

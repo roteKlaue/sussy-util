@@ -168,8 +168,8 @@ export default class ArrayUtils extends AbstractClass {
             return this.quickselect(lows, k);
         } else if (k < lows.length + pivots.length) {
             return pivots[0];
-        } else {
-            return this.quickselect(highs, k - lows.length - pivots.length);
         }
+
+        return this.quickselect(highs, k - lows.length - pivots.length);
     }
 }

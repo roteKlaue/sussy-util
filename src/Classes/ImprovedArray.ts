@@ -52,7 +52,7 @@ export default class ImprovedArray<T> extends Array<T> {
      * The clear() function removes all elements from an array
      */
     clear(): void {
-        this.splice(0, this.length);
+        this.length = 0;
     }
 
     /**
@@ -167,7 +167,9 @@ export default class ImprovedArray<T> extends Array<T> {
     }
 
     /* shorthand for `forEach` */
-    each = this.forEach;
+    public each(callbackfn: (value: T, index: number, array: T[]) => void, thisArg?: any): void {
+        this.forEach(callbackfn, thisArg);
+    };
 
     /**
      * It takes an array of any type and returns an array of the same type.

@@ -410,7 +410,7 @@ export default abstract class StringUtil extends AbstractClass {
      */
     public static rpad(str: string, minLen: number, ch?: string): string {
         ch = ch || ' ';
-        return (str.length < minLen) ? str + StringUtil.repeat(ch, minLen - str.length) : str;
+        return (str.length < minLen) ? str + ch.repeat(minLen - str.length) : str;
     }
 
     /**
@@ -421,7 +421,7 @@ export default abstract class StringUtil extends AbstractClass {
      */
     public static lpad(str: string, minLen: number, ch?: string): string {
         ch = ch || ' ';
-        return ((str.length < minLen) ? StringUtil.repeat(ch, minLen - str.length) + str : str);
+        return ((str.length < minLen) ? ch.repeat(minLen - str.length) + str : str);
     }
 
     /**
