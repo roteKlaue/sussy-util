@@ -194,12 +194,12 @@ export default abstract class StringUtil extends AbstractClass {
 
     public static rpad(str: string, minLen: number, ch?: string): string {
         ch = ch || ' ';
-        return (str.length < minLen) ? str + this.repeat(ch, minLen - str.length) : str;
+        return (str.length < minLen) ? str + ch.repeat(minLen - str.length) : str;
     }
 
     public static lpad(str: string, minLen: number, ch?: string): string {
         ch = ch || ' ';
-        return ((str.length < minLen) ? this.repeat(ch, minLen - str.length) + str : str);
+        return ((str.length < minLen) ? ch.repeat(minLen - str.length) + str : str);
     }
 
     public static spilce(str: string, offset: number, removeCount: number | undefined, text = ""): string {

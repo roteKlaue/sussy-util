@@ -29,7 +29,7 @@ export default class ImprovedArray<T> extends Array<T> {
     }
 
     clear(): void {
-        this.splice(0, this.length);
+        this.length = 0;
     }
 
     clone(): ImprovedArray<T> {

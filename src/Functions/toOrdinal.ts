@@ -8,7 +8,6 @@ export default (n: number):string => {
         return n + 'nd';
     } else if (lastDigit === 3) {
         return n + 'rd';
-    } else {
-        return n + 'th';
     }
+    return n + 'th';
 }

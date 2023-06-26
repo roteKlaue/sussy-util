@@ -3,10 +3,10 @@ import { ImprovedArray } from ".";
 
 export default class Stack<T> {
     // TODO: Documentation
-    private items: ImprovedArray<T> = new ImprovedArray<T>();
+    private items: ImprovedArray<T>;
 
     constructor(initElm: Array<T>) {
-        this.items.push(...initElm);
+        this.items = new ImprovedArray<T>(...initElm);
     };
 
     push(...elm: T[]): void {
@@ -14,12 +14,12 @@ export default class Stack<T> {
     }
 
     peek(): T {
-        if (this.items.length < 0) throw new IndexOutOfBoundsError();
+        if (this.items.isEmpty()) throw new IndexOutOfBoundsError();
         return this.items[this.items.length - 1];
     }
 
     pop(): T {
-        if (this.items.length < 0) throw new IndexOutOfBoundsError();
+        if (this.items.isEmpty()) throw new IndexOutOfBoundsError();
         const sus = this.items.pop();
         if (!sus) throw new IndexOutOfBoundsError();
         return sus;
