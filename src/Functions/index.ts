@@ -8,13 +8,11 @@ import callbackify from "./callbackify";
 import callIfFunction from "./callIfFunction";
 import deepClone from "./deepClone";
 import deepCompare from "./deepCompare";
-import fibonacci from "./fibonacci";
 import getObjectKeys from "./getObjectKeys";
 import getProjectRoot from "./getProjectRoot";
 import getTypeString from "./getTypeString";
 import hasProperty from "./hasProperty";
 import hasValue from "./hasValue";
-import mapObjectValues from "./mapObjectValues";
 import measureTime from "./measureTime";
 import merge from "./merge";
 import objectToString from "./objectToString";
@@ -38,13 +36,11 @@ export {
     callIfFunction,
     deepClone,
     deepCompare,
-    fibonacci,
     getProjectRoot,
     getObjectKeys,
     getTypeString,
     hasProperty,
     hasValue,
-    mapObjectValues,
     measureTime,
     merge,
     objectToString,

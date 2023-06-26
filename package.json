@@ -1,13 +1,12 @@
 {
   "name": "sussy-util",
-  "version": "11.0.0",
+  "version": "1.9.2",
   "description": "Util package made by me",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
   "scripts": {
-    "compile": "tsc",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc"
   },
   "repository": {
     "type": "git",
@@ -25,6 +24,10 @@
   "author": "roteKlaue",
   "license": "GPL-3.0",
   "devDependencies": {
-    "@types/node": "^18.15.11"
+    "@types/node": "^18.16.18"
+  },
+  "engines": {
+    "node": ">=10",
+    "pnpm": ">=3"
   }
 }

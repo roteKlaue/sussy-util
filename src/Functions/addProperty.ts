@@ -1,12 +1,6 @@
 import MutableObject from "../Types/MutableObject";
 
-/**
- * @param obj - MutableObject<any> - This is the object that we want to add a property to.
- * @param {string} prop - string - The property to add to the object
- * @param {any} value - any - The value to add to the object
- * @returns The object that was passed in.
- */
-const addProperty = <T> (obj: MutableObject<T>, prop: string, value: T): MutableObject<T> => {
+export default (obj:MutableObject<any>, prop:string, value:any):MutableObject<any> => {
     if (typeof obj !== "object") {
         return obj;
     }
@@ -18,5 +12,3 @@ const addProperty = <T> (obj: MutableObject<T>, prop: string, value: T): Mutable
     obj[prop] = value;
     return obj;
 }
-
-export default addProperty;

@@ -1,29 +1,25 @@
 import IsSomething from "../Classes/IsSomething";
 
-/**
- * @param {any} arg - arg - the value to be tested
- * @returns {string} returns a string name of the data type of the given variable
-*/
-export default (arg: any): string | undefined => {
-    if (['boolean', 'number', 'string', 'symbol', 'bigint', 'undefined'].includes(typeof arg)) {
+export default (arg:any):string|undefined => {
+    if(typeof arg === 'boolean' || typeof arg === "number" || typeof arg === 'undefined' || typeof arg === 'bigint' || typeof arg === 'symbol' || typeof arg === 'string') {
         return typeof arg;
     }
 
-    if (arg === null) {
+    if(arg === null) {
         return 'null';
     }
 
-    if (IsSomething.isDate(arg)) return "Date";
+    if(IsSomething.isDate(arg)) return "Date";
 
-    if (IsSomething.isError(arg)) return "Error";
+    if(IsSomething.isError(arg)) return "Error";
 
-    if (IsSomething.isRegExp(arg)) return "RegExp";
+    if(IsSomething.isRegExp(arg)) return "RegExp";
 
-    if (typeof arg === 'function') {
-        return IsSomething.isClass(arg) ? arg.constructor.name : "function";
+    if(typeof arg === 'function') {
+        return IsSomething.isClass(arg)? arg.constructor.name : "function";
     }
 
-    if (typeof arg === 'object') {
-        return IsSomething.isArray(arg) ? "array" : "object";
+    if(typeof arg === 'object') {
+        return IsSomething.isArray(arg)? "array":"object";
     }
 }

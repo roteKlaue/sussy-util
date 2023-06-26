@@ -1,5 +1,4 @@
 import AbstractClass from "./AbstractClass";
-import ArrayUtils from "./ArrayUtil";
 import BetterMath from "./BetterMath";
 import Collection from "./Collection";
 import DataConverter from "./DataConverter";
@@ -7,7 +6,6 @@ import DateUtil from "./DateUtil";
 import ImprovedArray from "./ImprovedArray";
 import IsSomething from "./IsSomething";
 import LRUCache from "./LRUCache";
-import MatrixOperations from "./MatrixOperations";
 import Point from "./Point";
 import PrimeNumbers from "./PrimeNumbers";
 import Queue from "./Queue";
@@ -17,13 +15,9 @@ import Stack from "./Stack";
 import StopWatch from "./StopWatch";
 import StringUtil from "./StringUtil";
 import UnitConverter from "./UnitConverter";
-import UrlUtil from "./UrlUtil";
-import Vector2d from "./Vector2d";
-import Vector3d from "./Vector3d";
 
 export {
     AbstractClass,
-    ArrayUtils,
     BetterMath,
     Collection,
     DataConverter,
@@ -31,7 +25,6 @@ export {
     ImprovedArray,
     IsSomething,
     LRUCache,
-    MatrixOperations,
     Point,
     PrimeNumbers,
     Queue,
@@ -41,7 +34,4 @@ export {
     StopWatch,
     StringUtil,
     UnitConverter,
-    UrlUtil,
-    Vector2d,
-    Vector3d,
 }
