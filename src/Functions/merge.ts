@@ -1,5 +1,3 @@
-import MutableObject from "../Types/MutableObject";
-
-export default (a: MutableObject<any>, b: MutableObject<any>): MutableObject<any> => {
+export default (a: object, b: object): object => {
     return { ...a, ...b };
 }

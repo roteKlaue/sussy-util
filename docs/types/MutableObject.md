@@ -14,7 +14,7 @@ MutableObject
 
 - **`MutableObject`**
 
-  ↳ [`JSONObject`](types.JSONObject.md)
+  ↳ [`JSONObject`](./JSONObject.md)
 
 ## Indexable
 
