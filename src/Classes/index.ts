@@ -9,6 +9,7 @@ import IsSomething from "./IsSomething";
 import LRUCache from "./LRUCache";
 import MatrixOperations from "./MatrixOperations";
 import Point from "./Point";
+import Point3d from "./Point3d";
 import PrimeNumbers from "./PrimeNumbers";
 import Queue from "./Queue";
 import Random from "./Random";
@@ -33,6 +34,7 @@ export {
     LRUCache,
     MatrixOperations,
     Point,
+    Point3d,
     PrimeNumbers,
     Queue,
     Random,

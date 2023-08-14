@@ -1,5 +1,11 @@
 export default class MatrixOperations {
-    static add(matrixA: number[][], matrixB: number[][]): number[][] {
+    /**
+     * Adds two matrices element-wise.
+     * @param {number[][]} matrixA - The first matrix.
+     * @param {number[][]} matrixB - The second matrix.
+     * @returns {number[][]} The result of adding the two matrices.
+     */
+    public static add(matrixA: number[][], matrixB: number[][]): number[][] {
         const rows = matrixA.length;
         const cols = matrixA[0].length;
         const result: number[][] = [];
@@ -14,6 +20,12 @@ export default class MatrixOperations {
         return result;
     }
 
+    /**
+     * Subtracts one matrix from another element-wise.
+     * @param {number[][]} matrixA - The first matrix.
+     * @param {number[][]} matrixB - The second matrix.
+     * @returns {number[][]} The result of subtracting the second matrix from the first matrix.
+     */
     public static subtract(matrixA: number[][], matrixB: number[][]): number[][] {
         const rows = matrixA.length;
         const cols = matrixA[0].length;
@@ -29,6 +41,13 @@ export default class MatrixOperations {
         return result;
     }
 
+    /**
+     * Multiplies two matrices.
+     * @param {number[][]} matrixA - The first matrix.
+     * @param {number[][]} matrixB - The second matrix.
+     * @returns {number[][]} The result of multiplying the two matrices.
+     * @throws {Error} Throws an error if the dimensions of the matrices are not valid for multiplication.
+     */
     public static multiply(matrixA: number[][], matrixB: number[][]): number[][] {
         const rowsA = matrixA.length;
         const colsA = matrixA[0].length;
@@ -55,6 +74,12 @@ export default class MatrixOperations {
         return result;
     }
 
+    /**
+      * Calculates the determinant of a square matrix.
+      * @param {number[][]} matrix - The square matrix.
+      * @returns {number} The determinant of the matrix.
+      * @throws {Error} Throws an error if the matrix is not square.
+      */
     public static determinant(matrix: number[][]): number {
         const rows = matrix.length;
         const cols = matrix[0].length;

@@ -49,7 +49,7 @@ export default class Set<T> {
     }
 
     /**
-     * Returns true if the stack is empty, false otherwise
+     * Returns true if the set is empty, false otherwise
      * @returns The return type is boolean.
      */
     public isEmpty(): boolean {

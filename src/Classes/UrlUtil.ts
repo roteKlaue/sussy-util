@@ -134,6 +134,74 @@ class UrlUtils {
         return parsedUrl.searchParams && parsedUrl.searchParams.toString() !== '';
     }
 
+    /**
+     * Checks if the URL has a specific query parameter.
+     * @param {string} url - The URL to check.
+     * @param {string} param - The query parameter name.
+     * @returns {boolean} True if the parameter exists, false otherwise.
+     */
+    public hasQueryParam(url: string, param: string): boolean {
+        const parsedUrl = this.parseUrl(url);
+        return parsedUrl.searchParams.has(param);
+    }
+
+    /**
+     * Appends or updates query parameters from an object to a URL.
+     * @param {string} url - The URL to update.
+     * @param {MutableObject<string>} params - The query parameters to append or update.
+     * @returns {string} The updated URL.
+     */
+    public updateQueryParams(url: string, params: MutableObject<string>): string {
+        const parsedUrl = this.parseUrl(url);
+        for (const [key, value] of Object.entries(params)) {
+            parsedUrl.searchParams.set(key, value);
+        }
+        return parsedUrl.toString();
+    }
+
+    /**
+     * Replaces specified query parameters with new values.
+     * @param {string} url - The URL to replace query parameters in.
+     * @param {MutableObject<string>} replacements - The replacements for query parameters.
+     * @returns {string} The URL with replaced query parameters.
+     */
+    public replaceQueryParams(url: string, replacements: MutableObject<string>): string {
+        const queryParams = this.getQueryParams(url);
+        for (const [key, value] of Object.entries(replacements)) {
+            if (queryParams.hasOwnProperty(key)) {
+                queryParams[key] = value;
+            }
+        }
+        return this.updateQueryParams(url, queryParams);
+    }
+
+    /**
+     * Removes specified query parameters from a URL.
+     * @param {string} url - The URL to remove query parameters from.
+     * @param {string[]} paramsToRemove - The names of query parameters to remove.
+     * @returns {string} The URL with specified query parameters removed.
+     */
+    public removeQueryParams(url: string, paramsToRemove: string[]): string {
+        const parsedUrl = this.parseUrl(url);
+        for (const param of paramsToRemove) {
+            parsedUrl.searchParams.delete(param);
+        }
+        return parsedUrl.toString();
+    }
+
+    /**
+     * Merges query parameters from two URLs, prioritizing parameters from the second URL.
+     * @param {string} url1 - The first URL.
+     * @param {string} url2 - The second URL.
+     * @returns {string} The merged URL with query parameters.
+     */
+    public mergeQueryParams(url1: string, url2: string): string {
+        const queryParams1 = this.getQueryParams(url1);
+        const queryParams2 = this.getQueryParams(url2);
+        const mergedParams = { ...queryParams1, ...queryParams2 };
+        return this.updateQueryParams(url1, mergedParams);
+    }
+
     public static getInstance(): UrlUtils {
         return this.instance;
     }

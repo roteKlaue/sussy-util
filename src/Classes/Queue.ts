@@ -32,7 +32,7 @@ export default class Queue<T> {
     }
 
     /**
-     * Returns true if the stack is empty, false otherwise
+     * Returns true if the queue is empty, false otherwise
      * @returns The method returns a boolean value.
      */
     public empty(): boolean {

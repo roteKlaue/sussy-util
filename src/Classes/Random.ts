@@ -1,8 +1,9 @@
-import { IsSomething } from ".";
-import crypto from "crypto";
+import { BetterMath, IsSomething } from ".";
 import { MutableObject } from "../Types";
+import crypto from "node:crypto";
 
 class Random {
+    readonly defaultCharset: string = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     private static instance: Random = new Random();
     private constructor() {};
 
@@ -16,33 +17,45 @@ class Random {
      */
     public randomInt(lower = 0, upper = 10) {
         lower = Math.floor(lower);
-        upper = Math.ceil(upper) - lower;
+        upper = Math.ceil(upper);
         return crypto.randomInt(lower, upper);
     }
 
     /**
-     * It returns a random character from a given string, or a random character from the default string
-     * if no string is given.
-     * 
-     * The default string is: 
-     * 
-     * abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789
-     * @param {string} [charset] - The character set to use. If not provided, it will default to "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-     * @returns A random character from the charset.
+     * Generates a random double (floating-point) number within a specified range.
+     * @param {number} lower - The lower bound of the random number.
+     * @param {number} upper - The upper bound of the random number.
+     * @returns {number} A random double within the specified range.
      */
-    public randomChar(charset?: string): string {
-        charset = ((IsSomething.isString(charset)) ? charset : "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789") || "";
+    public randomDouble(lower: number, upper: number): number {
+        const digits = Math.max(BetterMath.countDecimalDigits(lower), BetterMath.countDecimalDigits(upper));
+        const multiplier = Math.pow(10, digits);
+        return this.randomInt(lower * multiplier, upper * multiplier) / multiplier;
+    }
+
+    /**
+     * Returns a random character from a given string or the default charset.
+     *
+     * @param {string} [charset] - The character set to use. Defaults to the default charset.
+     * @returns {string} A random character from the charset.
+     */
+    public randomChar(charset: string = this.defaultCharset): string {
         return charset.charAt(this.randomInt(0, charset.length));
     }
 
     /**
-     * @param [length=10] - The length of the string to be generated.
-     * @param {string} [charset] - The characters to use when generating the string. Defaults to
-     * "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789".
-     * @returns A string of random characters.
+     * Generates a random string of specified length from a given charset or the default charset.
+     *
+     * @param {number} [length=10] - The length of the string to be generated.
+     * @param {string} [charset] - The characters to use when generating the string. Defaults to the default charset.
+     * @returns {string} A string of random characters.
      */
-    public randomString(length = 10, charset?: string): string {
-        return length === 0 ? "" : this.randomChar(charset) + this.randomString(--length, charset);
+    public randomString(length: number = 10, charset: string = this.defaultCharset): string {
+        let result = "";
+        for (let i = 0; i < length; i++) {
+            result += this.randomChar(charset);
+        }
+        return result;
     }
 
     /**
@@ -51,7 +64,7 @@ class Random {
      * @returns The return type is T.
      */
     public randomElement<T>(arr: T[]): T {
-        return IsSomething.isArray(arr) ? arr[crypto.randomInt(arr.length)] : arr as T;
+        return IsSomething.isArray(arr) ? arr[this.randomInt(0, arr.length)] : arr as T;
     }
 
     /**
@@ -82,6 +95,54 @@ class Random {
      */
     public randomBoolean(): boolean {
         return this.randomInt(0, 2) == 0;
+    }
+
+    /**
+     * Generates a random color in hexadecimal format (#RRGGBB).
+     *
+     * @returns {string} A random color in hexadecimal format.
+     */
+    public randomColor(): string {
+        const r = this.randomInt(0, 256).toString(16).padStart(2, "0");
+        const g = this.randomInt(0, 256).toString(16).padStart(2, "0");
+        const b = this.randomInt(0, 256).toString(16).padStart(2, "0");
+        return `#${r}${g}${b}`;
+    }
+
+    /**
+     * Generates a random RGB color array [r, g, b].
+     *
+     * @returns {number[]} A random RGB color array.
+     */
+    public randomRgbColor(): number[] {
+        return [this.randomInt(0, 256), this.randomInt(0, 256), this.randomInt(0, 256)];
+    }
+
+    /**
+     * Generates a random UUID (Universally Unique Identifier).
+     *
+     * @returns {string} A random UUID.
+     */
+    public randomUUID(): string {
+        const segments: string[] = [];
+        for (let i = 0; i < 8; i++) {
+            segments.push(this.randomString(4, "0123456789abcdef"));
+        }
+        return segments.join("-");
+    }
+
+    /**
+     * Generates a random date within a specified range.
+     *
+     * @param {Date} startDate - The start date of the range.
+     * @param {Date} endDate - The end date of the range.
+     * @returns {Date} A random date within the specified range.
+     */
+    public randomDate(startDate: Date, endDate: Date): Date {
+        const startMillis = startDate.getTime();
+        const endMillis = endDate.getTime();
+        const randomMillis = this.randomInt(startMillis, endMillis + 1);
+        return new Date(randomMillis);
     }
 
     public static getInstance(): Random {
