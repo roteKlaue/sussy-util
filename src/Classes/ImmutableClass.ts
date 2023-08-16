@@ -1,9 +1,11 @@
-export default class ImmutableClass {
+import { Constructor } from "../Types";
+
+export default class ImmutableClass<T extends {}> {
     /**
      * Creates an instance of the ImmutableClass.
      * Freezing the prototype of the extending class or any class instance created thereafter is crucial to prevent potential safety issues resulting from prototype modifications.
      *
-     * @param {Function} constructor - The constructor function of the class.
+     * @param {Constructor<T>} constructor - The constructor function of the class.
      * @param {Array<[string, () => any]>} properties - The array of property definitions.
      *     Each inner array should contain a property name and its corresponding getter function.
      * @param {Array<[string, Function]>} functions - The array of function definitions.
@@ -24,7 +26,7 @@ export default class ImmutableClass {
      * test.a // 12
      * test.a = 13 // throws error
      */
-    constructor(constructor: Function, properties: [string, () => any][], functions: [string, Function][]) {
+    constructor(constructor: Constructor<T>, properties: [string, () => any][], functions: [string, Function][]) {
         if (this.constructor !== constructor) {
             throw new Error("You cannot extend this class with another class.");
         }
