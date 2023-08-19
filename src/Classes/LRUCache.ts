@@ -54,6 +54,8 @@ export default class LRUCache<Key, Value> {
             if (!!evictedKey) {
                 this.evictionCallback(evictedKey, this.cache.get(evictedKey)!!);
                 this.cache.delete(evictedKey);
+                this.objectPool.release(this.usageOrder.find(evictedKey)!!);
+                this.usageOrder.remove(evictedKey);
             }
         }
 
