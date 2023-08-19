@@ -14,7 +14,7 @@ export default abstract class Random extends AbstractClass {
      */
     public static randomInt(lower = 0, upper = 10) {
         lower = Math.floor(lower);
-        upper = Math.ceil(upper) - lower;
+        upper = Math.ceil(upper);
         return crypto.randomInt(lower, upper);
     }
 
