@@ -8,6 +8,7 @@
 | :------ | :------ |
 | `AbstractClass` | [Documentation](./AbstractClass.md) |
 | `ArrayUtil` | [Documentation](./ArrayUtil.md) |
+| `BuilderBuilder` | [Documentation](./BuilderBuilder.md) |
 | `BetterMath` | [Documentation](./BetterMath.md) |
 | `Collection` | [Documentation](./Collection.md) |
 | `DataConverter` | [Documentation](./DataConverter.md) |

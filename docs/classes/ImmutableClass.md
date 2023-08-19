@@ -2,51 +2,55 @@
 
 # Class: ImmutableClass
 
-## Table of contents
+A utility class for creating immutable classes with predefined properties and methods.
 
-### Constructors
+## Type Parameters
 
-- [constructor](ImmutableClass.md#constructor)
+- `T`: The type of object being defined as an immutable class.
 
 ## Constructors
 
 ### constructor
 
-• **new ImmutableClass**(`constructor`, `properties`, `functions`)
+Create an instance of the ImmutableClass.
 
-Creates an instance of the ImmutableClass.
-Freezing the prototype of the extending class or any class instance created thereafter is crucial to prevent potential safety issues resulting from prototype modifications.
+**Parameters:**
 
-**`Throws`**
+- `constructor` (`Constructor<T>`): The constructor function of the class.
+- `properties` (`[string, () => any][]`): An array of property definitions. Each inner array should contain a property name and its corresponding getter function.
+- `functions` (`[string, Function][]`): An array of function definitions. Each inner array should contain a function name and its corresponding function.
 
-Throws an error if the class is extended by another class.
+**Throws:**
 
-**`Example`**
+- `Error`: If an attempt is made to extend the class with another class.
 
-```ts
-Example usage:
+## Example Usage
+
+```typescript
+// Define an immutable class with properties and methods
 class TestClass extends ImmutableClass {
-     #a = 12;
+    #a = 12;
 
-     constructor() {
-         super(TestClass, [["a", () => this.#a]], [["displayA", () => console.log(this.#a)]]);
-     }
+    constructor() {
+        super(TestClass, [["a", () => this.#a]], [["displayA", () => console.log(this.#a)]]);
+    }
 }
-Objects.freeze(TestClass.prototype);
 
+// Freeze the prototype to prevent modifications
+Object.freeze(TestClass.prototype);
+
+// Create an instance of the immutable class
 const test = new TestClass();
+
+// Access properties and methods
 test.a // 12
-test.a = 13 // throws error
+test.a = 13 // Throws an error, as the property is immutable
+test.displayA(); // Logs the value of 'a' to the console
 ```
 
-#### Parameters
+# Explanation
+The `ImmutableClass` class provides a way to define immutable classes with predefined properties and methods. When extending this class, you pass in the class constructor, an array of property definitions, and an array of function definitions. The properties and functions defined using this mechanism cannot be modified after instantiation.
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `constructor` | `Function` | The constructor function of the class. |
-| `properties` | [`string`, () => `any`][] | The array of property definitions. Each inner array should contain a property name and its corresponding getter function. |
-| `functions` | [`string`, `Function`][] | The array of function definitions. Each inner array should contain a function name and its corresponding function. |
+Attempting to modify properties or overwrite functions will result in errors being thrown. The prototype of the extending class is frozen to prevent any further modifications.
 
-#### Defined in
-
-ImmutableClass.ts:27
+This utility is useful when you want to ensure that certain properties and methods remain constant throughout the lifecycle of an object, preventing accidental modifications and promoting safer code.
