@@ -1,3 +1,5 @@
+import { deepClone } from "../Functions";
+import { MutableObject } from "../Types";
 import Random from "./Random";
 
 class ArrayUtils {
@@ -10,8 +12,8 @@ class ArrayUtils {
      * item into the result array.
      * @param {any[]} arr - any[] - The array to flatten.
      */
-    public flat(arr: any[]): any[] {
-        const result: any[] = [];
+    public flat<T>(arr: Array<T|T[]>): T[] {
+        const result: T[] = [];
         for (const item of arr) {
             if (Array.isArray(item)) {
                 result.push(...this.flat(item));
@@ -91,6 +93,15 @@ class ArrayUtils {
     public clone<T>(array: T[]): Array<T> {
         return [...array];
     }
+
+    /**
+     * It takes an array of any type, and returns a new array of the same type
+     * @param {T[]} array - T[] - The array to clone.
+     * @returns A new array with the same elements as the original array.
+     */
+    public deepClone<T>(array: T[]): Array<T> {
+        return array.map(e => deepClone(e as MutableObject<any>) as T);
+    }    
 
     /**
      * It takes an array of any type, and returns an array of the same type, with all duplicates

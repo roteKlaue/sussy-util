@@ -6,6 +6,9 @@
 
 | Name | Documentation |
 | :------ | :------ |
+| `Builder` | [Documentation](Builder.md) |
+| `Constructor` | [Documentation](Constructor.md) |
+| `JSON`| [Documentation](JSON.md) |
 | `JSONObject`| [Documentation](JSONObject.md) |
 | `MapEntry`| [Documentation](MapEntry.md) |
 | `MutableObject`| [Documentation](MutableObject.md) |

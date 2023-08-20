@@ -15,8 +15,8 @@ MapEntry
 
 ### Properties
 
-- [key](types.MapEntry.md#key)
-- [value](types.MapEntry.md#value)
+- [key](#key)
+- [value](#value)
 
 ## Properties
 

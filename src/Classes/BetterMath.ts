@@ -28,17 +28,33 @@ class BetterMath {
         return num * num;
     }
 
+    /**
+     * Calculate the cube of a number.
+     * @param {number} num - The number to calculate the cube of.
+     * @returns {number} The cube of the number.
+     */
+    public cube(num: number): number {
+        return num * num * num;
+    }
+
+    /**
+     * Calculates the total distance between points along a given path.
+     *
+     * @param {Point[]} path - An array of Point objects representing the path.
+     * @param {number} index - The current index in the path array (default: 0).
+     * @returns {number} The total distance along the path.
+     */
     public distance = (path: Point[], index: number = 0): number =>
         path.length === index ?
             0 :
             Math.sqrt(this.square(path[index].x - path[index + 1].x) + this.square(path[index].y - path[index + 1].y)) + this.distance(path, ++index);
 
     /**
-     * If b is 0, return a, otherwise return the greatest common divisor of b and the remainder of a
-     * divided by b.
-     * @param {number} a - The first number to find the greatest common divisor of.
-     * @param {number} b - number = 0
-     * @returns The greatest common divisor of a and b.
+     * Calculates the greatest common divisor (GCD) of two numbers using the Euclidean algorithm.
+     *
+     * @param {number} a - The first number.
+     * @param {number} b - The second number.
+     * @returns {number} The greatest common divisor of the two input numbers.
      */
     public greatestCommonDivisor(a: number, b: number): number {
         if (b === 0) {
@@ -48,11 +64,11 @@ class BetterMath {
     }
 
     /**
-     * If b is 0, return a, otherwise return the greatest common divisor of b and the remainder of a
-     * divided by b.
-     * @param {number} a - The first number to find the greatest common divisor of.
-     * @param {number} b - number = 0
-     * @returns The greatest common divisor of a and b.
+     * Calculates the greatest common divisor (GCD) of two numbers using the Euclidean algorithm.
+     *
+     * @param {number} a - The first number.
+     * @param {number} b - The second number.
+     * @returns {number} The greatest common divisor of the two input numbers.
      */
     public gcd(a: number, b: number): number {
         return this.greatestCommonDivisor(a, b);
@@ -75,7 +91,7 @@ class BetterMath {
      * @param {number} b - number - The second number to find the lowest common denominator of.
      * @returns The lowest common denominator of two numbers.
      */
-    public lcm(a: number, b: number): number {
+    public lcd(a: number, b: number): number {
         return this.lowestCommonDenominator(a, b);
     }
 
@@ -107,6 +123,19 @@ class BetterMath {
      */
     public factorial(num: number): number {
         return num <= 1 ? 1 : num * this.factorial(--num);
+    }
+
+    /**
+     * Calculate the factorial of a number using an iterative approach.
+     * @param {number} num - The number to calculate the factorial of.
+     * @returns {number} The factorial of the number.
+     */
+    public factorialIterative(num: number): number {
+        let result = 1;
+        for (let i = 2; i <= num; i++) {
+            result *= i;
+        }
+        return result;
     }
 
     /**
@@ -188,7 +217,7 @@ class BetterMath {
     public degreesToRadians(degrees: number): number {
         return (degrees * Math.PI) / 180;
     }
-   
+
     /**
      * Convert radians to degrees.
      * @param {number} radians - The value in radians.
@@ -196,6 +225,18 @@ class BetterMath {
      */
     public radiansToDegrees(radians: number): number {
         return (radians * 180) / Math.PI;
+    }
+
+    /**
+     * Counts the number of decimal digits in the fractional part of a number.
+     *
+     * @param {number} number - The input number to count decimal digits for.
+     * @returns {number} The count of decimal digits in the fractional part of the input number.
+     */
+    public countDecimalDigits(number: number): number {
+        const fractionalPart = Math.abs(number % 1);
+        const fractionalString = fractionalPart.toString();
+        return fractionalString.length - (fractionalString.indexOf('.') + 1);
     }
 
     /**

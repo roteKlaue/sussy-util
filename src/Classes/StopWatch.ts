@@ -1,4 +1,4 @@
-import { EventEmitter } from 'events';
+import { EventEmitter } from 'node:events';
 
 export default class StopWatch extends EventEmitter {
     private readonly rounds: number[] = [];

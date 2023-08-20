@@ -1,6 +1,8 @@
 import { AbstractClassInstanceCallError } from "../Error";
-export default class AbstractClass {
-    constructor(Constructor: Function) {
+import { Constructor } from "../Types";
+
+export default class AbstractClass<T extends {}> {
+    constructor(Constructor: Constructor<T>) {
         const isClass = (arg: Function) => {
             if (typeof arg !== 'function') {
                 return false;

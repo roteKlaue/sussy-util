@@ -32,7 +32,7 @@ export default class Queue<T> {
     }
 
     /**
-     * Returns true if the stack is empty, false otherwise
+     * Returns true if the queue is empty, false otherwise
      * @returns The method returns a boolean value.
      */
     public empty(): boolean {
@@ -57,5 +57,25 @@ export default class Queue<T> {
      */
     public toJSONString(): string {
         return JSON.stringify(this.items);
+    }
+
+    public [Symbol.iterator](): Iterator<T> {
+        let index = 0;
+
+        return {
+            next: (): IteratorResult<T> => {
+                if (index < this.items.length) {
+                    return {
+                        value: this.items[index++],
+                        done: false,
+                    };
+                } else {
+                    return {
+                        value: undefined!,
+                        done: true,
+                    };
+                }
+            }
+        };
     }
 }

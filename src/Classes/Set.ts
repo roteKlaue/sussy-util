@@ -49,7 +49,7 @@ export default class Set<T> {
     }
 
     /**
-     * Returns true if the stack is empty, false otherwise
+     * Returns true if the set is empty, false otherwise
      * @returns The return type is boolean.
      */
     public isEmpty(): boolean {
@@ -166,5 +166,25 @@ export default class Set<T> {
             }
         });
         return subtractedSet;
+    }
+
+    public [Symbol.iterator](): Iterator<T> {
+        let index = 0;
+
+        return {
+            next: (): IteratorResult<T> => {
+                if (index < this.items.length) {
+                    return {
+                        value: this.items[index++],
+                        done: false,
+                    };
+                } else {
+                    return {
+                        value: undefined!,
+                        done: true,
+                    };
+                }
+            }
+        };
     }
 }

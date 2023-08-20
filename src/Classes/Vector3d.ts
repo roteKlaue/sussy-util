@@ -108,7 +108,8 @@ export default class Vector3d {
         const dotProduct = this.dotProduct(vector);
         const thisMagnitude = this.magnitude();
         const vectorMagnitude = vector.magnitude();
-        return Math.acos(dotProduct / (thisMagnitude * vectorMagnitude));
+        const clampedDotProduct = Math.max(-1, Math.min(1, dotProduct));
+        return Math.acos(clampedDotProduct / (thisMagnitude * vectorMagnitude));
     }
 
     /**
@@ -117,8 +118,12 @@ export default class Vector3d {
      * @returns True if the vectors are parallel, false otherwise.
      */
     public isParallelTo(vector: Vector3d): boolean {
-        const crossProduct = this.crossProduct(vector);
-        return crossProduct.magnitude() === 0;
+        const ratioX = this.x / vector.x;
+        const ratioY = this.y / vector.y;
+        const ratioZ = this.z / vector.z;
+        
+        return Math.abs(ratioX - ratioY) < Number.EPSILON &&
+               Math.abs(ratioY - ratioZ) < Number.EPSILON;
     }
 
     /**

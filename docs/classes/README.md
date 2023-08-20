@@ -8,10 +8,12 @@
 | :------ | :------ |
 | `AbstractClass` | [Documentation](./AbstractClass.md) |
 | `ArrayUtil` | [Documentation](./ArrayUtil.md) |
+| `BuilderBuilder` | [Documentation](./BuilderBuilder.md) |
 | `BetterMath` | [Documentation](./BetterMath.md) |
 | `Collection` | [Documentation](./Collection.md) |
 | `DataConverter` | [Documentation](./DataConverter.md) |
 | `DateUtil` | [Documentation](./DateUtil.md) |
+| `ImmutableClass` | [Documentation](./ImmutableClass.md) |
 | `ImprovedArray` | [Documentation](./ImprovedArray.md) |
 | `IsSomething` | [Documentation](./IsSomething.md) |
 | `LRUCache` | [Documentation](./LRUCache.md) |

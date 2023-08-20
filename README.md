@@ -54,10 +54,10 @@ TypeScript / JavaScript (ES2020+)
 // importing everything
 import sussyutil from "sussy-util";
 
-//importing classes/functions
+//importing classes/functions/types
 import { classes } from "sussy-util";
 
-// importing one function/class
+// importing one function/class/type
 import { UrlUtil } from "sussy-util";
 ```
 

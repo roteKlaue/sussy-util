@@ -1,146 +1,99 @@
 [sussy-util](../README.md) / [classes](./README.md) / LRUCache
 
-# Class: LRUCache<T\>
+# Class: LRUCache
 
-## Type parameters
+A Least Recently Used (LRU) Cache implementation with a fixed capacity.
 
-| Name |
-| :------ |
-| `T` |
+## Type Parameters
 
-## Table of contents
-
-### Constructors
-
-- [constructor](LRUCache.md#constructor)
-
-### Properties
-
-- [cache](LRUCache.md#cache)
-- [currentSize](LRUCache.md#currentsize)
-- [maxSize](LRUCache.md#maxsize)
-
-### Methods
-
-- [add](LRUCache.md#add)
-- [get](LRUCache.md#get)
-- [removeLRU](LRUCache.md#removelru)
+- `Key`: The type of keys stored in the cache.
+- `Value`: The type of values stored in the cache.
 
 ## Constructors
 
 ### constructor
 
-• **new LRUCache**<`T`\>(`maxSize`)
+Create an LRUCache instance with a specified capacity.
 
-#### Type parameters
+**Parameters:**
 
-| Name |
-| :------ |
-| `T` |
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `maxSize` | `number` |
-
-#### Defined in
-
-[src/Classes/LRUCache.ts:6](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/LRUCache.ts#L6)
-
-## Properties
-
-### cache
-
-• `Private` **cache**: `Map`<`string`, { `timestamp`: `number` ; `value`: `T`  }\>
-
-#### Defined in
-
-[src/Classes/LRUCache.ts:2](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/LRUCache.ts#L2)
-
-___
-
-### currentSize
-
-• `Private` **currentSize**: `number` = `0`
-
-#### Defined in
-
-[src/Classes/LRUCache.ts:4](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/LRUCache.ts#L4)
-
-___
-
-### maxSize
-
-• `Private` **maxSize**: `number`
-
-#### Defined in
-
-[src/Classes/LRUCache.ts:3](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/LRUCache.ts#L3)
+- `capacity` (`number`): The maximum number of entries the cache can hold.
 
 ## Methods
 
-### add
-
-▸ **add**(`key`, `value`): `void`
-
-If the key exists, update the timestamp and value, otherwise, if the cache is full, remove the
-least recently used item, otherwise, add the key, value, and timestamp to the cache.
-
-#### Parameters
-
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `key` | `string` | string - The key to store the value under |
-| `value` | `T` | The value to be stored in the cache |
-
-#### Returns
-
-`void`
-
-The value of the key.
-
-#### Defined in
-
-[src/Classes/LRUCache.ts:20](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/LRUCache.ts#L20)
-
-___
-
 ### get
 
-▸ **get**(`key`): `undefined` \| `T`
+Retrieve a value from the cache based on the provided key. Moves the accessed item to the front of the usage order.
 
-If the key exists in the cache, update the timestamp and return the value.
+**Parameters:**
 
-#### Parameters
+- `key` (`Key`): The key for the desired value.
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `key` | `string` | string - The key to retrieve the value for. |
+**Returns:**
 
-#### Returns
+- `Value | undefined`: The value associated with the key, or undefined if not found.
 
-`undefined` \| `T`
+### put
 
-The value of the entry.value property.
+Add a key-value pair to the cache. If the cache exceeds capacity, the least recently used item is evicted. Moves the added or accessed item to the front of the usage order.
 
-#### Defined in
+**Parameters:**
 
-[src/Classes/LRUCache.ts:41](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/LRUCache.ts#L41)
+- `key` (`Key`): The key for the new item.
+- `value` (`Value`): The value associated with the key.
 
-___
+### putAll
 
-### removeLRU
+Add multiple key-value pairs to the cache. If the cache exceeds capacity, the least recently used items are evicted. Moves the added or accessed items to the front of the usage order.
 
-▸ **removeLRU**(): `void`
+**Parameters:**
 
-We iterate through the cache, and find the key with the lowest timestamp, and then delete that
-key from the cache.
+- `entries` (`[Key, Value][]`): An array of key-value pairs to add to the cache.
 
-#### Returns
+### clear
 
-`void`
+Clear all entries from the cache.
 
-#### Defined in
+### getAllKeys
 
-[src/Classes/LRUCache.ts:54](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/LRUCache.ts#L54)
+Get an array of all keys currently in the cache.
+
+**Returns:**
+
+- `Key[]`: An array of keys in the cache.
+
+### getAllValues
+
+Get an array of all values currently in the cache.
+
+**Returns:**
+
+- `Value[]`: An array of values in the cache.
+
+### entries
+
+Get a generator yielding all entries (key-value pairs) in the cache.
+
+**Yields:**
+
+- `[Key, Value]`: A key-value pair from the cache.
+
+### setEvictionCallback
+
+Set a callback function to be called when an item is evicted from the cache.
+
+**Parameters:**
+
+- `callback` (`(key: Key, value: Value) => void`): The callback function.
+
+### remove
+
+Remove an item from the cache based on the provided key.
+
+**Parameters:**
+
+- `key` (`Key`): The key of the item to remove.
+
+**Returns:**
+
+- `boolean`: True if the item was removed, false if the key was not found.

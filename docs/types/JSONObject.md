@@ -6,6 +6,6 @@ JSONObject
 
 ## Hierarchy
 
-- [`MutableObject`](types.MutableObject.md)<`string` \| `number` \| `boolean` \| [`JSONObject`](types.JSONObject.md) \| [`JSONObject`](types.JSONObject.md)[] \| `string`[] \| `boolean`[] \| `number`[]\>
+- [`MutableObject`](./MutableObject.md)<`string` \| `number` \| `boolean` \| [`JSONObject`](./JSONObject.md) \| [`JSONObject`](./JSONObject.md)[] \| `string`[] \| `boolean`[] \| `number`[]\>
 
   ↳ **`JSONObject`**
