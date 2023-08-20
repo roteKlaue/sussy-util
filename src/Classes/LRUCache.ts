@@ -36,7 +36,7 @@ export default class LRUCache<T> {
     }
 
     removeLRU() {
-        let lruKey = undefined;
+        let lruKey: string | undefined = undefined;
         let lruTimestamp = Number.MAX_SAFE_INTEGER;
 
         this.cache.forEach((value, key) => {

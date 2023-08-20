@@ -82,7 +82,7 @@ export default abstract class DateUtil extends AbstractClass {
 
     public static leapYearsInRange(start: number, endYear: number): number[] {
         if (typeof start !== 'number' || typeof endYear !== 'number') throw new TypeError("expected number for start and endYear");
-        const sus = [];
+        const sus: number[] = [];
 
         for (let i = start; i <= endYear; i++) {
             if (this.isLeapYear(i)) sus.push(i);

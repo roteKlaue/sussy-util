@@ -1,4 +1,4 @@
-import { AbstractClass, ImprovedArray } from ".";
+import { AbstractClass, ImprovedArray, Random } from ".";
 
 export default abstract class StringUtil extends AbstractClass {
     // TODO: Documentation
@@ -11,25 +11,18 @@ export default abstract class StringUtil extends AbstractClass {
     }
 
     public static randomCharacter(charset?: string): string {
-        charset = charset || "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        const set = new ImprovedArray<string>(...new Set<string>(...charset.split('')));
-        return set.getRandomElement();
+        return Random.randomChar(charset);
     }
 
     public static randomString(length: number, characterset?: string): string {
-        characterset = characterset || "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-        let result = '';
-        for (let i = 0; i < length; i++) {
-            result += this.randomCharacter(characterset);
-        }
-        return result;
+        return Random.randomString(length, characterset);
     }
 
     public static randomDiscordUsername(withSufix = false): string {
-        const length = Math.floor(Math.random() * 29) + 4;
+        const length = Random.randomInt(4, 33);
         let name = this.randomString(length);
 
-        if (!StringUtil.isDiscordUsername(name)) {
+        if (!StringUtil.isDiscordUsername(`${name}#0000`)) {
             name = this.randomDiscordUsername(false);
         }
 

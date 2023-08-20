@@ -1,6 +1,6 @@
 import { ImprovedArray } from ".";
 
-export default class Stack<T> {
+export default class Queue<T> {
     // TODO: Documentation
     private items: ImprovedArray<T> = new ImprovedArray<T>();
 
@@ -25,7 +25,7 @@ export default class Stack<T> {
     }
 
     toString(): string {
-        return `Stack: ${this.items.toString()}`;
+        return `Queue: ${this.items.toString()}`;
     }
 
     toArray(): T[] {

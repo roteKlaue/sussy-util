@@ -109,7 +109,7 @@ export default class ImprovedArray<T> extends Array<T> {
     each = this.forEach;
 
     findCommonElements<X extends Array<any>>(arr: X | any[]): ImprovedArray<T> {
-        const commonElements = [];
+        const commonElements: T[] = [];
         for (let i = 0; i < this.length; i++) {
             if (arr.indexOf(this[i]) !== -1) {
                 commonElements.push(this[i]);

@@ -1,4 +1,5 @@
 import { IsSomething, AbstractClass } from ".";
+import crypto from "node:crypto";
 
 export default abstract class Random extends AbstractClass {
     // TODO: Documentation
@@ -9,7 +10,7 @@ export default abstract class Random extends AbstractClass {
     public static randomInt(lower = 0, upper = 10) {
         lower = Math.floor(lower);
         upper = Math.ceil(upper);
-        return Math.floor(Math.random() * (upper - lower + 1)) + lower;
+        return crypto.randomInt(lower, upper);
     }
 
     public static randomDouble(lower = 0, upper = 10) {
@@ -26,10 +27,10 @@ export default abstract class Random extends AbstractClass {
     }
 
     public static randomElement<T>(arr: T[]): T {
-        return IsSomething.isArray(arr) ? arr[Math.floor(Math.random() * arr.length)] : arr as T;
+        return arr[Random.randomInt(0, arr.length)];
     }
 
     public static randomElementInRange<T>(arr: T[], start: number, end: number): T {
-        return arr[Math.floor(Math.random() * (end - start + 1)) + start];
+        return arr[Random.randomInt(start, end - start + 1)];
     }
 }

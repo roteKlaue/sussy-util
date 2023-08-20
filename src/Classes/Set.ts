@@ -23,7 +23,7 @@ export default class Set<T> {
 
     delete(item: T): void {
         this.items.find((v, i) => {
-            if (v === item) {
+            if (this.checkFunction(v, item)) {
                 this.items.remove(i);
             }
         });
