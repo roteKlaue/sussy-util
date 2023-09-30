@@ -11,10 +11,6 @@ const addProperty = <T> (obj: MutableObject<T>, prop: string, value: T): Mutable
         return obj;
     }
 
-    if (typeof prop !== "string") {
-        return obj;
-    }
-
     obj[prop] = value;
     return obj;
 }

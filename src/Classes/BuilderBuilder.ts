@@ -6,7 +6,7 @@ import StringUtil from "./StringUtil";
  * @template T - The type of class for which instances are built using the GenericBuilder.
  */
 export default class BuilderBuilder<T extends {}> {
-    private cb;
+    private readonly cb;
 
     constructor(private readonly ClassType: Constructor<T>) {
         /**

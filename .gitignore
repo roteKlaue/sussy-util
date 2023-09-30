@@ -1,6 +1,9 @@
-build
-node_modules
-.vscode
+/build
+/node_modules
+/.vscode
 /test
 /generated
 logs.txt
+.dccache
+snyk.exe
+/.idea

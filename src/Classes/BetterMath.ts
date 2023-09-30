@@ -147,10 +147,10 @@ class BetterMath {
         const middle = Math.floor(length / 2);
 
         if (length % 2 === 0) {
-            return (ArrayUtils.quickselect(values, middle - 1) + ArrayUtils.quickselect(values, middle)) / 2;
+            return (ArrayUtils.quickSelect(values, middle - 1) + ArrayUtils.quickSelect(values, middle)) / 2;
         }
 
-        return ArrayUtils.quickselect(values, middle);
+        return ArrayUtils.quickSelect(values, middle);
     }
 
     /**

@@ -1,9 +1,11 @@
 import AbstractClass from "./AbstractClass";
 import ArrayUtils from "./ArrayUtil";
 import BetterMath from "./BetterMath";
+import BuilderBuilder from "./BuilderBuilder";
 import Collection from "./Collection";
 import DataConverter from "./DataConverter";
 import DateUtil from "./DateUtil";
+import ImmutableClass from "./ImmutableClass";
 import ImprovedArray from "./ImprovedArray";
 import IsSomething from "./IsSomething";
 import LRUCache from "./LRUCache";
@@ -27,9 +29,11 @@ export {
     AbstractClass,
     ArrayUtils,
     BetterMath,
+    BuilderBuilder,
     Collection,
     DataConverter,
     DateUtil,
+    ImmutableClass,
     ImprovedArray,
     IsSomething,
     LRUCache,

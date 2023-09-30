@@ -32,17 +32,17 @@ export default class StringUtil {
         characterset = characterset || "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
         const chars: string[] = [];
         chars.length = length;
-        chars.map(e => StringUtil.randomCharacter(characterset));
+        chars.map(_ => StringUtil.randomCharacter(characterset));
         return chars.join('');
     }
 
     /**
      * It generates a random string, checks if it's a valid discord username, if it's not, it generates
      * another one, if it is, it returns it.
-     * @param [withSufix=false] - boolean
+     * @param [withSuffix=false] - boolean
      * @returns A random string that is a valid discord username.
      */
-    public static randomDiscordUsername(withSufix = false): string {
+    public static randomDiscordUsername(withSuffix = false): string {
         const length = Random.randomInt(4, 33);
         let name = StringUtil.randomString(length);
 
@@ -50,7 +50,7 @@ export default class StringUtil {
             name = StringUtil.randomDiscordUsername(false);
         }
 
-        if (!withSufix) return name;
+        if (!withSuffix) return name;
         return `${name}#${Random.randomInt(0, 10)}${Random.randomInt(0, 10)}${Random.randomInt(0, 10)}${Random.randomInt(0, 10)}`;
     }
 
@@ -118,7 +118,7 @@ export default class StringUtil {
      * @returns A boolean value.
      */
     public static isHTTPUrl(value: string): boolean {
-        return /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(value);
+        return /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/.test(value);
     }
 
     /**
@@ -127,7 +127,7 @@ export default class StringUtil {
      * @returns A boolean value.
      */
     public static isUrlWithoutHTTP(value: string): boolean {
-        return /[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(value);
+        return /[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/.test(value);
     }
 
     /**
@@ -208,7 +208,7 @@ export default class StringUtil {
      * @returns A boolean value.
      */
     public static isIPv6(value: string): boolean {
-        return /^(([0-9a-fA-F]{1,4}:){7,7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]{1,}|::(ffff(:0{1,4}){0,1}:){0,1}((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9])\.){3,3}(25[0-5]|(2[0-4]|1{0,1}[0-9]){0,1}[0-9]))$/.test(value);
+        return /^(([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,7}:|([0-9a-fA-F]{1,4}:){1,6}:[0-9a-fA-F]{1,4}|([0-9a-fA-F]{1,4}:){1,5}(:[0-9a-fA-F]{1,4}){1,2}|([0-9a-fA-F]{1,4}:){1,4}(:[0-9a-fA-F]{1,4}){1,3}|([0-9a-fA-F]{1,4}:){1,3}(:[0-9a-fA-F]{1,4}){1,4}|([0-9a-fA-F]{1,4}:){1,2}(:[0-9a-fA-F]{1,4}){1,5}|[0-9a-fA-F]{1,4}:((:[0-9a-fA-F]{1,4}){1,6})|:((:[0-9a-fA-F]{1,4}){1,7}|:)|fe80:(:[0-9a-fA-F]{0,4}){0,4}%[0-9a-zA-Z]+|::(ffff(:0{1,4})?:)?((25[0-5]|(2[0-4]|1?[0-9])?[0-9])\.){3}(25[0-5]|(2[0-4]|1?[0-9])?[0-9])|([0-9a-fA-F]{1,4}:){1,4}:((25[0-5]|(2[0-4]|1?[0-9])?[0-9])\.){3}(25[0-5]|(2[0-4]|1?[0-9])?[0-9]))$/.test(value);
     }
 
     /**
@@ -227,7 +227,7 @@ export default class StringUtil {
      * @returns A boolean value.
      */
     public static isMacAddress(value: string): boolean {
-        return /^(?:[0-9A-Fa-f]{2}[:-]){5}(?:[0-9A-Fa-f]{2})$/.test(value);
+        return /^(?:[0-9A-Fa-f]{2}[:-]){5}[0-9A-Fa-f]{2}$/.test(value);
     }
 
     /**
@@ -354,7 +354,6 @@ export default class StringUtil {
      * @returns The number of words in the string.
      */
     public static wordCount(str: string): number {
-        if (typeof str !== 'string') { return -1; };
         const sus = str.match(/\b\w+\b/);
         if (!sus) { return 0; }
         return sus.length;
@@ -424,7 +423,7 @@ export default class StringUtil {
      * @returns The string with the text inserted at the offset.
      */
     public static spilce(str: string, offset: number, removeCount: number | undefined, text = ""): string {
-        if (typeof str !== "string" || typeof offset !== 'number' || offset > str.length) return "";
+        if (offset > str.length) return "";
         const calculatedOffset = offset < 0 ? StringUtil.length + offset : offset;
         return str.substring(0, calculatedOffset) + text + str.substring(calculatedOffset + (removeCount ? removeCount : 0));
     }

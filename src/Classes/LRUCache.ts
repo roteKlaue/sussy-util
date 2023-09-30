@@ -7,7 +7,7 @@ import ObjectPool from "./ObjectPool";
  * @template Value - The type of values stored in the cache.
  */
 export default class LRUCache<Key, Value> {
-    private capacity: number;
+    private readonly capacity: number;
     private cache: Map<Key, Value>;
     private usageOrder: DoublyLinkedList<Key>;
     private objectPool: ObjectPool<DoublyLinkedListNode<Key>>;

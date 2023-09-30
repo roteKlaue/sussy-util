@@ -3,7 +3,7 @@
 /node_modules
 .gitattributes
 tsconfig.json
-.vscode
+/.vscode
 pnpm-lock.yaml
 logo.png
 /.github
@@ -16,3 +16,6 @@ features.mdx
 introduction.mdx
 favicon.png
 mint.json
+.dccache
+snyk.exe
+/.idea

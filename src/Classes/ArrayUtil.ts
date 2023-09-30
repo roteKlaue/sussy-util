@@ -156,24 +156,24 @@ class ArrayUtils {
     }
 
     /**
-     * It takes an array and returns a new array with all the unique subarrays.
-     * @param {any[][]} arr - any[][] - The array to get the unique subarrays from.
-     * @returns A new array with all the unique subarrays.
+     * It takes an array and returns a new array with all the unique sub-arrays.
+     * @param {any[][]} arr - any[][] - The array to get the unique sub-arrays from.
+     * @returns A new array with all the unique sub-arrays.
      */
-    public uniqueSubarrays(arr: any[][]): any[][] {
+    public uniqueSubArrays(arr: any[][]): any[][] {
         const map = new Map(arr.map(v => [JSON.stringify(v), v]));
         return [...map.values()];
     }
 
 
     /**
-     * Finds the k-th smallest element in an array using the Quickselect algorithm.
+     * Finds the k-th smallest element in an array using the QuickSelect algorithm.
      *
      * @param {number[]} arr - The input array.
      * @param {number} k - The index of the desired smallest element (1-based).
      * @returns {number} The k-th smallest element in the array.
      */
-    public quickselect(arr: number[], k: number): number {
+    public quickSelect(arr: number[], k: number): number {
         if (arr.length === 1) {
             return arr[0];
         }
@@ -184,11 +184,11 @@ class ArrayUtils {
         const pivots = arr.filter(x => x === pivot);
 
         if (k < lows.length) {
-            return this.quickselect(lows, k);
+            return this.quickSelect(lows, k);
         } else if (k < lows.length + pivots.length) {
             return pivots[0];
         }
-        return this.quickselect(highs, k - lows.length - pivots.length);
+        return this.quickSelect(highs, k - lows.length - pivots.length);
     }
 
     /**

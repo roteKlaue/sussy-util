@@ -1,11 +1,13 @@
 import addProperty from "./addProperty";
 import asyncHandler from "./asyncHandler";
+import asyncify from "./asyncify";
 import asyncTimeout from "./asyncTimeout";
 import attributesToArray from "./attributesToArray";
 import b64ToString from "./b64ToString";
 import bytesToSize from "./bytes";
 import callbackify from "./callbackify";
 import callIfFunction from "./callIfFunction";
+import debounce from "./debounce";
 import deepClone from "./deepClone";
 import deepCompare from "./deepCompare";
 import fibonacci from "./fibonacci";
@@ -30,12 +32,14 @@ import toOrdinal from "./toOrdinal";
 export {
     addProperty,
     asyncHandler,
+    asyncify,
     asyncTimeout,
     attributesToArray,
     b64ToString,
     bytesToSize,
     callbackify,
     callIfFunction,
+    debounce,
     deepClone,
     deepCompare,
     fibonacci,

@@ -33,7 +33,6 @@ export default class ImprovedArray<T> extends Array<T> {
      * is removed, an array of one element is returned.
      */
     public remove(index: number): T {
-        if (typeof index !== 'number') throw new TypeError('index must be a number');
         if (index >= this.length || index < 0) throw new IndexOutOfBoundsError(`${index} is out of bounds for length: ${this.length}`);
         return this.splice(Math.floor(index), 1)[0];
     }
@@ -45,7 +44,6 @@ export default class ImprovedArray<T> extends Array<T> {
      * @param {T[]} items - T[]
      */
     public insertAt(index: number, ...items: T[]): void {
-        if (typeof index !== 'number') throw new TypeError('index must be a number');
         if (index >= this.length || index < 0) throw new IndexOutOfBoundsError(`${index} is out of bounds for length: ${this.length}`);
         this.push(...items, ...this.splice(index, this.length - index - 1));
     }
@@ -125,7 +123,7 @@ export default class ImprovedArray<T> extends Array<T> {
      * @returns The number of times the value is found in the array.
      */
     public countOccurrences(value: T): number {
-        return this.reduce((a: number, v: T) => v === value ? a + 1 : a + 0, 0);
+        return this.reduce((a: number, v: T) => v === value ? a + 1 : a, 0);
     }
 
     /**
