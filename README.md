@@ -1,7 +1,7 @@
 <div align="center">
     <img src="./logo.png" alt="">
     <h3>Sussy-Util</h3>
-    <strong>Version 11</strong>
+    <strong>Version 12 DEV</strong>
     <br>
     <a href="https://www.npmjs.com/package/sussy-util">
         <img src="https://img.shields.io/npm/v/sussy-util.svg?style=flat" alt="">

@@ -12,7 +12,7 @@ class ArrayUtils {
      * item into the result array.
      * @param {any[]} arr - any[] - The array to flatten.
      */
-    public flat<T>(arr: Array<T|T[]>): T[] {
+    public flat<T>(arr: Array<T | T[]>): T[] {
         const result: T[] = [];
         for (const item of arr) {
             if (Array.isArray(item)) {
@@ -101,7 +101,7 @@ class ArrayUtils {
      */
     public deepClone<T>(array: T[]): Array<T> {
         return array.map(e => deepClone(e as MutableObject<any>) as T);
-    }    
+    }
 
     /**
      * It takes an array of any type, and returns an array of the same type, with all duplicates
@@ -225,6 +225,28 @@ class ArrayUtils {
         const sortedGreater = this.quickSort(greater, compareFn);
 
         return sortedSmaller.concat(equal, sortedGreater);
+    }
+
+    /**
+     * Splits an array into smaller arrays of a specified size.
+     *
+     * @template T
+     * @param {T[]} array - The array to be chunked.
+     * @param {number} chunkSize - The size of each chunk.
+     * @returns {T[][]} - An array of smaller arrays (chunks).
+     */
+    public chunks<T>(array: T[], chunkSize: number): T[][] {
+        if (chunkSize <= 0) {
+            throw new Error('Chunk size must be greater than 0.');
+        }
+
+        const chunkedArray: T[][] = [];
+        for (let i = 0; i < array.length; i += chunkSize) {
+            const chunk = array.slice(i, i + chunkSize);
+            chunkedArray.push(chunk);
+        }
+
+        return chunkedArray;
     }
 
     public static getInstance(): ArrayUtils {

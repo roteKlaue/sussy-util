@@ -1,5 +1,4 @@
 import addProperty from "./addProperty";
-import asyncHandler from "./asyncHandler";
 import asyncify from "./asyncify";
 import asyncTimeout from "./asyncTimeout";
 import attributesToArray from "./attributesToArray";
@@ -31,7 +30,6 @@ import toOrdinal from "./toOrdinal";
 
 export {
     addProperty,
-    asyncHandler,
     asyncify,
     asyncTimeout,
     attributesToArray,
