@@ -5,7 +5,7 @@ import IsSomething from "../Classes/IsSomething";
  * @param {any} arg - The value to be tested.
  * @returns {string} A string representing the data type of the given variable.
  */
-    export default (arg: any): string | undefined => {
+export default (arg: any): string | undefined => {
     // Check for primitive data types
     if (['boolean', 'number', 'string', 'symbol', 'bigint', 'undefined'].includes(typeof arg)) {
         return typeof arg;

@@ -1,5 +1,4 @@
 import addProperty from "./addProperty";
-import asyncify from "./asyncify";
 import asyncTimeout from "./asyncTimeout";
 import attributesToArray from "./attributesToArray";
 import b64ToString from "./b64ToString";
@@ -30,7 +29,6 @@ import toOrdinal from "./toOrdinal";
 
 export {
     addProperty,
-    asyncify,
     asyncTimeout,
     attributesToArray,
     b64ToString,

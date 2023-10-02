@@ -14,6 +14,7 @@ import ObjectPool from "./ObjectPool";
 import Point from "./Point";
 import Point3d from "./Point3d";
 import PrimeNumbers from "./PrimeNumbers";
+import PromiseUtil from "./PromiseUtil";
 import Queue from "./Queue";
 import Random from "./Random";
 import Set from "./Set";
@@ -42,6 +43,7 @@ export {
     Point,
     Point3d,
     PrimeNumbers,
+    PromiseUtil,
     Queue,
     Random,
     Set,
