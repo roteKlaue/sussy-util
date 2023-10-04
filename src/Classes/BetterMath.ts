@@ -228,6 +228,22 @@ class BetterMath {
     }
 
     /**
+     * Calculate the factorial of a number using memoization.
+     * @param {number} num - The number to calculate the factorial of.
+     * @param {Map<number, number>} memo - A memoization map to store computed results (optional).
+     * @returns {number} The factorial of the number.
+     */
+    public factorialWithMemoization(num: number, memo: Map<number, number> = new Map<number, number>()): number {
+        if (memo.has(num)) {
+            return memo.get(num)!;
+        }
+
+        const result = num <= 1 ? 1 : num * this.factorialWithMemoization(num - 1, memo);
+        memo.set(num, result);
+        return result;
+    }
+
+    /**
      * Counts the number of decimal digits in the fractional part of a number.
      *
      * @param {number} number - The input number to count decimal digits for.

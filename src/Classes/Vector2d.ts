@@ -1,11 +1,5 @@
 export default class Vector2d {
-    public readonly x: number;
-    public readonly y: number;
-
-    constructor(x: number = 0, y: number = 0) {
-        this.x = x;
-        this.y = y;
-    }
+    constructor(public readonly x: number = 0, public readonly y: number = 0) {}
 
     /**
      * Creates a copy of the vector.

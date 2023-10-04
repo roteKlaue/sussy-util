@@ -1,13 +1,7 @@
 import Vector2d from "./Vector2d";
 
 export default class Point {
-    public readonly y: number;
-    public readonly x: number;
-
-    constructor(x: number, y: number) {
-        this.x = x;
-        this.y = y;
-    }
+    constructor(public readonly x: number, public readonly y: number) {}
 
     /**
      * This function takes a Point object as an argument and returns the distance between the two

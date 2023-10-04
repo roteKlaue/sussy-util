@@ -18,6 +18,7 @@ import mapObjectValues from "./mapObjectValues";
 import measureTime from "./measureTime";
 import merge from "./merge";
 import objectToString from "./objectToString";
+import parseArgs from "./parseArguments";
 import removeFirstDigit from "./removeFirstDigit";
 import removeLastDigit from "./removeLastDigit";
 import removeProperty from "./removeProperty";
@@ -48,6 +49,7 @@ export {
     measureTime,
     merge,
     objectToString,
+    parseArgs,
     removeFirstDigit,
     removeLastDigit,
     removeProperty,

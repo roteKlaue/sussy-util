@@ -1,13 +1,5 @@
 export default class Vector3d {
-    public readonly x: number;
-    public readonly y: number;
-    public readonly z: number;
-
-    constructor(x: number = 0, y: number = 0, z: number = 0) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
-    }
+    constructor(public readonly x: number = 0, public readonly y: number = 0, public readonly z: number = 0) {}
 
     /**
      * Creates a new Vector3d instance with the same x, y, and z values as the current vector.

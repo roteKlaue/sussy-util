@@ -1,21 +1,13 @@
 import Vector3d from "./Vector3d";
 
 export default class Point3d {
-    public readonly x: number;
-    public readonly y: number;
-    public readonly z: number;
-
     /**
      * Creates a new Point3d instance.
      * @param {number} x - The x-coordinate of the point.
      * @param {number} y - The y-coordinate of the point.
      * @param {number} z - The z-coordinate of the point.
      */
-    constructor(x: number, y: number, z: number) {
-        this.x = x;
-        this.y = y;
-        this.z = z;
-    }
+    constructor(public readonly x: number, public readonly y: number, public readonly z: number) {}
 
     /**
      * Calculates the distance between this point and another point in 3D space.

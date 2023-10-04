@@ -3,7 +3,7 @@ import { ImprovedArray } from ".";
 export default class Queue<T> {
     private items: ImprovedArray<T> = new ImprovedArray<T>();
 
-    constructor(initElm: Array<T>) {
+    constructor(initElm: T[]) {
         this.items.push(...initElm);
     };
 
