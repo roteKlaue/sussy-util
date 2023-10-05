@@ -1,4 +1,5 @@
 import { MapEntry } from "../Types";
+import Optional from "./Optional";
 
 type Predicate<V, K> = (value: V, key: K, collection: Collection<K, V>) => boolean;
 
@@ -8,13 +9,13 @@ export default class Collection<K, V> extends Map<K, V> {
 	 * @param {K} key - The key of the element to remove from the Map object.
 	 * @returns The object that was removed from the map.
 	 */
-	public remove(key: K): MapEntry<K, V> | undefined {
+	public remove(key: K): Optional<MapEntry<K, V>> {
 		const object = this.get(key);
 		if (!object) {
-			return void 0;
+			return Optional.empty();
 		}
 		this.delete(key);
-		return { key: key, value: object };
+		return Optional.of({ key: key, value: object });
 	}
 
 	public toString(): string {

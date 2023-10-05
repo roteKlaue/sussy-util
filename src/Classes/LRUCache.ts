@@ -1,4 +1,5 @@
 import ObjectPool from "./ObjectPool";
+import Optional from "./Optional";
 
 /**
  * A Least Recently Used (LRU) Cache implementation with a fixed capacity.
@@ -32,13 +33,13 @@ export default class LRUCache<Key, Value> {
      * @param {Key} key - The key for the desired value.
      * @returns {Value | undefined} - The value associated with the key, or undefined if not found.
      */
-    get(key: Key): Value | undefined {
+    get(key: Key): Optional<Value> {
         if (this.cache.has(key)) {
             const value = this.cache.get(key)!;
             this.usageOrder.moveToFront(key);
-            return value;
+            return Optional.of(value);
         }
-        return void 0;
+        return Optional.empty();
     }
 
     /**
@@ -89,7 +90,7 @@ export default class LRUCache<Key, Value> {
         this.cache.clear();
         this.usageOrder.clear();
     }
-    
+
     /**
      * Get an array of all keys currently in the cache.
      *
@@ -98,7 +99,7 @@ export default class LRUCache<Key, Value> {
     getAllKeys(): Key[] {
         return Array.from(this.cache.keys());
     }
-    
+
     /**
      * Get an array of all values currently in the cache.
      *
@@ -106,8 +107,8 @@ export default class LRUCache<Key, Value> {
      */
     getAllValues(): Value[] {
         return Array.from(this.cache.values());
-    } 
-    
+    }
+
     /**
      * Get a generator yielding all entries (key-value pairs) in the cache.
      *
@@ -201,13 +202,13 @@ class DoublyLinkedList<T> {
         return lastNode.value;
     }
 
-     /**
-     * Remove a node with a specific value from the linked list.
-     *
-     * @param {T} value - The value of the node to remove.
-     * @returns {boolean} - True if the node was found and removed, false otherwise.
-     */
-     remove(value: T): boolean {
+    /**
+    * Remove a node with a specific value from the linked list.
+    *
+    * @param {T} value - The value of the node to remove.
+    * @returns {boolean} - True if the node was found and removed, false otherwise.
+    */
+    remove(value: T): boolean {
         let currentNode = this.head;
         while (currentNode !== null && currentNode.value !== value) {
             currentNode = currentNode.next;
@@ -272,7 +273,7 @@ class DoublyLinkedList<T> {
     /**
      * Clear the linked list, removing all nodes.
      */
-    clear()  {
+    clear() {
         this.head = null;
         this.tail = null;
     }

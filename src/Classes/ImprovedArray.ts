@@ -130,7 +130,7 @@ export default class ImprovedArray<T> extends Array<T> {
      * It takes an array of arrays and flattens it into a single array.
      */
     public flatten(): void {
-        const newARR = ArrayUtils.flat(this);
+        const newARR = ArrayUtils.flat<T>(this);
         this.clear();
         this.push(...newARR);
     }

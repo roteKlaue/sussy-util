@@ -30,6 +30,7 @@
 - [union](ArrayUtil.md#union)
 - [uniqueSubarrays](ArrayUtil.md#uniquesubarrays)
 - [zip](ArrayUtil.md#zip)
+- [chunks](ArrayUtil.md#chunks)
 - [getInstance](ArrayUtil.md#getinstance)
 
 ## Constructors
@@ -288,9 +289,9 @@ The sorted array.
 
 ___
 
-### quickselect
+### quickSelect
 
-▸ **quickselect**(`arr`, `k`): `number`
+▸ **quickSelect**(`arr`, `k`): `number`
 
 Finds the k-th smallest element in an array using the Quickselect algorithm.
 
@@ -466,9 +467,9 @@ An array of unique values from both arrays.
 
 ___
 
-### uniqueSubarrays
+### uniqueSubArrays
 
-▸ **uniqueSubarrays**(`arr`): `any`[][]
+▸ **uniqueSubArrays**(`arr`): `any`[][]
 
 It takes an array and returns a new array with all the unique subarrays.
 
@@ -519,6 +520,37 @@ An array of tuples.
 #### Defined in
 
 [ArrayUtil.ts:131](https://github.com/roteKlaue/SussyUtilMadeByMe/blob/b43239d/src/Classes/ArrayUtil.ts#L131)
+
+___
+
+### chunks
+
+▸ **chunks**<`T`>(`array`, `chunkSize`): `T`[][] 
+
+Splits an array into smaller arrays of a specified size.
+
+#### Type parameters
+
+| Name |
+| :------ |
+| `T` |
+
+#### Parameters
+
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `array` | `T`[] | The array to be chunked. |
+| `chunkSize` | number | The size of each chunk. |
+
+#### Returns
+
+`T`[][]
+
+An array of smaller arrays (chunks).
+
+#### Defined in
+
+[ArrayUtil.ts:238]
 
 ___
 
