@@ -1,25 +1,25 @@
 <div align="center">
-    <img src="./logo.png">
+    <img src="./logo.png" alt="">
     <h3>Sussy-Util</h3>
-    <strong>Version 11</strong>
+    <strong>Version 12 DEV</strong>
     <br>
     <a href="https://www.npmjs.com/package/sussy-util">
-        <img src="https://img.shields.io/npm/v/sussy-util.svg?style=flat">
+        <img src="https://img.shields.io/npm/v/sussy-util.svg?style=flat" alt="">
     </a>
     <a href="https://npmjs.org/package/sussy-util">
-        <img src="https://img.shields.io/npm/dt/sussy-util.svg?style=flat">
+        <img src="https://img.shields.io/npm/dt/sussy-util.svg?style=flat" alt="">
     </a>
     <a href="https://packagephobia.com/result?p=sussy-util">
-        <img src="https://packagephobia.com/badge?p=sussy-util">
+        <img src="https://packagephobia.com/badge?p=sussy-util" alt="">
     </a>
     <a href="#contributors">
-        <img src="https://img.shields.io/badge/all_contributors-1-red.svg?style=flat">
+        <img src="https://img.shields.io/badge/all_contributors-1-red.svg?style=flat" alt="">
     </a>
     <a href="https://www.npmjs.com/package/sussy-util">
-        <img src="https://shields.io/npm/l/sussy-util.svg">
+        <img src="https://shields.io/npm/l/sussy-util.svg" alt="">
     </a>
     <a href="https://www.jsdelivr.com/package/npm/sussy-util">
-        <img src="https://data.jsdelivr.com/v1/package/npm/sussy-util/badge?style=rounded">
+        <img src="https://data.jsdelivr.com/v1/package/npm/sussy-util/badge?style=rounded" alt="">
     </a>
 
 </div>

@@ -1,9 +1,9 @@
-import { ImprovedArray } from ".";
+import { ImprovedArray, Optional } from ".";
 
 export default class Queue<T> {
     private items: ImprovedArray<T> = new ImprovedArray<T>();
 
-    constructor(initElm: Array<T>) {
+    constructor(initElm: T[]) {
         this.items.push(...initElm);
     };
 
@@ -19,16 +19,16 @@ export default class Queue<T> {
      * It returns the first element of the array
      * @returns The first item in the array.
      */
-    public peek(): T | undefined {
-        return this.items[0];
+    public peek(): Optional<T> {
+        return Optional.of(this.items[0]);
     }
 
     /**
      * It removes the first element from an array and returns that element
      * @returns The first element of the array.
      */
-    public shift(): T | undefined {
-        return this.items.shift();
+    public shift(): Optional<T> {
+        return Optional.of(this.items.shift());
     }
 
     /**

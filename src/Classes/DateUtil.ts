@@ -1,4 +1,4 @@
-import { MutableObject } from "../Types";
+import {MutableObject} from "../Types";
 
 class DateUtil {
     private static instance: DateUtil = new DateUtil();
@@ -77,7 +77,6 @@ class DateUtil {
      * @returns {string} The month abbreviation.
      */
     public getMonthAbbr(number: number): string {
-        if (typeof number !== 'number') throw new TypeError("expected number for number");
         return DateUtil.monthAbrs[number] ? DateUtil.monthAbrs[number] : "";
     }
 
@@ -87,7 +86,6 @@ class DateUtil {
      * @returns {string} The full name of the month.
      */
     public getMonthFullName(number: number): string {
-        if (typeof number !== 'number') throw new TypeError("expected number for number");
         return DateUtil.mFullNames[number] ? DateUtil.mFullNames[number] : "";
     }
 
@@ -97,7 +95,6 @@ class DateUtil {
      * @returns {string} The day abbreviation.
      */
     public getDayAbbr(number: number): string {
-        if (typeof number !== 'number') throw new TypeError("expected number for number");
         return DateUtil.dayAbrs[number] ? DateUtil.dayAbrs[number] : "";
     }
 
@@ -107,7 +104,6 @@ class DateUtil {
      * @returns {string} The full name of the day.
      */
     public getDayFullName(number: number): string {
-        if (typeof number !== 'number') throw new TypeError("expected number for number");
         return DateUtil.dFullNames[number] ? DateUtil.dFullNames[number] : "";
     }
 
@@ -117,7 +113,6 @@ class DateUtil {
      * @returns {boolean} True if the year is a leap year, false otherwise.
      */
     public isLeapYear(year: number): boolean {
-        if (typeof year !== 'number') throw new TypeError("expected number for year");
         return !(year % (year % 100 ? 4 : 400));
     }
 
@@ -146,7 +141,6 @@ class DateUtil {
      * @returns {number[]} An array of leap years.
      */
     public leapYearsInRange(startYear: number, endYear: number): number[] {
-        if (typeof startYear !== 'number' || typeof endYear !== 'number') throw new TypeError("expected number for start and endYear");
         const sus = [];
 
         for (let i = startYear; i <= endYear; i++) {
@@ -240,8 +234,7 @@ class DateUtil {
         const date1 = this.toDate(dt1);
         const date2 = this.toDate(dt2);
         const diffTime = date2.getTime() - date1.getTime();
-        const diffDays = Math.ceil(diffTime / (1000 * 3600 * 24));
-        return diffDays;
+        return Math.ceil(diffTime / (1000 * 3600 * 24));
     }
 
     /**

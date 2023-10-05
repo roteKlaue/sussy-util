@@ -22,7 +22,7 @@ export class PrimeNumbers {
     }
 
     /**
-     * adds n amount of prime numbers to the the cache and returns it
+     * adds n amount of prime numbers to the cache and returns it
      * @param {number} num - number - The number of primes to add to the list.
      * @returns The array of primes.
      */

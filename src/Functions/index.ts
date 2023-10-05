@@ -1,11 +1,11 @@
 import addProperty from "./addProperty";
-import asyncHandler from "./asyncHandler";
 import asyncTimeout from "./asyncTimeout";
 import attributesToArray from "./attributesToArray";
 import b64ToString from "./b64ToString";
 import bytesToSize from "./bytes";
 import callbackify from "./callbackify";
 import callIfFunction from "./callIfFunction";
+import debounce from "./debounce";
 import deepClone from "./deepClone";
 import deepCompare from "./deepCompare";
 import fibonacci from "./fibonacci";
@@ -18,6 +18,7 @@ import mapObjectValues from "./mapObjectValues";
 import measureTime from "./measureTime";
 import merge from "./merge";
 import objectToString from "./objectToString";
+import parseArgs from "./parseArguments";
 import removeFirstDigit from "./removeFirstDigit";
 import removeLastDigit from "./removeLastDigit";
 import removeProperty from "./removeProperty";
@@ -29,13 +30,13 @@ import toOrdinal from "./toOrdinal";
 
 export {
     addProperty,
-    asyncHandler,
     asyncTimeout,
     attributesToArray,
     b64ToString,
     bytesToSize,
     callbackify,
     callIfFunction,
+    debounce,
     deepClone,
     deepCompare,
     fibonacci,
@@ -48,6 +49,7 @@ export {
     measureTime,
     merge,
     objectToString,
+    parseArgs,
     removeFirstDigit,
     removeLastDigit,
     removeProperty,

@@ -19,12 +19,12 @@ export default class AbstractClass<T extends {}> {
         }
 
         if (!isClass(Constructor)) throw new TypeError("Constructor must be the constructor of a class.");
-        if (this.constructor == Constructor) {
+        if (this.constructor === Constructor) {
             // if constructor is the same as the instance constructor then we know that a user is trying to make a new instance of an abstract class
             throw new AbstractClassInstanceCallError("You can't instantiate a new instance of a abstract class.");
         }
 
-        if(this.constructor == AbstractClass.prototype.constructor) {
+        if(this.constructor === AbstractClass.prototype.constructor) {
             throw new AbstractClassInstanceCallError("You can't instantiate a new instance of a abstract class.");
         }
     }

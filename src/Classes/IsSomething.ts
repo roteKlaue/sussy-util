@@ -46,7 +46,7 @@ class IsSomething {
     }
 
     /**
-     * If the argument is an object and it's constructor is the Date constructor and it's an instance
+     * If the argument is an object, and it's constructor is the Date constructor, and it's an instance
      * of Date, then it's a Date
      * @param {any} arg - any
      * @returns The constructor of the Date object.
@@ -74,7 +74,7 @@ class IsSomething {
     }
 
     /**
-     * If the argument is an object and it's constructor is the Error constructor and it's an instance
+     * If the argument is an object, and it's constructor is the Error constructor, and it's an instance
      * of Error, then it's an error
      * @param {any} arg - any
      * @returns The constructor of the Error object.
@@ -89,9 +89,6 @@ class IsSomething {
      * @returns A function that takes a number and returns a boolean or null.
      */
     public isEven(num: number): boolean | null {
-        if (typeof num !== "number") {
-            return null;
-        }
         return num / 2 === 0;
     }
 
@@ -145,10 +142,6 @@ class IsSomething {
      * @returns A boolean value.
      */
     public isPrime(num: number): boolean | null {
-        if (typeof num !== 'number') {
-            return null;
-        }
-
         if (num < 2) {
             return false;
         }

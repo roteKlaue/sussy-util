@@ -1,61 +1,62 @@
 [sussy-util](../README.md) / [classes](./README.md) / BuilderBuilder
 
-# Class: BuilderBuilder<T>
+# BuilderBuilder<T\> Class
+A builder for creating instances of the GenericBuilder class, allowing construction of instances of a specified class using fluent API-style method calls.
 
-A builder for creating instances of the `GenericBuilder` class, enabling the construction of instances of a specified class using fluent API-style method calls.
+## Usage
 
-## Type Parameters
+```ts
+import { BuilderBuilder } from 'sussy-util';
 
-- `T`: The type of class for which instances are built using the `GenericBuilder`.
+// Create a builder for a GenericBuilder for a specific class
+const builderBuilder = new BuilderBuilder(MyClass);
+
+// Build a GenericBuilder constructor for the specified class
+const GenericBuilderConstructor = builderBuilder.build();
+
+// Use the GenericBuilder to build instances
+const builder = new GenericBuilderConstructor();
+const instance = builder.build();
+```
 
 ## Constructor
-
-### constructor
-
-Create an instance of the `BuilderBuilder` class.
-
-**Parameters:**
-
-- `ClassType` (`Constructor<T>`): The constructor function of the class for which instances will be built.
+**`constructor(ClassType: Constructor<T>, CreationType: string = 'objectPropertyReading')`**
+ - ClassType: The constructor of the target class for which a builder is to be generated.
+ - CreationType: Specifies the method used for creating the builder:
+    - "constructorReading": Parses instance variables based on the constructor's signature.
+        **IMPORTANT**: The constructor must be the first function in the class.
+    - "objectPropertyReading": Generates setters based on the class's properties.
+        **IMPORTANT**: The target class's constructor should work with no properties given.
 
 ## Methods
+ - `build()`: Constructor<GenericBuilder<T\>>
+    Builds and returns a constructor for a generic builder class associated with the target class.
 
-### build
+## Example
+```ts
+class MyClass {
+    constructor(public prop1: string, public prop2: number) {}
+}
 
-Build and return an instance of the `GenericBuilder` class with the specified class type.
+// Create a builder for MyClass using constructorReading
+const builderBuilder = new BuilderBuilder(MyClass, 'constructorReading');
 
-**Returns:**
+// Build a GenericBuilder constructor for MyClass
+const GenericBuilderConstructor = builderBuilder.build();
 
-- `GenericBuilder<T>`: An instance of the `GenericBuilder` class with the specified class type.
-
----
-
-# Class: GenericBuilder<T>
+// Use the GenericBuilder to build instances
+const builder = new GenericBuilderConstructor();
+const instance = builder.setProp1('Value1').setProp2(42).build();
+```
+# GenericBuilder Class
 
 A generic builder class that facilitates the construction of instances for a specified class by setting attributes using fluent API-style method calls.
 
-## Type Parameters
-
-- `T`: The type of class for which instances are built.
-
-## Properties
-
-### attributes
-
-An object containing the partial attributes set using the builder methods.
+## Constructor
+**`constructor(ClassType: Constructor<T>, Type: string)`**
+ - ClassType: The constructor function of the class for which instances will be built.
+ - Type: The type of builder to create, either "constructorReading" or "objectPropertyReading".
 
 ## Methods
-
-### build
-
-Build and return an instance of the specified class type with the attributes set using the builder methods.
-
-**Returns:**
-
-- `T`: An instance of the specified class type with attributes set.
-
-## Explanation
-
-The `BuilderBuilder` class provides a convenient way to create instances of the `GenericBuilder` class tailored for a specific class type. The `GenericBuilder` class allows you to construct instances of the specified class by setting attributes using fluent API-style method calls. This approach can lead to more readable and maintainable code when constructing complex objects with many properties.
-
-By using the `BuilderBuilder` and `GenericBuilder` classes, you can simplify the process of creating instances with customizable attributes and ensure that the builder methods correspond to the properties of the target class. This pattern is particularly useful for scenarios where object creation involves a variety of optional and customizable attributes.
+ - `build()`: T
+    Build and return an instance of the specified class type with the attributes set using the builder methods.

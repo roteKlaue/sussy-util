@@ -147,10 +147,10 @@ class BetterMath {
         const middle = Math.floor(length / 2);
 
         if (length % 2 === 0) {
-            return (ArrayUtils.quickselect(values, middle - 1) + ArrayUtils.quickselect(values, middle)) / 2;
+            return (ArrayUtils.quickSelect(values, middle - 1) + ArrayUtils.quickSelect(values, middle)) / 2;
         }
 
-        return ArrayUtils.quickselect(values, middle);
+        return ArrayUtils.quickSelect(values, middle);
     }
 
     /**
@@ -225,6 +225,22 @@ class BetterMath {
      */
     public radiansToDegrees(radians: number): number {
         return (radians * 180) / Math.PI;
+    }
+
+    /**
+     * Calculate the factorial of a number using memoization.
+     * @param {number} num - The number to calculate the factorial of.
+     * @param {Map<number, number>} memo - A memoization map to store computed results (optional).
+     * @returns {number} The factorial of the number.
+     */
+    public factorialWithMemoization(num: number, memo: Map<number, number> = new Map<number, number>()): number {
+        if (memo.has(num)) {
+            return memo.get(num)!;
+        }
+
+        const result = num <= 1 ? 1 : num * this.factorialWithMemoization(num - 1, memo);
+        memo.set(num, result);
+        return result;
     }
 
     /**

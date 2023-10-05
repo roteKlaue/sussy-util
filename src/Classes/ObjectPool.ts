@@ -1,6 +1,6 @@
 export default class ObjectPool<T> {
+    private readonly createObjectCallback: () => T;
     private pool: T[] = [];
-    private createObjectCallback: () => T;
 
     /**
      * Creates an object pool.

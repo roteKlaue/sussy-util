@@ -41,7 +41,6 @@ export default class Set<T> {
      * @returns The item at the index.
      */
     public get(index: number): T {
-        if (typeof index !== 'number') throw new TypeError('index must be a number');
         if (index < 0 || index >= this.length()) {
             throw new IndexOutOfBoundsError(`Index: ${index} is out of bounds for length ${this.length()}`);
         }
@@ -85,7 +84,6 @@ export default class Set<T> {
      * @param {number} index - number - The index of the item to remove.
      */
     public remove(index: number): void {
-        if (typeof index !== 'number') throw new TypeError('index must be a number');
         if (index < 0 || index >= this.length()) {
             throw new IndexOutOfBoundsError(`Index: ${index} is out of bounds for length ${this.length()}`);
         }

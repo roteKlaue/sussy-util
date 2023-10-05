@@ -1,4 +1,5 @@
 import { EventEmitter } from 'node:events';
+import Optional from './Optional';
 
 export default class StopWatch extends EventEmitter {
     private readonly rounds: number[] = [];
@@ -32,7 +33,7 @@ export default class StopWatch extends EventEmitter {
         this.rounds.push(lapTime);
         this.emit('round', lapTime);
 
-        if (lapTime > (this.threshold? this.threshold : Infinity)) {
+        if (lapTime > (this.threshold ? this.threshold : Infinity)) {
             this.emit('lapExceededThreshold', lapTime);
         }
     }
@@ -105,7 +106,7 @@ export default class StopWatch extends EventEmitter {
     public getMaximumLapTime(): number {
         return Math.max(...this.rounds);
     }
-    
+
     public getMinimumLapTime(): number {
         return Math.min(...this.rounds);
     }
@@ -114,11 +115,11 @@ export default class StopWatch extends EventEmitter {
         this.threshold = threshold;
     }
 
-    public getLapTimeAtIndex(index: number): number | undefined {
+    public getLapTimeAtIndex(index: number): Optional<number> {
         if (index >= 0 && index < this.rounds.length) {
-            return this.rounds[index];
+            return Optional.of(this.rounds[index]);
         }
-        return void 0;
+        return Optional.empty();
     }
 
     /**
