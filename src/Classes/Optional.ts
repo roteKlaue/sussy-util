@@ -1,4 +1,5 @@
 class Optional<T> {
+    private static readonly EMPTY = new Optional<any>(void 0);
     private readonly value: T | undefined;
 
     constructor(value: T | undefined) {
@@ -39,7 +40,20 @@ class Optional<T> {
         if (this.value !== void 0) {
             return new Optional(mapper(this.value));
         }
-        return new Optional<U>(void 0);
+        return Optional.EMPTY;
+    }
+
+    /**
+     * Maps the value to a new Optional if present, otherwise returns an empty Optional.
+     * Then applies a function to the value and flattens the result.
+     * @param mapper A function to transform the value and return an Optional.
+     * @returns An Optional containing the transformed value if present, otherwise an empty Optional.
+     */
+    public flatMap<U>(mapper: (value: T) => Optional<U>): Optional<U> {
+        if (this.value !== void 0) {
+            return mapper(this.value);
+        }
+        return Optional.empty<U>();
     }
 
     /**
@@ -61,7 +75,7 @@ class Optional<T> {
         if (this.value !== void 0 && predicate(this.value)) {
             return new Optional(this.value);
         }
-        return new Optional<T>(void 0);
+        return Optional.EMPTY;
     }
 
     /**
@@ -69,7 +83,7 @@ class Optional<T> {
      * @returns An empty Optional instance.
      */
     public static empty<T>(): Optional<T> {
-        return new Optional<T>(void 0);
+        return this.EMPTY;
     }
 
     /**
@@ -79,6 +93,13 @@ class Optional<T> {
      */
     public static of<T>(value: T | undefined): Optional<T> {
         return new Optional<T>(value);
+    }
+
+    public static ofNullable<T>(value: T | undefined | null) {
+        if (value === null || value === void 0) {
+            return Optional.empty<T>();
+        }
+        return Optional.of<T>(value);
     }
 }
 

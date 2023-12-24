@@ -22,6 +22,7 @@ import Set from "./Set";
 import Stack from "./Stack";
 import StopWatch from "./StopWatch";
 import StringUtil from "./StringUtil";
+import Tuple from "./Tuple";
 import UnitConverter from "./UnitConverter";
 import UrlUtil from "./UrlUtil";
 import Vector2d from "./Vector2d";
@@ -52,6 +53,7 @@ export {
     Stack,
     StopWatch,
     StringUtil,
+    Tuple,
     UnitConverter,
     UrlUtil,
     Vector2d,
