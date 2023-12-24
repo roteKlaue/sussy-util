@@ -15,7 +15,7 @@ class GenericBuilder<T extends {}> implements Builder<T> {
      * @param {Constructor<T>} ClassType - The constructor function of the class for which instances will be built.
      * @param {string} Type - The type of builder to create, either "constructorReading" or "objectPropertyReading".
      */
-    constructor(readonly ClassType: Constructor<T>, readonly Type: string) {
+    public constructor(readonly ClassType: Constructor<T>, readonly Type: string) {
         Type === "objectPropertyReading" ? this.createSettersProperties() : this.createSettersSignature();
         Object.preventExtensions(this);
     }
@@ -96,7 +96,7 @@ class GenericBuilder<T extends {}> implements Builder<T> {
      * Build and return an instance of the specified class type with the attributes set using the builder methods.
      * @returns {T} - An instance of the specified class type with attributes set.
      */
-    build(): T {
+    public build(): T {
         Object.freeze(this.attributes);
         if (this.Type === "objectPropertyReading") {
             return Object.assign(new this.ClassType(), this.attributes);
@@ -131,7 +131,7 @@ export default class BuilderBuilder<T extends {}> implements Builder<Constructor
      * Builds and returns a constructor for a generic builder class associated with the target class.
      * @returns {Constructor<GenericBuilder<T>>} A constructor function for the generic builder class.
      */
-    build(): Constructor<GenericBuilder<T>> {
+    public build(): Constructor<GenericBuilder<T>> {
         return GenericBuilder.bind(GenericBuilder, this.ClassType, this.CreationType) as Constructor<GenericBuilder<T>>;
     }
 }

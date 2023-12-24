@@ -1,5 +1,5 @@
 export default class IndexOutOfBoundsError extends Error {
-    constructor(cause = "") {
+    public constructor(cause = "") {
         super(cause);
     }
 }

@@ -5,7 +5,7 @@ import ArrayUtils from "./ArrayUtil";
 import Random from "./Random";
 
 export default class ImprovedArray<T> extends Array<T> {
-    constructor(..._elements: T[]) {
+    public constructor(..._elements: T[]) {
         super(_elements.length);
         _elements.forEach((_e, i) => this[i] = _e);
     }

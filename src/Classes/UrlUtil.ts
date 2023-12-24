@@ -1,7 +1,7 @@
 import MutableObject from "../Types/MutableObject";
 
 class UrlUtils {
-    private static instance: UrlUtils = new UrlUtils();
+    private static readonly instance: UrlUtils = new UrlUtils();
     private constructor() { }
 
     /**

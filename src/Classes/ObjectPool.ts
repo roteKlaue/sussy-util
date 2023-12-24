@@ -7,7 +7,7 @@ export default class ObjectPool<T> {
      * @param {() => T} createObjectCallback A function that creates new objects for the pool.
      * @param {number} [initialPoolSize=0] The initial size of the object pool.
      */
-    constructor(createObjectCallback: () => T, initialPoolSize: number = 0) {
+    public constructor(createObjectCallback: () => T, initialPoolSize: number = 0) {
         this.createObjectCallback = createObjectCallback;
         this.populatePool(initialPoolSize);
     }

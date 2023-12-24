@@ -2,7 +2,7 @@ class Optional<T> {
     private static readonly EMPTY = new Optional<any>(void 0);
     private readonly value: T | undefined;
 
-    constructor(value: T | undefined) {
+    public constructor(value: T | undefined) {
         this.value = value;
     }
 

@@ -4,7 +4,7 @@ import { ImprovedArray } from ".";
 export default class Stack<T> {
     private items: ImprovedArray<T>;
 
-    constructor(initElm: T[] = []) {
+    public constructor(initElm: T[] = []) {
         this.items = new ImprovedArray<T>(...initElm);
     }
 

@@ -1,7 +1,7 @@
 import { ArrayUtils, Point } from ".";
 
 class BetterMath {
-    private static instance: BetterMath = new BetterMath();
+    private static readonly instance: BetterMath = new BetterMath();
     private constructor() { }
 
     /**

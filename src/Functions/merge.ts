@@ -1,3 +1,1 @@
-export default (a: object, b: object): object => {
-    return { ...a, ...b };
-}
+export default (a: object, b: object): object => ({ ...a, ...b });

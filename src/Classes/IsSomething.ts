@@ -141,7 +141,7 @@ class IsSomething {
      * @param {number} num - number - The number to check if it's prime.
      * @returns A boolean value.
      */
-    public isPrime(num: number): boolean | null {
+    public isPrime(num: number): boolean {
         if (num < 2) {
             return false;
         }
@@ -151,7 +151,7 @@ class IsSomething {
         }
 
         for (let i = 3; i <= Math.floor(Math.sqrt(num)); i++) {
-            if (num % 2 === 0)
+            if (num % i === 0)
                 return false;
         }
 

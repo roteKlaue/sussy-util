@@ -1,5 +1,5 @@
 export default class Vector3d {
-    constructor(public readonly x: number = 0, public readonly y: number = 0, public readonly z: number = 0) {}
+    public constructor(public readonly x: number = 0, public readonly y: number = 0, public readonly z: number = 0) {}
 
     /**
      * Creates a new Vector3d instance with the same x, y, and z values as the current vector.

@@ -1,11 +1,11 @@
 import {MutableObject} from "../Types";
 
 class DateUtil {
-    private static instance: DateUtil = new DateUtil();
-    private static monthAbrs: string[] = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "okt", "nov", "dec"];
-    private static mFullNames: string[] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-    private static dayAbrs: string[] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
-    private static dFullNames: string[] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    private static readonly instance: DateUtil = new DateUtil();
+    private static readonly monthAbrs: string[] = ["jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep", "okt", "nov", "dec"];
+    private static readonly mFullNames: string[] = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    private static readonly dayAbrs: string[] = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+    private static readonly dFullNames: string[] = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
 
     private constructor() { }
 

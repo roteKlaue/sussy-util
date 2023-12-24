@@ -8,7 +8,7 @@ export default class StopWatch extends EventEmitter {
     private threshold?: number;
     private startTime: number;
 
-    constructor() {
+    public constructor() {
         super();
         this.startTime = performance.now();
     }

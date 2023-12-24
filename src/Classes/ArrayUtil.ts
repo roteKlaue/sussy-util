@@ -4,7 +4,7 @@ import Optional from "./Optional";
 import Random from "./Random";
 
 class ArrayUtils {
-    private static instance: ArrayUtils = new ArrayUtils();
+    private static readonly instance: ArrayUtils = new ArrayUtils();
 
     private constructor() { }
 

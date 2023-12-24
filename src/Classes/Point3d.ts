@@ -7,7 +7,7 @@ export default class Point3d {
      * @param {number} y - The y-coordinate of the point.
      * @param {number} z - The z-coordinate of the point.
      */
-    constructor(public readonly x: number, public readonly y: number, public readonly z: number) {}
+    public constructor(public readonly x: number, public readonly y: number, public readonly z: number) {}
 
     /**
      * Calculates the distance between this point and another point in 3D space.

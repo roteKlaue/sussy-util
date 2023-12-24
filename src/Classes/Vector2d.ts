@@ -1,5 +1,5 @@
 export default class Vector2d {
-    constructor(public readonly x: number = 0, public readonly y: number = 0) {}
+    public constructor(public readonly x: number = 0, public readonly y: number = 0) {}
 
     /**
      * Creates a copy of the vector.

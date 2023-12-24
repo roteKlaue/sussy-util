@@ -26,7 +26,7 @@ export default class ImmutableClass<T extends {}> {
      * test.a // 12
      * test.a = 13 // throws error
      */
-    constructor(constructor: Constructor<T>, properties: [string, () => any][], functions: [string, Function][]) {
+    public constructor(constructor: Constructor<T>, properties: [string, () => any][], functions: [string, Function][]) {
         if (this.constructor !== constructor) {
             throw new Error("You cannot extend this class with another class.");
         }

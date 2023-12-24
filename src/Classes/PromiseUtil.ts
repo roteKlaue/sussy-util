@@ -1,10 +1,10 @@
 import { MutableObject, PromiseOr } from "../Types";
 import IsSomething from "./IsSomething";
 
-type AsyncFunction<R> = () => PromiseOr<R>;
-type options = { callBackPosition: CallbackPosition, errorPosition: ErrorHandlingStrategy };
-type ErrorHandlingStrategy = "first" | "replace" | "last";
-type CallbackPosition = "front" | "back";
+declare type options = { callBackPosition: CallbackPosition, errorPosition: ErrorHandlingStrategy };
+declare type ErrorHandlingStrategy = "first" | "replace" | "last";
+declare type AsyncFunction<R> = () => PromiseOr<R>;
+declare type CallbackPosition = "front" | "back";
 
 class PromiseUtil {
     /**
@@ -12,7 +12,7 @@ class PromiseUtil {
      * @private
      * @static
      */
-    private static instance: PromiseUtil = new PromiseUtil();
+    private static readonly instance: PromiseUtil = new PromiseUtil();
     private constructor() { };
 
     /**

@@ -73,7 +73,7 @@ export default class Collection<K, V> extends Map<K, V> {
 	 * It merges the entries from another map into the current map.
 	 * @param {Collection<K, V>} map - The map to merge with the current map.
 	 */
-	public merge(map: Collection<K, V>): void {
+	public merge(map: Map<K, V>): void {
 		for (const [key, value] of map.entries()) {
 			this.set(key, value);
 		}

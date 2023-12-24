@@ -19,7 +19,7 @@ export default class LRUCache<Key, Value> {
      *
      * @param {number} capacity - The maximum number of entries the cache can hold.
      */
-    constructor(capacity: number) {
+    public constructor(capacity: number) {
         this.capacity = capacity;
         this.cache = new Map();
         this.usageOrder = new DoublyLinkedList<Key>();
@@ -33,7 +33,7 @@ export default class LRUCache<Key, Value> {
      * @param {Key} key - The key for the desired value.
      * @returns {Value | undefined} - The value associated with the key, or undefined if not found.
      */
-    get(key: Key): Optional<Value> {
+    public get(key: Key): Optional<Value> {
         if (this.cache.has(key)) {
             const value = this.cache.get(key)!;
             this.usageOrder.moveToFront(key);
@@ -49,7 +49,7 @@ export default class LRUCache<Key, Value> {
      * @param {Key} key - The key for the new item.
      * @param {Value} value - The value associated with the key.
      */
-    put(key: Key, value: Value) {
+    public put(key: Key, value: Value) {
         if (this.cache.size >= this.capacity) {
             const evictedKey = this.usageOrder.removeLast();
             if (!!evictedKey) {
@@ -77,7 +77,7 @@ export default class LRUCache<Key, Value> {
      *
      * @param {[Key, Value][]} entries - An array of key-value pairs to add to the cache.
      */
-    putAll(entries: [Key, Value][]) {
+    public putAll(entries: [Key, Value][]) {
         for (const [key, value] of entries) {
             this.put(key, value);
         }
@@ -86,7 +86,7 @@ export default class LRUCache<Key, Value> {
     /**
      * Clear all entries from the cache.
      */
-    clear() {
+    public clear() {
         this.cache.clear();
         this.usageOrder.clear();
     }
@@ -96,7 +96,7 @@ export default class LRUCache<Key, Value> {
      *
      * @returns {Key[]} - An array of keys in the cache.
      */
-    getAllKeys(): Key[] {
+    public getAllKeys(): Key[] {
         return Array.from(this.cache.keys());
     }
 
@@ -105,7 +105,7 @@ export default class LRUCache<Key, Value> {
      *
      * @returns {Value[]} - An array of values in the cache.
      */
-    getAllValues(): Value[] {
+    public getAllValues(): Value[] {
         return Array.from(this.cache.values());
     }
 
@@ -114,7 +114,7 @@ export default class LRUCache<Key, Value> {
      *
      * @yields {[Key, Value]} - A key-value pair from the cache.
      */
-    *entries(): Generator<[Key, Value]> {
+    public *entries(): Generator<[Key, Value]> {
         for (const [key, value] of this.cache.entries()) {
             yield [key, value];
         }
@@ -125,7 +125,7 @@ export default class LRUCache<Key, Value> {
      *
      * @param {(key: Key, value: Value) => void} callback - The callback function.
      */
-    setEvictionCallback(callback: (key: Key, value: Value) => void) {
+    public setEvictionCallback(callback: (key: Key, value: Value) => void) {
         this.evictionCallback = callback;
     }
 
@@ -135,7 +135,7 @@ export default class LRUCache<Key, Value> {
      * @param {Key} key - The key of the item to remove.
      * @returns {boolean} - True if the item was removed, false if the key was not found.
      */
-    remove(key: Key): boolean {
+    public remove(key: Key): boolean {
         if (this.cache.has(key)) {
             this.cache.delete(key);
             this.objectPool.release(this.usageOrder.find(key)!!);
@@ -171,7 +171,7 @@ class DoublyLinkedList<T> {
      *
      * @param {DoublyLinkedListNode<T>} node - The node to add.
      */
-    addToFront(node: DoublyLinkedListNode<T>) {
+    public addToFront(node: DoublyLinkedListNode<T>) {
         if (this.head === null) {
             this.head = node;
             this.tail = node;
@@ -187,7 +187,7 @@ class DoublyLinkedList<T> {
      *
      * @returns {T | null} - The value of the removed node, or null if the list is empty.
      */
-    removeLast(): T | null {
+    public removeLast(): T | null {
         if (this.tail === null) {
             return null;
         }
@@ -203,12 +203,12 @@ class DoublyLinkedList<T> {
     }
 
     /**
-    * Remove a node with a specific value from the linked list.
-    *
-    * @param {T} value - The value of the node to remove.
-    * @returns {boolean} - True if the node was found and removed, false otherwise.
-    */
-    remove(value: T): boolean {
+     * Remove a node with a specific value from the linked list.
+     *
+     * @param {T} value - The value of the node to remove.
+     * @returns {boolean} - True if the node was found and removed, false otherwise.
+     */
+    public remove(value: T): boolean {
         let currentNode = this.head;
         while (currentNode !== null && currentNode.value !== value) {
             currentNode = currentNode.next;
@@ -234,7 +234,7 @@ class DoublyLinkedList<T> {
      *
      * @param {T} value - The value of the node to move to the front.
      */
-    moveToFront(value: T) {
+    public moveToFront(value: T) {
         let currentNode = this.head;
         while (currentNode !== null && currentNode.value !== value) {
             currentNode = currentNode.next;
@@ -259,7 +259,7 @@ class DoublyLinkedList<T> {
      * @param {T} value - The value to search for.
      * @returns {DoublyLinkedListNode<T> | null} - The node with the specified value, or null if not found.
      */
-    find(value: T): DoublyLinkedListNode<T> | null {
+    public find(value: T): DoublyLinkedListNode<T> | null {
         let currentNode = this.head;
         while (currentNode !== null) {
             if (currentNode.value === value) {
@@ -273,7 +273,7 @@ class DoublyLinkedList<T> {
     /**
      * Clear the linked list, removing all nodes.
      */
-    clear() {
+    public clear() {
         this.head = null;
         this.tail = null;
     }

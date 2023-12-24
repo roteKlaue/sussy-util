@@ -1,4 +1,4 @@
-const TEMPERATURE_TYPES = {
+export const TEMPERATURE_TYPES = {
     Fahrenheit: 'fahrenheit',
     Celsius: 'celsius',
     Kelvin: 'kelvin',
@@ -6,14 +6,14 @@ const TEMPERATURE_TYPES = {
     Delisle: 'delisle'
 } as const;
 
-const LENGTH_TYPES = {
+export const LENGTH_TYPES = {
     Miles: "miles",
     Kilometers: "kilometers",
     Yards: "yards",
     Feet: "feet"
 } as const;
 
-const SPEED_TYPES = {
+export const SPEED_TYPES = {
     KilometersPerHour: 'kilometersPerHour',
     MilesPerHour: 'milesPerHour'
 } as const;

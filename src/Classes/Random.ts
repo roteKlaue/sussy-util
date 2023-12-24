@@ -4,7 +4,7 @@ import crypto from "node:crypto";
 
 class Random {
     readonly defaultCharset: string = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    private static instance: Random = new Random();
+    private static readonly instance: Random = new Random();
     private constructor() {};
 
     /**

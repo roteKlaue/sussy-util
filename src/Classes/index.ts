@@ -22,6 +22,7 @@ import Set from "./Set";
 import Stack from "./Stack";
 import StopWatch from "./StopWatch";
 import StringUtil from "./StringUtil";
+import Tree from "./Tree";
 import Tuple from "./Tuple";
 import UnitConverter from "./UnitConverter";
 import UrlUtil from "./UrlUtil";
@@ -53,6 +54,7 @@ export {
     Stack,
     StopWatch,
     StringUtil,
+    Tree,
     Tuple,
     UnitConverter,
     UrlUtil,

@@ -5,7 +5,7 @@ export default class Set<T> {
     private items = new ImprovedArray<T>();
     private checkFunction: (a: T, b: T) => boolean = (arrayParam: T, newItem: T) => arrayParam === newItem;
 
-    constructor(...items: T[]) {
+    public constructor(...items: T[]) {
         for (let index = 0; index < items.length; index++) {
             const item = items.shift();
             if (item && !items.includes(item)) {

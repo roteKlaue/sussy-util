@@ -3,13 +3,13 @@ import { ImprovedArray, Optional } from ".";
 export default class Queue<T> {
     private items: ImprovedArray<T> = new ImprovedArray<T>();
 
-    constructor(initElm: T[]) {
+    public constructor(initElm: T[]) {
         this.items.push(...initElm);
     };
 
     /**
      * The function takes a variable number of arguments of type T and pushes them into the items array
-     * @param {T[]} elm - T[]
+     * @param {any[]} elm - T[]
      */
     public push(...elm: T[]): void {
         this.items.push(...elm);
