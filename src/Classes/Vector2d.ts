@@ -1,5 +1,7 @@
+import Tuple from "./Tuple";
+
 export default class Vector2d {
-    public constructor(public readonly x: number = 0, public readonly y: number = 0) {}
+    public constructor(public readonly x: number = 0, public readonly y: number = 0) { }
 
     /**
      * Creates a copy of the vector.
@@ -52,7 +54,7 @@ export default class Vector2d {
     /**
      * Calculates the magnitude (length) of the vector.
      * @returns {number} - The magnitude of the vector.
-     */    
+     */
     public magnitude(): number {
         return Math.sqrt(this.x * this.x + this.y * this.y);
     }
@@ -121,5 +123,36 @@ export default class Vector2d {
 
     public toString(): string {
         return `(${this.x}, ${this.y})`;
+    }
+
+    /**
+     * Converts the vector to an array representation.
+     * @returns An array containing the x, y, and z components of the vector.
+     */
+    public toArray(): number[] {
+        return [this.x, this.y];
+    }
+
+    /**
+     * Converts the vector to an array representation.
+     * @returns An array containing the x, y, and z components of the vector.
+     */
+    public toTuple(): Tuple<number, number> {
+        return new Tuple(this.x, this.y);
+    }
+
+    /**
+     * Creates a new Vector2d instance from an array representation.
+     * @param arr - An array containing the x and y components of the vector.
+     * @returns A new Vector2d instance created from the array.
+     * @throws Throws an error if the array length is not 2.
+     */
+    public static ofArray(arr: number[]): Vector2d {
+        if (arr.length !== 2) throw new Error("Invalid array length. Array must contain three elements.");
+        return new Vector2d(arr[0], arr[1]);
+    }
+
+    public static ofTuple(tuple: Tuple<number, number>) {
+        return new Vector2d(tuple.first, tuple.second);
     }
 }

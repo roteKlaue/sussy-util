@@ -6,7 +6,7 @@ import MutableObject from "../Types/MutableObject";
  * @param {any} value - any - The value to add to the object
  * @returns The object that was passed in.
  */
-const addProperty = <T> (obj: MutableObject<T>, prop: string, value: T): MutableObject<T> => {
+const addProperty = <T>(obj: MutableObject<T>, prop: string, value: T): MutableObject<T> => {
     if (typeof obj !== "object") {
         return obj;
     }

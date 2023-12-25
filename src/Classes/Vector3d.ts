@@ -1,3 +1,5 @@
+import Vector2d from "./Vector2d";
+
 export default class Vector3d {
     public constructor(public readonly x: number = 0, public readonly y: number = 0, public readonly z: number = 0) {}
 
@@ -166,10 +168,12 @@ export default class Vector3d {
      * @returns A new Vector3d instance created from the array.
      * @throws Throws an error if the array length is not 3.
      */
-    public static fromArray(arr: number[]): Vector3d {
-        if (arr.length !== 3) {
-            throw new Error("Invalid array length. Array must contain three elements.");
-        }
+    public static ofArray(arr: number[]): Vector3d {
+        if (arr.length !== 3) throw new Error("Invalid array length. Array must contain three elements.");
         return new Vector3d(arr[0], arr[1], arr[2]);
+    }
+
+    public static of2d(other: Vector2d) {
+        return new Vector3d(other.x, other.y);
     }
 }

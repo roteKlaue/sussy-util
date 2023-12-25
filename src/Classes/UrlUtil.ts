@@ -96,7 +96,7 @@ class UrlUtils {
     public getQueryParams(url: string): MutableObject<string> {
         const parsedUrl = this.parseUrl(url);
         const queryParams: MutableObject<string> = {};
-        parsedUrl.searchParams.forEach((value, key) => 
+        parsedUrl.searchParams.forEach((value, key) =>
             queryParams[key] = value);
         return queryParams;
     }
@@ -200,6 +200,51 @@ class UrlUtils {
         const queryParams2 = this.getQueryParams(url2);
         const mergedParams = { ...queryParams1, ...queryParams2 };
         return this.updateQueryParams(url1, mergedParams);
+    }
+
+    /**
+     * It takes a URL and returns the protocol (e.g., 'http:', 'https:').
+     * @param {string} url - The URL to extract the protocol from.
+     * @returns {string} The protocol of the URL.
+     */
+    public getProtocol(url: string): string {
+        return this.parseUrl(url).protocol;
+    }
+
+    /**
+     * It takes a URL and returns the port number as a string.
+     * @param {string} url - The URL to extract the port from.
+     * @returns {string} The port number of the URL.
+     */
+    public getPort(url: string): string {
+        return this.parseUrl(url).port;
+    }
+
+    /**
+     * It takes a URL and returns a boolean indicating whether it is an absolute URL.
+     * @param {string} url - The URL to check.
+     * @returns {boolean} A boolean value indicating if the URL is absolute.
+     */
+    public isAbsoluteUrl(url: string): boolean {
+        return this.parseUrl(url).protocol !== null;
+    }
+
+    /**
+     * It takes a string and returns the URL-encoded version.
+     * @param {string} component - The string to encode.
+     * @returns {string} The URL-encoded string.
+     */
+    public encodeUrlComponent(component: string): string {
+        return encodeURIComponent(component);
+    }
+
+    /**
+     * It takes a URL-encoded string and returns the decoded version.
+     * @param {string} encodedComponent - The URL-encoded string to decode.
+     * @returns {string} The decoded string.
+     */
+    public decodeUrlComponent(encodedComponent: string): string {
+        return decodeURIComponent(encodedComponent);
     }
 
     public static getInstance(): UrlUtils {

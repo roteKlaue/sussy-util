@@ -5,7 +5,7 @@ import crypto from "node:crypto";
 class Random {
     readonly defaultCharset: string = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     private static readonly instance: Random = new Random();
-    private constructor() {};
+    private constructor() { };
 
     /**
      * It returns a random integer between the lower and upper bounds, inclusive.
@@ -147,6 +147,28 @@ class Random {
 
     public static getInstance(): Random {
         return this.instance;
+    }
+
+    /**
+     * Returns a random value from an enum.
+     * @param {T} enumObject - The enum to choose a random value from.
+     * @returns The random value from the enum.
+     */
+    public randomEnumValue<T extends {}>(enumObject: T): T[keyof T] {
+        const values = Object.values(enumObject);
+        return values[this.randomInt(0, values.length)] as T[keyof T];
+    }
+
+    /**
+     * Generates a random date in the past within a specified range.
+     * @param {number} yearsAgo - The number of years ago the date can be.
+     * @returns {Date} A random date in the past within the specified range.
+     */
+    public randomDateInPast(yearsAgo: number): Date {
+        const today = new Date();
+        const startYear = today.getFullYear() - yearsAgo;
+        const startDate = new Date(startYear, 0, 1);
+        return this.randomDate(startDate, today);
     }
 }
 

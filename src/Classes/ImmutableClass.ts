@@ -40,9 +40,9 @@ export default class ImmutableClass<T extends {}> {
             });
         });
 
-        functions.forEach(([name, getter]) => {
+        functions.forEach(([name, func]) => {
             Object.defineProperty(this, name, {
-                get: () => getter,
+                get: () => func,
                 set(_value) {
                     throw new Error("You cannot overwrite this function with another.");
                 }

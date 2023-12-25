@@ -19,9 +19,10 @@ export default class Set<T> {
      * @param {T} item - T - The item to be pushed into the array.
      */
     public push(item: T): void {
-        if (!this.items.some((item2) => this.checkFunction(item2, item))) {
-            this.items.push(item);
+        if (this.has(item)) {
+            throw new Error(`Item "${item}" already exists in the Set.`);
         }
+        this.items.push(item);
     }
 
     /**
@@ -29,11 +30,10 @@ export default class Set<T> {
      * @param {T} item - T - The item to delete
      */
     public delete(item: T): void {
-        this.items.find((v, i) => {
-            if (v === item) {
-                this.items.remove(i);
-            }
-        });
+        const index = this.items.indexOf(item);
+        if (index !== -1) {
+            this.items.remove(index);
+        }
     }
 
     /**
@@ -131,12 +131,12 @@ export default class Set<T> {
      * Executes a provided callback function once for each item in the Set.
      * @param callback - A function to execute for each item in the Set.
      */
-    public forEach(callback: (item: T) => void): void {
-        this.items.forEach(callback);
+    public forEach(callback: (item: T, index: number) => void): void {
+        this.items.forEach((a, b) => callback(a, b));
     }
 
     /* shorthand for `forEach` */
-    public each(callbackfn: (item: T) => void): void {
+    public each(callbackfn: (item: T, index: number) => void): void {
         this.forEach(callbackfn);
     };
 
@@ -146,9 +146,7 @@ export default class Set<T> {
      * @returns A new Set that contains items from both Sets.
      */
     public merge(set: Set<T>): Set<T> {
-        const mergedSet = new Set<T>(...this.items);
-        set.each((item) => mergedSet.push(item));
-        return mergedSet;
+        return new Set<T>(...this.items, ...set.toArray());
     }
 
     /**
@@ -157,31 +155,18 @@ export default class Set<T> {
      * @returns A new Set that contains items from the current Set excluding those present in the other Set.
      */
     public subtract(set: Set<T>): Set<T> {
-        const subtractedSet = new Set<T>();
-        this.each((item) => {
-            if (!set.has(item)) {
-                subtractedSet.push(item);
-            }
-        });
-        return subtractedSet;
+        const subtractedItems = this.items.filter(item => !set.has(item));
+        return new Set<T>(...subtractedItems);
     }
 
     public [Symbol.iterator](): Iterator<T> {
         let index = 0;
-
         return {
             next: (): IteratorResult<T> => {
-                if (index < this.items.length) {
-                    return {
-                        value: this.items[index++],
-                        done: false,
-                    };
-                } else {
-                    return {
-                        value: undefined!,
-                        done: true,
-                    };
-                }
+                return {
+                    value: index < this.items.length ? this.items[index++] : undefined!,
+                    done: index >= this.items.length,
+                };
             }
         };
     }

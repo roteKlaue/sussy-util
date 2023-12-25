@@ -104,8 +104,8 @@ export default class Stack<T> {
      * @returns {Stack<T>} A new stack with unique elements.
      */
     public distinct(): Stack<T> {
-        const uniqueArray = [...new Set(this.items.clone())];
-        return new Stack<T>(uniqueArray);
+        const uniqueSet = new Set(this.items);
+        return new Stack<T>([...uniqueSet]);
     }
 
     public [Symbol.iterator](): Iterator<T> {
