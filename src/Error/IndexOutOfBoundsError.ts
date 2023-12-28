@@ -1,5 +1,3 @@
-export default class IndexOutOfBoundsError extends Error {
-    public constructor(cause = "") {
-        super(cause);
-    }
+export default class extends Error {
+	public constructor(message: string) { super(message); }
 }

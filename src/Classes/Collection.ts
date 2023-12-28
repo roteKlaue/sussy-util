@@ -1,5 +1,5 @@
-import { MapEntry } from "../Types";
-import Optional from "./Optional";
+import { MapEntry } from '../Types';
+import Optional from './Optional';
 
 type Predicate<V, K> = (value: V, key: K, collection: Collection<K, V>) => boolean;
 
