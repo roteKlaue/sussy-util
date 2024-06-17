@@ -1,7 +1,7 @@
-const debounce = (fn: Function, wait?: number, immediate = false): ((...args: any) => void) => {
+const debounce = (fn: Function, wait?: number, immediate = false): ((...args: never) => void) => {
 	let timeout: number | undefined | NodeJS.Timeout;
 
-	const setDebounce = (...args: any[]): void => {
+	const setDebounce = (...args: never[]): void => {
 		const later = () => {
 			timeout = void 0;
 			if (!immediate) {

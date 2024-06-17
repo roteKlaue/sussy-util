@@ -24,7 +24,7 @@ const hasValue = (a: any): boolean => {
 
 	if (typeof a === 'object' && !IsSomething.isArray(a)) {
 		for (const key in a) {
-			if (a.hasOwnProperty(key)) {
+			if (Object.prototype.hasOwnProperty.call(a, key)) {
 				if (hasValue(a[key])) {
 					return true;
 				}

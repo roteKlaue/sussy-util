@@ -1,4 +1,4 @@
-import { JSONObject } from '../Types';
+import { JSONObject, JSON } from '../Types';
 
 export default class DataConverter {
 	/**
@@ -21,7 +21,7 @@ export default class DataConverter {
 
 			for (let j = 0; j < headers.length; j++) {
 				const header = headers[j];
-				let value: any = values[j];
+				let value: JSON = values[j];
 
 				if (value.startsWith('{') || value.startsWith('[')) {
 					value = JSON.parse(value);

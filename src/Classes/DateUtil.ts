@@ -194,8 +194,8 @@ class DateUtil {
 
 	/**
      * If date1 is before date2, return true, else return false.
-     * @param {T | number | Date} date1 - T | number | Date
-     * @param {T | number | Date} date2 - T | number | Date
+     * @param {number | Date} date1 - T | number | Date
+     * @param {number | Date} date2 - T | number | Date
      * @returns A boolean value.
      */
 	public isBefore<T extends Date>(date1: T | number | Date, date2: T | number | Date): boolean {
@@ -251,7 +251,7 @@ class DateUtil {
 
 	/**
      * Formats a given date object into a string representation using the specified format.
-     * @param {T | number | Date} dt - The date object to format.
+     * @param {number | Date} dt - The date object to format.
      * @param {string} format - The format string. (e.g., 'YYYY-MM-DD')
      * @returns {string} The formatted date string.
      */

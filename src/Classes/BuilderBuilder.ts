@@ -6,7 +6,7 @@ import StringUtil from './StringUtil';
  * by setting attributes using fluent API-style method calls.
  * @template T - The type of class for which instances are built.
  */
-class GenericBuilder<T extends {}> implements Builder<T> {
+class GenericBuilder<T extends object> implements Builder<T> {
 	public constructorParams: { order: Array<string | string[]>, attributes: MutableObject<any> } = { order: [], attributes: {} };
 	public attributes: Partial<T> = {};
 

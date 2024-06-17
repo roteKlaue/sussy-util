@@ -1,6 +1,6 @@
 import { Constructor } from '../Types';
 
-export default class ImmutableClass<T extends {}> {
+export default class ImmutableClass<T extends object> {
 	/**
      * Creates an instance of the ImmutableClass.
      * Freezing the prototype of the extending class or any class instance created thereafter is crucial to prevent potential safety issues resulting from prototype modifications.

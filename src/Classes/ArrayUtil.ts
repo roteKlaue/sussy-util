@@ -143,7 +143,7 @@ class ArrayUtils {
      * @param key - keyof T
      * @returns An array of objects.
      */
-	public sortByKey<T extends Object>(arr: T[], key: keyof T): T[] {
+	public sortByKey<T extends object>(arr: T[], key: keyof T): T[] {
 		return arr.sort((a, b) => a[key] > b[key] ? 1 : -1);
 	}
 
