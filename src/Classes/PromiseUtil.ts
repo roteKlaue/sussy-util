@@ -2,6 +2,7 @@ import { MutableObject, PromiseOr } from '../Types';
 import IsSomething from './IsSomething';
 
 declare type options = { callBackPosition: CallbackPosition, errorPosition: ErrorHandlingStrategy };
+declare type resolver = (value: unknown) => unknown;
 declare type ErrorHandlingStrategy = 'first' | 'replace' | 'last';
 declare type AsyncFunction<R> = () => PromiseOr<R>;
 declare type CallbackPosition = 'front' | 'back';
@@ -26,7 +27,7 @@ class PromiseUtil {
      * @param {E | null} error - The error value of the promise (or null if there is no error).
      * @private
      */
-	readonly #resFirst = <R, E>(resolve: Function, reject: Function, result: R, error: E | null) => {
+	readonly #resFirst = <R, E>(resolve: resolver, reject: resolver, result: R, error: E | null) => {
 		if (error) {
 			return reject(error);
 		}
@@ -43,7 +44,7 @@ class PromiseUtil {
      * @param {R | E} result - The result value of the promise (or an error).
      * @private
      */
-	readonly #resReplace = <R, E>(resolve: Function, reject: Function, result: R | E) => {
+	readonly #resReplace = <R, E>(resolve: resolver, reject: resolver, result: R | E) => {
 		if (result instanceof Error) {
 			return reject(result);
 		}
@@ -61,7 +62,7 @@ class PromiseUtil {
      * @param {R} result - The result value of the promise.
      * @private
      */
-	readonly #resLast = <R, E>(resolve: Function, reject: Function, error: E | null, result: R) => {
+	readonly #resLast = <R, E>(resolve: resolver, reject: resolver, error: E | null, result: R) => {
 		if (error) {
 			return reject(error);
 		}

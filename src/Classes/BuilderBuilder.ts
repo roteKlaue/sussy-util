@@ -1,13 +1,15 @@
 import { Builder, Constructor, MutableObject } from '../Types';
 import StringUtil from './StringUtil';
 
+type AnyFunction<Args extends unknown[] = unknown[], Return = unknown> = (...args: Args) => Return;
+
 /**
  * A generic builder class that facilitates the construction of instances for a specified class
  * by setting attributes using fluent API-style method calls.
  * @template T - The type of class for which instances are built.
  */
 class GenericBuilder<T extends object> implements Builder<T> {
-	public constructorParams: { order: Array<string | string[]>, attributes: MutableObject<any> } = { order: [], attributes: {} };
+	public constructorParams: { order: Array<string | string[]>, attributes: MutableObject<unknown> } = { order: [], attributes: {} };
 	public attributes: Partial<T> = {};
 
 	/**
@@ -45,7 +47,7 @@ class GenericBuilder<T extends object> implements Builder<T> {
 				this.attributes[key as keyof T] = value;
 				return this;
 			};
-			this.defineMethod(methodName, method);
+			this.defineMethod(methodName, method as AnyFunction);
 		}
 	}
 
@@ -58,13 +60,13 @@ class GenericBuilder<T extends object> implements Builder<T> {
 		for (let i = 0; i < this.constructorParams.order.length; i++) {
 			if (Array.isArray(this.constructorParams.order[i])) {
 				this.constructorParams.attributes[`param${i}`] = {};
-				this.constructorParams.attributes[`param${i}`].length = this.constructorParams.order[i].length;
+				(this.constructorParams.attributes[`param${i}`] as unknown[]).length = this.constructorParams.order[i].length;
 
 				for (let j = 0; j < this.constructorParams.order[i].length; j++) {
 					const propName = this.constructorParams.order[i][j];
 					const methodName = `setParam${i}${StringUtil.capitalize(propName)}`;
-					const method = (value: any) => {
-						this.constructorParams.attributes[`param${i}`][propName] = value;
+					const method = (value: unknown) => {
+						(this.constructorParams.attributes[`param${i}`] as MutableObject<unknown>)[propName] = value;
 						return this;
 					};
 
@@ -75,7 +77,7 @@ class GenericBuilder<T extends object> implements Builder<T> {
 
 			const propName = this.constructorParams.order[i] as string;
 			const methodName = `set${StringUtil.capitalize(propName)}`;
-			const method = (value: any) => {
+			const method = (value: unknown) => {
 				this.constructorParams.attributes[propName] = value;
 				return this;
 			};
@@ -83,7 +85,7 @@ class GenericBuilder<T extends object> implements Builder<T> {
 		}
 	}
 
-	private defineMethod(name: string, method: Function) {
+	private defineMethod(name: string, method: AnyFunction) {
 		Object.defineProperty(this, name, {
 			get: () => method,
 			set(_value) {
@@ -101,6 +103,7 @@ class GenericBuilder<T extends object> implements Builder<T> {
 		if (this.Type === 'objectPropertyReading') {
 			return Object.assign(new this.ClassType(), this.attributes);
 		}
+		// @ts-expect-error
 		return new this.ClassType(...this.constructorParams.order.map((e, i) => {
 			if (Array.isArray(e)) {
 				return this.constructorParams.attributes[`param${i}`];
@@ -115,7 +118,7 @@ class GenericBuilder<T extends object> implements Builder<T> {
  * of a specified class using fluent API-style method calls.
  * @template T - The type of class for which instances are built using the GenericBuilder.
  */
-export default class BuilderBuilder<T extends {}> implements Builder<Constructor<GenericBuilder<T>>> {
+export default class BuilderBuilder<T extends object> implements Builder<Constructor<GenericBuilder<T>>> {
 	/**
      * Creates an instance of the BuilderBuilder.
      * @param {Function} ClassType - The constructor of the target class for which a builder is to be generated.

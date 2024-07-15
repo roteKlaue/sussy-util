@@ -1,5 +1,4 @@
 import { BetterMath, IsSomething } from '.';
-import { MutableObject } from '../Types';
 import crypto from 'node:crypto';
 
 class Random {
@@ -83,10 +82,10 @@ class Random {
      * @param {T} obj - The object to choose a random property from.
      * @returns The value of a random property in the object.
      */
-	public randomProperty<T extends Object>(obj: T): T[keyof T] {
+	public randomProperty<T extends object>(obj: T): T[keyof T] {
 		const keys = Object.keys(obj);
-		const randomKey = keys[this.randomInt(0, keys.length)];
-		return (obj as MutableObject<any>)[randomKey];
+		const randomKey = keys[this.randomInt(0, keys.length)] as keyof T;
+		return obj[randomKey];
 	}
 
 	/**
@@ -154,7 +153,7 @@ class Random {
      * @param {T} enumObject - The enum to choose a random value from.
      * @returns The random value from the enum.
      */
-	public randomEnumValue<T extends {}>(enumObject: T): T[keyof T] {
+	public randomEnumValue<T extends object>(enumObject: T): T[keyof T] {
 		const values = Object.values(enumObject);
 		return values[this.randomInt(0, values.length)] as T[keyof T];
 	}

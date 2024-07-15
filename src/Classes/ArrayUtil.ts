@@ -74,7 +74,7 @@ class ArrayUtils {
      */
 	public shuffle<X, T extends Array<X>>(array: T | X[]): void {
 		for (let i = array.length - 1; i > 0; i--) {
-			const j = Math.floor(Math.random() * (i + 1));
+			const j = Random.randomInt(0, i + 1);
 			[array[i], array[j]] = [array[j], array[i]];
 		}
 	}
@@ -97,7 +97,7 @@ class ArrayUtils {
      * @template T - The type of the elements in the array.
      * @param {any[]} array - any[]
      */
-	public clear(array: any[]): void {
+	public clear(array: unknown[]): void {
 		array.length = 0;
 	}
 
@@ -120,7 +120,7 @@ class ArrayUtils {
      * @returns A new array with the same elements as the original array.
      */
 	public deepClone<T>(array: T[]): Array<T> {
-		return array.map(e => deepClone(e as MutableObject<any>) as T);
+		return array.map(e => deepClone(e as MutableObject<unknown>) as T);
 	}
 
 	/**
@@ -191,7 +191,7 @@ class ArrayUtils {
      * @param {any[][]} arr - any[][] - The array to get the unique sub-arrays from.
      * @returns A new array with all the unique sub-arrays.
      */
-	public uniqueSubArrays(arr: any[][]): any[][] {
+	public uniqueSubArrays(arr: unknown[][]): unknown[][] {
 		const map = new Map(arr.map(v => [JSON.stringify(v), v]));
 		return [...map.values()];
 	}
@@ -289,7 +289,7 @@ class ArrayUtils {
      * @param value the value to be searched for
      * @returns Optional object of the value
      */
-	public findByPropertyValue<T>(array: T[], property: keyof T, value: any): Optional<T> {
+	public findByPropertyValue<T>(array: T[], property: keyof T, value: unknown): Optional<T> {
 		return Optional.of(array.find(x => x[property] === value));
 	}
 
@@ -302,7 +302,7 @@ class ArrayUtils {
      * @param value the value to search for
      * @returns the index of the value in the array, or -1 if not found
      */
-	public findIndexByPropertyValue<T>(array: T[], property: keyof T, value: any): number {
+	public findIndexByPropertyValue<T>(array: T[], property: keyof T, value: unknown): number {
 		return array.findIndex(x => x[property] === value);
 	}
 

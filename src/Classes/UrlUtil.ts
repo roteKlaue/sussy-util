@@ -168,7 +168,7 @@ class UrlUtils {
 	public replaceQueryParams(url: string, replacements: MutableObject<string>): string {
 		const queryParams = this.getQueryParams(url);
 		for (const [key, value] of Object.entries(replacements)) {
-			if (queryParams.hasOwnProperty(key)) {
+			if (Object.prototype.hasOwnProperty.call(queryParams, key)) {
 				queryParams[key] = value;
 			}
 		}

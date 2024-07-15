@@ -89,15 +89,17 @@ export default class ImprovedArray<T> extends Array<T> {
 	/**
      * It returns a new array with all the elements that do not satisfy the predicate.
      * @param predicate - (val: T, ind: number, arr: T[]) => boolean
+	 * @param thisArg — An object to which the this keyword can refer in the predicate function. If thisArg is omitted, undefined is used as the this value.
      * @returns A new instance of ImprovedArray with the filtered values.
      */
-	public rejected(predicate: (val: T, ind: number, arr: T[]) => boolean): ImprovedArray<T> {
-		return new ImprovedArray<T>(...this.filter((val, ind, arr) => !predicate(val, ind, arr)));
+	public rejected(predicate: (val: T, ind: number, arr: T[]) => boolean, thisArg?: unknown): ImprovedArray<T> {
+		return new ImprovedArray<T>(...this.filter((val, ind, arr) => !predicate(val, ind, arr), thisArg));
 	}
 
 	/**
      * The function `sum` returns the sum of all the elements in the array
      * @returns The return type is T | string.
+	 * @deprecated
      */
 	public sum(): T | string {
 		return this.reduce((acc: any, value): any => {
@@ -147,10 +149,9 @@ export default class ImprovedArray<T> extends Array<T> {
      * For each element in the array, swap it with a random element in the array.
      */
 	public shuffle(): void {
-		const array = this;
-		for (let i = array.length - 1; i > 0; i--) {
+		for (let i = this.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * (i + 1));
-			[array[i], array[j]] = [array[j], array[i]];
+			[this[i], this[j]] = [this[j], this[i]];
 		}
 	}
 
@@ -164,7 +165,7 @@ export default class ImprovedArray<T> extends Array<T> {
      * @param {X | any[]} arr - X | any[]
      * @returns An array of common elements.
      */
-	public findCommonElements<X extends Array<any>>(arr: X | any[]): ImprovedArray<T> {
+	public findCommonElements<X extends Array<unknown>>(arr: X | unknown[]): ImprovedArray<T> {
 		const commonElements: T[] = [];
 		for (let i = 0; i < this.length; i++) {
 			if (arr.indexOf(this[i]) !== -1) {

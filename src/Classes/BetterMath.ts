@@ -11,8 +11,7 @@ class BetterMath {
      * @returns The rounded value.
      */
 	public round(value: number, digit: number): number {
-		digit = Math.floor(digit);
-		if (digit < 0) digit = 0;
+		if (!Number.isInteger(digit)) digit = 0;
 		if (digit === 0) {
 			return Math.round(value);
 		}
@@ -41,13 +40,15 @@ class BetterMath {
      * Calculates the total distance between points along a given path.
      *
      * @param {Point[]} path - An array of Point objects representing the path.
-     * @param {number} index - The current index in the path array (default: 0).
      * @returns {number} The total distance along the path.
      */
-	public distance = (path: Point[], index: number = 0): number =>
-		path.length === index ?
-			0 :
-			Math.sqrt(this.square(path[index].x - path[index + 1].x) + this.square(path[index].y - path[index + 1].y)) + this.distance(path, ++index);
+	public distance(path: Point[]): number {
+		let totalDistance = 0;
+		for (let i = 0; i < path.length - 1; i++) {
+			totalDistance += Math.hypot(path[i].x - path[i + 1].x, path[i].y - path[i + 1].y);
+		}
+		return totalDistance;
+	}
 
 	/**
      * Calculates the greatest common divisor (GCD) of two numbers using the Euclidean algorithm.
@@ -101,7 +102,7 @@ class BetterMath {
      * @param {number[]} numbers - number[] - An array of numbers to average.
      * @returns The average of the numbers in the array.
      */
-	public average(numbers: number[]): number {
+	public calculateAverage(numbers: number[]): number {
 		return numbers.reduce((a, b) => a + b, 0) / numbers.length;
 	}
 
@@ -112,7 +113,7 @@ class BetterMath {
      * @returns The average of the numbers in the array.
      */
 	public avg(numbers: number[]): number {
-		return this.average(numbers);
+		return this.calculateAverage(numbers);
 	}
 
 	/**
@@ -185,8 +186,8 @@ class BetterMath {
      * @throws {Error} n must be greater than or equal to r in permutations.
      */
 	public permutations(n: number, r: number): number {
-		if (n < r) {
-			throw new Error('n must be greater than or equal to r in permutations.');
+		if (n < 0 || r < 0) {
+			throw new Error('n and r must be non-negative integers.');
 		}
 		let result = 1;
 		for (let i = n; i > n - r; i--) {
@@ -203,8 +204,8 @@ class BetterMath {
      * @throws {Error} n must be greater than or equal to r in combinations.
      */
 	public combinations(n: number, r: number): number {
-		if (n < r) {
-			throw new Error('n must be greater than or equal to r in combinations.');
+		if (n < 0 || r < 0) {
+			throw new Error('n and r must be non-negative integers.');
 		}
 		return this.permutations(n, r) / this.factorial(r);
 	}

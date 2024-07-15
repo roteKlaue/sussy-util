@@ -21,3 +21,4 @@ snyk.exe
 /.idea
 /examples
 backup.md
+yarn.lock

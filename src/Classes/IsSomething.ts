@@ -9,7 +9,7 @@ class IsSomething {
      * @param {any} arg - any
      * @returns a boolean value.
      */
-	public isArray(arg: any): boolean {
+	public isArray(arg: unknown): boolean {
 		return Array.isArray(arg) || objectToString(arg) === '[object Array]';
 	}
 
@@ -19,8 +19,8 @@ class IsSomething {
      * @param {any} arg - any
      * @returns A boolean value.
      */
-	public isBoolean(arg: any): boolean {
-		return arg && (typeof arg === 'boolean' || arg === 'true' || arg === 'false');
+	public isBoolean(arg: unknown): boolean {
+		return !!arg && (typeof arg === 'boolean' || arg === 'true' || arg === 'false');
 	}
 
 	/**
@@ -29,7 +29,7 @@ class IsSomething {
      * @param {any} arg - any - The argument to check if it's a class.
      * @returns A boolean value.
      */
-	public isClass(arg: any): boolean {
+	public isClass(arg: unknown): boolean {
 		if (typeof arg !== 'function') {
 			return false;
 		}
@@ -51,8 +51,8 @@ class IsSomething {
      * @param {any} arg - any
      * @returns The constructor of the Date object.
      */
-	public isDate(arg: any): boolean {
-		return arg && (arg.constructor === Date.constructor && arg instanceof Date);
+	public isDate(arg: unknown): boolean {
+		return !!arg && (arg.constructor === Date.constructor && arg instanceof Date);
 	}
 
 	/**
@@ -60,7 +60,7 @@ class IsSomething {
      * @param {any} arg - any
      * @returns The type of the argument.
      */
-	public isDefined(arg: any): boolean {
+	public isDefined(arg: unknown): boolean {
 		return typeof arg !== 'undefined';
 	}
 
@@ -69,7 +69,7 @@ class IsSomething {
      * @param {any} arg - any
      * @returns The return value is a boolean.
      */
-	public isEmpty(arg: any): boolean {
+	public isEmpty(arg: unknown): boolean {
 		return !hasValue(arg);
 	}
 
@@ -79,8 +79,8 @@ class IsSomething {
      * @param {any} arg - any
      * @returns The constructor of the Error object.
      */
-	public isError(arg: any): boolean {
-		return arg && (arg.constructor === Error.constructor && arg instanceof Error);
+	public isError(arg: unknown): boolean {
+		return !!arg && (arg.constructor === Error.constructor && arg instanceof Error);
 	}
 
 	/**
@@ -97,8 +97,8 @@ class IsSomething {
      * @param {any} a - any
      * @returns A boolean value.
      */
-	public isFunction(a: any): boolean {
-		return a && (typeof a === 'function' || a instanceof Function) && !this.isClass(a);
+	public isFunction(a: unknown): boolean {
+		return !!a && (typeof a === 'function' || a instanceof Function) && !this.isClass(a);
 	}
 
 	/**
@@ -106,8 +106,8 @@ class IsSomething {
      * @param {any} arg - any
      * @returns a boolean value.
      */
-	public isInfinite(arg: any): boolean {
-		return arg && (arg === Infinity || arg === -Infinity);
+	public isInfinite(arg: unknown): boolean {
+		return !!arg && (arg === Infinity || arg === -Infinity);
 	}
 
 	/**
@@ -115,7 +115,7 @@ class IsSomething {
      * @param {any} arg - any
      * @returns The return value is a boolean.
      */
-	public isNullorUndefined(arg: any): boolean {
+	public isNullorUndefined(arg: unknown): boolean {
 		return arg === null || arg === void 0;
 	}
 
@@ -123,16 +123,16 @@ class IsSomething {
      * It returns true if the argument is a number or a string that contains only digits
      * @param {any} arg - any
      */
-	public isNumber(arg: any): boolean {
-		return arg && (typeof arg === 'number' || (typeof arg === 'string' && /^\d+$/.test(arg)));
+	public isNumber(arg: unknown): boolean {
+		return !!arg && (typeof arg === 'number' || (typeof arg === 'string' && /^\d+$/.test(arg)));
 	}
 
 	/**
      * If the argument is not null, and is an object, and is not an array, then return true.
      * @param {any} arg - any
      */
-	public isObject(arg: any): boolean {
-		return arg && (typeof arg === 'object' && arg instanceof Object && !this.isArray(arg));
+	public isObject(arg: unknown): boolean {
+		return !!arg && (typeof arg === 'object' && arg instanceof Object && !this.isArray(arg));
 	}
 
 	/**
@@ -164,7 +164,7 @@ class IsSomething {
      * @param {any} arg - any
      * @returns A boolean value.
      */
-	public isPrimitive(arg: any): boolean {
+	public isPrimitive(arg: unknown): boolean {
 		return this.isNullorUndefined(arg) || this.isString(arg) || this.isNumber(arg) || this.isBoolean(arg) || this.isSymbol(arg);
 	}
 
@@ -174,8 +174,8 @@ class IsSomething {
      * @param {any} arg - any
      * @returns a boolean value.
      */
-	public isRegExp(arg: any): boolean {
-		return arg && (arg instanceof RegExp || arg.constructor === RegExp.constructor);
+	public isRegExp(arg: unknown): boolean {
+		return !!arg && (arg instanceof RegExp || arg.constructor === RegExp.constructor);
 	}
 
 	/**
@@ -183,8 +183,8 @@ class IsSomething {
      * a string
      * @param {any} args - any
      */
-	public isString(args: any): boolean {
-		return args && (typeof args === 'string' || args instanceof String || (args + '') === args);
+	public isString(args: unknown): boolean {
+		return !!args && (typeof args === 'string' || args instanceof String || (args + '') === args);
 	}
 
 	/**
@@ -193,8 +193,8 @@ class IsSomething {
      * @param {any} arg - any
      * @returns a boolean value.
      */
-	public isSymbol(arg: any): boolean {
-		return arg && (typeof arg === 'symbol' || arg instanceof Symbol);
+	public isSymbol(arg: unknown): boolean {
+		return !!arg && (typeof arg === 'symbol' || arg instanceof Symbol);
 	}
 
 	/**
@@ -204,7 +204,7 @@ class IsSomething {
      * @param {String} type - The type of the argument.
      * @returns The type of the argument.
      */
-	public isType(arg: any, type: string): boolean {
+	public isType(arg: unknown, type: string): boolean {
 		return typeof arg === type;
 	}
 
@@ -214,7 +214,7 @@ class IsSomething {
      * @param {Function} constructor - The constructor function to check against.
      * @returns The return value is a boolean.
      */
-	public isInstanceOf(value: any, constructor: Function): boolean | null {
+	public isInstanceOf(value: unknown, constructor: Function): boolean | null {
 		if (!this.isClass(constructor)) return null;
 		return value instanceof constructor;
 	}

@@ -8,7 +8,7 @@ import { MutableObject } from '../Types';
  * @param {T} obj2 - The second object to compare.
  * @returns {boolean} Returns `true` if the objects are deeply equal, `false` otherwise.
  */
-const deepCompare = (obj: MutableObject<any>, obj2: MutableObject<any>): boolean => {
+const deepCompare = (obj: MutableObject<unknown>, obj2: MutableObject<unknown>): boolean => {
 	if (obj === obj2) {
 		return true;
 	}
@@ -25,7 +25,7 @@ const deepCompare = (obj: MutableObject<any>, obj2: MutableObject<any>): boolean
 	}
 
 	for (const key of keys1) {
-		if (!keys2.includes(key) || !deepCompare(obj[key], obj2[key])) {
+		if (!keys2.includes(key) || !deepCompare(obj[key] as MutableObject<unknown>, obj2[key] as MutableObject<unknown>)) {
 			return false;
 		}
 	}
