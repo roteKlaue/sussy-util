@@ -25,6 +25,6 @@
   "author": "roteKlaue",
   "license": "GPL-3.0",
   "devDependencies": {
-    "@types/node": "^20.4.2"
+    "@types/node": "^22.4.0"
   }
 }
