@@ -1,9 +1,10 @@
 /build
 **/node_modules
 /.vscode
-/test
 /generated
 logs.txt
 .dccache
 snyk.exe
 /.idea
+package-lock.json
+yarn.lock

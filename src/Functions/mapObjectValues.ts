@@ -7,12 +7,12 @@
  * @param {(value: T[keyof T], key: keyof T, object: T) => R} mapper - The function that maps each property value.
  * @returns {{ [K in keyof T]: R }} - A new object with mapped properties.
  */
-export default <T extends object, R> (obj: T, mapper: (value: T[keyof T], key: keyof T, object: T) => R): { [K in keyof T]: R } => {
-    const mappedObj = {} as { [K in keyof T]: R };
-    for (const key in obj) {
-        if (obj.hasOwnProperty(key)) {
-            mappedObj[key] = mapper(obj[key], key, obj);
-        }
-    }
-    return mappedObj;
-}
+export default <T extends object, R>(obj: T, mapper: (value: T[keyof T], key: keyof T, object: T) => R): { [K in keyof T]: R } => {
+	const mappedObj = {} as { [K in keyof T]: R };
+	for (const key in obj) {
+		if (Object.prototype.hasOwnProperty.call(obj, key)) {
+			mappedObj[key] = mapper(obj[key], key, obj);
+		}
+	}
+	return mappedObj;
+};

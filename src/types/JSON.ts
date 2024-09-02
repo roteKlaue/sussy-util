@@ -1,4 +1,4 @@
-import JSONObject from "./JSONObject";
+import JSONObject from './JSONObject';
 
 declare type JSON = boolean | null | number | string | JSONObject | JSON[];
 

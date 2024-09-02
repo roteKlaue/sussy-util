@@ -1,3 +1,3 @@
 export default class extends Error {
-    constructor(message: string) { super(message); }
+	public constructor(message: string) { super(message); }
 }

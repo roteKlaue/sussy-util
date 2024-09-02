@@ -1,3 +1,3 @@
-declare type Constructor<T extends {}> = new (...params:any[]) => T;
+declare type Constructor<T extends object> = new (...params: never[]) => T;
 
 export default Constructor;
