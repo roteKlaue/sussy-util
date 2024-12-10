@@ -1,280 +1,209 @@
-import ObjectPool from './ObjectPool';
-import Optional from './Optional';
+/**
+ * A node in a doubly linked list.
+ */
+class DoublyLinkedListNode<Key> {
+	public key: Key;
+	public prev: DoublyLinkedListNode<Key> | null = null;
+	public next: DoublyLinkedListNode<Key> | null = null;
+
+	constructor(key: Key) {
+		this.key = key;
+	}
+}
+
+/**
+ * A doubly linked list for quick insertion/removal from head/tail.
+ */
+class DoublyLinkedList<Key> {
+	private head: DoublyLinkedListNode<Key> | null = null;
+	private tail: DoublyLinkedListNode<Key> | null = null;
+
+	public addToFront = (node: DoublyLinkedListNode<Key>): void => {
+		if (!node) return;
+		if (!this.head) {
+			this.head = node;
+			this.tail = node;
+			return;
+		}
+
+		node.next = this.head;
+		this.head.prev = node;
+		this.head = node;
+	};
+
+	public removeNode = (node: DoublyLinkedListNode<Key>): void => {
+		if (!node) return;
+
+		const { prev, next } = node;
+
+		if (prev) prev.next = next;
+		if (next) next.prev = prev;
+		if (this.head === node) this.head = next;
+		if (this.tail === node) this.tail = prev;
+
+		node.prev = null;
+		node.next = null;
+	};
+
+	public moveToFront = (node: DoublyLinkedListNode<Key>): void => {
+		if (!node) return;
+		if (this.head === node) return;
+
+		this.removeNode(node);
+		this.addToFront(node);
+	};
+
+	public removeLast = (): DoublyLinkedListNode<Key> | null => {
+		if (!this.tail) return null;
+
+		const last = this.tail;
+		this.removeNode(last);
+		return last;
+	};
+}
 
 /**
  * A Least Recently Used (LRU) Cache implementation with a fixed capacity.
+ * Provides O(1) lookup, insertion, and removal.
  *
  * @template Key - The type of keys stored in the cache.
  * @template Value - The type of values stored in the cache.
  */
-export default class LRUCache<Key, Value> {
+export class LRUCache<Key, Value> {
 	private readonly capacity: number;
 	private cache: Map<Key, Value>;
+	private nodes: Map<Key, DoublyLinkedListNode<Key>>;
 	private usageOrder: DoublyLinkedList<Key>;
-	private objectPool: ObjectPool<DoublyLinkedListNode<Key>>;
-	private evictionCallback: (key: Key, value: Value) => void = (key, value) => void 0;
+	private evictionCallback: (key: Key, value: Value) => void;
 
 	/**
-     * Create an LRUCache instance with a specified capacity.
-     *
-     * @param {number} capacity - The maximum number of entries the cache can hold.
+     * @param capacity The maximum number of entries the cache can hold.
      */
-	public constructor(capacity: number) {
+	constructor(capacity: number) {
+		if (capacity <= 0) {
+			throw new Error('LRUCache capacity must be greater than 0.');
+		}
+
 		this.capacity = capacity;
-		this.cache = new Map();
+		this.cache = new Map<Key, Value>();
+		this.nodes = new Map<Key, DoublyLinkedListNode<Key>>();
 		this.usageOrder = new DoublyLinkedList<Key>();
-		this.objectPool = new ObjectPool(() => new DoublyLinkedListNode<Key>());
+		this.evictionCallback = () => {};
 	}
 
 	/**
-     * Retrieve a value from the cache based on the provided key.
+     * Retrieve a value from the cache.
      * Moves the accessed item to the front of the usage order.
      *
-     * @param {Key} key - The key for the desired value.
-     * @returns {Value | undefined} - The value associated with the key, or undefined if not found.
+     * @param key The key to look up.
+     * @returns The value associated with the key, or undefined if not found.
      */
-	public get(key: Key): Optional<Value> {
-		if (this.cache.has(key)) {
-			const value = this.cache.get(key)!;
-			this.usageOrder.moveToFront(key);
-			return Optional.of(value);
-		}
-		return Optional.empty();
-	}
+	public get = (key: Key): Value | undefined => {
+		const value = this.cache.get(key);
+		if (value === undefined) return undefined;
+
+		const node = this.nodes.get(key);
+		if (!node) return undefined;
+
+		this.usageOrder.moveToFront(node);
+		return value;
+	};
 
 	/**
-     * Add a key-value pair to the cache. If the cache exceeds capacity, the least recently used item is evicted.
-     * Moves the added or accessed item to the front of the usage order.
+     * Add or update a key-value pair.
+     * If adding the item causes the cache to exceed capacity, evicts the least recently used item.
      *
-     * @param {Key} key - The key for the new item.
-     * @param {Value} value - The value associated with the key.
+     * @param key The key.
+     * @param value The value.
      */
-	public put(key: Key, value: Value) {
+	public put = (key: Key, value: Value): void => {
+		// If item already in cache, update and move to front
+		if (this.cache.has(key)) {
+			this.cache.set(key, value);
+			const existingNode = this.nodes.get(key);
+			if (existingNode) this.usageOrder.moveToFront(existingNode);
+			return;
+		}
+
+		// If new entry and over capacity, evict LRU
 		if (this.cache.size >= this.capacity) {
-			const evictedKey = this.usageOrder.removeLast();
-			if (evictedKey) {
-				this.evictionCallback(evictedKey, this.cache.get(evictedKey)!);
+			const lruNode = this.usageOrder.removeLast();
+			if (lruNode) {
+				const evictedKey = lruNode.key;
+				const evictedValue = this.cache.get(evictedKey);
+				if (evictedValue !== undefined) {
+					this.evictionCallback(evictedKey, evictedValue);
+				}
 				this.cache.delete(evictedKey);
-				this.objectPool.release(this.usageOrder.find(evictedKey)!);
-				this.usageOrder.remove(evictedKey);
+				this.nodes.delete(evictedKey);
 			}
 		}
 
-		if (this.cache.has(key)) {
-			this.cache.set(key, value);
-			this.usageOrder.moveToFront(key);
-		} else {
-			const newNode = this.objectPool.acquire();
-			newNode.value = key;
-			this.usageOrder.addToFront(newNode);
-			this.cache.set(key, value);
-		}
-	}
+		// Insert new entry at front
+		const newNode = new DoublyLinkedListNode<Key>(key);
+		this.usageOrder.addToFront(newNode);
+		this.cache.set(key, value);
+		this.nodes.set(key, newNode);
+	};
 
 	/**
-     * Add multiple key-value pairs to the cache. If the cache exceeds capacity, the least recently used items are evicted.
-     * Moves the added or accessed items to the front of the usage order.
+     * Remove an item from the cache.
      *
-     * @param {[Key, Value][]} entries - An array of key-value pairs to add to the cache.
+     * @param key The key of the item to remove.
+     * @returns True if the item was removed, false otherwise.
      */
-	public putAll(entries: [Key, Value][]) {
-		for (const [key, value] of entries) {
-			this.put(key, value);
-		}
-	}
+	public remove = (key: Key): boolean => {
+		const node = this.nodes.get(key);
+		if (!node) return false;
+
+		this.usageOrder.removeNode(node);
+		const removed = this.cache.delete(key);
+		this.nodes.delete(key);
+		return removed;
+	};
 
 	/**
-     * Clear all entries from the cache.
+     * Clear the cache of all entries.
      */
-	public clear() {
+	public clear = (): void => {
 		this.cache.clear();
-		this.usageOrder.clear();
-	}
+		this.nodes.clear();
+		// Clear the linked list entirely
+		while (this.usageOrder.removeLast()) {
+			// just clearing
+		}
+	};
 
 	/**
-     * Get an array of all keys currently in the cache.
-     *
-     * @returns {Key[]} - An array of keys in the cache.
+     * Get all keys currently in the cache (order not guaranteed).
      */
-	public getAllKeys(): Key[] {
+	public getAllKeys = (): Key[] => {
 		return Array.from(this.cache.keys());
-	}
+	};
 
 	/**
-     * Get an array of all values currently in the cache.
-     *
-     * @returns {Value[]} - An array of values in the cache.
+     * Get all values currently in the cache (order not guaranteed).
      */
-	public getAllValues(): Value[] {
+	public getAllValues = (): Value[] => {
 		return Array.from(this.cache.values());
-	}
+	};
 
 	/**
-     * Get a generator yielding all entries (key-value pairs) in the cache.
+     * Set a callback to be called when an item is evicted.
      *
-     * @yields {[Key, Value]} - A key-value pair from the cache.
+     * @param callback The callback function.
+     */
+	public setEvictionCallback = (callback: (key: Key, value: Value) => void): void => {
+		if (!callback) return;
+		this.evictionCallback = callback;
+	};
+
+	/**
+     * Get a generator yielding all entries in the cache (order not guaranteed).
      */
 	public *entries(): Generator<[Key, Value]> {
 		for (const [key, value] of this.cache.entries()) {
 			yield [key, value];
 		}
-	}
-
-	/**
-     * Set a callback function to be called when an item is evicted from the cache.
-     *
-     * @param {(key: Key, value: Value) => void} callback - The callback function.
-     */
-	public setEvictionCallback(callback: (key: Key, value: Value) => void) {
-		this.evictionCallback = callback;
-	}
-
-	/**
-     * Remove an item from the cache based on the provided key.
-     *
-     * @param {Key} key - The key of the item to remove.
-     * @returns {boolean} - True if the item was removed, false if the key was not found.
-     */
-	public remove(key: Key): boolean {
-		if (this.cache.has(key)) {
-			this.cache.delete(key);
-			this.objectPool.release(this.usageOrder.find(key)!);
-			this.usageOrder.remove(key);
-			return true;
-		}
-		return false;
-	}
-}
-
-/**
- * A node in a doubly linked list.
- *
- * @template T - The type of value stored in the node.
- */
-class DoublyLinkedListNode<T> {
-	value: T | null = null;
-	next: DoublyLinkedListNode<T> | null = null;
-	prev: DoublyLinkedListNode<T> | null = null;
-}
-
-/**
- * A doubly linked list data structure.
- *
- * @template T - The type of values stored in the list.
- */
-class DoublyLinkedList<T> {
-	private head: DoublyLinkedListNode<T> | null = null;
-	private tail: DoublyLinkedListNode<T> | null = null;
-
-	/**
-     * Add a node to the front of the linked list.
-     *
-     * @param {DoublyLinkedListNode<T>} node - The node to add.
-     */
-	public addToFront(node: DoublyLinkedListNode<T>) {
-		if (this.head === null) {
-			this.head = node;
-			this.tail = node;
-		} else {
-			node.next = this.head;
-			this.head.prev = node;
-			this.head = node;
-		}
-	}
-
-	/**
-     * Remove the last node from the linked list and return its value.
-     *
-     * @returns {T | null} - The value of the removed node, or null if the list is empty.
-     */
-	public removeLast(): T | null {
-		if (this.tail === null) {
-			return null;
-		}
-		const lastNode = this.tail;
-		if (lastNode.prev) {
-			lastNode.prev.next = null;
-			this.tail = lastNode.prev;
-		} else {
-			this.head = null;
-			this.tail = null;
-		}
-		return lastNode.value;
-	}
-
-	/**
-     * Remove a node with a specific value from the linked list.
-     *
-     * @param {T} value - The value of the node to remove.
-     * @returns {boolean} - True if the node was found and removed, false otherwise.
-     */
-	public remove(value: T): boolean {
-		let currentNode = this.head;
-		while (currentNode !== null && currentNode.value !== value) {
-			currentNode = currentNode.next;
-		}
-		if (currentNode !== null) {
-			if (currentNode.prev) {
-				currentNode.prev.next = currentNode.next;
-			} else {
-				this.head = currentNode.next;
-			}
-			if (currentNode.next) {
-				currentNode.next.prev = currentNode.prev;
-			} else {
-				this.tail = currentNode.prev;
-			}
-			return true;
-		}
-		return false;
-	}
-
-	/**
-     * Move a node with a specific value to the front of the linked list.
-     *
-     * @param {T} value - The value of the node to move to the front.
-     */
-	public moveToFront(value: T) {
-		let currentNode = this.head;
-		while (currentNode !== null && currentNode.value !== value) {
-			currentNode = currentNode.next;
-		}
-		if (currentNode !== null) {
-			if (currentNode.prev) {
-				currentNode.prev.next = currentNode.next;
-				if (currentNode === this.tail) {
-					this.tail = currentNode.prev;
-				}
-			}
-			currentNode.next = this.head;
-			currentNode.prev = null;
-            this.head!.prev = currentNode;
-            this.head = currentNode;
-		}
-	}
-
-	/**
-     * Find a node with a specific value in the linked list.
-     *
-     * @param {T} value - The value to search for.
-     * @returns {DoublyLinkedListNode<T> | null} - The node with the specified value, or null if not found.
-     */
-	public find(value: T): DoublyLinkedListNode<T> | null {
-		let currentNode = this.head;
-		while (currentNode !== null) {
-			if (currentNode.value === value) {
-				return currentNode;
-			}
-			currentNode = currentNode.next;
-		}
-		return null;
-	}
-
-	/**
-     * Clear the linked list, removing all nodes.
-     */
-	public clear() {
-		this.head = null;
-		this.tail = null;
 	}
 }

@@ -40,8 +40,8 @@ export default class BuilderBuilder<T extends object, Mode extends 'constructorR
  *   - 'objectPropertyReading': Uses object properties for building.
  */
 export class GenericBuilder<T extends object, Mode extends 'constructorReading' | 'objectPropertyReading'> implements Builder<T> {
-    private attributes: Partial<T> = {};
-    private args: Partial<ConstructorParameters<Constructor<T>>> = [];
+	private attributes: Partial<T> = {};
+	private args: Partial<ConstructorParameters<Constructor<T>>> = [];
 
 	/**
      * Initializes the builder for the specified class and mode.
@@ -51,18 +51,18 @@ export class GenericBuilder<T extends object, Mode extends 'constructorReading' 
      *   - "objectPropertyReading": Builds using object properties.
      *   - "constructorReading": Builds using constructor parameters.
      */
-    constructor(
+	constructor(
         private readonly ClassType: Constructor<T>,
         private readonly Type: Mode
-    ) {
-        if (Type === 'objectPropertyReading') {
-            this.createSettersFromProperties();
-        } else {
-            this.createSettersFromConstructorParameters();
-        }
+	) {
+		if (Type === 'objectPropertyReading') {
+			this.createSettersFromProperties();
+		} else {
+			this.createSettersFromConstructorParameters();
+		}
 
-        Object.preventExtensions(this);
-    }
+		Object.preventExtensions(this);
+	}
 
 	/**
      * Generates setter methods based on the properties of the class instance.
@@ -70,21 +70,21 @@ export class GenericBuilder<T extends object, Mode extends 'constructorReading' 
      *
      * @private
      */
-    private createSettersFromProperties() {
+	private createSettersFromProperties() {
 		type Keys = keyof T;
-        const instance = new this.ClassType();
-        for (const key in instance) {
-            if (!Object.prototype.hasOwnProperty.call(instance, key)) continue;
-            const typedKey = key as Keys;
-            const methodName = `set${StringUtil.capitalize(key)}` as `set${Capitalize<string & Keys>}`;
-            const method = (value: T[typeof typedKey]) => {
-                this.attributes[typedKey] = value;
-                return this;
-            };
+		const instance = new this.ClassType();
+		for (const key in instance) {
+			if (!Object.prototype.hasOwnProperty.call(instance, key)) continue;
+			const typedKey = key as Keys;
+			const methodName = `set${StringUtil.capitalize(key)}` as `set${Capitalize<string & Keys>}`;
+			const method = (value: T[typeof typedKey]) => {
+				this.attributes[typedKey] = value;
+				return this;
+			};
 
-            this.defineMethod(methodName, method as AnyFunction);
-        }
-    }
+			this.defineMethod(methodName, method as AnyFunction);
+		}
+	}
 
 	/**
      * Generates setter methods based on the constructor parameters of the class.
@@ -92,20 +92,20 @@ export class GenericBuilder<T extends object, Mode extends 'constructorReading' 
      *
      * @private
      */
-    private createSettersFromConstructorParameters() {
+	private createSettersFromConstructorParameters() {
         type ConstructorArgs = ConstructorParameters<Constructor<T>>;
 
         const paramCount = (this.ClassType as unknown as { length: number }).length;
         for (let i = 0; i < paramCount; i++) {
-            const methodName = `setArg${i}` as const;
+        	const methodName = `setArg${i}` as const;
             type ArgType = ConstructorArgs[typeof i];
             const method = (value: ArgType) => {
-                this.args[i] = value;
-                return this;
+            	this.args[i] = value;
+            	return this;
             };
             this.defineMethod(methodName, method as AnyFunction);
         }
-    }
+	}
 
 	/**
      * Dynamically defines a method on the builder.
@@ -114,25 +114,25 @@ export class GenericBuilder<T extends object, Mode extends 'constructorReading' 
      * @param {AnyFunction} method - The function to assign to the method.
      * @private
      */
-    private defineMethod(name: string, method: AnyFunction) {
-        Object.defineProperty(this, name, {
-            get: () => method,
-            set: (_value) => {
-                throw new Error('You cannot overwrite this property with another.');
-            }
-        });
-    }
+	private defineMethod(name: string, method: AnyFunction) {
+		Object.defineProperty(this, name, {
+			get: () => method,
+			set: (_value) => {
+				throw new Error('You cannot overwrite this property with another.');
+			}
+		});
+	}
 
 	/**
      * Builds and returns an instance of the target class.
      *
      * @returns {T} An instance of the class specified by `ClassType`.
      */
-    public build(): T {
-        if (this.Type === 'objectPropertyReading') {
-            return Object.assign(new this.ClassType(), this.attributes);
-        }
+	public build(): T {
+		if (this.Type === 'objectPropertyReading') {
+			return Object.assign(new this.ClassType(), this.attributes);
+		}
 
-        return new this.ClassType(...(this.args as ConstructorParameters<Constructor<T>>));
-    }
+		return new this.ClassType(...(this.args as ConstructorParameters<Constructor<T>>));
+	}
 }

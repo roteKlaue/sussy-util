@@ -1,4 +1,5 @@
 import { hasValue, objectToString } from '../Functions';
+import { Constructor } from '../Types';
 
 class IsSomething {
 	private static instance: IsSomething = new IsSomething();
@@ -29,7 +30,7 @@ class IsSomething {
      * @param {any} arg - any - The argument to check if it's a class.
      * @returns A boolean value.
      */
-	public isClass(arg: unknown): arg is Function {
+	public isClass(arg: unknown): arg is Constructor<any> {
 		if (typeof arg !== 'function') {
 			return false;
 		}
@@ -164,7 +165,7 @@ class IsSomething {
      * @param {any} arg - any
      * @returns A boolean value.
      */
-	public isPrimitive(arg: unknown): arg is number | null | undefined | string | boolean | Symbol {
+	public isPrimitive(arg: unknown): arg is number | null | undefined | string | boolean | symbol {
 		return this.isNullorUndefined(arg) || this.isString(arg) || this.isNumber(arg) || this.isBoolean(arg) || this.isSymbol(arg);
 	}
 
@@ -183,7 +184,7 @@ class IsSomething {
      * a string
      * @param {any} arg - any
      */
-	public isString(arg: unknown): arg is String {
+	public isString(arg: unknown): arg is string {
 		return !!arg && (typeof arg === 'string' || arg instanceof String || (arg + '') === arg);
 	}
 
@@ -193,7 +194,7 @@ class IsSomething {
      * @param {any} arg - any
      * @returns a boolean value.
      */
-	public isSymbol(arg: unknown): arg is Symbol {
+	public isSymbol(arg: unknown): arg is symbol {
 		return !!arg && (typeof arg === 'symbol' || arg instanceof Symbol);
 	}
 

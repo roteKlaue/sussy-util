@@ -132,7 +132,7 @@ class PromiseUtil {
 	public async handler<R, E extends Error>(promise: PromiseOr<R> | AsyncFunction<R>): Promise<[R | null, E | null]> {
 		try {
 			if (IsSomething.isFunction(promise)) {
-				promise = (promise as AsyncFunction<R>)();
+				promise = promise();
 			}
 			const data = await (promise as PromiseOr<R>);
 			return [data, null];

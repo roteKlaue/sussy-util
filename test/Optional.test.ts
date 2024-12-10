@@ -1,4 +1,4 @@
-import { Optional } from "../src/Classes";
+import { Optional } from '../src/Classes';
 
 describe('Optional', () => {
 	it('should return an empty Optional', () => {
