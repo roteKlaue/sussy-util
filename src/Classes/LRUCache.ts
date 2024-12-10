@@ -207,3 +207,5 @@ export class LRUCache<Key, Value> {
 		}
 	}
 }
+
+export default LRUCache;

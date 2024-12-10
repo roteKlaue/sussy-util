@@ -336,11 +336,9 @@ export default class UnitConverter {
      * @returns The return value is the result of the conversion
      */
 	public static convertLenght(value: number, from: LengthType, to: LengthType): number {
-		// @ts-expect-error this can not happen because the first check already checked for that case
 		if (!this.LENGTH_MAP[from] || !this.LENGTH_MAP[from][to]) {
 			throw new TypeError('Unknown conversion type.');
 		}
-		// @ts-expect-error can not happen because the if statement before checks for it
 		return this.LENGTH_MAP[from][to](value);
 	}
 
