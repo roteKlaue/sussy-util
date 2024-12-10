@@ -1,5 +1,5 @@
 class Optional<T> {
-	private static readonly EMPTY = new Optional<any>(void 0);
+	private static readonly EMPTY = new Optional<unknown>(void 0);
 	private readonly value: T | undefined;
 
 	public constructor(value: T | undefined) {
@@ -40,7 +40,7 @@ class Optional<T> {
 		if (this.value !== void 0) {
 			return new Optional(mapper(this.value));
 		}
-		return Optional.EMPTY;
+		return Optional.empty<U>();
 	}
 
 	/**
@@ -75,7 +75,7 @@ class Optional<T> {
 		if (this.value !== void 0 && predicate(this.value)) {
 			return new Optional(this.value);
 		}
-		return Optional.EMPTY;
+		return Optional.empty<T>();
 	}
 
 	/**
@@ -83,7 +83,7 @@ class Optional<T> {
      * @returns An empty Optional instance.
      */
 	public static empty<T>(): Optional<T> {
-		return this.EMPTY;
+		return this.EMPTY as Optional<T>;
 	}
 
 	/**
