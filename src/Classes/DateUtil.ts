@@ -177,7 +177,7 @@ class DateUtil {
 		if (typeof input === 'number') {
 			return new Date(input);
 		}
-		return input as Date;
+		return input;
 	}
 
 	/**

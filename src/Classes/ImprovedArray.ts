@@ -2,6 +2,7 @@ import IndexOutOfBoundsError from '../Error/IndexOutOfBoundsError';
 import { deepClone } from '../Functions';
 import { MutableObject } from '../Types';
 import ArrayUtils from './ArrayUtil';
+import Optional from './Optional';
 import Random from './Random';
 
 export default class ImprovedArray<T> extends Array<T> {
@@ -32,9 +33,10 @@ export default class ImprovedArray<T> extends Array<T> {
      * @returns The splice method returns an array containing the deleted elements. If only one element
      * is removed, an array of one element is returned.
      */
-	public remove(index: number): T {
-		if (index >= this.length || index < 0) throw new IndexOutOfBoundsError(`${index} is out of bounds for length: ${this.length}`);
-		return this.splice(Math.floor(index), 1)[0];
+	public remove(index: number): Optional<T> {
+		if (index < 0 || index >= this.length) return Optional.empty();
+        const removed = this.splice(Math.floor(index), 1)[0];
+        return Optional.of(removed);
 	}
 
 	/**
@@ -43,9 +45,11 @@ export default class ImprovedArray<T> extends Array<T> {
      * @param {number} index - The index to insert the items at.
      * @param {T[]} items - T[]
      */
-	public insertAt(index: number, ...items: T[]): void {
-		if (index >= this.length || index < 0) throw new IndexOutOfBoundsError(`${index} is out of bounds for length: ${this.length}`);
-		this.push(...items, ...this.splice(index, this.length - index - 1));
+	public insertAt(index: number, ...items: T[]): boolean {
+		if (index < 0 || index >= this.length) return false;
+        const tail = this.splice(index, this.length - index - 1);
+        this.push(...items, ...tail);
+        return true;
 	}
 
 	/**
@@ -83,7 +87,7 @@ export default class ImprovedArray<T> extends Array<T> {
      * that the accumulator is set to before the
      */
 	public none(predicate: (value: T) => boolean): boolean {
-		return this.reduce((acc, value) => !acc && !predicate(value), false);
+		return !this.some(predicate);
 	}
 
 	/**
@@ -149,10 +153,7 @@ export default class ImprovedArray<T> extends Array<T> {
      * For each element in the array, swap it with a random element in the array.
      */
 	public shuffle(): void {
-		for (let i = this.length - 1; i > 0; i--) {
-			const j = Math.floor(Math.random() * (i + 1));
-			[this[i], this[j]] = [this[j], this[i]];
-		}
+		ArrayUtils.shuffle(this);
 	}
 
 	/* shorthand for `forEach` */
