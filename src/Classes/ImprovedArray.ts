@@ -45,7 +45,7 @@ export default class ImprovedArray<T> extends Array<T> {
      */
 	public insertAt(index: number, ...items: T[]): boolean {
 		if (index < 0 || index >= this.length) return false;
-        const tail = this.splice(index, this.length - index - 1);
+        const tail = this.splice(index, this.length - index);
         this.push(...items, ...tail);
         return true;
 	}

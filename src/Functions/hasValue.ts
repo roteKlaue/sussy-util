@@ -6,7 +6,9 @@ import { Collection, Set, Stack, IsSomething } from '../Classes';
  * @returns A function that takes a parameter and returns a boolean.
  */
 const hasValue = <T = unknown>(a: T): boolean => {
-	if ((IsSomething.isString(a) && a.length > 0) || IsSomething.isBoolean(a) || a === null || IsSomething.isNumber(a) || IsSomething.isFunction(a) || (IsSomething.isRegExp(a) && a.source.length > 0)) {
+	if (a === null || a === void 0) return false;
+
+	if ((IsSomething.isString(a) && a.length > 0) || IsSomething.isBoolean(a) || IsSomething.isNumber(a) || IsSomething.isFunction(a) || (IsSomething.isRegExp(a) && a.source.length > 0)) {
 		return true;
 	}
 

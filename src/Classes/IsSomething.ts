@@ -53,7 +53,7 @@ class IsSomething {
      * @returns The constructor of the Date object.
      */
 	public isDate(arg: unknown): arg is Date {
-		return !!arg && (arg.constructor === Date.constructor && arg instanceof Date);
+		return !!arg && (arg instanceof Date);
 	}
 
 	/**
@@ -81,7 +81,7 @@ class IsSomething {
      * @returns The constructor of the Error object.
      */
 	public isError(arg: unknown): arg is Error {
-		return !!arg && (arg.constructor === Error.constructor && arg instanceof Error);
+		return !!arg && (arg instanceof Error);
 	}
 
 	/**
@@ -90,7 +90,7 @@ class IsSomething {
      * @returns A function that takes a number and returns a boolean or null.
      */
 	public isEven(num: number): boolean {
-		return num / 2 === 0;
+		return (num % 2) === 0;
 	}
 
 	/**
@@ -125,7 +125,7 @@ class IsSomething {
      * @param {any} arg - any
      */
 	public isNumber(arg: unknown): arg is number {
-		return !!arg && (typeof arg === 'number' || (typeof arg === 'string' && /^\d+$/.test(arg)));
+		return (typeof arg === 'number' || (typeof arg === 'string' && /^\d+$/.test(arg)));
 	}
 
 	/**
@@ -185,6 +185,7 @@ class IsSomething {
      * @param {any} arg - any
      */
 	public isString(arg: unknown): arg is string {
+		if (this.isSymbol(arg)) return false;
 		return !!arg && (typeof arg === 'string' || arg instanceof String || (arg + '') === arg);
 	}
 
