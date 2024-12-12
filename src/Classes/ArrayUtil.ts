@@ -226,22 +226,34 @@ class ArrayUtils {
 	 * @returns {number} The k-th smallest element in the array.
 	 */
 	public quickSelect(arr: number[], k: number): number {
-		if (!Array.isArray(arr) || arr.length === 0) throw new Error('Array must be non-empty.');
-		if (k < 1 || k > arr.length) throw new Error('k must be between 1 and the length of the array.');
+		if (!Array.isArray(arr) || arr.length === 0) {
+			throw new Error('Array must be non-empty.');
+		}
+	
+		if (k < 1 || k > arr.length) {
+			throw new Error('k must be between 1 and the length of the array.');
+		}
+	
 		if (arr.length === 1) return arr[0];
-
-		const pivot = arr[Random.randomInt(0, arr.length)];
+	
+		const pivotIndex = Random.randomInt(0, arr.length - 1);
+		const pivot = arr[pivotIndex];
+	
 		const lows = arr.filter(x => x < pivot);
 		const highs = arr.filter(x => x > pivot);
 		const pivots = arr.filter(x => x === pivot);
-
-		if (k < lows.length) {
+	
+		if (k <= lows.length) {
 			return this.quickSelect(lows, k);
-		} else if (k < lows.length + pivots.length) {
-			return pivots[0];
 		}
+	
+		if (k <= lows.length + pivots.length) {
+			return pivot;
+		}
+	
 		return this.quickSelect(highs, k - lows.length - pivots.length);
 	}
+	
 
 	/**
 	 * Sorts an array in ascending order using the Quick Sort algorithm.

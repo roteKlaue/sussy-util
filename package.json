@@ -8,7 +8,7 @@
         "compile": "npx tsc",
         "lint": "npx eslint .",
         "lint:fix": "npx eslint . --fix",
-        "test": "jest"
+        "test": "npx jest"
     },
     "repository": {
         "type": "git",

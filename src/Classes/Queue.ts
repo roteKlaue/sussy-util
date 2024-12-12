@@ -20,7 +20,7 @@ export default class Queue<T> {
      * @returns The first item in the array.
      */
 	public peek(): Optional<T> {
-		return Optional.of(this.items[0]);
+		return Optional.ofNullable(this.items[0]);
 	}
 
 	/**
@@ -28,7 +28,7 @@ export default class Queue<T> {
      * @returns The first element of the array.
      */
 	public shift(): Optional<T> {
-		return Optional.of(this.items.shift());
+		return Optional.ofNullable(this.items.shift());
 	}
 
 	/**

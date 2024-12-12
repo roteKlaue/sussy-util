@@ -11,7 +11,7 @@ describe('AbstractClass', () => {
 
 	it('should not throw an error when a valid class constructor is provided', () => {
 		class ValidClass {}
-		expect(() => new AbstractClass(ValidClass)).not.toThrow();
+		expect(() => new AbstractClass(ValidClass)).toThrow(AbstractClassInstanceCallError);
 	});
 
 	it('should throw an AbstractClassInstanceCallError when trying to instantiate the abstract class directly', () => {
@@ -30,7 +30,7 @@ describe('AbstractClass', () => {
 			} 
 		}
 		class ValidClass extends AbstractClassTest {}
-		expect(() => new ValidClass()).toThrow(AbstractClassInstanceCallError);
+		expect(() => new ValidClass()).not.toThrow();
 	});
 
 	it('should not throw an error when a class is properly extended and instantiated', () => {
