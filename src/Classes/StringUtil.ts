@@ -164,9 +164,9 @@ export default class StringUtil {
      */
 	public static slugify(str: string): string {
 		return str.toLowerCase().trim()
-               .replace(/[^\w\s-]/g, '')
-               .replace(/[\s_-]+/g, '-')
-               .replace(/^-+|-+$/g, '');
+			.replace(/[^\w\s-]/g, '')
+			.replace(/[\s_-]+/g, '-')
+			.replace(/^-+|-+$/g, '');
 	}
 
 	/**
@@ -285,9 +285,9 @@ export default class StringUtil {
      */
 	public static collaps(str: string): string {
 		return str.trim()
-               .split(' ')
-               .filter(part => part.length > 0)
-               .join(' ');
+			.split(' ')
+			.filter(part => part.length > 0)
+			.join(' ');
 	}
 
 	/**

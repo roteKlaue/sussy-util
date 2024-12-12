@@ -33,8 +33,8 @@ export default class ImprovedArray<T> extends Array<T> {
      */
 	public remove(index: number): Optional<T> {
 		if (index < 0 || index >= this.length) return Optional.empty();
-        const removed = this.splice(Math.floor(index), 1)[0];
-        return Optional.of(removed);
+		const removed = this.splice(Math.floor(index), 1)[0];
+		return Optional.of(removed);
 	}
 
 	/**
@@ -45,9 +45,9 @@ export default class ImprovedArray<T> extends Array<T> {
      */
 	public insertAt(index: number, ...items: T[]): boolean {
 		if (index < 0 || index >= this.length) return false;
-        const tail = this.splice(index, this.length - index);
-        this.push(...items, ...tail);
-        return true;
+		const tail = this.splice(index, this.length - index);
+		this.push(...items, ...tail);
+		return true;
 	}
 
 	/**
