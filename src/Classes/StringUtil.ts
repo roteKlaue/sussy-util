@@ -41,6 +41,7 @@ export default class StringUtil {
      * another one, if it is, it returns it.
      * @param [withSuffix=false] - boolean
      * @returns A random string that is a valid discord username.
+     * @deprecated
      */
 	public static randomDiscordUsername(withSuffix = false): string {
 		const length = Random.randomInt(4, 33);
@@ -58,6 +59,7 @@ export default class StringUtil {
      * It returns true if the username is a valid Discord username, and false if it isn't
      * @param {string} username - The username to check.
      * @returns A boolean value.
+     * @deprecated
      */
 	public static isDiscordUsername(username: string): boolean {
 		return !!username.match(/^.{4,32}#\d{4}$/);
@@ -70,7 +72,7 @@ export default class StringUtil {
      * @returns A boolean value.
      */
 	public static isInteger(value: string): boolean {
-		return /^\d+$/.test(value);
+		return /^(-)?\d+$/.test(value);
 	}
 
 	/**
@@ -161,13 +163,17 @@ export default class StringUtil {
      * @returns A string
      */
 	public static slugify(str: string): string {
-		return str.toLowerCase().trim().replace(/[^\w\s-]/g, '').replace(/[\s_-]+/g, '-').replace(/^-+|-+$/g, '');
+		return str.toLowerCase().trim()
+               .replace(/[^\w\s-]/g, '')
+               .replace(/[\s_-]+/g, '-')
+               .replace(/^-+|-+$/g, '');
 	}
 
 	/**
      * It takes a string, and returns a string with all HTML tags removed
      * @param {string} str - The string to be stripped of HTML tags.
      * @returns The string with all HTML tags removed.
+     * @deprecated
      */
 	public static stripHtmlTags(str: string): string {
 		return str.replace(/<[^>]*>/g, '');
@@ -278,7 +284,10 @@ export default class StringUtil {
      * @returns A string
      */
 	public static collaps(str: string): string {
-		return str.trim().split(' ').filter((val: string) => val.length > 0).join(' ');
+		return str.trim()
+               .split(' ')
+               .filter(part => part.length > 0)
+               .join(' ');
 	}
 
 	/**
@@ -334,7 +343,7 @@ export default class StringUtil {
      */
 	public static generatePassword(length: number, characters?: string): string {
 		characters = characters || 'ascdefghijklmnopqrstuvwxyzABCDEFGHIJLMOPRSTUVWXYZ1234567890!§$%&?#*+~\'';
-		if (StringUtil.isWeakPassword([...new Set<string>(characters.split(''))].join(''))) throw new Error('Not enough characters to generate password');
+		if (StringUtil.isWeakPassword([...new Set(characters.split(''))].join(''))) throw new Error('Not enough characters to generate password');
 		const result = StringUtil.randomString(length, characters);
 		if (StringUtil.isStrongPassword(result)) return result;
 		return StringUtil.generatePassword(length, characters);
@@ -411,7 +420,7 @@ export default class StringUtil {
      */
 	public static lpad(str: string, minLen: number, ch?: string): string {
 		ch = ch || ' ';
-		return ((str.length < minLen) ? ch.repeat(minLen - str.length) + str : str);
+		return (str.length < minLen) ? ch.repeat(minLen - str.length) + str : str;
 	}
 
 	/**
@@ -434,7 +443,7 @@ export default class StringUtil {
      * @returns a boolean value.
      */
 	public static isEmpty(str: string): boolean {
-		return (!str || str.length === 0 || str === '');
+		return !str || str.length === 0 || str === '';
 	}
 
 	/**

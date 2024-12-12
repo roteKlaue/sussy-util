@@ -130,7 +130,7 @@ class ArrayUtils {
 	 */
 	public deepClone<T>(array: T[]): Array<T> {
 		if (!Array.isArray(array)) return [];
-		return array.map(e => deepClone(e as MutableObject<unknown>) as T);
+		return array.map(deepClone);
 	}
 
 	/**

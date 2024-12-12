@@ -131,10 +131,8 @@ class PromiseUtil {
      */
 	public async handler<R, E extends Error>(promise: PromiseOr<R> | AsyncFunction<R>): Promise<[R | null, E | null]> {
 		try {
-			if (IsSomething.isFunction(promise)) {
-				promise = promise();
-			}
-			const data = await (promise as PromiseOr<R>);
+			if (IsSomething.isFunction(promise)) promise = promise();
+			const data = await promise;
 			return [data, null];
 		} catch (e) {
 			return [null, e as E];
@@ -170,7 +168,7 @@ class PromiseUtil {
      * @returns {Promise<void>} A promise that resolves after the delay.
      */
 	public async delay(milliseconds: number): Promise<void> {
-		return new Promise<void>((resolve) => setTimeout(resolve, milliseconds));
+		return new Promise(resolve => setTimeout(resolve, milliseconds));
 	}
 
 	/**
@@ -188,7 +186,8 @@ class PromiseUtil {
 				shouldKeep: await asyncFilterFunc(value),
 			}))
 		);
-		return results.filter((result) => result.shouldKeep).map((result) => result.value);
+		return results.filter(result => result.shouldKeep)
+			.map(result => result.value);
 	}
 
 	/**
