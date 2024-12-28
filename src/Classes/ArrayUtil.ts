@@ -1,5 +1,4 @@
 import { deepClone } from '../Functions';
-import { MutableObject } from '../Types';
 import Optional from './Optional';
 import Random from './Random';
 

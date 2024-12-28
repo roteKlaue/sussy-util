@@ -1,4 +1,4 @@
-import { ArrayUtils, Point } from '.';
+import { Point } from '.';
 
 class BetterMath {
 	private static readonly instance: BetterMath = new BetterMath();
