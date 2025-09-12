@@ -1,53 +1,53 @@
 import { IsSomething } from '.';
 
 export class PrimeNumbers {
-	private current: number = 0;
-	private primes: number[] = [];
+  private current: number = 0;
+  private primes: number[] = [];
 
-	/**
-     * It returns an array of prime numbers up to a given number.
-     * @param {number} num - number - The number to get the primes till.
-     * @returns The primes array.
-     */
-	public getTill(num: number): number[] {
-		if (num <= this.current) {
-			return this.primes.filter(e => e <= num);
-		}
+  /**
+   * It returns an array of prime numbers up to a given number.
+   * @param {number} num - number - The number to get the primes till.
+   * @returns The primes array.
+   */
+  public getTill(num: number): number[] {
+    if (num <= this.current) {
+      return this.primes.filter((e) => e <= num);
+    }
 
-		for (let i = this.current + 1; i <= num; i++) {
-			if (i % 2 !== 0 && IsSomething.isPrime(i)) {
-				this.primes.push(i);
-			}
-		}
+    for (let i = this.current + 1; i <= num; i++) {
+      if (i % 2 !== 0 && IsSomething.isPrime(i)) {
+        this.primes.push(i);
+      }
+    }
 
-		this.current = num;
-		return this.primes;
-	}
+    this.current = num;
+    return this.primes;
+  }
 
-	/**
-     * adds n amount of prime numbers to the cache and returns it
-     * @param {number} num - number - The number of primes to add to the list.
-     * @returns The array of primes.
-     */
-	public addPrimes(num: number): number[] {
-		while (num > 0) {
-			this.current++;
-			if (IsSomething.isPrime(this.current)) {
-				this.primes.push(this.current);
-				num--;
-			}
-		}
+  /**
+   * adds n amount of prime numbers to the cache and returns it
+   * @param {number} num - number - The number of primes to add to the list.
+   * @returns The array of primes.
+   */
+  public addPrimes(num: number): number[] {
+    while (num > 0) {
+      this.current++;
+      if (IsSomething.isPrime(this.current)) {
+        this.primes.push(this.current);
+        num--;
+      }
+    }
 
-		return this.primes;
-	}
+    return this.primes;
+  }
 
-	/**
-     * Resets the state of the PrimeNumbers instance.
-     */
-	public reset(): void {
-		this.current = 0;
-		this.primes = [];
-	}
+  /**
+   * Resets the state of the PrimeNumbers instance.
+   */
+  public reset(): void {
+    this.current = 0;
+    this.primes = [];
+  }
 }
 
 export default PrimeNumbers;

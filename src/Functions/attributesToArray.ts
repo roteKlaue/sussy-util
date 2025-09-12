@@ -8,15 +8,17 @@ import { MutableObject } from '../Types';
  * @returns {T[]} An array containing the attributes of the mutable object.
  */
 const attributesToArray = <T>(obj: MutableObject<T>, removeNull: boolean = false): T[] => {
-	if (!obj || typeof obj !== 'object') {
-		return [];
-	}
+  if (!obj || typeof obj !== 'object') {
+    return [];
+  }
 
-	if (Array.isArray(obj)) {
-		return obj;
-	}
+  if (Array.isArray(obj)) {
+    return obj;
+  }
 
-	return Object.keys(obj).map(e => obj[e]).filter(obj => !removeNull || obj);
+  return Object.keys(obj)
+    .map((e) => obj[e])
+    .filter((obj) => !removeNull || obj);
 };
 
 export default attributesToArray;

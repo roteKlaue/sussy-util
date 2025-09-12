@@ -7,7 +7,7 @@ import IsSomething from '../Classes/IsSomething';
  * @param {...any} params - The parameters to pass to the function.
  * @returns {any|null} The result of the function call or null if the provided func is not a valid function.
  */
-export default (func: unknown, ...params: unknown[]): any => {
-	if (!IsSomething.isFunction(func)) return null;
-	return func(...params);
+export default (func: unknown, ...params: unknown[]): unknown => {
+  if (!IsSomething.isFunction(func)) return null;
+  return func(...params);
 };

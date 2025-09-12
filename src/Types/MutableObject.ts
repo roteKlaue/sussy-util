@@ -1,3 +1,3 @@
 export default interface MutableObject<T> {
-    [k: string]: T;
+  [k: string]: T;
 }

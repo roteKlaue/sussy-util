@@ -8,17 +8,17 @@ type EnumerableObject<V> = { [K in keyof V]: V[K] };
  * @template T
  */
 const clone = <V>(obj: V): V => {
-	if (Array.isArray(obj)) return obj.map(clone) as unknown as V; 
+  if (Array.isArray(obj)) return obj.map(clone) as unknown as V;
 
-	if (IsSomething.isObject(obj)) {
-		const _clone: EnumerableObject<V> = {} as EnumerableObject<V>;
-		for (const key in obj) {
-			_clone[key] = clone(obj[key]);
-		}
-		return _clone;
-	}
+  if (IsSomething.isObject(obj)) {
+    const _clone: EnumerableObject<V> = {} as EnumerableObject<V>;
+    for (const key in obj) {
+      _clone[key] = clone(obj[key]);
+    }
+    return _clone;
+  }
 
-	return obj;
+  return obj;
 };
 
 export default clone;
