@@ -1,35 +1,35 @@
 import { PromiseOr, AnyFunction } from '../Types';
 import IsSomething from './IsSomething';
 
-declare type resolver = (value: unknown) => unknown;
-declare type ErrorHandlingStrategy = 'first' | 'replace' | 'last';
-declare type AsyncFunction<R> = () => PromiseOr<R>;
-declare type CallbackPosition = 'front' | 'back';
+export declare type resolver = (value: unknown) => unknown;
+export declare type ErrorHandlingStrategy = 'first' | 'replace' | 'last';
+export declare type AsyncFunction<R> = () => PromiseOr<R>;
+export declare type CallbackPosition = 'front' | 'back';
 
-type ResolverFn = (value?: unknown) => void;
-type MappingKey = `${CallbackPosition}-${ErrorHandlingStrategy}`;
+export type ResolverFn = (value?: unknown) => void;
+export type MappingKey = `${CallbackPosition}-${ErrorHandlingStrategy}`;
 
-type ResFirst = <R, E extends Error>(
+export type ResFirst = <R, E extends Error>(
   resolve: ResolverFn,
   reject: ResolverFn,
   result: R,
   error: E | null,
 ) => void;
 
-type ResReplace = <R, E extends Error>(
+export type ResReplace = <R, E extends Error>(
   resolve: ResolverFn,
   reject: ResolverFn,
   result: R | E,
 ) => void;
 
-type ResLast = <R, E extends Error>(
+export type ResLast = <R, E extends Error>(
   resolve: ResolverFn,
   reject: ResolverFn,
   error: E | null,
   result: R,
 ) => void;
 
-type MappingTable = {
+export type MappingTable = {
   'front-first': {
     args: (args: unknown[], callback: AnyFunction) => unknown[];
     function1: ResLast;
@@ -56,7 +56,7 @@ type MappingTable = {
   };
 };
 
-interface PromisifyOptions {
+export interface PromisifyOptions {
   callBackPosition?: CallbackPosition;
   errorPosition?: ErrorHandlingStrategy;
 }

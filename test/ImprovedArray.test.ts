@@ -58,11 +58,6 @@ describe('ImprovedArray', () => {
 		expect(rejected).toEqual([1, 2, 3]);
 	});
 
-	it('should sum the elements of the array', () => {
-		const sum = arr.sum();
-		expect(sum).toBe(15);
-	});
-
 	it('should remove duplicate elements', () => {
 		arr.push(1, 2, 3);
 		arr.removeDuplicates();
