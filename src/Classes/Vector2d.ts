@@ -102,8 +102,9 @@ export default class Vector2d {
    * @returns {number} - The angle between the two vectors in radians.
    */
   public angleTo(vector: Vector2d): number {
-    const dot = this.dotProduct(vector);
     const magProduct = this.magnitude() * vector.magnitude();
+    if (magProduct != 0 && this.normalize().equals(vector.normalize())) return 0;
+    const dot = this.dotProduct(vector);
     return Math.acos(dot / magProduct);
   }
 

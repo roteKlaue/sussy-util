@@ -79,8 +79,9 @@ export default class Point3d {
     const vector1 = this.vectorTo(p1);
     const vector2 = this.vectorTo(p2);
 
-    const dotProduct = vector1.dotProduct(vector2);
     const magnitudeProduct = vector1.magnitude() * vector2.magnitude();
+    if (magnitudeProduct != 0 && vector1.normalize().equals(vector2.normalize())) return 0;
+    const dotProduct = vector1.dotProduct(vector2);
 
     if (magnitudeProduct === 0 || Math.abs(magnitudeProduct) < Number.EPSILON) {
       return 0;

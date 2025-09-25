@@ -1,4 +1,4 @@
-import { Optional, Set } from '../src';
+import { Set } from '../src';
 
 describe('Custom Set', () => {
     let set: Set<number>;

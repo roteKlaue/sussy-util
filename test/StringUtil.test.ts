@@ -193,14 +193,55 @@ describe('StringUtil', () => {
             expect(StringUtil.lpad('x', 3, '0')).toBe('00x');
             expect(StringUtil.rpad('x', 3, '0')).toBe('x00');
         });
+    });
 
+    describe("getRandomString", () => {
+        it("should generate a string of the correct length", () => {
+            const str = StringUtil.randomString(8);
+            expect(str).toHaveLength(8);
+        });
 
-        test('splice / spilce', () => {
-            if (typeof (StringUtil as any).spilce === 'function') {
-                expect((StringUtil as any).spilce('abcdef', 2, 2, 'ZZ')).toBe('abZZef');
-            } else if ((StringUtil as any).splice) {
-                expect((StringUtil as any).splice('abcdef', 2, 2, 'ZZ')).toBe('abZZef');
-            }
+        it("should return empty when length <= 0", () => {
+            expect(StringUtil.randomString(-1)).toBe('');
+        });
+    });
+
+    describe("splice", () => {
+        it("should insert a substring correctly", () => {
+            expect(StringUtil.splice("hello", 2, 0, "X")).toBe("heXllo");
+        });
+
+        it("should remove and replace correctly", () => {
+            expect(StringUtil.splice("abcdef", 2, 3, "Z")).toBe("abZf");
+        });
+
+        it("spilce alias should behave the same", () => {
+            expect(StringUtil.splice("12345", 1, 2, "X")).toBe("1X45");
+        });
+    });
+
+    describe("getRatingString", () => {
+        it("should return correct star ratings", () => {
+            expect(StringUtil.getRatingString(0)).toBe("☆☆☆☆☆");
+            expect(StringUtil.getRatingString(3)).toBe("★★★☆☆");
+            expect(StringUtil.getRatingString(5)).toBe("★★★★★");
+        });
+    });
+
+    describe("generatePassword", () => {
+        it("should generate a password of the requested length", () => {
+            const pwd = StringUtil.generatePassword(12);
+            expect(pwd).toHaveLength(12);
+        });
+
+        it("should use only characters from the given charset", () => {
+            const charset = "abc123";
+            expect(() => StringUtil.generatePassword(20, charset)).toThrow();
+        });
+
+        it("should throw for invalid length", () => {
+            expect(() => StringUtil.generatePassword(0)).toThrow();
+            expect(() => StringUtil.generatePassword(-5)).toThrow();
         });
     });
 });

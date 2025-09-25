@@ -389,7 +389,8 @@ export default class StringUtil {
    * @returns A random color code.
    */
   public static randomColorCode(): string {
-    return `#${(new Uint32Array(1)[0] % 16777215).toString(16)}`;
+    const num = Math.floor(Math.random() * 0xffffff);
+    return `#${num.toString(16).padStart(6, '0')}`;
   }
 
   /**
@@ -406,7 +407,7 @@ export default class StringUtil {
   }
 
   public static getRatingString(rate: number): string {
-    return '★★★★★☆☆☆☆☆'.slice(5 - rate, 10 - rate);
+    return '★'.repeat(rate) + '☆'.repeat(5 - rate);
   }
 
   /**
@@ -465,7 +466,7 @@ export default class StringUtil {
    * @param [text] - The text to insert into the string.
    * @returns The string with the text inserted at the offset.
    */
-  public static spilce(
+  public static splice(
     str: string,
     offset: number,
     removeCount: number | undefined,
