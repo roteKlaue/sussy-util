@@ -5,7 +5,7 @@ export default class Vector3d {
     public readonly x: number = 0,
     public readonly y: number = 0,
     public readonly z: number = 0,
-  ) { }
+  ) {}
 
   /**
    * Creates a new Vector3d instance with the same x, y, and z values as the current vector.
@@ -105,7 +105,8 @@ export default class Vector3d {
   public angleTo(vector: Vector3d): number {
     const thisMagnitude = this.magnitude();
     const vectorMagnitude = vector.magnitude();
-    if (vectorMagnitude != 0 && thisMagnitude != 0 && this.normalize().equals(vector.normalize())) return 0;
+    if (vectorMagnitude != 0 && thisMagnitude != 0 && this.normalize().equals(vector.normalize()))
+      return 0;
     const dotProduct = this.dotProduct(vector);
     const clampedDotProduct = Math.max(-1, Math.min(1, dotProduct));
     return Math.acos(clampedDotProduct / (thisMagnitude * vectorMagnitude));

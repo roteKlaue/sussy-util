@@ -4,7 +4,7 @@ export default class Point {
   public constructor(
     public readonly x: number,
     public readonly y: number,
-  ) { }
+  ) {}
 
   /**
    * This function takes a Point object as an argument and returns the distance between the two
@@ -72,9 +72,11 @@ export default class Point {
     const vector1 = this.vectorTo(p1);
     const vector2 = this.vectorTo(p2);
 
-    if (vector1.magnitude() != 0
-      && vector2.magnitude() != 0
-      && vector1.normalize().equals(vector2.normalize())) 
+    if (
+      vector1.magnitude() != 0 &&
+      vector2.magnitude() != 0 &&
+      vector1.normalize().equals(vector2.normalize())
+    )
       return 0;
 
     const dotProduct = vector1.dotProduct(vector2);
