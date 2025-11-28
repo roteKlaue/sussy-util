@@ -143,27 +143,27 @@ class PromiseUtil {
    */
   readonly #MAPPINGS: MappingTable = {
     'front-first': {
-      args: (args: unknown[], callback: AnyFunction) => [callback, args],
+      args: (args: unknown[], callback: AnyFunction) => [callback, ...args],
       function1: this.#resLast,
     },
     'front-replace': {
-      args: (args: unknown[], callback: AnyFunction) => [callback, args],
+      args: (args: unknown[], callback: AnyFunction) => [callback, ...args],
       function1: this.#resReplace,
     },
     'front-last': {
-      args: (args: unknown[], callback: AnyFunction) => [callback, args],
+      args: (args: unknown[], callback: AnyFunction) => [callback, ...args],
       function1: this.#resFirst,
     },
     'back-first': {
-      args: (args: unknown[], callback: AnyFunction) => [args, callback],
+      args: (args: unknown[], callback: AnyFunction) => [...args, callback],
       function1: this.#resLast,
     },
     'back-replace': {
-      args: (args: unknown[], callback: AnyFunction) => [args, callback],
+      args: (args: unknown[], callback: AnyFunction) => [...args, callback],
       function1: this.#resReplace,
     },
     'back-last': {
-      args: (args: unknown[], callback: AnyFunction) => [args, callback],
+      args: (args: unknown[], callback: AnyFunction) => [...args, callback],
       function1: this.#resFirst,
     },
   };

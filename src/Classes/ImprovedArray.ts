@@ -78,11 +78,7 @@ export default class ImprovedArray<T> extends Array<T> {
    * If the predicate returns true for any of the elements in the array, return false, otherwise
    * return true.
    * @param predicate - (value: T) => boolean
-   * @returns The reduce method is being called on the array. The reduce method takes two parameters,
-   * a callback function and an initial value. The callback function takes two parameters, an
-   * accumulator and a value. The accumulator is the value returned by the previous call to the
-   * callback function. The value is the current value in the array. The initial value is the value
-   * that the accumulator is set to before the
+   * @returns boolean indicting if none of the elements in the array fit the predicate.
    */
   public none(predicate: (value: T) => boolean): boolean {
     return !this.some(predicate);

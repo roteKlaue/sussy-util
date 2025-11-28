@@ -1,8 +1,8 @@
 import { IsSomething } from '.';
 
 export class PrimeNumbers {
-  private current: number = 0;
-  private primes: number[] = [];
+  private current: number = 1;
+  private primes: number[] = [2];
 
   /**
    * It returns an array of prime numbers up to a given number.
@@ -11,7 +11,10 @@ export class PrimeNumbers {
    */
   public getTill(num: number): number[] {
     if (num <= this.current) {
-      return this.primes.filter((e) => e <= num);
+      return this.primes.slice(
+        0,
+        this.primes.findIndex((e) => e >= num),
+      );
     }
 
     for (let i = this.current + 1; i <= num; i++) {
@@ -21,7 +24,7 @@ export class PrimeNumbers {
     }
 
     this.current = num;
-    return this.primes;
+    return [...this.primes];
   }
 
   /**
@@ -45,8 +48,8 @@ export class PrimeNumbers {
    * Resets the state of the PrimeNumbers instance.
    */
   public reset(): void {
-    this.current = 0;
-    this.primes = [];
+    this.current = 1;
+    this.primes = [2];
   }
 }
 
