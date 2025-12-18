@@ -13,8 +13,7 @@ type AnyFunction<Args extends unknown[] = unknown[], Return = unknown> = (...arg
 export default class BuilderBuilder<
   T extends object,
   Mode extends 'constructorReading' | 'objectPropertyReading' = 'objectPropertyReading',
-> implements Builder<Constructor<GenericBuilder<T, Mode>>>
-{
+> implements Builder<Constructor<GenericBuilder<T, Mode>>> {
   /**
    * Creates an instance of the BuilderBuilder.
    * @param {Function} ClassType - The constructor of the target class for which a builder is to be generated.
@@ -51,8 +50,7 @@ export default class BuilderBuilder<
 export class GenericBuilder<
   T extends object,
   Mode extends 'constructorReading' | 'objectPropertyReading',
-> implements Builder<T>
-{
+> implements Builder<T> {
   private attributes: Partial<T> = {};
   private args: Partial<ConstructorParameters<Constructor<T>>> = [];
 
