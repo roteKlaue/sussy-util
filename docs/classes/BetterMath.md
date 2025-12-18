@@ -2,7 +2,7 @@
 
 # Class: BetterMath
 
-The `BetterMath` class provides a collection of mathematical utility methods, including rounding, calculating powers, distances, factorials, permutations, combinations, and conversions between degrees and radians.
+The `BetterMath` class is a singleton utility that offers a suite of advanced mathematical operations, including rounding, powers, distances, GCD, LCM, factorials, permutations, combinations, and unit conversions.
 
 ## Table of contents
 

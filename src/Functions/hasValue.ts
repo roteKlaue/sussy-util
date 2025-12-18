@@ -6,33 +6,41 @@ import { Collection, Set, Stack, IsSomething } from '../Classes';
  * @returns A function that takes a parameter and returns a boolean.
  */
 const hasValue = <T = unknown>(a: T): boolean => {
-	if ((IsSomething.isString(a) && (a as string).length > 0) || IsSomething.isBoolean(a) || a === null || IsSomething.isNumber(a) || IsSomething.isFunction(a) || (IsSomething.isRegExp(a) && (a as RegExp).source.length > 0)) {
-		return true;
-	}
+  if (a === null || a === void 0) return false;
 
-	if (IsSomething.isArray(a)) {
-		for (const iterator of (a as unknown[])) {
-			if (hasValue(iterator)) {
-				return true;
-			}
-		}
-	}
+  if (
+    (IsSomething.isString(a) && a.length > 0) ||
+    IsSomething.isBoolean(a) ||
+    IsSomething.isNumber(a) ||
+    IsSomething.isFunction(a) ||
+    (IsSomething.isRegExp(a) && a.source.length > 0)
+  ) {
+    return true;
+  }
 
-	if (a instanceof Set || a instanceof Stack || a instanceof Collection) {
-		return hasValue(a.toArray());
-	}
+  if (IsSomething.isArray(a)) {
+    for (const iterator of a) {
+      if (hasValue(iterator)) {
+        return true;
+      }
+    }
+  }
 
-	if (typeof a === 'object' && !IsSomething.isArray(a)) {
-		for (const key in a) {
-			if (Object.prototype.hasOwnProperty.call(a, key)) {
-				if (hasValue(a[key as keyof T])) {
-					return true;
-				}
-			}
-		}
-	}
+  if (a instanceof Set || a instanceof Stack || a instanceof Collection) {
+    return hasValue(a.toArray());
+  }
 
-	return false;
+  if (typeof a === 'object' && !IsSomething.isArray(a)) {
+    for (const key in a) {
+      if (Object.prototype.hasOwnProperty.call(a, key)) {
+        if (hasValue(a[key as keyof T])) {
+          return true;
+        }
+      }
+    }
+  }
+
+  return false;
 };
 
 export default hasValue;

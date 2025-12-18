@@ -8,6 +8,6 @@ import { IsSomething } from '../Classes';
  * @returns {boolean} True if the object has the property, false otherwise.
  */
 export default (obj: object, prop: string): boolean => {
-	if (!IsSomething.isString(prop)) return false;
-	return Object.prototype.hasOwnProperty.call(obj, prop);
+  if (!IsSomething.isString(prop)) return false;
+  return Object.prototype.hasOwnProperty.call(obj, prop);
 };

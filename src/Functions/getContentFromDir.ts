@@ -8,14 +8,15 @@ import fs from 'fs';
  * @returns An object with the content of the directory.
  */
 const getContentFromDirectory = (dir: string) => {
-	const result = {} as MutableObject<unknown>;
-	fs.readdirSync(dir).forEach((path: string) => {
-		if (fs.lstatSync(`${dir}/${path}`).isDirectory()) {
-			return result[path] = getContentFromDirectory(`${dir}/${path}`);
-		}
-		result[path.replace('.js', '')] = require(`${dir}/${path}`);
-	});
-	return result;
+  const result = {} as MutableObject<unknown>;
+  fs.readdirSync(dir).forEach((path: string) => {
+    if (fs.lstatSync(`${dir}/${path}`).isDirectory()) {
+      return (result[path] = getContentFromDirectory(`${dir}/${path}`));
+    }
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    result[path.replace('.js', '')] = require(`${dir}/${path}`);
+  });
+  return result;
 };
 
 export default getContentFromDirectory;

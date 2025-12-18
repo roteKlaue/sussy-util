@@ -22,3 +22,4 @@ snyk.exe
 /examples
 backup.md
 yarn.lock
+/test

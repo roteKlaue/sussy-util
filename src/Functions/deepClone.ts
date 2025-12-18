@@ -1,26 +1,24 @@
-import MutableObject from '../Types/MutableObject';
 import IsSomething from '../Classes/IsSomething';
 
+type EnumerableObject<V> = { [K in keyof V]: V[K] };
 
 /**
  * Recursively clones an object or array.
  *
  * @template T
- * @param {MutableObject<T> | MutableObject<T>[]} obj - The object or array to clone.
- * @returns {MutableObject<T> | MutableObject<T>[]} - A clone of the object or array.
  */
-const clone = (obj: MutableObject<unknown> | MutableObject<unknown>[]): MutableObject<unknown> | MutableObject<unknown>[] => {
-	if (Array.isArray(obj)) { return obj.map(clone) as MutableObject<unknown>[]; }
+const clone = <V>(obj: V): V => {
+  if (Array.isArray(obj)) return obj.map(clone) as unknown as V;
 
-	if (IsSomething.isObject(obj)) {
-		const _clone: MutableObject<unknown> = {};
-		for (const key in obj) {
-			_clone[key] = clone(obj[key] as MutableObject<unknown>);
-		}
-		return _clone;
-	}
+  if (IsSomething.isObject(obj)) {
+    const _clone: EnumerableObject<V> = {} as EnumerableObject<V>;
+    for (const key in obj) {
+      _clone[key] = clone(obj[key]);
+    }
+    return _clone;
+  }
 
-	return obj;
+  return obj;
 };
 
 export default clone;

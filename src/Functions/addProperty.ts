@@ -7,12 +7,12 @@ import MutableObject from '../Types/MutableObject';
  * @returns The object that was passed in.
  */
 const addProperty = <T>(obj: MutableObject<T>, prop: string, value: T): MutableObject<T> => {
-	if (typeof obj !== 'object') {
-		return obj;
-	}
+  if (typeof obj !== 'object') {
+    return obj;
+  }
 
-	obj[prop] = value;
-	return obj;
+  obj[prop] = value;
+  return obj;
 };
 
 export default addProperty;

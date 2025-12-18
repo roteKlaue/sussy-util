@@ -1,5 +1,6 @@
 import { LengthType, TemperatureType, SpeedType } from './UnitType';
 import MutableObject from './MutableObject';
+import AnyFunction from './AnyFunction';
 import Constructor from './Constructor';
 import JSONObject from './JSONObject';
 import PromiseOr from './PromiseOr';
@@ -8,14 +9,15 @@ import Builder from './Builder';
 import JSON from './JSON';
 
 export {
-	Builder,
-	Constructor,
-	JSONObject,
-	MutableObject,
-	MapEntry,
-	PromiseOr,
-	JSON,
-	LengthType,
-	TemperatureType,
-	SpeedType
+  Builder,
+  Constructor,
+  JSONObject,
+  MutableObject,
+  MapEntry,
+  PromiseOr,
+  JSON,
+  LengthType,
+  TemperatureType,
+  SpeedType,
+  AnyFunction,
 };

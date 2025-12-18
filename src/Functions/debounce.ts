@@ -1,24 +1,26 @@
-const debounce = (fn: Function, wait?: number, immediate = false): ((...args: never) => void) => {
-	let timeout: number | undefined | NodeJS.Timeout;
+import { AnyFunction } from '../Types';
 
-	const setDebounce = (...args: never[]): void => {
-		const later = () => {
-			timeout = void 0;
-			if (!immediate) {
-				fn.apply(later, args);
-			}
-		};
+const debounce = (fn: AnyFunction, wait?: number, immediate = false): AnyFunction => {
+  let timeout: number | undefined | NodeJS.Timeout;
 
-		const callNow = immediate && !timeout;
-		clearTimeout(timeout);
-		timeout = setTimeout(later, wait || 200);
+  const setDebounce = (...args: unknown[]): void => {
+    const later = () => {
+      timeout = void 0;
+      if (!immediate) {
+        fn.apply(later, args);
+      }
+    };
 
-		if (callNow) {
-			fn.apply(setDebounce, args);
-		}
-	};
+    const callNow = immediate && !timeout;
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait || 200);
 
-	return setDebounce;
+    if (callNow) {
+      fn.apply(setDebounce, args);
+    }
+  };
+
+  return setDebounce;
 };
 
 export default debounce;

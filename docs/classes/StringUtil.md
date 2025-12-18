@@ -4,10 +4,6 @@
 
 ## Table of contents
 
-### Constructors
-
-- [constructor](StringUtil.md#constructor)
-
 ### Methods
 
 - [camelCase](StringUtil.md#camelcase)
@@ -55,12 +51,6 @@
 - [uncapitalize](StringUtil.md#uncapitalize)
 - [upperFirst](StringUtil.md#upperfirst)
 - [wordCount](StringUtil.md#wordcount)
-
-## Constructors
-
-### constructor
-
-• **new StringUtil**()
 
 ## Methods
 

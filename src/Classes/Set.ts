@@ -1,173 +1,249 @@
-import { IndexOutOfBoundsError } from '../Error';
-import { ImprovedArray } from '.';
+import { ImprovedArray, Optional } from '.';
 
+type CheckFunction<T> = (a: T, b: T) => boolean;
+type CallBack<T> = (a: T, index: number) => void;
+
+/**
+ * A custom Set implementation that ensures unique items with flexible equality checks.
+ * @template T - The type of items stored in the Set.
+ */
 export default class Set<T> {
-	private items = new ImprovedArray<T>();
-	private checkFunction: (a: T, b: T) => boolean = (arrayParam: T, newItem: T) => arrayParam === newItem;
+  private items = new ImprovedArray<T>();
+  private checkFunction: CheckFunction<T> = (a: T, b: T) => a === b;
 
-	public constructor(...items: T[]) {
-		for (let index = 0; index < items.length; index++) {
-			const item = items.shift();
-			if (item && !items.includes(item)) {
-				this.items.push(item);
-			}
-		}
-	}
+  /**
+   * Constructs a new Set instance.
+   * @param {T[]} items - The initial items to populate the set.
+   * @param {CheckFunction<T>} [checkFunction] - Optional equality check function.
+   */
+  public constructor(items: T[], checkFunction?: CheckFunction<T>) {
+    if (checkFunction) this.checkFunction = checkFunction;
 
-	/**
-     * If the item is not already in the array, add it
-     * @param {T} item - T - The item to be pushed into the array.
-     */
-	public push(item: T): void {
-		if (this.has(item)) {
-			throw new Error(`Item "${item}" already exists in the Set.`);
-		}
-		this.items.push(item);
-	}
+    items.forEach((item) => {
+      if (!this.has(item)) this.items.push(item);
+    });
+  }
 
-	/**
-     * finds and removes the item from the Set
-     * @param {T} item - T - The item to delete
-     */
-	public delete(item: T): void {
-		const index = this.items.indexOf(item);
-		if (index !== -1) {
-			this.items.remove(index);
-		}
-	}
+  /**
+   * Adds an item to the set if it does not already exist.
+   * @param {T} item - The item to add.
+   */
+  public push = (item: T): void => {
+    if (this.has(item)) return;
+    this.items.push(item);
+  };
 
-	/**
-     * @param {number} index - number - The index of the item to get
-     * @returns The item at the index.
-     */
-	public get(index: number): T {
-		if (index < 0 || index >= this.length()) {
-			throw new IndexOutOfBoundsError(`Index: ${index} is out of bounds for length ${this.length()}`);
-		}
-		return this.items[index];
-	}
+  /**
+   * Removes an item from the set.
+   * @param {T} item - The item to remove.
+   * @returns {boolean} - True if the item was removed, false otherwise.
+   */
+  public delete = (item: T): boolean => {
+    const index = this.items.indexOf(item);
+    if (index < 0) return false;
+    this.items.remove(index);
+    return true;
+  };
 
-	/**
-     * Returns true if the set is empty, false otherwise
-     * @returns The return type is boolean.
-     */
-	public isEmpty(): boolean {
-		return this.items.isEmpty();
-	}
+  /**
+   * Retrieves the item at a given index as an Optional.
+   * @param {number} index - The index of the item.
+   * @returns {Optional<T>} - The item wrapped in an Optional.
+   */
+  public get = (index: number): Optional<T> => {
+    if (index < 0 || index >= this.length()) return Optional.empty();
+    return Optional.of(this.items[index]);
+  };
 
-	/**
-     * The length function returns the length of the items array
-     * @returns The length of the items array.
-     */
-	public length(): number {
-		return this.items.length;
-	}
+  /**
+   * Checks if the set is empty.
+   * @returns {boolean} - True if the set is empty, false otherwise.
+   */
+  public isEmpty = this.items.isEmpty.bind(this.items);
 
-	/**
-     * The clear() function clears the items in the Set
-     */
-	public clear(): void {
-		this.items.clear();
-	}
+  /**
+   * Returns the number of items in the set.
+   * @returns {number} - The number of items in the set.
+   */
+  public length = (): number => this.items.length;
 
-	/**
-     * The clone function creates a new Set object and passes the items of the current Set object to
-     * the new Set object
-     * @returns A new Set object with the same items as the original Set object.
-     */
-	public clone() {
-		return new Set<T>(...this.items);
-	}
+  /**
+   * Clears all items from the set.
+   */
+  public clear = this.items.clear.bind(this.items);
 
-	/**
-     * The remove function removes an item from the list at the specified index.
-     * @param {number} index - number - The index of the item to remove.
-     */
-	public remove(index: number): void {
-		if (index < 0 || index >= this.length()) {
-			throw new IndexOutOfBoundsError(`Index: ${index} is out of bounds for length ${this.length()}`);
-		}
-		this.items.remove(index);
-	}
+  /**
+   * Creates a new Set with the same items.
+   * @returns {Set<T>} - A clone of the current set.
+   */
+  public clone = (): Set<T> => new Set<T>(this.items, this.checkFunction);
 
-	/**
-     * The spread operator (...) is used to convert the Set to an array
-     * @returns An array of the items in the set.
-     */
-	public toArray(): T[] {
-		return [...this.items];
-	}
+  /**
+   * Removes an item at a given index.
+   * @param {number} index - The index of the item to remove.
+   * @returns {boolean} - True if the item was removed, false otherwise.
+   */
+  public remove = (index: number): boolean => {
+    if (index < 0 || index >= this.length()) return false;
+    this.items.remove(index);
+    return true;
+  };
 
-	/**
-     * This function changes the check function to the one passed in as a parameter.
-     * @param predicate - (a: T, b: T) => boolean
-     */
-	public changeCheckFunction(predicate: (a: T, b: T) => boolean): void {
-		this.checkFunction = predicate;
-	}
+  /**
+   * Converts the set to an array.
+   * @returns {T[]} - An array representation of the set.
+   */
+  public toArray = this.items.clone.bind(this.items);
 
-	public toString(): string {
-		return `Set: ${this.items.toString()}`;
-	}
+  /**
+   * Changes the equality check function.
+   * @param {CheckFunction<T>} predicate - The new equality check function.
+   */
+  public changeCheckFunction = (predicate: CheckFunction<T>): void => {
+    this.checkFunction = predicate;
+  };
 
-	/**
-     * It takes the items array and converts it to a JSON string.
-     * @returns The JSON string representation of the items array.
-     */
-	public toJSONString(): string {
-		return JSON.stringify(this.items);
-	}
+  /**
+   * Returns a string representation of the set.
+   * @returns {string} - The string representation of the set.
+   */
+  public toString = (): string => `Set: ${this.items.toString()}`;
 
-	/**
-     * Returns true if the Set contains the specified item, false otherwise.
-     * @param item - The item to search for in the Set.
-     * @returns A boolean indicating whether the item exists in the Set.
-     */
-	public has(item: T): boolean {
-		return this.items.some((item2) => this.checkFunction(item2, item));
-	}
+  /**
+   * Returns a JSON string representation of the set.
+   * @returns {string} - The JSON string representation of the set.
+   */
+  public toJSONString = (): string => this.items.toJSONString();
 
-	/**
-     * Executes a provided callback function once for each item in the Set.
-     * @param callback - A function to execute for each item in the Set.
-     */
-	public forEach(callback: (item: T, index: number) => void): void {
-		this.items.forEach((a, b) => callback(a, b));
-	}
+  /**
+   * Checks if the set contains an item.
+   * @param {T} item - The item to check for.
+   * @returns {boolean} - True if the item is in the set, false otherwise.
+   */
+  public has = (item: T): boolean => this.items.some(this.checkFunction.bind(this, item));
 
-	/* shorthand for `forEach` */
-	public each(callbackfn: (item: T, index: number) => void): void {
-		this.forEach(callbackfn);
-	}
+  /**
+   * Executes a callback function for each item in the set.
+   * @param {CallBack<T>} callback - The callback function.
+   */
+  public forEach = (callback: CallBack<T>): void => this.items.forEach(callback);
 
-	/**
-     * Returns a new Set that contains the items from both the current Set and another Set.
-     * @param set - The Set to merge with the current Set.
-     * @returns A new Set that contains items from both Sets.
-     */
-	public merge(set: Set<T>): Set<T> {
-		return new Set<T>(...this.items, ...set.toArray());
-	}
+  /**
+   * Executes a callback function for each item in the set (alias for `forEach`).
+   * @param {CallBack<T>} callback - The callback function.
+   */
+  public each = (callback: CallBack<T>): void => this.forEach(callback);
 
-	/**
-     * Returns a new Set that contains items from the current Set that are not present in another Set.
-     * @param set - The Set to subtract from the current Set.
-     * @returns A new Set that contains items from the current Set excluding those present in the other Set.
-     */
-	public subtract(set: Set<T>): Set<T> {
-		const subtractedItems = this.items.filter(item => !set.has(item));
-		return new Set<T>(...subtractedItems);
-	}
+  /**
+   * Merges another set with this set.
+   * @param {Set<T>} set - The set to merge.
+   * @returns {Set<T>} - A new set containing all items from both sets.
+   */
+  public merge = (set: Set<T>): Set<T> => {
+    return new Set<T>([...this.items, ...set.toArray()], this.checkFunction);
+  };
 
-	public [Symbol.iterator](): Iterator<T> {
-		let index = 0;
-		return {
-			next: (): IteratorResult<T> => {
-				return {
-					value: index < this.items.length ? this.items[index++] : undefined!,
-					done: index >= this.items.length,
-				};
-			}
-		};
-	}
+  /**
+   * Returns a new set containing items present in this set but not in the provided set.
+   * @param {Set<T>} set - The set to subtract.
+   * @returns {Set<T>} - A new set with subtracted items.
+   */
+  public subtract = (set: Set<T>): Set<T> => {
+    const subtractedItems = this.items.filter((item) => !set.has(item));
+    return new Set<T>(subtractedItems, this.checkFunction);
+  };
+
+  /**
+   * Filters the set based on a predicate.
+   * @param {(item: T, index: number) => boolean} predicate - The predicate function.
+   * @returns {Set<T>} - A new set with items that satisfy the predicate.
+   */
+  public filter = (predicate: (item: T, index: number) => boolean): Set<T> => {
+    const filteredItems: T[] = [];
+    this.forEach((item, i) => {
+      if (!predicate(item, i)) return;
+      filteredItems.push(item);
+    });
+    return new Set<T>(filteredItems, this.checkFunction);
+  };
+
+  /**
+   * Reduces the set to a single value using a reducer function.
+   * @template U
+   * @param {(accumulator: U, currentItem: T, index: number) => U} reducer - The reducer function.
+   * @param {U} initialValue - The initial value for the accumulator.
+   * @returns {U} - The final accumulated value.
+   */
+  public reduce = <U>(
+    reducer: (accumulator: U, currentItem: T, index: number) => U,
+    initialValue: U,
+  ): U => {
+    let accumulator: U = initialValue;
+    this.forEach((item, i) => {
+      accumulator = reducer(accumulator, item, i);
+    });
+    return accumulator;
+  };
+
+  /**
+   * Maps each item in the set to a new value, ensuring uniqueness of mapped items.
+   * @template U
+   * @param {(item: T, index: number) => U} callback - The mapping function.
+   * @returns {Set<U>} - A new set with mapped items.
+   */
+  public map = <U>(callback: (item: T, index: number) => U): Set<U> => {
+    const mappedItems: U[] = [];
+    this.forEach((item, i) => {
+      const newItem = callback(item, i);
+      mappedItems.push(newItem);
+    });
+    return new Set<U>(mappedItems, (a, b) => a === b);
+  };
+
+  /**
+   * Returns a new set containing items present in both this set and another set.
+   * @param {Set<T>} set - The set to intersect with.
+   * @returns {Set<T>} - A new set with intersected items.
+   */
+  public intersection = (set: Set<T>): Set<T> => {
+    const intersectionItems = this.items.filter((item) => set.has(item));
+    return new Set<T>(intersectionItems, this.checkFunction);
+  };
+
+  /**
+   * Returns a new set containing all unique items from both sets.
+   * @param {Set<T>} set - The set to unite with.
+   * @returns {Set<T>} - A new set with union items.
+   */
+  public union = (set: Set<T>): Set<T> => {
+    return new Set<T>([...this.items, ...set.toArray()], this.checkFunction);
+  };
+
+  /**
+   * Returns a new set containing items that are in either set, but not both.
+   * @param {Set<T>} set - The set to compare with.
+   * @returns {Set<T>} - A new set with symmetric difference items.
+   */
+  public symmetricDifference = (set: Set<T>): Set<T> => {
+    const itemsInThisNotInOther = this.items.filter((item) => !set.has(item));
+    const itemsInOtherNotInThis = set.toArray().filter((item) => !this.has(item));
+    return new Set<T>([...itemsInThisNotInOther, ...itemsInOtherNotInThis], this.checkFunction);
+  };
+
+  /**
+   * Enables iteration over the set using `for...of`.
+   * @returns {Iterator<T>} - An iterator for the set.
+   */
+  public [Symbol.iterator](): Iterator<T> {
+    let index = 0;
+    const items = [...this.items];
+    return {
+      next(): IteratorResult<T> {
+        if (index < items.length) {
+          return { value: items[index++], done: false };
+        }
+        return { value: undefined, done: true };
+      },
+    };
+  }
 }

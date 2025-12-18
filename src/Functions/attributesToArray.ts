@@ -7,16 +7,18 @@ import { MutableObject } from '../Types';
  * @param {boolean} [removeNull] - Optional. Specifies whether to remove null values from the resulting array.
  * @returns {T[]} An array containing the attributes of the mutable object.
  */
-const attributesToArray = <T>(obj: MutableObject<T>, removeNull?: boolean): T[] => {
-	if (!obj || typeof obj !== 'object') {
-		return [];
-	}
+const attributesToArray = <T>(obj: MutableObject<T>, removeNull: boolean = false): T[] => {
+  if (!obj || typeof obj !== 'object') {
+    return [];
+  }
 
-	if (Array.isArray(obj)) {
-		return obj;
-	}
+  if (Array.isArray(obj)) {
+    return obj;
+  }
 
-	return Object.keys(obj).map(e => obj[e]).filter(obj => !removeNull || obj);
+  return Object.keys(obj)
+    .map((e) => obj[e])
+    .filter((obj) => !removeNull || obj);
 };
 
 export default attributesToArray;

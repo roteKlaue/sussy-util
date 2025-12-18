@@ -6,5 +6,4 @@ logs.txt
 .dccache
 snyk.exe
 /.idea
-package-lock.json
 yarn.lock
