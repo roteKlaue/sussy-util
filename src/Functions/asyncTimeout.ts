@@ -4,7 +4,7 @@
  * @returns A function that returns a promise that resolves after a timeout.
  */
 const asyncTimeout = async (ms: number): Promise<number | NodeJS.Timeout> => {
-    return new Promise(resolve => setTimeout(resolve, ms));
-}
+  return new Promise((resolve) => setTimeout(resolve, ms));
+};
 
 export default asyncTimeout;

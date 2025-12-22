@@ -9,10 +9,6 @@ import * as errorClasses from './Error';
 import * as functions from './Functions';
 import * as types from './Types';
 
-export {
-    classes,
-    functions,
-    types
-}
+export { classes, functions, types };
 
 export default { ...classes, ...errorClasses, ...functions, ...types };

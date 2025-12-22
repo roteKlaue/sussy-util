@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="./logo.png" alt="">
+    <img src="https://raw.githubusercontent.com/roteKlaue/sussy-util/9cde1913f4e14f4b86a5c61ee9b117672fdc89bb/logo.svg" alt="">
     <h3>Sussy-Util</h3>
     <strong>Version 12</strong>
     <br>

@@ -4,4 +4,4 @@
  * @param {any} val - The value to check.
  * @returns {number|0} The provided value if it is a number, otherwise 0.
  */
-export default (val: any): number | 0 => isNaN(val) ? 0 : val;
+export default (val: any): number | 0 => (isNaN(val) ? 0 : val);
