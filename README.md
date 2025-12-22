@@ -1,6 +1,6 @@
 <div align="center">
-    <img src="./logo.png" alt="">
-    <h3>Sussy-Util</h3>
+    <img src="./logo.svg" alt="">
+    <h3>sussy-util</h3>
     <strong>Version 13</strong>
     <br>
     <a href="https://www.npmjs.com/package/sussy-util">
