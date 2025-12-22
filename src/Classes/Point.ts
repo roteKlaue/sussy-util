@@ -1,7 +1,7 @@
 import Vector2d from './Vector2d';
 
 export default class Point {
-  constructor(
+  public constructor(
     public readonly x: number,
     public readonly y: number,
   ) {}
@@ -71,6 +71,13 @@ export default class Point {
   public angleBetween(p1: Point, p2: Point): number {
     const vector1 = this.vectorTo(p1);
     const vector2 = this.vectorTo(p2);
+
+    if (
+      vector1.magnitude() != 0 &&
+      vector2.magnitude() != 0 &&
+      vector1.normalize().equals(vector2.normalize())
+    )
+      return 0;
 
     const dotProduct = vector1.dotProduct(vector2);
     const magnitudeProduct = vector1.magnitude() * vector2.magnitude();

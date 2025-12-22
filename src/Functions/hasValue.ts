@@ -5,14 +5,15 @@ import { Collection, Set, Stack, IsSomething } from '../Classes';
  * @param {any} a - any
  * @returns A function that takes a parameter and returns a boolean.
  */
-const hasValue = (a: any): boolean => {
+const hasValue = <T = unknown>(a: T): boolean => {
+  if (a === null || a === void 0) return false;
+
   if (
     (IsSomething.isString(a) && a.length > 0) ||
     IsSomething.isBoolean(a) ||
-    a === null ||
     IsSomething.isNumber(a) ||
     IsSomething.isFunction(a) ||
-    (IsSomething.isRegExp(a) && a.length > 0)
+    (IsSomething.isRegExp(a) && a.source.length > 0)
   ) {
     return true;
   }
@@ -31,8 +32,8 @@ const hasValue = (a: any): boolean => {
 
   if (typeof a === 'object' && !IsSomething.isArray(a)) {
     for (const key in a) {
-      if (a.hasOwnProperty(key)) {
-        if (hasValue(a[key])) {
+      if (Object.prototype.hasOwnProperty.call(a, key)) {
+        if (hasValue(a[key as keyof T])) {
           return true;
         }
       }

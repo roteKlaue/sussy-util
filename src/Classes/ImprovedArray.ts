@@ -44,10 +44,11 @@ export default class ImprovedArray<T> extends Array<T> {
    * @param {number} index - The index to insert the items at.
    * @param {T[]} items - T[]
    */
-  public insertAt(index: number, ...items: T[]): void {
-    if (index >= this.length || index < 0)
-      throw new IndexOutOfBoundsError(`${index} is out of bounds for length: ${this.length}`);
-    this.push(...items, ...this.splice(index, this.length - index - 1));
+  public insertAt(index: number, ...items: T[]): boolean {
+    if (index < 0 || index >= this.length) return false;
+    const tail = this.splice(index, this.length - index);
+    this.push(...items, ...tail);
+    return true;
   }
 
   /**

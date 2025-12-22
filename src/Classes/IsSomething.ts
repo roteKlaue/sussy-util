@@ -1,4 +1,5 @@
 import { hasValue, objectToString } from '../Functions';
+import { Constructor } from '../Types';
 
 class IsSomething {
   private static instance: IsSomething = new IsSomething();
@@ -9,7 +10,7 @@ class IsSomething {
    * @param {any} arg - any
    * @returns a boolean value.
    */
-  public isArray(arg: any): boolean {
+  public isArray(arg: any): arg is Array<unknown> {
     return Array.isArray(arg) || objectToString(arg) === '[object Array]';
   }
 
@@ -19,7 +20,7 @@ class IsSomething {
    * @param {any} arg - any
    * @returns A boolean value.
    */
-  public isBoolean(arg: any): boolean {
+  public isBoolean(arg: any): arg is boolean {
     return arg && (typeof arg === 'boolean' || arg === 'true' || arg === 'false');
   }
 
@@ -29,7 +30,7 @@ class IsSomething {
    * @param {any} arg - any - The argument to check if it's a class.
    * @returns A boolean value.
    */
-  public isClass(arg: any): boolean {
+  public isClass(arg: any): arg is Constructor<any> {
     if (typeof arg !== 'function') {
       return false;
     }
@@ -51,8 +52,8 @@ class IsSomething {
    * @param {any} arg - any
    * @returns The constructor of the Date object.
    */
-  public isDate(arg: any): boolean {
-    return arg && arg.constructor === Date.constructor && arg instanceof Date;
+  public isDate(arg: unknown): arg is Date {
+    return !!arg && arg instanceof Date;
   }
 
   /**
@@ -60,7 +61,7 @@ class IsSomething {
    * @param {any} arg - any
    * @returns The type of the argument.
    */
-  public isDefined(arg: any): boolean {
+  public isDefined(arg: any): arg is undefined {
     return typeof arg !== 'undefined';
   }
 
@@ -79,8 +80,8 @@ class IsSomething {
    * @param {any} arg - any
    * @returns The constructor of the Error object.
    */
-  public isError(arg: any): boolean {
-    return arg && arg.constructor === Error.constructor && arg instanceof Error;
+  public isError(arg: unknown): arg is Error {
+    return !!arg && arg instanceof Error;
   }
 
   /**
@@ -88,8 +89,8 @@ class IsSomething {
    * @param {number} num - number - This is the parameter that we are passing into the function.
    * @returns A function that takes a number and returns a boolean or null.
    */
-  public isEven(num: number): boolean | null {
-    return num / 2 === 0;
+  public isEven(num: number): boolean {
+    return (num % 2) === 0;
   }
 
   /**
@@ -97,7 +98,7 @@ class IsSomething {
    * @param {any} a - any
    * @returns A boolean value.
    */
-  public isFunction(a: any): boolean {
+  public isFunction(a: any): a is Function {
     return a && (typeof a === 'function' || a instanceof Function) && !this.isClass(a);
   }
 
@@ -115,7 +116,7 @@ class IsSomething {
    * @param {any} arg - any
    * @returns The return value is a boolean.
    */
-  public isNullorUndefined(arg: any): boolean {
+  public isNullorUndefined(arg: any): arg is (null | undefined) {
     return arg === null || arg === void 0;
   }
 
@@ -123,16 +124,16 @@ class IsSomething {
    * It returns true if the argument is a number or a string that contains only digits
    * @param {any} arg - any
    */
-  public isNumber(arg: any): boolean {
-    return arg && (typeof arg === 'number' || (typeof arg === 'string' && /^\d+$/.test(arg)));
+  public isNumber(arg: unknown): arg is number {
+    return typeof arg === 'number' || (typeof arg === 'string' && /^\d+$/.test(arg));
   }
 
   /**
    * If the argument is not null, and is an object, and is not an array, then return true.
    * @param {any} arg - any
    */
-  public isObject(arg: any): boolean {
-    return arg && typeof arg === 'object' && arg instanceof Object && !this.isArray(arg);
+  public isObject(arg: unknown): arg is object {
+    return !!arg && typeof arg === 'object' && arg instanceof Object && !this.isArray(arg);
   }
 
   /**
@@ -141,7 +142,7 @@ class IsSomething {
    * @param {number} num - number - The number to check if it's prime.
    * @returns A boolean value.
    */
-  public isPrime(num: number): boolean | null {
+  public isPrime(num: number): boolean {
     if (num < 2) {
       return false;
     }
@@ -179,17 +180,17 @@ class IsSomething {
    * @param {any} arg - any
    * @returns a boolean value.
    */
-  public isRegExp(arg: any): boolean {
+  public isRegExp(arg: any): arg is RegExp {
     return arg && (arg instanceof RegExp || arg.constructor === RegExp.constructor);
   }
 
   /**
    * It checks if the argument is a string, or if it's a number, it checks if it can be converted to
    * a string
-   * @param {any} args - any
+   * @param {any} arg - any
    */
-  public isString(args: any): boolean {
-    return args && (typeof args === 'string' || args instanceof String || args + '' === args);
+  public isString(arg: any): arg is string {
+    return arg && (typeof arg === 'string' || arg instanceof String || arg.toString() === arg);
   }
 
   /**
@@ -198,7 +199,7 @@ class IsSomething {
    * @param {any} arg - any
    * @returns a boolean value.
    */
-  public isSymbol(arg: any): boolean {
+  public isSymbol(arg: any): arg is Symbol {
     return arg && (typeof arg === 'symbol' || arg instanceof Symbol);
   }
 
@@ -229,7 +230,7 @@ class IsSomething {
    * @param {Date} date - The date to check.
    * @returns The return value is a boolean.
    */
-  public isDateValid(date: Date) {
+  public isDateValid(date: Date): boolean {
     return !isNaN(date.getTime());
   }
 

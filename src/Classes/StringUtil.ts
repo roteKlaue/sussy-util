@@ -28,12 +28,10 @@ export default class StringUtil {
    * @param {string} [characterset] - The characterset to use for the random string.
    * @returns A string of random characters.
    */
-  public static randomString(length: number, characterset?: string): string {
-    characterset = characterset || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const chars: string[] = [];
-    chars.length = length;
-    chars.map((_) => StringUtil.randomCharacter(characterset));
-    return chars.join('');
+  public static randomString(length: number, charset?: string): string {
+    if (!Number.isFinite(length) || length <= 0) return '';
+    charset = charset || 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    return Array.from({ length }, () => StringUtil.randomCharacter(charset)).join('');
   }
 
   /**

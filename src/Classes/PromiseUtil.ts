@@ -77,27 +77,27 @@ class PromiseUtil {
     function1: Function;
   }> = {
     'front-first': {
-      args: (args, callback) => [callback, args],
+      args: (args: unknown[], callback: Function) => [callback, ...args],
       function1: this.#resLast,
     },
     'front-replace': {
-      args: (args, callback) => [callback, args],
+      args: (args: unknown[], callback: Function) => [callback, ...args],
       function1: this.#resReplace,
     },
     'front-last': {
-      args: (args, callback) => [callback, args],
+      args: (args: unknown[], callback: Function) => [callback, ...args],
       function1: this.#resFirst,
     },
     'back-first': {
-      args: (args, callback) => [args, callback],
+      args: (args: unknown[], callback: Function) => [...args, callback],
       function1: this.#resLast,
     },
     'back-replace': {
-      args: (args, callback) => [args, callback],
+      args: (args: unknown[], callback: Function) => [...args, callback],
       function1: this.#resReplace,
     },
     'back-last': {
-      args: (args, callback) => [args, callback],
+      args: (args: unknown[], callback: Function) => [...args, callback],
       function1: this.#resFirst,
     },
   };
@@ -256,18 +256,19 @@ class PromiseUtil {
    * @param {options} [options={ callBackPosition: "back", errorPosition: "last" }] - Options for customization.
    * @returns {Function} A promisified function.
    */
-  public promisify<T, R>(
+  public promisify<T extends unknown[], R>(
     func: Function,
     { callBackPosition = 'back', errorPosition = 'last' }: options = {
       callBackPosition: 'back',
       errorPosition: 'last',
     },
-  ): (...args: T[]) => Promise<R> {
-    return (...args: T[]) =>
+  ): (...args: T) => Promise<R> {
+    return (...args: T) =>
       new Promise((resolve, reject) => {
-        const current = this.#MAPPINGS[`${callBackPosition}-${errorPosition}`];
+        const key = `${callBackPosition}-${errorPosition}`;
+        const current = this.#MAPPINGS[key];
         if (!current) throw new Error('ERR: Invalid callBackPosition or errorPosition');
-        func(...current.args(args, current.function1.bind(resolve, reject)));
+        func(...current.args(args, current.function1.bind(this, resolve, reject)));
       });
   }
 
